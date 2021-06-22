@@ -1,0 +1,83 @@
+`timescale 1ns / 1ps
+//////////////////////////////////////////////////////////////////////////////////
+// Company: 
+// Engineer: 
+// 
+// Create Date: 06/21/2021 10:56:00 AM
+// Design Name: 
+// Module Name: ID_regfile
+// Project Name: 
+// Target Devices: 
+// Tool Versions: 
+// Description: 
+// 
+// Dependencies: 
+// 
+// Revision:
+// Revision 0.01 - File Created
+// Additional Comments:
+// 
+//////////////////////////////////////////////////////////////////////////////////
+import RV32I_definitions ::*;
+
+`ifdef CUSTOM_DEFINE
+    `include "../defines.vh"
+`endif
+
+
+module ID_regfile
+    `ifdef CUSTOM_DEFINE
+        #(parameter REG_DATA_WIDTH      = `REG_DATA_WIDTH,
+          parameter REGFILE_ADDR_WIDTH  = `REGFILE_ADDR_WIDTH
+          parameter REGFILE_DEPTH       = `REGFILE_DEPTH
+          )
+    `else
+        #(parameter REG_DATA_WIDTH      = 32,
+          parameter REGFILE_ADDR_WIDTH  = 5,
+          parameter REGFILE_DEPTH       = 32
+          )
+    `endif
+    
+    (
+    input                                Clk_100MHz,
+    input                                Reset_n,
+    
+    input      [REG_DATA_WIDTH-1 :0]     Rs1_address,
+    input      [REG_DATA_WIDTH-1 :0]     Rs2_address,
+    
+    input      [REGFILE_ADDR_WIDTH-1 :0] Rd_address,
+    input      [REG_DATA_WIDTH-1 :0]     Rd_wr_data,
+    input                                Rd_wr_en,
+    
+    output     [REG_DATA_WIDTH-1 :0]     Rs1_data,
+    output     [REG_DATA_WIDTH-1 :0]     Rs2_data
+    );
+    
+    reg [31:0] Regfile_data [0: REGFILE_ADDR_WIDTH-1];
+    
+    assign ID_Rs1_data = Regfile_data[Rs1_address];
+    assign ID_Rs2_data = Regfile_data[Rs2_address];
+    
+    initial begin
+        for(int i=0; i<REGFILE_ADDR_WIDTH; i++) begin
+            Regfile_data[i] = 0;
+        end      
+    end
+    
+    always@(posedge Clk_100MHz) begin
+        if(Reset_n == 1'b0) begin
+            for(int i=0; i<REGFILE_DEPTH; i++) begin
+                Regfile_data[i] = 0;
+            end       
+        end
+        else begin
+            if(Rd_wr_en == 1'b1) begin
+                Regfile_data[Rd_address] = Rd_wr_data;
+            end
+            else begin
+                Regfile_data = Regfile_data;
+            end
+        end
+    end
+    
+endmodule
