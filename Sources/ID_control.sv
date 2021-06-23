@@ -17,10 +17,11 @@
 // Revision 0.01 - File Created
 // Additional Comments:
 // 
+// Drives Control signals and generates immediate
 //////////////////////////////////////////////////////////////////////////////////
 import RV32I_definitions ::*;
 
-module ID_decode    
+module ID_control  
     
     `ifdef CUSTOM_DEFINE
         #(parameter REG_DATA_WIDTH      = `REG_DATA_WIDTH,
@@ -38,18 +39,18 @@ module ID_decode
 
     (
     input      [REG_DATA_WIDTH-1 :0]      IF_Instruction,
+    input                                 Pipe_stall,
 
-    output reg                            Rd_wr_en,
-    
-    output reg                            ALU_source_sel,
-    output reg [ALU_OP_WIDTH-1 :0]        ALU_op,
     output reg [REG_DATA_WIDTH-1 :0]      Immediate,
     
-    output reg                            Branch_en,
-    
-    output     [REGFILE_ADDR_WIDTH-1 :0]  Rd_address,
-    output     [REGFILE_ADDR_WIDTH-1 :0]  Rs1_address,
-    output     [REGFILE_ADDR_WIDTH-1 :0]  Rs2_address
+
+    output                                ALU_source_sel,
+    output     [ALU_OP_WIDTH-1 :0]        ALU_op,
+    output                                Branch_en,
+    output                                Mem_wr_en,
+    output                                Mem_rd_en,
+    output                                RegFile_wr_en,
+    output                                MemToReg
     );
     
 // ===========================================================================
@@ -64,13 +65,30 @@ module ID_decode
     wire [31:0] IMM_S;  // S-type immediate
     wire [31:0] IMM_SB; // SB-type immediate
 
+
+    reg                     ALU_source_sel_R;
+    reg [ALU_OP_WIDTH-1 :0] ALU_op_R;
+    reg                     Branch_en_R;
+    reg                     Mem_wr_en_R;
+    reg                     Mem_rd_en_R;
+    reg                     RegFile_wr_en_R;
+    reg                     MemToReg_R;
+
 // ===========================================================================
 //                              Implementation    
 // ===========================================================================
-    assign Rd_address  = IF_Instruction[11:7];
-    assign Rs1_address = IF_Instruction[19:15];
-    assign Rs2_address = IF_Instruction[24:20];
-    
+    /*
+    if a stall is asserted from hazard detection module, insert NOP by setting
+    all  seven control signals to 0
+    */
+    assign ALU_source_sel = (Pipe_stall == 1'b1) ? 0:ALU_source_sel_R;
+    assign ALU_op         = (Pipe_stall == 1'b1) ? 0:ALU_op_R;
+    assign Branch_en      = (Pipe_stall == 1'b1) ? 0:Branch_en_R;
+    assign Mem_wr_en      = (Pipe_stall == 1'b1) ? 0:Mem_wr_en_R;
+    assign Mem_rd_en      = (Pipe_stall == 1'b1) ? 0:Mem_rd_en_R;
+    assign MemToReg       = (Pipe_stall == 1'b1) ? 0:MemToReg_R;
+
+    // Instruction Decoding
     assign OPCODE      = IF_Instruction[6:0];
     assign FUNCT3      = IF_Instruction[14:12];
     assign FUNCT7      = IF_Instruction[31:25];
@@ -78,15 +96,19 @@ module ID_decode
     assign IMM_I       = { {20{IF_Instruction[31]}}, IF_Instruction[31:20] }; 
     assign IMM_S       = { {20{IF_Instruction[31]}}, IF_Instruction[31:25], IF_Instruction[11:7] }; 
     assign IMM_SB      = { {20{IF_Instruction[31]}}, IF_Instruction[7], IF_Instruction[30:25], IF_Instruction[11:8], 1'b0 }; 
-  
-    
+
+    // Combinatorial process to decode instructions
     always_comb begin
         // DEFAULTS
-        Rd_wr_en       = 1;      // only disabled for branches and jumps
-        ALU_source_sel = 0;      // sel r1 and r2
         Immediate      = 32'bx; 
-        Branch_en      = 0;      // asserted to indicate branch instruction
-        ALU_op         = 0;
+
+        ALU_source_sel_R = 0;
+        ALU_op_R         = 0;
+        Branch_en_R      = 0;
+        Mem_wr_en_R      = 0;
+        Mem_rd_en_R      = 0;
+        RegFile_wr_en_R  = 0;
+        MemToReg_R       = 0;
         
         case(OPCODE)
         
@@ -107,8 +129,8 @@ module ID_decode
             
             // I-type, register-immediate
             `OPCODE_OP_IMM: begin 
-                ALU_source_sel = 1;     // select immediate for op2
-                Immediate      = IMM_I; // assign I-type immediate
+                ALU_source_sel_R = 1;     // select immediate for op2
+                Immediate        = IMM_I; // assign I-type immediate
                 
                 case(FUNCT3)
                     `FUNCT3_ADDI:      ALU_op = `ALU_ADD;  
@@ -125,9 +147,9 @@ module ID_decode
             
             // SB-type, conditional branch
             `OPCODE_BRANCH: begin
-                Branch_en = 1;      // enable branch check
-                Rd_wr_en  = 0;      // disable register writeback
-                Immediate = IMM_SB; // assign SB-type immediate
+                Branch_en_R     = 1;      // enable branch check
+                RegFile_wr_en_R = 0;      // disable register writeback
+                Immediate       = IMM_SB; // assign SB-type immediate
                  
                 case(FUNCT3)
                     `FUNCT3_BEQ:      ALU_op = `ALU_SEQ;  // set if equal
