@@ -56,7 +56,7 @@ package RV32I_encoding;
 //----------------------------------------------------------------------------
 //                                  R - Type:
 //----------------------------------------------------------------------------
-    task ADD_gen (input [4:0] rd, rs1, rs2);        
+    function [31:0]ADD_gen (input [4:0] rd, rs1, rs2);        
         begin
             static int filewrite = $fopen("IMEM.txt", "a");  
             R_TYPE_INSTRUCTION ADD_test; 
@@ -68,11 +68,12 @@ package RV32I_encoding;
             ADD_test.OPCODE = `OPCODE_OP;
             $fdisplay(filewrite, "%8h", ADD_test);
             $fclose(filewrite);
+            ADD_gen = ADD_test;
         end
-    endtask
+    endfunction
     
     
-    task SUB_gen (input [4:0] rd, rs1, rs2);        
+    function [31:0]SUB_gen (input [4:0] rd, rs1, rs2);        
         begin
             static int filewrite = $fopen("IMEM.txt", "a"); 
             R_TYPE_INSTRUCTION SUB_test; 
@@ -84,10 +85,11 @@ package RV32I_encoding;
             SUB_test.OPCODE = `OPCODE_OP;
             $fdisplay(filewrite, "%8h", SUB_test);
             $fclose(filewrite);
+            SUB_gen = SUB_test;
         end
-    endtask
+    endfunction
     
-    task SLL_gen (input [4:0] rd, rs1, rs2);        
+    function [31:0]SLL_gen (input [4:0] rd, rs1, rs2);        
         begin
             static int filewrite = $fopen("IMEM.txt", "a");  
             R_TYPE_INSTRUCTION SLL_test; 
@@ -99,10 +101,11 @@ package RV32I_encoding;
             SLL_test.OPCODE = `OPCODE_OP;
             $fdisplay(filewrite, "%8h", SLL_test);
             $fclose(filewrite);
+            SLL_gen = SLL_test;
         end
-    endtask
+    endfunction
     
-    task SLTU_gen (input [4:0] rd, rs1, rs2);        
+    function [31:0]SLTU_gen (input [4:0] rd, rs1, rs2);        
         begin
             static int filewrite = $fopen("IMEM.txt", "a");  
             R_TYPE_INSTRUCTION SLTU_test; 
@@ -114,10 +117,11 @@ package RV32I_encoding;
             SLTU_test.OPCODE = `OPCODE_OP;
             $fdisplay(filewrite, "%8h", SLTU_test);
             $fclose(filewrite);
+            SLTU_gen = SLTU_test;
         end
-    endtask
+    endfunction
     
-    task XOR_gen (input [4:0] rd, rs1, rs2);        
+    function [31:0]XOR_gen (input [4:0] rd, rs1, rs2);        
         begin
             static int filewrite = $fopen("IMEM.txt", "a");  
             R_TYPE_INSTRUCTION XOR_test; 
@@ -129,10 +133,11 @@ package RV32I_encoding;
             XOR_test.OPCODE = `OPCODE_OP;
             $fdisplay(filewrite, "%8h", XOR_test);
             $fclose(filewrite);
+            XOR_gen = XOR_test;
         end
-    endtask
+    endfunction
     
-    task SRL_gen (input [4:0] rd, rs1, rs2);        
+    function [31:0]SRL_gen (input [4:0] rd, rs1, rs2);        
         begin
             static int filewrite = $fopen("IMEM.txt", "a");  
             R_TYPE_INSTRUCTION SRL_test; 
@@ -144,10 +149,11 @@ package RV32I_encoding;
             SRL_test.OPCODE = `OPCODE_OP;
             $fdisplay(filewrite, "%8h", SRL_test);
             $fclose(filewrite);
+            SRL_gen  = SRL_test;
         end
-    endtask
+    endfunction
     
-    task SRA_gen (input [4:0] rd, rs1, rs2);        
+    function [31:0]SRA_gen (input [4:0] rd, rs1, rs2);        
         begin
             static int filewrite = $fopen("IMEM.txt", "a");  
             R_TYPE_INSTRUCTION SRA_test; 
@@ -159,10 +165,11 @@ package RV32I_encoding;
             SRA_test.OPCODE = `OPCODE_OP;
             $fdisplay(filewrite, "%8h", SRA_test);
             $fclose(filewrite);
+            SRA_gen = SRA_test;
         end
-    endtask
+    endfunction
     
-    task OR_gen (input [4:0] rd, rs1, rs2);        
+    function [31:0]OR_gen (input [4:0] rd, rs1, rs2);        
         begin
             static int filewrite = $fopen("IMEM.txt", "a");  
             R_TYPE_INSTRUCTION OR_test; 
@@ -174,10 +181,11 @@ package RV32I_encoding;
             OR_test.OPCODE = `OPCODE_OP;
             $fdisplay(filewrite, "%8h", OR_test);
             $fclose(filewrite);
+            OR_gen = OR_test;
         end
-    endtask
+    endfunction
     
-    task AND_gen (input [4:0] rd, rs1, rs2);        
+    function [31:0]AND_gen(input [4:0] rd, rs1, rs2);        
         begin
             static int filewrite = $fopen("IMEM.txt", "a");  
             R_TYPE_INSTRUCTION AND_test; 
@@ -189,8 +197,9 @@ package RV32I_encoding;
             AND_test.OPCODE = `OPCODE_OP;
             $fdisplay(filewrite, "%8h", AND_test);
             $fclose(filewrite);
+            AND_gen = AND_test;
         end
-    endtask
+    endfunction
 
 //----------------------------------------------------------------------------
 //                                  I - Type:
@@ -201,7 +210,7 @@ package RV32I_encoding;
     // - Rs2 field for these instructions contains 5 bit immediate shamt, or shift amount
     // - These instructions also use the IMM opcode.
     
-    task SLLI_gen (input [4:0] rd, rs1, shamt);        
+    function [31:0]SLLI_gen(input [4:0] rd, rs1, shamt);        
         begin
             static int filewrite = $fopen("IMEM.txt", "a");  
             R_TYPE_INSTRUCTION SLLI_test; 
@@ -213,10 +222,11 @@ package RV32I_encoding;
             SLLI_test.OPCODE = `OPCODE_OP_IMM;
             $fdisplay(filewrite, "%8h", SLLI_test);
             $fclose(filewrite);
+            SLLI_gen = SLLI_test;
         end
-    endtask
+    endfunction
     
-    task SRLI_gen (input [4:0] rd, rs1, shamt);        
+    function [31:0]SRLI_gen (input [4:0] rd, rs1, shamt);        
         begin
             static int filewrite = $fopen("IMEM.txt", "a");  
             R_TYPE_INSTRUCTION SRLI_test; 
@@ -228,10 +238,11 @@ package RV32I_encoding;
             SRLI_test.OPCODE = `OPCODE_OP_IMM;
             $fdisplay(filewrite, "%8h", SRLI_test);
             $fclose(filewrite);
+            SRLI_gen = SRLI_test;
         end
-    endtask
+    endfunction
     
-    task SRAI_gen (input [4:0] rd, rs1, shamt);        
+    function [31:0]SRAI_gen (input [4:0] rd, rs1, shamt);        
         begin
             static int filewrite = $fopen("IMEM.txt", "a");  
             R_TYPE_INSTRUCTION SRAI_test; 
@@ -243,10 +254,11 @@ package RV32I_encoding;
             SRAI_test.OPCODE = `OPCODE_OP_IMM;
             $fdisplay(filewrite, "%8h", SRAI_test);
             $fclose(filewrite);
+            SRAI_gen = SRAI_test;
         end
-    endtask
+    endfunction
     
-    task ADDI_gen (input [4:0] rd, rs1, input [11:0] imm12);        
+    function [31:0]ADDI_gen (input [4:0] rd, rs1, input [11:0] imm12);        
         begin
             static int filewrite = $fopen("IMEM.txt", "a");  
             I_TYPE_INSTRUCTION ADDI_test; 
@@ -257,10 +269,11 @@ package RV32I_encoding;
             ADDI_test.OPCODE = `OPCODE_OP_IMM;
             $fdisplay(filewrite, "%8h", ADDI_test);
             $fclose(filewrite);
+            ADDI_gen = ADDI_test;
         end
-    endtask
+    endfunction
     
-    task SLTI_gen (input [4:0] rd, rs1, input [11:0] imm12);        
+    function [31:0]SLTI_gen (input [4:0] rd, rs1, input [11:0] imm12);        
         begin
             static int filewrite = $fopen("IMEM.txt", "a");  
             I_TYPE_INSTRUCTION SLTI_test; 
@@ -271,10 +284,11 @@ package RV32I_encoding;
             SLTI_test.OPCODE = `OPCODE_OP_IMM;
             $fdisplay(filewrite, "%8h", SLTI_test);
             $fclose(filewrite);
+            SLTI_gen = SLTI_test;
         end
-    endtask
+    endfunction
     
-    task SLTIU_gen (input [4:0] rd, rs1, input [11:0] imm12);        
+    function [31:0]SLTIU_gen (input [4:0] rd, rs1, input [11:0] imm12);        
         begin
             static int filewrite = $fopen("IMEM.txt", "a");  
             I_TYPE_INSTRUCTION SLTIU_test; 
@@ -285,10 +299,11 @@ package RV32I_encoding;
             SLTIU_test.OPCODE = `OPCODE_OP_IMM;
             $fdisplay(filewrite, "%8h", SLTIU_test);
             $fclose(filewrite);
+            SLTIU_gen = SLTIU_test;
         end
-    endtask
+    endfunction
     
-    task XORI_gen (input [4:0] rd, rs1, input [11:0] imm12);        
+    function [31:0]XORI_gen (input [4:0] rd, rs1, input [11:0] imm12);        
         begin
             static int filewrite = $fopen("IMEM.txt", "a");  
             I_TYPE_INSTRUCTION XORI_test; 
@@ -299,10 +314,11 @@ package RV32I_encoding;
             XORI_test.OPCODE = `OPCODE_OP_IMM;
             $fdisplay(filewrite, "%8h", XORI_test);
             $fclose(filewrite);
+            XORI_gen = XORI_test;
         end
-    endtask
+    endfunction
     
-    task ORI_gen (input [4:0] rd, rs1, input [11:0] imm12);        
+    function [31:0]ORI_gen (input [4:0] rd, rs1, input [11:0] imm12);        
         begin
             static int filewrite = $fopen("IMEM.txt", "a");  
             I_TYPE_INSTRUCTION ORI_test; 
@@ -313,10 +329,11 @@ package RV32I_encoding;
             ORI_test.OPCODE = `OPCODE_OP_IMM;
             $fdisplay(filewrite, "%8h", ORI_test);
             $fclose(filewrite);
+            ORI_gen = ORI_test;
         end
-    endtask
+    endfunction
     
-    task ANDI_gen (input [4:0] rd, rs1, input [11:0] imm12);        
+    function [31:0]ANDI_gen (input [4:0] rd, rs1, input [11:0] imm12);        
         begin
             static int filewrite = $fopen("IMEM.txt", "a");  
             I_TYPE_INSTRUCTION ANDI_test; 
@@ -327,8 +344,9 @@ package RV32I_encoding;
             ANDI_test.OPCODE = `OPCODE_OP_IMM;
             $fdisplay(filewrite, "%8h", ANDI_test);
             $fclose(filewrite);
+            ANDI_gen = ANDI_test;
         end
-    endtask
+    endfunction
     
     
     
