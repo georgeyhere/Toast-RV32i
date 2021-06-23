@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 import RV32I_definitions ::*;
 
-module ID_control    
+module ID_decode    
     
     `ifdef CUSTOM_DEFINE
         #(parameter REG_DATA_WIDTH      = `REG_DATA_WIDTH,
