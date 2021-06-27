@@ -92,8 +92,6 @@ module RV32I_ID
     wire [2:0] Mem_op;
     
     ID_control RV32I_CONTROL(
-    .Clk            (Clk),
-    .Reset_n        (Reset_n),
     .IF_Instruction (IF_Instruction),
     .IF_PC          (IF_PC),
     .Immediate_1    (ID_Immediate_1),

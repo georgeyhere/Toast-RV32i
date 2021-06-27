@@ -38,11 +38,11 @@ module PC
     input                            Clk, 
     input                            Reset_n,       // synchronous active-low reset
     
-    input      [IMEM_ADDR_WIDTH-1:0] PC_branch,     // from MEM, branch destination address 
-    input                            PC_source_sel, // select next PC or branch destination address
-    input                            PC_stall,      // stall PC
+    input      [IMEM_ADDR_WIDTH-1:0] PC_Branch,     // from MEM, branch destination address 
+    input                            PC_Source_sel, // select next PC or branch destination address
+    input                            PC_Stall,      // stall PC
       
-    output reg [IMEM_ADDR_WIDTH-1:0] PC_out         // PC address
+    output reg [IMEM_ADDR_WIDTH-1:0] PC_Out         // PC address
     );
 
     
@@ -51,23 +51,23 @@ module PC
 //                              Implementation    
 // ===========================================================================     
     initial begin
-        PC_out <= 0;
+        PC_Out <= 0;
     end
     
     always@(posedge Clk) begin
         if(Reset_n == 1'b0) begin
-            PC_out <= 0;
+            PC_Out <= 0;
         end
         else begin
-            if(PC_stall == 1'b1) begin
-                PC_out <= PC_out;
+            if(PC_Stall == 1'b1) begin
+                PC_Out <= PC_Out;
             end
             else begin
-                if(PC_source_sel == 1'b1) begin 
-                    PC_out <= PC_branch;        // if source sel asserted, branch
+                if(PC_Source_sel == 1'b1) begin 
+                    PC_Out <= PC_Branch;        // if source sel asserted, branch
                 end
                 else begin
-                    PC_out <= PC_out + 4;    // else increment PC on posedge clk
+                    PC_Out <= PC_Out + 1;    // else increment PC on posedge clk
                 end
             end 
         end

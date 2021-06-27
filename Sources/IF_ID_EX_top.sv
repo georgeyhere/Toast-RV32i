@@ -60,8 +60,8 @@ module IF_ID_EX_top
     RV32I_IF IF_inst(
     .Clk                (Clk),
     .Reset_n            (Reset_n),
-    .EX_PC_Branch_dest  (EX_Branch_dest),
-    .EX_PC_source_sel   (EX_PC_source_sel),
+    .EX_PC_Branch_dest  (EX_PC_Branch_dest),
+    .EX_PC_Source_sel   (EX_PC_Source_sel),
     .IF_Stall           (IF_Stall),
     .IF_PC              (IF_PC),
     .IF_Instruction     (IF_Instruction)

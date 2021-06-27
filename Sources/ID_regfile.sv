@@ -39,13 +39,13 @@ module ID_regfile
     `endif
     
     (
-    input                                Clk_100MHz,
+    input                                Clk,
     input                                Reset_n,
     
-    input      [REG_DATA_WIDTH-1 :0]     Rs1_address,
-    input      [REG_DATA_WIDTH-1 :0]     Rs2_address,
+    input      [REGFILE_ADDR_WIDTH-1 :0] Rs1_addr,
+    input      [REGFILE_ADDR_WIDTH-1 :0] Rs2_addr,
+    input      [REGFILE_ADDR_WIDTH-1 :0] Rd_addr,
     
-    input      [REGFILE_ADDR_WIDTH-1 :0] Rd_address,
     input      [REG_DATA_WIDTH-1 :0]     Rd_wr_data,
     input                                Rd_wr_en,
     
@@ -53,10 +53,10 @@ module ID_regfile
     output     [REG_DATA_WIDTH-1 :0]     Rs2_data
     );
     
-    reg [31:0] Regfile_data [0: REGFILE_ADDR_WIDTH-1];
+    reg [31:0] Regfile_data [0: REGFILE_DEPTH-1];
     
-    assign ID_Rs1_data = Regfile_data[Rs1_address];
-    assign ID_Rs2_data = Regfile_data[Rs2_address];
+    assign ID_Rs1_data = Regfile_data[Rs1_addr];
+    assign ID_Rs2_data = Regfile_data[Rs2_addr];
     
     initial begin
         for(int i=0; i<REGFILE_ADDR_WIDTH; i++) begin
@@ -64,7 +64,7 @@ module ID_regfile
         end      
     end
     
-    always@(posedge Clk_100MHz) begin
+    always@(posedge Clk) begin
         if(Reset_n == 1'b0) begin
             for(int i=0; i<REGFILE_DEPTH; i++) begin
                 Regfile_data[i] = 0;
@@ -72,7 +72,7 @@ module ID_regfile
         end
         else begin
             if(Rd_wr_en == 1'b1) begin
-                Regfile_data[Rd_address] = Rd_wr_data;
+                Regfile_data[Rd_addr] = Rd_wr_data;
             end
             else begin
                 Regfile_data = Regfile_data;
