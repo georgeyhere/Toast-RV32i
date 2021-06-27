@@ -35,7 +35,7 @@ module PC
     `endif
     
     (
-    input                            Clk_100MHz, 
+    input                            Clk, 
     input                            Reset_n,       // synchronous active-low reset
     
     input      [IMEM_ADDR_WIDTH-1:0] PC_branch,     // from MEM, branch destination address 
@@ -54,7 +54,7 @@ module PC
         PC_out <= 0;
     end
     
-    always@(posedge Clk_100MHz) begin
+    always@(posedge Clk) begin
         if(Reset_n == 1'b0) begin
             PC_out <= 0;
         end

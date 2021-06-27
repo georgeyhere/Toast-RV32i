@@ -37,23 +37,23 @@ module RV32I_IF
     `endif
 
     (
-    input                        Clk_100MHz,
+    input                        Clk,
     input                        Reset_n,
    
-    input  [IMEM_ADDR_WIDTH-1:0] MEM_PC_branch_dest,
-    input                        MEM_PC_source_sel,
-    input                        ID_PC_stall,
+    input  [IMEM_ADDR_WIDTH-1:0] EX_PC_branch_dest,
+    input                        EX_PC_source_sel,
+    input                        IF_stall,
    
     output [IMEM_ADDR_WIDTH-1:0] IF_PC,
     output [REG_DATA_WIDTH-1:0]  IF_Instruction            
     );
     
     PC RV32I_PC (
-    .Clk_100MHz    (Clk_100MHz),
+    .Clk           (Clk),
     .Reset_n       (Reset_n),
-    .PC_branch     (MEM_PC_branch_dest),
-    .PC_source_sel (MEM_PC_source_sel),
-    .PC_stall      (ID_PC_stall),
+    .PC_branch     (EX_PC_branch_dest),
+    .PC_source_sel (EX_PC_source_sel),
+    .PC_stall      (IF_stall),
     .PC_out        (IF_PC)
     );
     

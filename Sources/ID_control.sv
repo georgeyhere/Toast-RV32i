@@ -39,18 +39,25 @@ module ID_control
 
     (
     input      [REG_DATA_WIDTH-1 :0]      IF_Instruction,
-    input                                 Pipe_stall,
+    input      [31:0]                     IF_PC,
 
-    output reg [REG_DATA_WIDTH-1 :0]      Immediate,
+    output reg [REG_DATA_WIDTH-1 :0]      Immediate_1,
+    output reg [REG_DATA_WIDTH-1 :0]      Immediate_2,
     
-
-    output                                ALU_source_sel,
-    output     [ALU_OP_WIDTH-1 :0]        ALU_op,
-    output                                Branch_en,
-    output                                Mem_wr_en,
-    output                                Mem_rd_en,
-    output                                RegFile_wr_en,
-    output                                MemToReg
+    output     [4:0]                      Rd_addr,
+    output     [4:0]                      Rs1_addr,
+    output     [4:0]                      Rs2_addr, 
+        
+    output reg [1:0]                      ALU_source_sel, // [1] -> op1 [2] -> op2  || gets imm
+    output reg [3:0]                      ALU_op,         // alu operation to perform
+    output reg [1:0]                      Branch_op,      // branch gen operation to perform
+    output reg                            Branch_flag,    // execute branch on ALU 'set' or 'not set'
+    output reg                            Mem_wr_en,      // enable data mem wr
+    output reg                            Mem_rd_en,      // enable data mem rd
+    output reg                            RegFile_wr_en,  // enable regfile writeback 
+    output reg                            MemToReg,       // enable regfile writeback from data mem
+    output reg                            Jump,           // indicates a jump
+    output reg [2:0]                      Mem_op          // selects memory mask for load/store
     );
     
 // ===========================================================================
@@ -63,31 +70,15 @@ module ID_control
     
     wire [31:0] IMM_I;  // I-type immediate
     wire [31:0] IMM_S;  // S-type immediate
-    wire [31:0] IMM_SB; // SB-type immediate
+    wire [31:0] IMM_B; // SB-type immediate
+    wire [31:0] IMM_U;
+    wire [31:0] IMM_J;
 
-
-    reg                     ALU_source_sel_R;
-    reg [ALU_OP_WIDTH-1 :0] ALU_op_R;
-    reg                     Branch_en_R;
-    reg                     Mem_wr_en_R;
-    reg                     Mem_rd_en_R;
-    reg                     RegFile_wr_en_R;
-    reg                     MemToReg_R;
-
+   
 // ===========================================================================
 //                              Implementation    
 // ===========================================================================
-    /*
-    if a stall is asserted from hazard detection module, insert NOP by setting
-    all  seven control signals to 0
-    */
-    assign ALU_source_sel = (Pipe_stall == 1'b1) ? 0:ALU_source_sel_R;
-    assign ALU_op         = (Pipe_stall == 1'b1) ? 0:ALU_op_R;
-    assign Branch_en      = (Pipe_stall == 1'b1) ? 0:Branch_en_R;
-    assign Mem_wr_en      = (Pipe_stall == 1'b1) ? 0:Mem_wr_en_R;
-    assign Mem_rd_en      = (Pipe_stall == 1'b1) ? 0:Mem_rd_en_R;
-    assign MemToReg       = (Pipe_stall == 1'b1) ? 0:MemToReg_R;
-
+    
     // Instruction Decoding
     assign OPCODE      = IF_Instruction[6:0];
     assign FUNCT3      = IF_Instruction[14:12];
@@ -95,24 +86,34 @@ module ID_control
     
     assign IMM_I       = { {20{IF_Instruction[31]}}, IF_Instruction[31:20] }; 
     assign IMM_S       = { {20{IF_Instruction[31]}}, IF_Instruction[31:25], IF_Instruction[11:7] }; 
-    assign IMM_SB      = { {20{IF_Instruction[31]}}, IF_Instruction[7], IF_Instruction[30:25], IF_Instruction[11:8], 1'b0 }; 
-
+    assign IMM_B       = { {20{IF_Instruction[31]}}, IF_Instruction[7], IF_Instruction[30:25], IF_Instruction[11:8], 1'b0 }; 
+    assign IMM_U       = { IF_Instruction[31:12], {12{1'b0}} };
+    assign IMM_J       = { {11{1'b0}}, IF_Instruction[31], IF_Instruction[19:12], IF_Instruction[20], IF_Instruction[10:1], 1'b0};
+    
+    assign Rd_address  = IF_Instruction[11:7];
+    assign Rs1_address = IF_Instruction[19:15];
+    assign Rs2_address = IF_Instruction[24:20];
+    
     // Combinatorial process to decode instructions
     always_comb begin
         // DEFAULTS
-        Immediate      = 32'bx; 
-
-        ALU_source_sel_R = 0;
-        ALU_op_R         = 0;
-        Branch_en_R      = 0;
-        Mem_wr_en_R      = 0;
-        Mem_rd_en_R      = 0;
-        RegFile_wr_en_R  = 0;
-        MemToReg_R       = 0;
-        
+        Immediate_1    = 32'bx; 
+        Immediate_2    = 32'bx;
+        ALU_source_sel = 2'b0;  // [1] sets ALU op1 to imm, [0] sets ALU op2 to imm
+        ALU_op         = 0;     // default ALU op: ADD
+        Branch_op      = 0;     // default: no branch
+        Branch_flag    = 0;     // default: branch if set
+        Mem_wr_en      = 0;     // default: no data mem wr 
+        Mem_rd_en      = 0;     // default: no data mem rd
+        RegFile_wr_en  = 1;     // default: regfile writeback enabled
+        MemToReg       = 0;     // default: no data mem writeback
+        Jump           = 0;     // default: no jump
+        Mem_op         = 0;     // default: no data mem mask
         case(OPCODE)
         
              // R-Type, register-register
+             // -> perform arithmetic on rs1 and rs2
+             // -> store result in rd
             `OPCODE_OP: begin 
                 case(FUNCT3)
                     `FUNCT3_ADD_SUB: ALU_op = (FUNCT7 == 1'b1) ? `ALU_SUB : `ALU_ADD;
@@ -128,9 +129,11 @@ module ID_control
             end
             
             // I-type, register-immediate
+            // -> perform arithmetic on rs1 and IMM_I
+            // -> store result in rd
             `OPCODE_OP_IMM: begin 
-                ALU_source_sel_R = 1;     // select immediate for op2
-                Immediate        = IMM_I; // assign I-type immediate
+                ALU_source_sel = 2'b01; // select immediate for op2
+                Immediate_2    = IMM_I; // assign I-type immediate
                 
                 case(FUNCT3)
                     `FUNCT3_ADDI:      ALU_op = `ALU_ADD;  
@@ -145,21 +148,116 @@ module ID_control
                 endcase
             end
             
-            // SB-type, conditional branch
+            // B-type, conditional branch
+            // -> ALU tests op1 and op2
+            // -> address generated by branch gen -> jump to PC[ IF_PC + IMM_B ] 
+            // -> no store
             `OPCODE_BRANCH: begin
-                Branch_en_R     = 1;      // enable branch check
-                RegFile_wr_en_R = 0;      // disable register writeback
-                Immediate       = IMM_SB; // assign SB-type immediate
+                Branch_op     = `PC_RELATIVE; // set branch gen control
+                RegFile_wr_en = 0;            // disable register writeback
+                Immediate_2   = IMM_B;        // assign B-type immediate (branch gen)
                  
                 case(FUNCT3)
-                    `FUNCT3_BEQ:      ALU_op = `ALU_SEQ;  // set if equal
-                    `FUNCT3_BNE:      ALU_op = `ALU_SEQ;  // set if equal
-                    `FUNCT3_BLT:      ALU_op = `ALU_SLT;  // set if less than, signed
-                    `FUNCT3_BGE:      ALU_op = `ALU_SLT;  // set if less than, signed
-                    `FUNCT3_BLTU:     ALU_op = `ALU_SLTU; // set if less than, unsigned
-                    `FUNCT3_BGEU:     ALU_op = `ALU_SLTU; // set if less than, unsigned
-                    default:          ALU_op = `ALU_ADD;
+                    `FUNCT3_BEQ: begin
+                        Branch_flag = 0;
+                        ALU_op      = `ALU_SEQ;  // set if equal
+                    end
+                    `FUNCT3_BNE: begin
+                        Branch_flag = 1;
+                        ALU_op      = `ALU_SEQ;  // set if equal
+                    end
+                    `FUNCT3_BLT: begin
+                        Branch_flag = 0;
+                        ALU_op      = `ALU_SLT;  // set if less than, signed
+                    end
+                    `FUNCT3_BGE: begin
+                        Branch_flag = 1;
+                        ALU_op      = `ALU_SLT;  // set if less than, signed
+                    end
+                    `FUNCT3_BLTU: begin
+                        Branch_flag = 0;
+                        ALU_op      = `ALU_SLTU; // set if less than, unsigned
+                    end
+                    `FUNCT3_BGEU: begin
+                        Branch_flag = 1;
+                        ALU_op      = `ALU_SLTU; // set if less than, unsigned
+                    end
+                    default: begin
+                        Branch_flag = 0;
+                        ALU_op      = `ALU_ADD;
+                    end
                 endcase    
+            end
+            
+            // LUI -> U-type Instruction, Load Upper Immediate
+            // -> places IMM_U in top 20 bits, fills in lower 12 bits with zeroes
+            // -> store result in rd
+            `OPCODE_LUI: begin
+                ALU_source_sel = 2'b11;    // set both ALU operands to immediates
+                Immediate_1    = 32'b0;        
+                Immediate_2    = IMM_U;
+                ALU_op         = `ALU_ADD; // add IMM_U to 0
+            end
+            
+            
+            // AUIPC -> U-type instruction, Add Upper Immediate to PC
+            // -> performs IF_PC + IMM_U
+            // -> store result in rd
+            `OPCODE_AUIPC: begin
+                ALU_source_sel = 2'b11;
+                Immediate_1    = IF_PC;
+                Immediate_2    = IMM_U;
+                ALU_op         = `ALU_ADD;
+            end
+            
+            // JAL -> J-type instruction, Jump And Link 
+            // -> PC target address = PC + IMM_J
+            // -> stores address of PC+1 to rd
+            `OPCODE_JAL: begin
+                Jump           = 1;
+                Branch_op      = `PC_RELATIVE;
+                ALU_source_sel = 2'b10; 
+                Immediate_1    = IF_PC; // ALU op1
+                Immediate_2    = IMM_J; // Branch gen
+            end
+            
+            // JALR -> I-type instruction
+            // -> PC target addres = {  {31{rs1 + IMM_I}}, 1'b0} }
+            // -> stores address of PC+1 to rd
+            `OPCODE_JALR: begin
+                Jump           = 1;
+                Branch_op      = `REG_OFFSET;
+                ALU_source_sel = 2'b10;
+                Immediate_1    = IF_PC; // ALU op1
+                Immediate_2    = IMM_I; // Branch gen
+            end
+            
+            
+            // Loads are I-type instructions
+            // -> data mem address = rs1 + IMM_I (via ALU)
+            // -> store to rd
+            `OPCODE_LOAD: begin
+                ALU_source_sel = 2'b01;
+                Immediate_2    = IMM_I;
+                Mem_rd_en      = 1;
+                MemToReg       = 1;
+                case(FUNCT3)
+                    `FUNCT3_LW: Mem_op = `MEM_LW;
+                    `FUNCT3_LB: Mem_op = `MEM_LB;
+                endcase
+            end
+            
+            // Stores are S-type instructions
+            // address 
+            `OPCODE_STORE: begin
+                ALU_source_sel = 2'b01;
+                Immediate_2    = IMM_S;
+                Mem_wr_en      = 1;
+                RegFile_wr_en  = 0;
+                case(FUNCT3)
+                    `FUNCT3_SW: Mem_op = `MEM_SW;
+                    `FUNCT3_SB: Mem_op = `MEM_SB;
+                endcase
             end
          
         endcase     

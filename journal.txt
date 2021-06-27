@@ -1,0 +1,24 @@
+6/26/2021
+------------------
+Implemented Decoder/Control for ID pipeline stage
+
+- ALU_source_sel -> alu gets regfile data or imm
+- ALU_op -> alu operation to perform
+- Branch_op -> branch gen operation to perform- Branch_flag -> branch on ALU 'set' or 'not set'
+- Mem_wr_en -> enable data mem write
+- Mem_rd_en -> enable data mem read
+- RegFile_wr_en -> enable regfile writeback
+- MemToReg -> enable regfile writeback from data mem
+- Jump -> JAL or JALR unconditional branch
+- Mem_op -> select memory mask for load/store byte/half-word/word
+
+Implemented Control Signals for following OPCODES:
+- OP
+- IMM
+- BRANCH
+- LUI
+- AUIPC
+- JAL
+- JALR
+- LOAD
+- STORE

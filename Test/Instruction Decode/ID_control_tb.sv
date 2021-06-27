@@ -25,121 +25,132 @@ import RV32I_definitions::*;
 
 module ID_control_tb();
     
+    reg        Clk = 0;
+    reg        Reset_n = 0;
+    
     reg [31:0] IF_Instruction;
-    reg        Pipe_stall;
+    reg        Stall;
     
-    reg [63:0] testVector_Imm;
-    reg [5:0]  testVector_ALU;
-    reg [4:0]  testVector_Pipe_cntrl;
-    reg [14:0] testVector_Regfile;
+    reg [4:0]  Rd_address, Rs1_address, Rs2_address;
+    reg [31:0] Immediate_1, Immediate_2;
     
+    reg [1:0]  ALU_source_sel;
+    reg [3:0]  ALU_op;
+    reg        Branch_en, Mem_wr_en, Mem_rd_en, RegFile_wr_en, MemToReg;
 ///////////////////////////////////////////////////////////////////////////    
     ID_control UUT(
+    .Clk            (Clk),
+    .Reset_n        (Reset_n),
     .IF_Instruction (IF_Instruction),
     .IF_PC          (32'd69),
-    .Pipe_stall     (Pipe_stall),
+    .Stall          (Stall),
     
-    .Immediate_1    (testVector_Imm[63:32]),
-    .Immediate_2    (testVector_Imm[31:0]),
+    .Rd_address     (Rd_address),
+    .Rs1_address    (Rs1_address),
+    .Rs2_address    (Rs2_address),
     
-    .ALU_source_sel (testVector_ALU[5:4]),
-    .ALU_op         (testVector_ALU[3:0]),
+    .Immediate_1    (Immediate_1),
+    .Immediate_2    (Immediate_2),
     
-    .Branch_en      (testVector_Pipe_cntrl[4]),
-    .Mem_wr_en      (testVector_Pipe_cntrl[3]),
-    .Mem_rd_en      (testVector_Pipe_cntrl[2]),
-    .RegFile_wr_en  (testVector_Pipe_cntrl[1]),
-    .MemToReg       (testVector_Pipe_cntrl[0]),
-    
-    .Rd_address     (testVector_Regfile[14:10]),
-    .Rs1_address    (testVector_Regfile[9:5]),
-    .Rs2_address    (testVector_Regfile[4:0])
+    .ALU_source_sel (ALU_source_sel),
+    .ALU_op         (ALU_op),
+    .Branch_en      (Branch_en),
+    .Mem_wr_en      (Mem_wr_en),
+    .Mem_rd_en      (Mem_rd_en),
+    .RegFile_wr_en  (RegFile_wr_en),
+    .MemToReg       (MemToReg)
     );
+    
+    parameter CLK_PERIOD = 20;
+    always#(CLK_PERIOD/2) Clk=~Clk;
+    
 ////////////////////////////////////////////////////////////////////////////
   
     task ADD_test(input [4:0] rd, rs1, rs2);
         begin 
             $display("Testing ADD.");
-            #1;
-            IF_Instruction = ADD_gen (rd, rs1, rs2);
-            #1;
-            if((testVector_ALU[5:4]   == 2'b0) & 
-               (testVector_ALU[3:0]   == `ALU_ADD) & 
-               (testVector_Pipe_cntrl == 5'b00010) & 
-               (testVector_Regfile    == {rd, rs1, rs2}) 
-              )
-                $display("ADD Test Passed.");
-            else
-                $display("ADD Test Failed!!!!!!!!");
-        end
-    endtask 
-    task SUB_test(input [4:0] rd, rs1, rs2);
-        begin 
-            #1;
-            $display("Testing SUB.");
-            IF_Instruction = SUB_gen (rd, rs1, rs2);
-            #1;
-            if((testVector_ALU[5:4]   == 2'b0) & 
-               (testVector_ALU[3:0]   == `ALU_SUB) & 
-               (testVector_Pipe_cntrl == 5'b00010) & 
-               (testVector_Regfile    == {rd, rs1, rs2}) 
-              )
-                $display("SUB Test Passed.");
-            else
-                $display("SUB Test Failed!!!!!!!!");
+            @(posedge Clk) 
+                IF_Instruction = ADD_gen (rd, rs1, rs2);
+            @(posedge Clk);
+            @(negedge Clk) begin
+                if((Rd_address == rd) & (Rs1_address == rs1) & (Rs2_address == rs2) &
+                   (ALU_source_sel == 2'b0) & (ALU_op == `ALU_ADD) & 
+                   (Branch_en == 0) &
+                   (Mem_wr_en == 0) & 
+                   (Mem_rd_en == 0) & 
+                   (RegFile_wr_en == 1) & 
+                   (MemToReg == 0))
+                    $display("Test Pass!!");
+                else
+                    $display("ADD FAILED :(");
+            end    
+        end       
+    endtask
+
+    task SRAI_test(input [4:0] rd, rs1, shamt);
+        begin
+            $display("Testing SRAI.");
+            @(posedge Clk) begin
+                IF_Instruction = SRAI_gen(rd, rs1, shamt);
+            end
+            @(posedge Clk);
+            @(negedge Clk) begin
+                if((Rd_address == rd) & (Rs1_address == rs1)  &
+                   (ALU_source_sel == 2'b01) & (ALU_op == `ALU_SRA) & 
+                   (Immediate_2 ==  {{20{IF_Instruction[31]}}, IF_Instruction[31:20]}) &
+                   (Branch_en == 0) &
+                   (Mem_wr_en == 0) & 
+                   (Mem_rd_en == 0) & 
+                   (RegFile_wr_en == 1) & 
+                   (MemToReg == 0))
+                    $display("Test Pass!!");
+                else
+                    $display("SRAI FAILED :("); 
+            end
         end
     endtask
-    task SLL_test(input [4:0] rd, rs1, rs2);
-        begin 
-            #1;
-            $display("Testing SLL.");
-            IF_Instruction = SLL_gen (rd, rs1, rs2);
-            #1;
-            if((testVector_ALU[5:4]   == 2'b0) & 
-               (testVector_ALU[3:0]   == `ALU_SLL) & 
-               (testVector_Pipe_cntrl == 5'b00010) & 
-               (testVector_Regfile    == {rd, rs1, rs2}) 
-              )
-                $display("SLL Test Passed.");
-            else
-                $display("SLL Test Failed!!!!!!!!");
+    
+    task SRLI_test(input [4:0] rd, rs1, shamt);
+        begin
+            $display("Testing SRLI.");
+            //@(posedge Clk) begin
+                IF_Instruction = SRLI_gen(rd, rs1, shamt);
+            //end
+            @(posedge Clk);
+            @(negedge Clk) begin
+                if((Rd_address == rd) & (Rs1_address == rs1)  &
+                   (ALU_source_sel == 2'b01) & (ALU_op == `ALU_SRL) & 
+                   (Immediate_2 ==  {{20{IF_Instruction[31]}}, IF_Instruction[31:20]}) &
+                   (Branch_en == 0) &
+                   (Mem_wr_en == 0) & 
+                   (Mem_rd_en == 0) & 
+                   (RegFile_wr_en == 1) & 
+                   (MemToReg == 0))
+                    $display("Test Pass!!");
+                else
+                    $display("SRLI FAILED :("); 
+            end
         end
-    endtask 
-    task SLLI_test(input [4:0] rd, rs1, rs2);
-        begin 
-            #1;
-            $display("Testing SLLI.");
-            IF_Instruction = SLLI_gen (rd, rs1, rs2);
-            #1;
-            if((testVector_ALU[5:4]   == 2'b01) & 
-               (testVector_ALU[3:0]   == `ALU_SLL) & 
-               (testVector_Pipe_cntrl == 5'b00010) & 
-               (testVector_Regfile    == {rd, rs1, rs2}) &
-               (testVector_Imm[31:0]  == { {20{1'b0}}, IF_Instruction[31:20] })
-              )
-                $display("SLLI Test Passed.");
-            else
-                $display("SLLI Test Failed!!!!!!!!");
-        end
-    endtask 
-
-
-
+    endtask
+    
     initial begin
         $display("**********************************************");
         $display("*************** TEST BEGIN *******************");
         $display("**********************************************");
+        Reset_n = 0;
         IF_Instruction = 0;
-        Pipe_stall = 0;
+        Stall = 0;
         #100;
-       
+        Reset_n = 1;
+        #10;
         ADD_test(30, 1, 2);
-        #10;
-        SUB_test(19, 5, 6);
-        #10;
-        SLL_test(15, 19, 30);
-        #10;
-        SLLI_test(2, 22, 18);
+        SRAI_test(9, 16, 3);
+        @(posedge Clk) Stall = 1;
+        @(posedge Clk) Stall = 0;
+        SRLI_test(30, 8, 8);
+        
+        ADD_test(4, 9, 10);
+        ADD_test(11, 12, 13);
         
         
         $display("**********************************************");
