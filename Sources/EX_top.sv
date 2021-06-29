@@ -27,38 +27,59 @@ module RV32I_EX
     input             Clk,
     input             Reset_n,
     
+    //*************************************************
+    // Pipeline 
+    
+    output reg        EX_Mem_wr_en,
+    output reg        EX_Mem_rd_en,
+    output reg [2:0]  EX_Mem_op,
+    output reg        EX_MemToReg,
+    
+    output reg [31:0] EX_ALU_result,
+    output reg [31:0] EX_PC_Branch_dest,
+    output reg        EX_PC_Branch,      // if asserted loads branch dest to PC
+    output reg        EX_Jump,
+    
+    output reg        EX_RegFile_wr_en,
+    output reg [4:0]  EX_Rd_addr,
+    
+    //*************************************************
+    input             EX_Flush,
+    
+    input             ID_Mem_wr_en,
+    input             ID_Mem_rd_en,
+    input      [2:0]  ID_Mem_op,
+    input             ID_MemToReg, 
+    
+    input      [31:0] ID_PC_dest,
+    
+    
     input      [1:0]  ID_Branch_op,   // [1] indicates a branch/jump
     input             ID_Branch_flag, // indicates to branch on 'set' or 'not set'
     input             ID_Jump,        // indicates a jump
- 
+    
     input      [1:0]  ForwardA,
     input      [1:0]  ForwardB,
+    input      [31:0] WB_Rd_data,
  
     input      [1:0]  ID_ALU_source_sel,
     input      [3:0]  ID_ALU_op,
- 
+    
+    input             ID_RegFile_wr_en,
+    input      [4:0]  ID_Rd_addr,
+    
     input      [31:0] ID_PC,
     input      [31:0] ID_Rs1_data,
     input      [31:0] ID_Rs2_data,
     input      [31:0] ID_Immediate_1,
-    input      [31:0] ID_Immediate_2, // used for branch gen 
-    
-    output reg [31:0] EX_ALU_result,
-    output reg [31:0] EX_PC_Branch_dest,
-    output reg        EX_PC_source_sel // if asserted loads branch dest to PC
+    input      [31:0] ID_Immediate_2 // used for branch gen 
     );
     
-    reg [31:0] ALU_op1, ALU_op2;
+    reg  [31:0] ALU_op1, ALU_op2;
     wire [31:0] ALU_result;
     
-    EX_Branch_gen Branch_gen_inst (
-    .Reset_n     (Reset_n),
-    .Branch_op   (ID_Branch_op),
-    .PC          (ID_PC),
-    .RegData     (ID_Rs1_data),
-    .Immediate   (ID_Immediate_2),
-    .Branch_dest (EX_PC_Branch_dest)
-    );
+    reg         PC_source_sel;
+    
     
     EX_ALU ALU_inst(
     .ALU_op     (ID_ALU_op),
@@ -67,44 +88,81 @@ module RV32I_EX
     .ALU_result (ALU_result) 
     );
     
-    
-    
-    wire branch_jump;
-    assign branch_jump = ID_Jump | ID_Branch_op[1];
-    
+
     // pipeline
     always_ff@(posedge Clk) begin
-        EX_ALU_result <= ALU_result;
+        // reset state is the same as NOP, all control signals set to 0
+        if((Reset_n == 1'b0) || (EX_Flush == 1'b1)) begin 
+            EX_Mem_wr_en      <= 0;
+            EX_Mem_rd_en      <= 0;
+            EX_Mem_op         <= 0;
+            EX_MemToReg       <= 0;
+            EX_Rd_addr        <= 0;
+            EX_ALU_result     <= 0;
+            EX_PC_Branch_dest <= 0;
+            EX_PC_Branch      <= 0;
+            EX_RegFile_wr_en  <= 0;
+        end
+        else begin
+            EX_Mem_wr_en      <= ID_Mem_wr_en;
+            EX_Mem_rd_en      <= ID_Mem_rd_en;
+            EX_Mem_op         <= ID_Mem_op;
+            EX_MemToReg       <= ID_MemToReg;
+            EX_RegFile_wr_en  <= ID_RegFile_wr_en;
+            EX_Rd_addr        <= ID_Rd_addr;
+            EX_PC_Branch_dest <= ID_PC_dest;
+            EX_ALU_result     <= ALU_result;
+            EX_PC_Branch      <= PC_source_sel;
+            
+        end
     end
     
     
-    // ALU source input
+    // ALU source input: op1
     always_comb begin
-        if(ID_Jump == 1) begin  // if JAL or JALR, perform PC+1
+        if(ID_Jump == 1) begin // if JAL or JALR, perform PC+1
             ALU_op1 = ID_Immediate_1;
+        end
+        else begin
+            case(ForwardA)
+                // no data hazard
+                default: begin 
+                    ALU_op1 = (ID_ALU_source_sel[1] == 1'b1) ? ID_Immediate_1:ID_Rs1_data;
+                end
+                
+                // ALU op1 forwarded from ALU result of previous cycle
+                2'b10: begin
+                    ALU_op1 = EX_ALU_result;
+                end
+                
+                // ALU op1 forwarded from read data mem output
+                2'b01: begin
+                    ALU_op1 = WB_Rd_data;
+                end
+            endcase
+        end
+    end
+    
+    // ALU source input: op2
+    always_comb begin
+        if(ID_Jump == 1) begin // if JAL or JALR, perform PC+1
             ALU_op2 = 32'd1;
         end
         else begin
-            case(ID_ALU_source_sel)
-            
-                default: begin
-                    ALU_op1 = ID_Rs1_data;
-                    ALU_op2 = ID_Rs2_data;
+            case(ForwardB)
+                // no data hazard
+                default: begin 
+                    ALU_op2 = (ID_ALU_source_sel[0] == 1'b1) ? ID_Immediate_2:ID_Rs2_data;
                 end
                 
-                2'b01: begin
-                    ALU_op1 = ID_Rs1_data;
-                    ALU_op2 = ID_Immediate_2;
-                end
-                
+                // ALU op2 forwarded from ALU result of previous cycle
                 2'b10: begin
-                    ALU_op1 = ID_Immediate_1;
-                    ALU_op2 = ID_Rs2_data;
+                    ALU_op2 = EX_ALU_result;
                 end
                 
-                2'b11: begin
-                    ALU_op1 = ID_Immediate_1;
-                    ALU_op2 = ID_Immediate_2;
+                // ALU op2 forwarded from read data mem output
+                2'b01: begin
+                    ALU_op2 = WB_Rd_data;
                 end
             endcase
         end
@@ -113,21 +171,21 @@ module RV32I_EX
     
     // branch control
     always_comb begin
-        if(branch_jump == 1'b1) begin
+        if(ID_Branch_op[1] == 1'b1) begin
             if(ID_Jump == 1'b1) begin
-                EX_PC_source_sel = 1;
+                PC_source_sel = 1;
             end
             else begin
                 if(ID_Branch_flag == 1'b0) begin
-                    EX_PC_source_sel = (ALU_result == 1) ? 1:0;            
+                    PC_source_sel = (ALU_result == 1) ? 1:0;            
                 end
                 else begin
-                    EX_PC_source_sel = (ALU_result == 1) ? 0:1;  
+                    PC_source_sel = (ALU_result == 1) ? 0:1;  
                 end
             end // end if(ID_Jump)
         end
         else begin
-            EX_PC_source_sel = 0;
+            PC_source_sel = 0;
         end // end if(branch_jump)
     end // end always_ff
     

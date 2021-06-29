@@ -31,17 +31,21 @@ module PC
           parameter IMEM_ADDR_WIDTH = `ADDR_DATA_WIDTH)  
     `else
         #(parameter REG_DATA_WIDTH = 32,
-          parameter IMEM_ADDR_WIDTH = 32)
+          parameter IMEM_ADDR_WIDTH = 10)
     `endif
     
     (
     input                            Clk, 
     input                            Reset_n,       // synchronous active-low reset
+    input                            PC_Stall,
     
-    input      [IMEM_ADDR_WIDTH-1:0] PC_Branch,     // from MEM, branch destination address 
-    input                            PC_Source_sel, // select next PC or branch destination address
-    input                            PC_Stall,      // stall PC
-      
+    input                            ID_Jump,
+    input      [31:0]                ID_PC_dest,
+    
+    input                            EX_PC_Branch,
+    input      [31:0]                EX_PC_Branch_dest,
+    
+   
     output reg [IMEM_ADDR_WIDTH-1:0] PC_Out         // PC address
     );
 
@@ -54,7 +58,7 @@ module PC
         PC_Out <= 0;
     end
     
-    always@(posedge Clk) begin
+    always_ff@(posedge Clk) begin
         if(Reset_n == 1'b0) begin
             PC_Out <= 0;
         end
@@ -63,8 +67,11 @@ module PC
                 PC_Out <= PC_Out;
             end
             else begin
-                if(PC_Source_sel == 1'b1) begin 
-                    PC_Out <= PC_Branch;        // if source sel asserted, branch
+                if(ID_Jump == 1'b1) begin 
+                    PC_Out <= ID_PC_dest;        
+                end
+                else if(EX_PC_Branch == 1'b1) begin
+                    PC_Out <= EX_PC_Branch_dest;
                 end
                 else begin
                     PC_Out <= PC_Out + 1;    // else increment PC on posedge clk

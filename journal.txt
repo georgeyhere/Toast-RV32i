@@ -1,5 +1,46 @@
+6/28/2021
+------------------------------------------------
+TODO:
+- pipeline control signals for EX stage
+- hazard detection stall
+- forwarding
+************************************************
+- Implemented pipeline EX register
+- Implemented load hazard detection 
+   -> Hazard_detection should deassert all control signals, 
+      inserting a NOP when an instruction from IF depends on 
+      an OPCODE_LOAD instruction from ID
+
+- Implemented control hazard detection
+   -> Hazard_detection assumes branch not taken
+   -> If a branch is taken, flush IF, ID, EX stages 
+   -> If a jump is taken, flush IF and ID stages
+
+- Implemented data hazard detection
+   -> Forwarding module should detect when an instruction in
+      ID stage depends on the result of an instruction
+      in EX or MEM stage and mux in the data early, see truth table
+
+- Moved Branch_gen from EX stage to ID stage
+   -> Will reduce cost of jumps
+
+
+6/27/2021
+------------------------------------------------
+TODO: 
+- pipeline control signals for EX stage
+- hazard detection stall
+- forwarding
+*********************************************
+- Installed Windows Subsystem for Linux 2
+- Installed bronzebeard assembler
+- Installed Ubuntu 18.04 on WSL2
+
+
+
+
 6/26/2021
-------------------
+*********************************************
 Implemented Decoder/Control for ID pipeline stage
 
 - ALU_source_sel -> alu gets regfile data or imm

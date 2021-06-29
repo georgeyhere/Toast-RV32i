@@ -96,7 +96,7 @@ module ID_control
     
     // Combinatorial process to decode instructions
     always_comb begin
-        // DEFAULTS
+        // DEFAULT 
         Immediate_1    = 32'bx; 
         Immediate_2    = 32'bx;
         ALU_source_sel = 2'b0;  // [1] sets ALU op1 to imm, [0] sets ALU op2 to imm
@@ -234,7 +234,7 @@ module ID_control
             
             
             // Loads are I-type instructions
-            // -> data mem address = rs1 + IMM_I (via ALU)
+            // -> data mem load address = rs1 + IMM_I (via ALU)
             // -> store to rd
             `OPCODE_LOAD: begin
                 ALU_source_sel = 2'b01;
@@ -248,7 +248,8 @@ module ID_control
             end
             
             // Stores are S-type instructions
-            // address 
+            // -> data mem store address = rs1 + IMM_S (via ALU)\
+            // -> copy rs2 to data mem
             `OPCODE_STORE: begin
                 ALU_source_sel = 2'b01;
                 Immediate_2    = IMM_S;

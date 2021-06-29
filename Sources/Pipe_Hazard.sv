@@ -1,6 +1,6 @@
+`timescale 1ns / 1ps
 
-
-import RV32I_definitions ::*
+import RV32I_definitions ::*;
 
 module Hazard_detection
 
@@ -12,25 +12,54 @@ module Hazard_detection
 		#(parameter REG_DATA_WIDTH  = 32,
 		  parameter REGFILE_ADDR_WIDTH  = 5
 		 )
-
+    `endif
 
 	(
-		input [REGFILE_ADDR_WIDTH-1:0] ID_Rs1_address,
-		input [REGFILE_ADDR_WIDTH-1:0] ID_Rs2_address,
+	input [31:0]                   IF_Instruction,
+	input [REGFILE_ADDR_WIDTH-1:0] IF_Rs1_addr,
+	input [REGFILE_ADDR_WIDTH-1:0] IF_Rs2_addr,
 
-		input						   EX_Mem_rd_en,
-		input						   EX_Rd_address, 
-
- 		output						   Pipe_stall
+	input						   ID_Mem_rd_en,
+	input [REGFILE_ADDR_WIDTH-1:0] ID_Rd_addr, 
+    
+    input                          EX_PC_Branch,
+    input                          EX_Jump,
+    input                          ID_Jump,
+    
+    
+ 	output                         Stall,
+ 	output                         IF_ID_Flush,
+ 	output                         EX_Flush
 	);
+    
+    /*
+    DATA LOAD HAZARD DETECTION
+    
+    Checks for the following conditions:
+    1) is a load instruction present in ID pipeline reg?
+    2a) does the next instruction (in IF pipeline reg) read any registers?
+    2b) are any of the registers to be read dependent on the load?
+    
+    if all true, stall the pipeline.
+    */
 
-
-	always_comb begin
-		stall = 0; // default
-
-		if( (EX_Mem_rd_en == 1'b1) & ((EX_Rd_address == ID_Rs1_address) | (EX_Rd_address == ID_Rs2_address)) )
-			Pipe_stall = 1;
-		else
-			Pipe_stall = 0;
-
-	end 
+    assign Stall = ( (((IF_Instruction == `OPCODE_OP) || (IF_Instruction == `OPCODE_BRANCH) || (IF_Instruction == `OPCODE_STORE)) &&
+                      ((ID_Rd_addr == IF_Rs1_addr) || (ID_Rd_addr == IF_Rs2_addr)) ) ||
+                     (((IF_Instruction == `OPCODE_OP_IMM) || (IF_Instruction == `OPCODE_LOAD)) &&
+                      (ID_Rd_addr == IF_Rs1_addr)));
+                    
+    /*
+    CONTROL HAZARD DETECTION FOR BRANCH:
+    
+    -> if a branch or jump is taken, the pipeline needs to be flushed.
+    -> it is unknown whether a branch or jump is taken until the end of EX stage.
+    -> if a branch is taken, IF, ID, and EX need to be flushed. 
+    -> if a jump is taken, only IF and ID need to be flushed.       
+    Checks for the following conditions:
+    
+    
+    */
+    assign IF_ID_Flush = ((EX_PC_Branch == 1) || (ID_Jump == 1));
+    assign EX_Flush    = (EX_PC_Branch == 1);
+    
+endmodule

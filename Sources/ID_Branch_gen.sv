@@ -20,10 +20,8 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module EX_Branch_gen
+module Branch_gen
     (
-    input             Reset_n,
-    
     input      [1:0]  Branch_op,
     
     input      [31:0] PC,
@@ -39,17 +37,14 @@ module EX_Branch_gen
     // for JALR
     // -> PC destination = rs1 + Imm
     
+    
+    
     always_comb begin
-        if(Reset_n == 1'b0) begin
-            Branch_dest = 32'bx;
-        end
-        else begin
-            case(Branch_op)
-                default:      Branch_dest = 32'bx;
-                `PC_RELATIVE: Branch_dest = PC + Immediate;
-                `REG_OFFSET:  Branch_dest = RegData + Immediate;
-            endcase
-        end
+        case(Branch_op)
+            default:      Branch_dest = 32'bx;
+            `PC_RELATIVE: Branch_dest = PC + Immediate;
+            `REG_OFFSET:  Branch_dest = RegData + Immediate;
+        endcase
     end
     
 endmodule

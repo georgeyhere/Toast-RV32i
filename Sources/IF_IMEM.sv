@@ -39,7 +39,7 @@ module IMEM
     
     (
     input        [IMEM_ADDR_WIDTH-1 :0] IMEM_address, 
-    output reg   [IMEM_DATA_DEPTH-1 :0] Instruction
+    output reg   [31 :0] Instruction
     );
     
 // ===========================================================================
@@ -55,10 +55,7 @@ module IMEM
     end
     
     always@* begin
-        Instruction = {Instruction_data[IMEM_address],
-                       Instruction_data[IMEM_address+1],
-                       Instruction_data[IMEM_address+2],
-                       Instruction_data[IMEM_address+3]};
+        Instruction = Instruction_data[IMEM_address];
     end
     
 endmodule
