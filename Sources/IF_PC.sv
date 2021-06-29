@@ -46,7 +46,7 @@ module PC
     input      [31:0]                EX_PC_Branch_dest,
     
    
-    output reg [IMEM_ADDR_WIDTH-1:0] PC_Out         // PC address
+    output reg [31:0]                PC_Out         // PC address
     );
 
     
@@ -58,26 +58,16 @@ module PC
         PC_Out <= 0;
     end
     
-    always_ff@(posedge Clk) begin
+    always@(posedge Clk) begin
         if(Reset_n == 1'b0) begin
             PC_Out <= 0;
         end
-        else begin
-            if(PC_Stall == 1'b1) begin
-                PC_Out <= PC_Out;
-            end
-            else begin
-                if(ID_Jump == 1'b1) begin 
-                    PC_Out <= ID_PC_dest;        
-                end
-                else if(EX_PC_Branch == 1'b1) begin
-                    PC_Out <= EX_PC_Branch_dest;
-                end
-                else begin
-                    PC_Out <= PC_Out + 1;    // else increment PC on posedge clk
-                end
-            end 
-        end
+        else if(PC_Stall == 1'b1) PC_Out <= PC_Out;
+        else if(ID_Jump == 1'b1) PC_Out <= ID_PC_dest;    
+        else if(EX_PC_Branch == 1'b1) PC_Out <= EX_PC_Branch_dest;           
+        else PC_Out <= PC_Out + 1;    // else increment PC on posedge clk
+                
+               
     end
     
 endmodule

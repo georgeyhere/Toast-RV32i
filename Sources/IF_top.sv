@@ -49,14 +49,14 @@ module RV32I_IF
     input                        IF_Stall,
     input                        IF_Flush,
    
-    output [IMEM_ADDR_WIDTH-1:0] IF_PC,
-    output [REG_DATA_WIDTH-1:0]  IF_Instruction,
+    output     [31:0]            IF_PC,
+    output reg [31:0]            IF_Instruction,
     
-    output [4:0]                 IF_Rs1_addr,
-    output [4:0]                 IF_Rs2_addr            
+    output reg [4:0]             IF_Rs1_addr,
+    output reg [4:0]             IF_Rs2_addr            
     );
     
-    wire [REG_DATA_WIDTH-1:0]  Instruction;
+    wire [31:0]  Instruction;
     
     PC RV32I_PC (
     .Clk              (Clk),
@@ -65,7 +65,8 @@ module RV32I_IF
     .ID_Jump          (ID_Jump),
     .ID_PC_dest       (ID_PC_dest),
     .EX_PC_Branch     (EX_PC_Branch),
-    .EX_PC_Branch_dest(EX_PC_Branch_dest)
+    .EX_PC_Branch_dest(EX_PC_Branch_dest),
+    .PC_Out           (IF_PC)
     );
     
     IMEM RV32I_IMEM (
@@ -73,10 +74,20 @@ module RV32I_IF
     .Instruction   (Instruction)
     );
     
+    always_comb begin
+        if(IF_Flush == 1'b1) begin
+            IF_Instruction = 0;
+            IF_Rs1_addr    = 0;
+            IF_Rs2_addr    = 0;
+        end
+        else begin
+            IF_Instruction = Instruction;
+            IF_Rs1_addr    = Instruction[19:15];
+            IF_Rs2_addr    = Instruction[24:20];
+        end
+    end
+    
     // if a branch/jump is taken, flush the current instruction
-    assign IF_Instruction = (IF_Flush == 1'b1) ? 0:Instruction;
-    assign IF_Rs1_addr = (IF_Flush == 1'b1) ? 0:IF_Instruction[19:15];
-    assign IF_Rs2_addr = (IF_Flush == 1'b1) ? 0:IF_Instruction[24:20];
     
     
     

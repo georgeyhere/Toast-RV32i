@@ -51,6 +51,7 @@ module IF_ID_EX_top
     wire        ID_RegFile_wr_en; 
     wire        ID_MemToReg;
     wire        ID_Jump;
+    wire [2:0]  ID_Mem_op;
     wire [31:0] ID_PC_dest;
     wire [31:0] ID_Immediate_1;
     wire [31:0] ID_Immediate_2;
@@ -66,11 +67,12 @@ module IF_ID_EX_top
     wire        EX_Mem_rd_en;
     wire [2:0]  EX_Mem_op;
     wire        EX_MemToReg;
-    wire        EX_ALU_result; 
+    //wire [31:0] EX_ALU_result; 
     wire [31:0] EX_PC_Branch_dest;
     wire        EX_PC_Branch;
     wire        EX_RegFile_wr_en;
     wire [4:0]  EX_Rd_addr;
+    wire        EX_Jump;
     
     
     wire [31:0] WB_Rd_addr;
@@ -83,8 +85,9 @@ module IF_ID_EX_top
     .ForwardB           (ForwardB),
     .ID_Rs1_addr        (ID_Rs1_addr),
     .ID_Rs2_addr        (ID_Rs2_addr),
+    .ID_Rd_addr         (ID_Rd_addr),
     .EX_Rd_addr         (EX_Rd_addr),
-    .MEM_Rd_addr        (MEM_Rd_addr),
+    .MEM_Rd_addr        (5'b0),
     .EX_RegFile_wr_en   (EX_RegFile_wr_en),
     .MEM_RegFile_wr_en  (MEM_RegFile_wr_en)
     );
@@ -97,6 +100,7 @@ module IF_ID_EX_top
     .ID_Rd_addr         (ID_Rd_addr),
     .EX_PC_Branch       (EX_PC_Branch),
     .ID_Jump            (ID_Jump),
+    .EX_Jump            (EX_Jump),
     .Stall              (Stall),
     .IF_ID_Flush        (IF_ID_Flush),
     .EX_Flush           (EX_Flush)
@@ -125,7 +129,7 @@ module IF_ID_EX_top
     .IF_Instruction     (IF_Instruction),
     .ID_Stall           (Stall), //!
     .ID_Flush           (IF_ID_Flush),
-    .WB_Rd_addr         (32'd32),
+    .WB_Rd_addr         (5'd31),
     .WB_Rd_data         (32'd420),
     .WB_RegFile_wr_en   (1'b0),
     .ID_PC              (ID_PC),

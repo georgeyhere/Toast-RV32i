@@ -55,8 +55,8 @@ module ID_regfile
     
     reg [31:0] Regfile_data [0: REGFILE_DEPTH-1];
     
-    assign ID_Rs1_data = Regfile_data[Rs1_addr];
-    assign ID_Rs2_data = Regfile_data[Rs2_addr];
+    assign Rs1_data = Regfile_data[Rs1_addr];
+    assign Rs2_data = Regfile_data[Rs2_addr];
     
     initial begin
         for(int i=0; i<REGFILE_DEPTH; i++) begin

@@ -90,9 +90,9 @@ module ID_control
     assign IMM_U       = { IF_Instruction[31:12], {12{1'b0}} };
     assign IMM_J       = { {11{1'b0}}, IF_Instruction[31], IF_Instruction[19:12], IF_Instruction[20], IF_Instruction[10:1], 1'b0};
     
-    assign Rd_address  = IF_Instruction[11:7];
-    assign Rs1_address = IF_Instruction[19:15];
-    assign Rs2_address = IF_Instruction[24:20];
+    assign Rd_addr  = IF_Instruction[11:7];
+    assign Rs1_addr = IF_Instruction[19:15];
+    assign Rs2_addr = IF_Instruction[24:20];
     
     // Combinatorial process to decode instructions
     always_comb begin

@@ -28,8 +28,8 @@ module Hazard_detection
     
     
  	output                         Stall,
- 	output                         IF_ID_Flush,
- 	output                         EX_Flush
+ 	output reg                     IF_ID_Flush,
+ 	output reg                     EX_Flush
 	);
     
     /*
@@ -46,7 +46,7 @@ module Hazard_detection
     assign Stall = ( (((IF_Instruction == `OPCODE_OP) || (IF_Instruction == `OPCODE_BRANCH) || (IF_Instruction == `OPCODE_STORE)) &&
                       ((ID_Rd_addr == IF_Rs1_addr) || (ID_Rd_addr == IF_Rs2_addr)) ) ||
                      (((IF_Instruction == `OPCODE_OP_IMM) || (IF_Instruction == `OPCODE_LOAD)) &&
-                      (ID_Rd_addr == IF_Rs1_addr)));
+                      (ID_Rd_addr == IF_Rs1_addr))) ? 1:0;
                     
     /*
     CONTROL HAZARD DETECTION FOR BRANCH:
@@ -59,7 +59,17 @@ module Hazard_detection
     
     
     */
-    assign IF_ID_Flush = ((EX_PC_Branch == 1) || (ID_Jump == 1));
-    assign EX_Flush    = (EX_PC_Branch == 1);
+    always_comb begin
+        if((EX_PC_Branch == 1) || (ID_Jump == 1)) IF_ID_Flush = 1;
+        else                                      IF_ID_Flush = 0;
+    end
+    
+    always_comb begin
+        if(EX_PC_Branch == 1) EX_Flush = 1;
+        else                  EX_Flush = 0;
+    end
+    
+    //assign IF_ID_Flush = ((EX_PC_Branch == 1) || (ID_Jump == 1)) ? 1:0;
+    //assign EX_Flush    = (EX_PC_Branch == 1) ? 1:0;
     
 endmodule

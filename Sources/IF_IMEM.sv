@@ -33,7 +33,7 @@ module IMEM
         #(parameter IMEM_ADDR_WIDTH = `ADDR_DATA_WIDTH,  
           parameter IMEM_DATA_DEPTH = `IMEM_DATA_DEPTH)
     `else
-        #(parameter IMEM_ADDR_WIDTH = 10,
+        #(parameter IMEM_ADDR_WIDTH = 32,
           parameter IMEM_DATA_DEPTH = 1024)
     `endif
     
@@ -45,13 +45,13 @@ module IMEM
 // ===========================================================================
 // 			          Parameters, Registers, and Wires
 // ===========================================================================    
-    reg [7:0] Instruction_data [0:IMEM_DATA_DEPTH-1]; // used to read from .data
+    reg [31:0] Instruction_data [0:IMEM_DATA_DEPTH-1]; // used to read from .data
     
 // ===========================================================================
 //                              Implementation    
 // ===========================================================================
     initial begin
-        $readmemh("IMEM.data", Instruction_data);   // read hex data
+        $readmemh("IMEM.txt", Instruction_data);   // read hex data
     end
     
     always@* begin

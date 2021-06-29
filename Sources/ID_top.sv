@@ -70,10 +70,10 @@ module RV32I_ID
     output reg [REG_DATA_WIDTH-1:0]      ID_PC_dest,
     
     // ALU operands
-    output     [REG_DATA_WIDTH-1 :0]     ID_Immediate_1,
-    output     [REG_DATA_WIDTH-1 :0]     ID_Immediate_2,
-    output     [REG_DATA_WIDTH-1 :0]     ID_Rs1_data,
-    output     [REG_DATA_WIDTH-1 :0]     ID_Rs2_data,
+    output reg [REG_DATA_WIDTH-1 :0]     ID_Immediate_1,
+    output reg [REG_DATA_WIDTH-1 :0]     ID_Immediate_2,
+    output reg [REG_DATA_WIDTH-1 :0]     ID_Rs1_data,
+    output reg [REG_DATA_WIDTH-1 :0]     ID_Rs2_data,
     
     output reg [4:0]                     ID_Rd_addr,
     output reg [4:0]                     ID_Rs1_addr,
@@ -83,6 +83,9 @@ module RV32I_ID
     wire [4:0] Rd_addr;
     wire [4:0] Rs1_addr;
     wire [4:0] Rs2_addr;
+    
+    wire [31:0] Immediate_1, Immediate_2;
+    wire [31:0] Rs1_data, Rs2_data;
     
     wire [1:0] ALU_source_sel;
     wire [3:0] ALU_op;
@@ -99,8 +102,8 @@ module RV32I_ID
     ID_control RV32I_CONTROL(
     .IF_Instruction (IF_Instruction),
     .IF_PC          (IF_PC),
-    .Immediate_1    (ID_Immediate_1),
-    .Immediate_2    (ID_Immediate_2),
+    .Immediate_1    (Immediate_1),
+    .Immediate_2    (Immediate_2),
     .Rd_addr        (Rd_addr),
     .Rs1_addr       (Rs1_addr),
     .Rs2_addr       (Rs2_addr),
@@ -119,13 +122,13 @@ module RV32I_ID
     ID_regfile RV32I_REGFILE(
     .Clk         (Clk),
     .Reset_n     (Reset_n),
-    .Rs1_addr    (Rs1_addr), // from control
-    .Rs2_addr    (Rs2_addr), // from control
+    .Rs1_addr    (ID_Rs1_addr), // from control
+    .Rs2_addr    (ID_Rs2_addr), // from control
     .Rd_addr     (WB_Rd_addr),
     .Rd_wr_data  (WB_Rd_data),
     .Rd_wr_en    (WB_RegFile_wr_en),
-    .Rs1_data    (ID_Rs1_data),
-    .Rs2_data    (ID_Rs2_data)
+    .Rs1_data    (Rs1_data),
+    .Rs2_data    (Rs2_data)
     );
     
     Branch_gen ID_BranchGen (
@@ -136,7 +139,7 @@ module RV32I_ID
     .Branch_dest (Branch_dest)
     );
     
-    initial ID_PC = 0;
+    
     
     // pipeline registers
     always_ff@(posedge Clk) begin
@@ -151,11 +154,16 @@ module RV32I_ID
             ID_Mem_rd_en <= 0;
             ID_RegFile_wr_en <= 0;
             ID_MemToReg <= 0;
+            ID_Jump <= 0;
             ID_Mem_op <= 0;
             ID_Rd_addr <= 0;
             ID_Rs1_addr <=  0;
             ID_Rs2_addr <= 0;
             ID_PC_dest  <= 0;
+            ID_Immediate_1 <= 0;
+            ID_Immediate_2 <= 0;
+            ID_Rs1_data <= 0;
+            ID_Rs2_data <= 0;
         end
         else begin
             if(ID_Stall == 1'b1) begin
@@ -168,11 +176,16 @@ module RV32I_ID
                 ID_Mem_rd_en <= 0;
                 ID_RegFile_wr_en <= 0;
                 ID_MemToReg <= 0;
+                ID_Jump <= 0;
                 ID_Mem_op <= 0;
                 ID_Rd_addr <= ID_Rd_addr;
                 ID_Rs1_addr <= ID_Rs1_addr;
                 ID_Rs2_addr <= ID_Rs2_addr;
                 ID_PC_dest <= ID_PC_dest;
+                ID_Immediate_1 <= ID_Immediate_1;
+                ID_Immediate_2 <= ID_Immediate_2;
+                ID_Rs1_data <= ID_Rs1_data;
+                ID_Rs2_data <= ID_Rs2_data;
             end
             else begin
                 ID_PC <= IF_PC;
@@ -184,11 +197,16 @@ module RV32I_ID
                 ID_Mem_rd_en <= Mem_rd_en;
                 ID_RegFile_wr_en <= RegFile_wr_en;
                 ID_MemToReg <= MemToReg;
+                ID_Jump <= Jump;
                 ID_Mem_op <= Mem_op;
                 ID_Rd_addr <= Rd_addr;
                 ID_Rs1_addr <=  Rs1_addr;
                 ID_Rs2_addr <= Rs2_addr;
                 ID_PC_dest <= Branch_dest;
+                ID_Immediate_1 <= Immediate_1;
+                ID_Immediate_2 <= Immediate_2;
+                ID_Rs1_data <= Rs1_data;
+                ID_Rs2_data <= Rs2_data;
             end
         end  
     end
