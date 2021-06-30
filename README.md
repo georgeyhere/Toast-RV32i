@@ -1,6 +1,6 @@
 # Toast-RV32i
 
-- Toast is a RISC-V soft core written in fully synthesizable SystemVerilog that implements a subset of the RV32I ISA.
+- Toast is a RISC-V soft core written in fully synthesizable SystemVerilog that implements a subset of the RV32I ISA, WIP until updated here.
 
 - Toast does not support interrupt handling, nor the CSR, FENCE, EBREAK, or ECALL instructions.
 
