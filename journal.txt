@@ -1,3 +1,17 @@
+6/30/2021
+-----------------------------------------------
+TODO:
+- make sure signals propagate correctly from stage to stage
+  on each cycle before moving forward
+- write basic test for branch / jump
+- come up with basic memory interface for MEM stage
+***********************************************
+- added memory interface based on Xilinx Dual Port Block Memory (no AXI)
+- added WB stage
+- implemented MEM and WB stages into pipeline
+- core is synthesizable
+
+
 6/29/2021
 -----------------------------------------------
 TODO:
@@ -5,6 +19,12 @@ TODO:
 - general documentation
 - look into RISC-V tests repo
 - iverilog/verilator 
+***********************************************
+- setup RISC-V tests in WSL2
+- wrote basic testbench for existing pipeline components
+- simulated in Vivado XSim, fixed minor bugs
+
+
 
 
 6/28/2021

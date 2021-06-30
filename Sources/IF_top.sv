@@ -24,7 +24,7 @@ import RV32I_definitions ::*;
     `include "../defines.vh"
 `endif
 
-module RV32I_IF
+module IF_top
     
     `ifdef CUSTOM_DEFINE
         #(parameter REG_DATA_WIDTH  = `REG_DATA_WIDTH
@@ -50,10 +50,7 @@ module RV32I_IF
     input                        IF_Flush,
    
     output     [31:0]            IF_PC,
-    output reg [31:0]            IF_Instruction,
-    
-    output reg [4:0]             IF_Rs1_addr,
-    output reg [4:0]             IF_Rs2_addr            
+    output reg [31:0]            IF_Instruction     
     );
     
     wire [31:0]  Instruction;
@@ -77,13 +74,9 @@ module RV32I_IF
     always_comb begin
         if(IF_Flush == 1'b1) begin
             IF_Instruction = 0;
-            IF_Rs1_addr    = 0;
-            IF_Rs2_addr    = 0;
         end
         else begin
             IF_Instruction = Instruction;
-            IF_Rs1_addr    = Instruction[19:15];
-            IF_Rs2_addr    = Instruction[24:20];
         end
     end
     

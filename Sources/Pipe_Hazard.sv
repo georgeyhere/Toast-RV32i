@@ -15,21 +15,18 @@ module Hazard_detection
     `endif
 
 	(
-	input [31:0]                   IF_Instruction,
-	input [REGFILE_ADDR_WIDTH-1:0] IF_Rs1_addr,
-	input [REGFILE_ADDR_WIDTH-1:0] IF_Rs2_addr,
+	output                         Stall,          // pipeline stall, used for Data hazard
+ 	output reg                     IF_ID_Flush,    // flush IF and ID in case of branch or jump taken
+ 	output reg                     EX_Flush,       // flush EX if branch taken
+	
+	input [31:0]                   IF_Instruction, // used to check for Data hazard
 
 	input						   ID_Mem_rd_en,
 	input [REGFILE_ADDR_WIDTH-1:0] ID_Rd_addr, 
     
     input                          EX_PC_Branch,
-    input                          EX_Jump,
-    input                          ID_Jump,
-    
-    
- 	output                         Stall,
- 	output reg                     IF_ID_Flush,
- 	output reg                     EX_Flush
+    input                          ID_Jump
+
 	);
     
     /*
@@ -41,12 +38,16 @@ module Hazard_detection
     2b) are any of the registers to be read dependent on the load?
     
     if all true, stall the pipeline.
+    
+    IF_Rs1_addr    = Instruction[19:15];
+    IF_Rs2_addr    = Instruction[24:20];
     */
+    
 
     assign Stall = ( (((IF_Instruction == `OPCODE_OP) || (IF_Instruction == `OPCODE_BRANCH) || (IF_Instruction == `OPCODE_STORE)) &&
-                      ((ID_Rd_addr == IF_Rs1_addr) || (ID_Rd_addr == IF_Rs2_addr)) ) ||
+                      ((ID_Rd_addr == IF_Instruction[19:15]) || (ID_Rd_addr == IF_Instruction[24:20])) ) ||
                      (((IF_Instruction == `OPCODE_OP_IMM) || (IF_Instruction == `OPCODE_LOAD)) &&
-                      (ID_Rd_addr == IF_Rs1_addr))) ? 1:0;
+                      (ID_Rd_addr == IF_Instruction[19:15]))) ? 1:0;
                     
     /*
     CONTROL HAZARD DETECTION FOR BRANCH:

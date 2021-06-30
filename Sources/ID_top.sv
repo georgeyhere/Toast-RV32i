@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 import RV32I_definitions ::*;
 
-module RV32I_ID
+module ID_top
     
     `ifdef CUSTOM_DEFINE
         #(parameter REG_DATA_WIDTH      = `REG_DATA_WIDTH,

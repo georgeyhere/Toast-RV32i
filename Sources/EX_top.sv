@@ -20,7 +20,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module RV32I_EX
+module EX_top
 
 
     (
@@ -33,12 +33,13 @@ module RV32I_EX
     output reg        EX_Mem_wr_en,
     output reg        EX_Mem_rd_en,
     output reg [2:0]  EX_Mem_op,
+    output reg [31:0] EX_Rs2_data,
     output reg        EX_MemToReg,
     
     output reg [31:0] EX_ALU_result,
+    
     output reg [31:0] EX_PC_Branch_dest,
     output reg        EX_PC_Branch,      // if asserted loads branch dest to PC
-    output reg        EX_Jump,
     
     output reg        EX_RegFile_wr_en,
     output reg [4:0]  EX_Rd_addr,
@@ -102,6 +103,7 @@ module RV32I_EX
             EX_PC_Branch_dest <= 0;
             EX_PC_Branch      <= 0;
             EX_RegFile_wr_en  <= 0;
+            EX_Rs2_data       <= 0;
         end
         else begin
             EX_Mem_wr_en      <= ID_Mem_wr_en;
@@ -113,7 +115,7 @@ module RV32I_EX
             EX_PC_Branch_dest <= ID_PC_dest;
             EX_ALU_result     <= ALU_result;
             EX_PC_Branch      <= PC_source_sel;
-            
+            EX_Rs2_data       <= ID_Rs2_data;
         end
     end
     

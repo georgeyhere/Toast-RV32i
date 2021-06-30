@@ -21,6 +21,26 @@
 //////////////////////////////////////////////////////////////////////////////////
 import RV32I_definitions ::*;
 
+/*
+This module integrates the functions of a decoder and a control module. Models
+fully combinatorial logic and will be assigned to pipeline register on each cycle
+in top level module ID_top.
+
+It decodes the following for RegFile data fetch:
+    -> Rs1 address
+    -> Rs2 address
+    -> Rd address (to be sent down the pipeline)
+
+It drives the control signals for:
+    -> ID Stage
+        -> Branch Generation operation 
+            -> PC-relative Branch/Jump destination
+            -> Rs1-offset  Jump destination
+    -> EX Stage 
+        -> ALU source selection (immediate or regfile data for operands)
+        -> ALU immediate selection (select correct type of immediate for instruction)
+       
+*/
 module ID_control  
     
     `ifdef CUSTOM_DEFINE
@@ -41,13 +61,15 @@ module ID_control
     input      [REG_DATA_WIDTH-1 :0]      IF_Instruction,
     input      [31:0]                     IF_PC,
 
-    output reg [REG_DATA_WIDTH-1 :0]      Immediate_1,
+    output     [4:0]                      Rd_addr,        
+    output     [4:0]                      Rs1_addr,       
+    output     [4:0]                      Rs2_addr, 
+    
+    // ALU OPERANDS
+    output reg [REG_DATA_WIDTH-1 :0]      Immediate_1,    
     output reg [REG_DATA_WIDTH-1 :0]      Immediate_2,
     
-    output     [4:0]                      Rd_addr,
-    output     [4:0]                      Rs1_addr,
-    output     [4:0]                      Rs2_addr, 
-        
+    // CONTROL SIGNALS    
     output reg [1:0]                      ALU_source_sel, // [1] -> op1 [2] -> op2  || gets imm
     output reg [3:0]                      ALU_op,         // alu operation to perform
     output reg [1:0]                      Branch_op,      // branch gen operation to perform
@@ -68,11 +90,11 @@ module ID_control
     wire [3:0]  FUNCT3; 
     wire [6:0]  FUNCT7; 
     
-    wire [31:0] IMM_I;  // I-type immediate
-    wire [31:0] IMM_S;  // S-type immediate
+    wire [31:0] IMM_I; // I-type immediate
+    wire [31:0] IMM_S; // S-type immediate
     wire [31:0] IMM_B; // SB-type immediate
-    wire [31:0] IMM_U;
-    wire [31:0] IMM_J;
+    wire [31:0] IMM_U; // U-type immediate
+    wire [31:0] IMM_J; // J-type immediate
 
    
 // ===========================================================================
@@ -109,6 +131,8 @@ module ID_control
         MemToReg       = 0;     // default: no data mem writeback
         Jump           = 0;     // default: no jump
         Mem_op         = 0;     // default: no data mem mask
+        
+        
         case(OPCODE)
         
              // R-Type, register-register
