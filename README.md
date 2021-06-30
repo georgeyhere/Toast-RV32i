@@ -21,7 +21,7 @@ __/Sources__
 
 <h1> Memory Interface </h1>
 
-![Xilinx Dual-port RAM](https://gyazo.com/69d4dec3f5a1f703b3d292a2f112351b)
+![Xilinx Dual-port RAM](./Documentation/dpr.png)
 
 Toast uses a simple memory interface based on that of Xilinx dual-port block memory in dual-port RAM configuration. It
 drives DIN, ADDR, WE, and RST.
