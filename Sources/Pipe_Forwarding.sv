@@ -47,18 +47,18 @@
                 EX HAZARD
             - 
             */
-            if ( (EX_RegFile_wr_en == 1'b1) &     
-                 (EX_Rd_addr       != 0   ) &
+            if ( (EX_RegFile_wr_en == 1'b1) &&     
+                 (EX_Rd_addr       != 0   ) &&
                  (EX_Rd_addr       == ID_Rs1_addr)
                 )
                 ForwardA = 2'b10;
             else 
             // MEM hazard 
-            if ( (MEM_RegFile_wr_en == 1'b1) &
-                 (MEM_Rd_addr       != 0   ) &
-                 ~ ( (EX_RegFile_wr_en  == 1'b1) &
-                     (EX_Rd_addr        != 0)    &
-                     (EX_Rd_addr        == ID_Rs1_addr)) &
+            if ( (MEM_RegFile_wr_en == 1'b1) &&
+                 (MEM_Rd_addr       != 0   ) &&
+                 ~ ( (EX_RegFile_wr_en  == 1'b1) &&
+                     (EX_Rd_addr        != 0)    &&
+                     (EX_Rd_addr        == ID_Rs1_addr)) &&
                  (MEM_Rd_addr       == ID_Rs1_addr)         
                 )
                 ForwardA = 2'b01;
@@ -71,18 +71,18 @@
                 EX HAZARD
             - 
             */
-            if ( (EX_RegFile_wr_en == 1'b1) &     
-                 (EX_Rd_addr       != 0   ) &
+            if ( (EX_RegFile_wr_en == 1'b1) &&     
+                 (EX_Rd_addr       != 0   ) &&
                  (EX_Rd_addr       == ID_Rs2_addr)
                 )
                 ForwardB = 2'b10;
             else 
             // MEM hazard 
-            if ( (MEM_RegFile_wr_en == 1'b1) &
-                 (MEM_Rd_addr       != 0   ) &
-                 ~ ( (EX_RegFile_wr_en  == 1'b1) &
-                     (EX_Rd_addr        != 0)    &
-                     (EX_Rd_addr        == ID_Rs2_addr)) &
+            if ( (MEM_RegFile_wr_en == 1'b1) &&
+                 (MEM_Rd_addr       != 0   ) &&
+                 ~ ( (EX_RegFile_wr_en  == 1'b1) &&
+                     (EX_Rd_addr        != 0)    &&
+                     (EX_Rd_addr        == ID_Rs2_addr)) &&
                  (MEM_Rd_addr       == ID_Rs2_addr)         
                 )
                 ForwardB = 2'b01;

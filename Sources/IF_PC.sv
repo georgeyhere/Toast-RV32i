@@ -65,7 +65,7 @@ module PC
         else if(PC_Stall == 1'b1) PC_Out <= PC_Out;
         else if(ID_Jump == 1'b1) PC_Out <= ID_PC_dest;    
         else if(EX_PC_Branch == 1'b1) PC_Out <= EX_PC_Branch_dest;           
-        else PC_Out <= PC_Out + 1;    // else increment PC on posedge clk
+        else PC_Out <= PC_Out + 4;    // else increment PC on posedge clk
                 
                
     end

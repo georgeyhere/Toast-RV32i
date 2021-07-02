@@ -236,7 +236,7 @@ module ID_control
             
             // JAL -> J-type instruction, Jump And Link 
             // -> PC target address = PC + IMM_J
-            // -> stores address of PC+1 to rd
+            // -> stores address of PC+4 to rd
             `OPCODE_JAL: begin
                 Jump           = 1;
                 Branch_op      = `PC_RELATIVE;
@@ -247,7 +247,7 @@ module ID_control
             
             // JALR -> I-type instruction
             // -> PC target addres = {  {31{rs1 + IMM_I}}, 1'b0} }
-            // -> stores address of PC+1 to rd
+            // -> stores address of PC+4 to rd
             `OPCODE_JALR: begin
                 Jump           = 1;
                 Branch_op      = `REG_OFFSET;

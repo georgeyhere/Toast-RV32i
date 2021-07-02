@@ -134,8 +134,8 @@ module ID_top
     Branch_gen ID_BranchGen (
     .Branch_op   (Branch_op),
     .PC          (IF_PC),
-    .RegData     (ID_Rs1_data),
-    .Immediate   (ID_Immediate_2),
+    .RegData     (Rs1_data),
+    .Immediate   (Immediate_2),
     .Branch_dest (Branch_dest)
     );
     

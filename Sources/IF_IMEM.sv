@@ -51,7 +51,12 @@ module IMEM
 //                              Implementation    
 // ===========================================================================
     initial begin
-        $readmemh("C:/Users/George/Desktop/Work/RISCV_Project/IMEM.txt", Instruction_data);   // read hex data
+    /*
+        for(int i=0; i<IMEM_DATA_DEPTH; i++) begin
+            Instruction_data[i] = 0;
+        end
+    */
+       // $readmemh("C:/Users/George/Desktop/Work/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/IMEM.txt", Instruction_data);   // read hex data
     end
     
     always@* begin

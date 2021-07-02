@@ -26,7 +26,35 @@ module ToastCore
     input            Clk,
     input            Reset_n,   
     input  [31:0]    mem_rd_data,
-
+    
+`ifdef RISCV_FORMAL
+    output reg        rvfi_valid,    // asserted when core retires an instruction    
+    output reg [63:0] rvfi_order,    // instruction index
+    output reg [31:0] rvfi_insn,     // instruction word for retired instruction
+    output reg        rvfi_trap,     // set for instruction that cannot be decoded as legal instruction
+    output reg        rvfi_halt,     // set when instruction is the last instruction
+    output reg        rvfi_intr,     // set for trap handler
+    output reg [1:0]  rvfi_mode,     // set to privilege level 
+    output reg [1:0]  rvfi_ixl,      // MXL/SXL/UXL
+    
+    output reg [4:0]  rvfi_rs1_addr, // decoded register addresses for retired instruction
+    output reg [4:0]  rvfi_rs2_addr, 
+    output reg [4:0]  rvfi_rd_addr,  
+    
+    output reg [31:0] rvfi_rs1_data, // value of rs1 before execution 
+    output reg [31:0] rvfi_rs2_data, // value of rs2 before execution 
+    output reg [31:0] rvfi_rd_wdata, // value of rd after execution
+    
+    output reg [31:0] rvfi_pc_rdata, // PC before execution
+    output reg [31:0] rvfi_pc_wdata, // PC after execution
+    
+    output reg [31:0] rvfi_mem_addr,
+    output reg [3:0]  rvfi_mem_rmask,
+    output reg [3:0]  rvfi_mem_wmask,
+    output reg [31:0] rvfi_mem_rdata,
+    output reg [31:0] rvfi_mem_wdata
+`endif
+    
     output [31:0]    mem_addr,
     output [31:0]    mem_wr_data,
     output           mem_wr_en,
@@ -88,10 +116,10 @@ module ToastCore
     wire [4:0]  MEM_Rd_addr;
 
     // Writeback
-    wire [4:0] WB_Rd_addr;
+    wire [4:0]  WB_Rd_addr;
     wire [31:0] WB_Rd_data;
     wire        WB_Rd_wr_en;
-    
+
     
     Forwarding FWD_inst(
     .ForwardA           (ForwardA),
