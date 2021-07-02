@@ -41,6 +41,7 @@ module ID_top
     input                                Reset_n,
     
     // pipeline in
+    input                                IF_valid,
     input  [31:0]                        IF_PC,
     input  [31:0]                        IF_Instruction,
     input                                ID_Stall,
@@ -50,7 +51,9 @@ module ID_top
     input  [4:0]                         WB_Rd_addr,
     input  [31:0]                        WB_Rd_data,
     input                                WB_RegFile_wr_en,
-    
+
+    output                               trap,
+
     // pipeline out
     output reg [REG_DATA_WIDTH-1:0]      ID_PC,
     
@@ -80,6 +83,11 @@ module ID_top
     output reg [4:0]                     ID_Rs2_addr
     );
     
+`ifdef RISCV_FORMAL
+    reg [63:0] order;
+`endif
+
+
     wire [4:0] Rd_addr;
     wire [4:0] Rs1_addr;
     wire [4:0] Rs2_addr;
@@ -98,6 +106,8 @@ module ID_top
     wire [2:0] Mem_op;
     
     wire [31:0] Branch_dest;
+
+
     
     ID_control RV32I_CONTROL(
     .IF_Instruction (IF_Instruction),
@@ -107,6 +117,7 @@ module ID_top
     .Rd_addr        (Rd_addr),
     .Rs1_addr       (Rs1_addr),
     .Rs2_addr       (Rs2_addr),
+    .trap           (trap),
     .ALU_source_sel (ALU_source_sel), // ctrl
     .ALU_op         (ALU_op),         // ctrl
     .Branch_op      (Branch_op),      // ctrl

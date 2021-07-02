@@ -64,6 +64,8 @@ module ID_control
     output     [4:0]                      Rd_addr,        
     output     [4:0]                      Rs1_addr,       
     output     [4:0]                      Rs2_addr, 
+
+    output reg                            trap,
     
     // ALU OPERANDS
     output reg [REG_DATA_WIDTH-1 :0]      Immediate_1,    
@@ -131,7 +133,7 @@ module ID_control
         MemToReg       = 0;     // default: no data mem writeback
         Jump           = 0;     // default: no jump
         Mem_op         = 0;     // default: no data mem mask
-        
+        trap           = 0;
         
         case(OPCODE)
         
@@ -284,7 +286,23 @@ module ID_control
                     `FUNCT3_SB: Mem_op = `MEM_SB;
                 endcase
             end
-         
+            
+            default: begin
+                trap           = 1;
+                Immediate_1    = 32'bx; 
+                Immediate_2    = 32'bx;
+                ALU_source_sel = 2'b0;  
+                ALU_op         = 0;     
+                Branch_op      = 0;     
+                Branch_flag    = 0;     
+                Mem_wr_en      = 0;     
+                Mem_rd_en      = 0;     
+                RegFile_wr_en  = 1;     
+                MemToReg       = 0;     
+                Jump           = 0;     
+                Mem_op         = 0;     
+            end
+
         endcase     
     end // end always_comb
     
