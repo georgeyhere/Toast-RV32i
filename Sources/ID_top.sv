@@ -122,8 +122,8 @@ module ID_top
     ID_regfile RV32I_REGFILE(
     .Clk         (Clk),
     .Reset_n     (Reset_n),
-    .Rs1_addr    (ID_Rs1_addr), // from control
-    .Rs2_addr    (ID_Rs2_addr), // from control
+    .Rs1_addr    (Rs1_addr), // from control
+    .Rs2_addr    (Rs2_addr), // from control
     .Rd_addr     (WB_Rd_addr),
     .Rd_wr_data  (WB_Rd_data),
     .Rd_wr_en    (WB_RegFile_wr_en),

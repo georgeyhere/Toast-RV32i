@@ -30,8 +30,8 @@ package RV32I_definitions;
     `define OPCODE_BRANCH      7'b1100011
     `define OPCODE_LUI         7'b0110111 
     `define OPCODE_AUIPC       7'b0010111 
-    `define OPCODE_JAL         7'b1101111 //TODO
-    `define OPCODE_JALR        7'b1100111 //TODO
+    `define OPCODE_JAL         7'b1101111 
+    `define OPCODE_JALR        7'b1100111 
     `define OPCODE_LOAD        7'b0000011 
     `define OPCODE_STORE       7'b0100011 
     
@@ -62,13 +62,15 @@ package RV32I_definitions;
     // FUNCT3 - LOAD
     `define FUNCT3_LW          3'b010
     `define FUNCT3_LB          3'b000
-    // TODO - LH
-    //      - LBU 
+    `define FUNCT3_LH          3'b001
+    `define FUNCT3_LBU         3'b100 // TODO
+    `define FUNCT3_LHU         3'b101 // TODO
+    
     
     // FUNCT3 - STORE
     `define FUNCT3_SW          3'b000
     `define FUNCT3_SB          3'b111
-    // TODO - SH
+    `define FUNCT3_SH          3'b001
     
     // FUNCT3 - BRANCH
     `define FUNCT3_BEQ         3'b000

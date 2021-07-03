@@ -39,15 +39,9 @@ module IF_top
     (
     input                        Clk,
     input                        Reset_n,
-   
-    input  [31:0]                EX_PC_Branch_dest,
-    input                        EX_PC_Branch,
     
-    input  [31:0]                ID_PC_dest,
-    input                        ID_Jump,
-    
-    input                        IF_Stall,
-    input                        IF_Flush,
+    input                        instr_valid,
+    input      [31:0]            instr,
    
     output     [31:0]            IF_PC,
     output reg [31:0]            IF_Instruction     
@@ -66,21 +60,7 @@ module IF_top
     .PC_Out           (IF_PC)
     );
     
-    IMEM RV32I_IMEM (
-    .IMEM_address  (IF_PC),
-    .Instruction   (Instruction)
-    );
-    
-    always_comb begin
-        if(IF_Flush == 1'b1) begin
-            IF_Instruction = 0;
-        end
-        else begin
-            IF_Instruction = Instruction;
-        end
-    end
-    
-    // if a branch/jump is taken, flush the current instruction
+    always@(posedge Clk)
     
     
     
