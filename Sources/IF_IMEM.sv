@@ -46,17 +46,21 @@ module IMEM
 // 			          Parameters, Registers, and Wires
 // ===========================================================================    
     reg [31:0] Instruction_data [0:IMEM_DATA_DEPTH-1]; // used to read from .data
-    
+    reg [31:0] HexFile          [0:IMEM_DATA_DEPTH-1];
+
 // ===========================================================================
 //                              Implementation    
 // ===========================================================================
     initial begin
-    /*
-        for(int i=0; i<IMEM_DATA_DEPTH; i++) begin
-            Instruction_data[i] = 0;
+
+        /*
+        $readmemh("imem.data", HexFile);           // read hex instructions from .data
+
+        for(int i=1; i<(IMEM_DATA_DEPTH/4); i++) begin 
+            Instruction_data[i*4] = HexFile[i];    // load hex instructions into every 4th address
         end
-    */
-       // $readmemh("C:/Users/George/Desktop/Work/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/IMEM.txt", Instruction_data);   // read hex data
+        */
+       
     end
     
     always@* begin
