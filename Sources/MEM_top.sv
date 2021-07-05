@@ -89,7 +89,7 @@ module MEM_top
             `MEM_SB:   mem_wr_data = { {24{EX_Rs2_data[1'b0]}}, EX_Rs2_data[7:0] }; 
             `MEM_SH:   mem_wr_data = { {16{EX_Rs2_data[1'b0]}}, EX_Rs2_data[15:0] };
             `MEM_SW:   mem_wr_data = EX_Rs2_data;
-            default:   mem_wr_data = EX_Rs2_data;
+            default:   mem_wr_data = 0;
         endcase
     end
     

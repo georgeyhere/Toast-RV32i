@@ -1,3 +1,55 @@
+=================================================
+7/3/2021
+-----------------------------------------------
+TODO:
+- implement JALR and remaining load/store instructions
+- write testbenches for each instruction
+**********************************************
+- installed icarus verilog and gtkwave on Ubuntu
+	- practiced with counter example
+	- need to figure out how to write command file
+          to test files in different directories
+	- need to practice adding include directories 
+	  to command file
+	- need to learn how to translate data in GTKwave
+	  for easier debugging (i.e. show instructions)
+- modified IMEM module to load instruction data into
+  every fourth address
+- rebuilt riscv-gnu-toolchain to /usr/bin
+
+=================================================
+
+
+=================================================
+7/2/2021
+-----------------------------------------------
+TODO:
+- add test tasks for all currently implemented instructions
+- implement JALR and remaining load/store instructions
+**********************************************
+- added test tasks for all currently implemented instructions
+
+
+=================================================
+
+
+=================================================
+7/1/2021
+-----------------------------------------------
+TODO:
+- update datapath diagram
+- investigate testbench methods
+**********************************************
+- decided to abandon formal verification for now
+- found example self-checking tests: https://github.com/4a1c0/RV32i-Verilog
+- rewrote IMEM to allow testbench to write to array instead of reading from 
+  text file
+- wrote testbench for BEQ
+	- fixed bug where branch generation in ID stage wasn't 
+	  executing on the same cycle	
+=================================================
+
+=================================================
 6/30/2021
 -----------------------------------------------
 TODO:
@@ -10,8 +62,15 @@ TODO:
 - added WB stage
 - implemented MEM and WB stages into pipeline
 - core is synthesizable
+- wrote basic testbench for simulation
+-> verifying via simulation will take wayyyyy too long and is too much work!
+	-> going to have to learn how to use RVFI
+=================================================
 
 
+
+
+=================================================
 6/29/2021
 -----------------------------------------------
 TODO:
@@ -23,10 +82,12 @@ TODO:
 - setup RISC-V tests in WSL2
 - wrote basic testbench for existing pipeline components
 - simulated in Vivado XSim, fixed minor bugs
+=================================================
 
 
 
 
+=================================================
 6/28/2021
 ------------------------------------------------
 TODO:
@@ -52,8 +113,12 @@ TODO:
 
 - Moved Branch_gen from EX stage to ID stage
    -> Will reduce cost of jumps
+=================================================
 
 
+
+
+=================================================
 6/27/2021
 ------------------------------------------------
 TODO: 
@@ -64,10 +129,12 @@ TODO:
 - Installed Windows Subsystem for Linux 2
 - Installed bronzebeard assembler
 - Installed Ubuntu 18.04 on WSL2
+=================================================
 
 
 
 
+=================================================
 6/26/2021
 *********************************************
 Implemented Decoder/Control for ID pipeline stage
@@ -92,3 +159,4 @@ Implemented Control Signals for following OPCODES:
 - JALR
 - LOAD
 - STORE
+=================================================

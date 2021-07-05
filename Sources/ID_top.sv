@@ -122,8 +122,8 @@ module ID_top
     ID_regfile RV32I_REGFILE(
     .Clk         (Clk),
     .Reset_n     (Reset_n),
-    .Rs1_addr    (ID_Rs1_addr), // from control
-    .Rs2_addr    (ID_Rs2_addr), // from control
+    .Rs1_addr    (Rs1_addr), // from control
+    .Rs2_addr    (Rs2_addr), // from control
     .Rd_addr     (WB_Rd_addr),
     .Rd_wr_data  (WB_Rd_data),
     .Rd_wr_en    (WB_RegFile_wr_en),
@@ -134,8 +134,8 @@ module ID_top
     Branch_gen ID_BranchGen (
     .Branch_op   (Branch_op),
     .PC          (IF_PC),
-    .RegData     (ID_Rs1_data),
-    .Immediate   (ID_Immediate_2),
+    .RegData     (Rs1_data),
+    .Immediate   (Immediate_2),
     .Branch_dest (Branch_dest)
     );
     

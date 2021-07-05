@@ -34,6 +34,7 @@ module WB_top
     input             MEM_RegFile_wr_en   
     );
 
+
     always_comb begin
         WB_Rd_addr       = MEM_Rd_addr;
         WB_Rd_data       = (MEM_MemToReg == 1'b1) ? MEM_dout : MEM_ALU_result;
