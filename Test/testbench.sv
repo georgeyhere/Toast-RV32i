@@ -345,7 +345,7 @@ module testbench();
         input [4:0] rd;
         input [19:0] imm;
         begin
-            instruction = {imm[19:0], rd, `OPCODE_LUI}
+            instruction = {imm[19:0], rd, `OPCODE_LUI};
             UUT.IF_inst.RV32I_IMEM.Instruction_data[pc+4] = instruction;
             pc = pc + 32'd4;
         end
@@ -449,20 +449,10 @@ module testbench();
 //----------------------------------------------------------------------------
 //                                  Stores:
 //----------------------------------------------------------------------------  
-    task encode_SB;
+    
 
 
 
-
-    initial begin
-        pc=0;
-        encode_ADDI(4, 0, 1);
-        encode_ADDI(5, 0, 2);
-        encode_ADD(6, 4, 5);
-        Reset_n = 0;
-        #100;
-        Reset_n = 1;
-    end
 
 
     

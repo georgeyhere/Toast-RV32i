@@ -1,6 +1,7 @@
 `timescale 1ns/1ps
 
-import RV32I_definitions::*;
+`include "C:/Users/George/Desktop/Work/RISCV/Sources/RV32I_definitions.sv"
+import   RV32I_definitions::*;
 
 module lui_OOP_tb();
 
@@ -34,53 +35,20 @@ module lui_OOP_tb();
     	// generates a LUI instruction w/ random non-zero destination and random immediate.
     	randc bit [4:0]  rd;
     	randc bit [19:0] imm;
-
+        bit       [31:0] expected;
+        
     	constraint rd_range {rd > 0;    
     						 rd <= 31;} 
 
     	constraint imm_range {imm <= (2**20 - 1);}
+    	
     endclass
 
 
 //----------------------------------------------------------------------------
 //                                Tasks:
 //----------------------------------------------------------------------------  
-	`define test_PASS = 2'b10
-	`define test_FAIL = 2'b01
-    task check_LUI;
-    	input         Clk;
-    	input  [4:0]  rd;
-    	input  [19:0] imm;
-    	output [1:0]  result;
-    	output [3:0]  cycles;
-    	begin
-    		cycles = 0;
-    		repeat(6) begin
-    			@(posedge Clk) begin
-    				if(checker_rd == imm) begin
-    					result = 2'b10;
-    					cycles = cycles;
-    					$display("Expected-> Rd: %0h ; Value: %32b", rd, {imm, {12{1'b0}}});
-    					$display("Register Rd: %0h ; Value: %32b", checker_rd, regfile_rd);
-    					$display("Test Passed, Cycles: %0d", cycles);
-    					break;
-    				end
-    				else begin
-    					$display("Expected-> Rd: %0h ; Value: %32b", rd, {imm, {12{1'b0}}});
-    					$display("Register Rd: %0h ; Value: %32b", checker_rd, regfile_rd);
-    					$display("Test Continuing");
-    					result = 2'b0;	
-    					cycles = cycles+1;
-    					$finish;
-    				end
-    			end
-    		end
-    		$display("Expected-> Rd: %0h ; Value: %32b", rd, {imm, {12{1'b0}}});
-    		$display("Register Rd: %0h ; Value: %32b", checker_rd, regfile_rd);
-    		$display("Test Failed");
-    		result = 2'b01;	
-    	end
-    endtask // randomTest_LUI
+	
 
     function encode_LUI;
         input  [4:0]  rd;
@@ -119,7 +87,8 @@ module lui_OOP_tb();
     	test_Inst = new();             // create new test_Inst
     	if (!test_Inst.randomize())    // end simulation if it fails to randomize
     		$finish;
-
+        test_Inst.expected = {test_Inst.imm , {12{1'b0}}};
+        
     	checker_rd = test_Inst.rd;     // set the checker rd address
     	encode_LUI(test_Inst.rd, test_Inst.imm);
     	$display("Test started.");
@@ -127,16 +96,36 @@ module lui_OOP_tb();
     	#100;
 
         
-    	Reset_n = 1'b1;
-    	check_LUI(Clk, test_Inst.rd, test_Inst.imm, checker_result, checker_cycles);
+    	@(posedge Clk) Reset_n = 1'b1;
+    	
+    	checker_cycles = 0;
+    	$display("Expected-> Rd: %0h ; Value: %32b", test_Inst.rd, test_Inst.expected);
+    	for(int j=0; j<6; j++) begin
+    	   @(posedge Clk) begin
+    				if(regfile_rd == test_Inst.expected ) begin
+    				    checker_cycles = checker_cycles;
+    					$display("Current    Rd: %0h ; Value: %32b", checker_rd, regfile_rd);
+    					$display("Test Passed, Cycles: %0d", checker_cycles);
+    					break;
+    				end
+    				else begin
+    				    checker_cycles = checker_cycles+1;
+    					$display("Current    Rd: %0h ; Value: %32b", checker_rd, regfile_rd);
+    					if(j==5)
+    					   $display("Test Timed Out. ; Cycles Elapsed: %0d", checker_cycles);
+    					else
+    					   $display("Test Continuing ; Cycles Elapsed: %0d", checker_cycles);
+    				end
+    	   end
+    	end
+    	
+    	/*
     	if(checker_result == 2'b01) 
     		$finish;
     	else if(checker_result == 2'b10)
     		$display("made it here!");
-    	
+    	*/
 
     end
-
-
 
 endmodule // lui_tb
