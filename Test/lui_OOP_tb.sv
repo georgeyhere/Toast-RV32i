@@ -1,10 +1,11 @@
 `timescale 1ns/1ps
 
 `include "C:/Users/George/Desktop/Work/RISCV/Sources/RV32I_definitions.sv"
+`include "C:/Users/George/Desktop/Work/RISCV/Test/testbench.sv"
 import   RV32I_definitions::*;
 
 module lui_OOP_tb();
-
+/*
 	reg Clk = 0;
     reg Reset_n;
     reg [31:0] mem_rd_data = 0;
@@ -26,6 +27,21 @@ module lui_OOP_tb();
 
     
     always#(10) Clk=~Clk;
+
+//----------------------------------------------------------------------------
+//                           UUT Instantiation:
+//----------------------------------------------------------------------------  
+    ToastCore UUT(
+    .Clk         (Clk),
+    .Reset_n     (Reset_n),
+    .mem_rd_data (mem_rd_data),
+    .mem_addr    (mem_addr),
+    .mem_wr_en   (mem_wr_en),
+    .mem_rst     (mem_rst)
+    );
+
+ */   
+
     
 //----------------------------------------------------------------------------
 //                               Classes:
@@ -41,12 +57,27 @@ module lui_OOP_tb();
     						 rd <= 31;} 
 
     	constraint imm_range {imm <= (2**20 - 1);}
-    	
     endclass
 
+    class instn_LI;
+        randc bit [4:0]  rd;
+        randc bit [31:0] imm;
+        
+        function loadToMem;
+            begin
+                int unsigned instruction1, instruction2;
+                int m = (imm << 20) >> 20;       // sign extend low 12 bits
+                int k = ((imm - m) >> 12) << 12; // the 20 high bits
+                $display("Pseudo-instruction LI beginning.");
+                $display("Imm = %32b ; k = %32b ; m = %32b", imm, m, k);
+                encode_LUI(rd, k);      // load upper 20 bits w/ LUI
+                encode_ADDI(rd, rd, m); // add in lower 12 bits w/ ADDI
+            end
+        endfunction
+    endclass // class
 
 //----------------------------------------------------------------------------
-//                                Tasks:
+//                                Functions:
 //----------------------------------------------------------------------------  
 	
 
@@ -61,36 +92,25 @@ module lui_OOP_tb();
         end
     endfunction
 
-//----------------------------------------------------------------------------
-//                            Instantiation:
-//----------------------------------------------------------------------------  
-    ToastCore UUT(
-    .Clk         (Clk),
-    .Reset_n     (Reset_n),
-    .mem_rd_data (mem_rd_data),
-    .mem_addr    (mem_addr),
-    .mem_wr_en   (mem_wr_en),
-    .mem_rst     (mem_rst)
-    );
 
-    
+
 //----------------------------------------------------------------------------
-//                                Testbench:
+//                                Tasks:
 //----------------------------------------------------------------------------  
 
-    instn_LUI test_Inst;               // create class object instn_LUI
+    instn_LUI LUI_Inst;           // create class object instn_LUI
 
-    initial begin
+    task TEST_LUI;
         Reset_n = 1'b0;
     	pc = 0;                        // set pc = 0
 
-    	test_Inst = new();             // create new test_Inst
-    	if (!test_Inst.randomize())    // end simulation if it fails to randomize
+    	LUI_Inst = new();             // create new LUI_Inst
+    	if (!LUI_Inst.randomize())    // end simulation if it fails to randomize
     		$finish;
-        test_Inst.expected = {test_Inst.imm , {12{1'b0}}};
+        LUI_Inst.expected = {LUI_Inst.imm , {12{1'b0}}};
         
-    	checker_rd = test_Inst.rd;     // set the checker rd address
-    	encode_LUI(test_Inst.rd, test_Inst.imm);
+    	checker_rd = LUI_Inst.rd;     // set the checker rd address
+    	encode_LUI(LUI_Inst.rd, LUI_Inst.imm);
     	$display("Test started.");
 
     	#100;
@@ -99,10 +119,10 @@ module lui_OOP_tb();
     	@(posedge Clk) Reset_n = 1'b1;
     	
     	checker_cycles = 0;
-    	$display("Expected-> Rd: %0h ; Value: %32b", test_Inst.rd, test_Inst.expected);
+    	$display("Expected-> Rd: %0h ; Value: %32b", LUI_Inst.rd, LUI_Inst.expected);
     	for(int j=0; j<6; j++) begin
     	   @(posedge Clk) begin
-    				if(regfile_rd == test_Inst.expected ) begin
+    				if(regfile_rd == LUI_Inst.expected ) begin
     				    checker_cycles = checker_cycles;
     					$display("Current    Rd: %0h ; Value: %32b", checker_rd, regfile_rd);
     					$display("Test Passed, Cycles: %0d", checker_cycles);
@@ -118,14 +138,14 @@ module lui_OOP_tb();
     				end
     	   end
     	end
-    	
-    	/*
-    	if(checker_result == 2'b01) 
-    		$finish;
-    	else if(checker_result == 2'b10)
-    		$display("made it here!");
-    	*/
+    endtask
+    
+//----------------------------------------------------------------------------
+//                                Testbench:
+//----------------------------------------------------------------------------  
 
+    initial begin
+        repeat(50) TEST_LUI;
     end
 
 endmodule // lui_tb
