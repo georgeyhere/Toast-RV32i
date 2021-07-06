@@ -94,39 +94,18 @@ module lui_OOP_tb();
         end
     endtask
  
-    task TEST_LUI;
-        pc = 0;
-        LUI_Inst = new();
-        if (!LUI_Inst.randomize())    // end simulation if it fails to randomize
-            $finish;
-        checker_rd = LUI_Inst.rd;
-        instruction = (encode_LUI(LUI_Inst.rd, {LUI_Inst.imm[19:0],{12{1'b0}}}));
-        LOAD_MEM(instruction);
-        $display("Testing LUI...");
-        $display("Intruction: %32b", instruction);
-        CHECK(LUI_Inst.rd, {LUI_Inst.imm, {12{1'b0}}});
-    endtask // task
-
-    task TEST_LI;
-        pc = 0;
-        LI_Inst = new();
-        if (!LI_Inst.randomize())    // end simulation if it fails to randomize
-            $finish;
-        m = (LI_Inst.imm << 20) >> 20; 
-        k = ((LI_Inst.imm - m) >> 12) << 12;
-        checker_rd   = LI_Inst.rd;
-        instruction  = encode_LUI(LI_Inst.rd, k);
-        instruction1 = encode_ADDI(LI_Inst.rd, LI_Inst.rd, m);
-        LOAD_MEM(instruction);
-        LOAD_MEM(instruction1);
-        $display("LI test start.");
-        $display("LI %0d, %32b", LI_Inst.rd, LI_Inst.imm);
-        $display("Instruction 1: LUI  0x%0d,        %32b", LI_Inst.rd, k);
-        $display("Instruction 2: ADDI 0x%0d, 0x%0d, %32b", LI_Inst.rd, LI_Inst.rd, m);
-        CHECK(LI_Inst.rd, LI_Inst.imm);
+    task LOAD_LI;
+        input [31:0] data;
+        input [4:0]  rd;
+        m = (data << 20) >> 20;
+        k = ((data - m) >> 12 ) << 12;
+        instruction = encode_LUI(rd, k);
+        instruction1 = encode_ADDI(rd,rd, m);
+        LOADMEM(instruction);
+        LOADMEM(instruction1);
     endtask
 
-
+    
 
     covergroup CovGrp@(posedge checker_pass);
         coverpoint instruction[6:0] 

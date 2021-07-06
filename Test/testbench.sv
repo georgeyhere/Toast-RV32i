@@ -25,6 +25,15 @@ package testbench_pkg;
 
 
 //----------------------------------------------------------------------------
+//                               Scenarios:
+//----------------------------------------------------------------------------  
+    `define scenario_equVal_diffAddr
+
+
+
+
+
+//----------------------------------------------------------------------------
 //                               Classes:
 //----------------------------------------------------------------------------  
 
@@ -44,13 +53,15 @@ package testbench_pkg;
         randc bit [31:0] imm;
         
         constraint rd_range {rd > 0;    
-                             rd <= 31;} 
+                             rd < 32;} 
 
         constraint imm_range {imm <= (2**32 - 1);}
 
         int m = (imm << 20) >> 20;       // sign extend low 12 bits
         int k = ((imm - m) >> 12) << 12; // the 20 high bits
     endclass 
+
+    
 
     class coverage;
         bit [31:0] instruction;

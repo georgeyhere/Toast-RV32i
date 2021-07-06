@@ -126,8 +126,6 @@ module lui_OOP_tb();
         CHECK(LI_Inst.rd, LI_Inst.imm);
     endtask
 
-
-
     covergroup CovGrp@(posedge checker_pass);
         coverpoint instruction[6:0] 
         {
