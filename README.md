@@ -4,6 +4,11 @@
 
 - Toast does not support interrupt handling, nor the CSR, FENCE, EBREAK, or ECALL instructions.
 
+- Objectives: 
+
+     - Produce a core that is capable of running the RV32ui unit tests from official [riscv-tests](https://github.com/riscv/riscv-tests) repo
+     - Utilize synthesizable SystemVerilog features
+     - Gain familiarity with Linux environment
 
 <h1> Files in this Repository </h1>
 
@@ -17,7 +22,19 @@ __/Sources__
 - Contains ToastCore.sv as well as all submodules
 
 <h1> Performance </h1>
-- coming soon
+-  will be updated as more instructions are tested
+
+
+|Instruction | CPI|
+|------------|----|
+Direct Jump (JAL) | <>
+ALU reg-reg | 3
+ALU reg-imm | 3
+Cond. Branch | 3
+Memory Load | <>
+Memory Store | <>
+Indirect Jump (JALR) | <>
+
 
 <h1> Memory Interface </h1>
 
