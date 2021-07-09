@@ -47,7 +47,8 @@ module jumps_tb();
     int unsigned m, k;
     int unsigned expected;
 
-    int temp;
+    int passed_cnt;
+    int failed_cnt;
 
     ToastCore UUT(
     .Clk         (Clk),
@@ -108,119 +109,174 @@ module jumps_tb();
         LOAD_MEM(encode_ADDI(rd, rd, m));    
     endtask
 
-    task TEST_BEQ;
-        input bit direction;
-        input bit filler;
+    task TEST_JAL;
+
+
+    endtask // TASK_JAL
+
+
+    task TEST_BRANCH;
+        input bit    direction;
+        input bit    filler;
+        input [7:0]  test_id [11:0];
+
+        bit          dice;
+        bit   [4:0]  start_addr;
+        bit   [31:0] branch_dest;
+
+        int          direction_mp; // direction multiplier
+        direction_mp = (direction == 1) ? 1 : -1;
+
 
         // INIT_TEST resets the DUT and pc
         INIT_TEST();
 
         // Load the same random number into rd1 and rd2
-        LOAD_LI(DATA_Inst.rd1, DATA_Inst.imm);
-        LOAD_LI(DATA_Inst.rd2, DATA_Inst.imm);
+        case(test_id)
 
-        if(filler == 1) begin
-            LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd1-1, 16));    // @20
-            LOAD_MEM(encode_BNE(DATA_Inst.rd1, DATA_Inst.rd2,  16));     // @24
-            $display("BEQ TEST @IMEM 28: Time = %0t", $time);
-            if(direction == 1) begin
-                LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd2,  16));  // @28
-                $display("Branching forwards. Expected PC = 28+16 = 44");
+            "BEQ": begin 
+                // load the same number
+                LOAD_LI(DATA_Inst.rd1, DATA_Inst.imm);
+                LOAD_LI(DATA_Inst.rd2, DATA_Inst.imm);
+                if(filler) begin
+                    LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd1-1, direction_mp*16));    
+                    LOAD_MEM(encode_BNE(DATA_Inst.rd1, DATA_Inst.rd2,  direction_mp*16));    
+                end
+                LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd2,  direction_mp*16));
+                $display("BEQ TEST BEGIN: rd1 = %0d, rd2 = %0d", DATA_Inst.imm, DATA_Inst.imm);
             end
-            else begin
-                LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd2,  -16));    // @28
-                $display("Branching backwards. Expected PC = 28-16 = 12");
+
+            "BNE": begin
+                // randomly load rd2 with a lower or greater number
+                dice = $random;
+                case(dice)
+                    0: begin // load rd2 greater than rd1
+                        LOAD_LI(DATA_Inst.rd1, DATA_Inst.imm);
+                        LOAD_LI(DATA_Inst.rd2, DATA_Inst.rd2_lt_s);
+                        $display("BNE TEST BEGIN: rd1 = %0d, rd2 = %0d", DATA_Inst.imm, DATA_Inst.rd2_lt_s);
+                    end
+                    1: begin // load rd2 less than rd1
+                        LOAD_LI(DATA_Inst.rd1, DATA_Inst.imm);
+                        LOAD_LI(DATA_Inst.rd2, DATA_Inst.rd2_gt_s);
+                        $display("BNE TEST BEGIN: rd1 = %0d, rd2 = %0d", DATA_Inst.imm, DATA_Inst.rd2_gt_s);
+                    end
+                endcase
+                if(filler) begin
+                    LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd1-1, direction_mp*16));    
+                    LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd2,  direction_mp*16));    
+                end
+                LOAD_MEM(encode_BNE(DATA_Inst.rd1, DATA_Inst.rd2,  direction_mp*16));
+
             end
-        end
-        else begin
-            $display("BEQ TEST @IMEM 20: Time = %0t", $time);
-            if(direction == 1) begin
-                LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd2,  16));
-                $display("Branching forwards. Expected PC = 20+16 = 36");
+
+            "BLT": begin
+                // load rd2 less than rd1
+                LOAD_LI(DATA_Inst.rd1, DATA_Inst.imm);
+                LOAD_LI(DATA_Inst.rd2, DATA_Inst.rd2_lt_s);  
+                if(filler) begin
+                    LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd1-1, direction_mp*16));    
+                    LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd2,  direction_mp*16));    
+                end
+                LOAD_MEM(encode_BNE(DATA_Inst.rd1, DATA_Inst.rd2,  direction_mp*16));  
+                $display("BLT TEST BEGIN: rd1 = %0d, rd2 = %0d", DATA_Inst.imm, DATA_Inst.rd2_lt_s);     
             end
-            else begin
-                LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd2,  -16)); 
-                $display("Branching backwards. Expected PC = 20-16 = 4");
+
+            "BGE": begin
+                // load rd2 greater than rd1
+                LOAD_LI(DATA_Inst.rd1, DATA_Inst.imm);
+                LOAD_LI(DATA_Inst.rd2, DATA_Inst.rd2_gt_s);
+                if(filler) begin
+                    LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd1-1, direction_mp*16));    
+                    LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd2,  direction_mp*16));    
+                end
+                LOAD_MEM(encode_BGE(DATA_Inst.rd1, DATA_Inst.rd2,  direction_mp*16));    
+                $display("BGE TEST BEGIN: rd1 = %0d, rd2 = %0d", DATA_Inst.imm, DATA_Inst.rd2_gt_s);   
             end
-        end     
+
+            "BLTU": begin
+                // load rd2 less than rd1
+                LOAD_LI(DATA_Inst.rd1, DATA_Inst.imm);
+                LOAD_LI(DATA_Inst.rd2, DATA_Inst.rd2_lt_us);      
+                if(filler) begin
+                    LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd1-1, direction_mp*16));    
+                    LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd2,  direction_mp*16));    
+                end
+                LOAD_MEM(encode_BLTU(DATA_Inst.rd1, DATA_Inst.rd2,  direction_mp*16));   
+                $display("BLTU TEST BEGIN: rd1 = %0d, rd2 = %0d", DATA_Inst.imm, DATA_Inst.rd2_lt_us);
+            end
+
+            "BGEU": begin
+                // load rd2 greater than rd1
+                LOAD_LI(DATA_Inst.rd1, DATA_Inst.imm);
+                LOAD_LI(DATA_Inst.rd2, DATA_Inst.rd2_gt_us);
+                if(filler) begin
+                    LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd1-1, direction_mp*16));    
+                    LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd2,  direction_mp*16));    
+                end
+                LOAD_MEM(encode_BGEU(DATA_Inst.rd1, DATA_Inst.rd2,  direction_mp*16));   
+                $display("BGEU TEST BEGIN: rd1 = %0d, rd2 = %0d", DATA_Inst.imm, DATA_Inst.rd2_gt_us);
+            end
+
+        endcase
+        
         
         // Execute and check the test
         // This iteration of the test checks if a branch is taken at a given
         // point in time; a flaw is that it does not check if operands are correct
+
+        checker_rd1 = DATA_Inst.rd1;
+        checker_rd2 = DATA_Inst.rd2;
         #100;
         Reset_n = 1;
         if(filler == 1) begin
-            #175;
-            if(UUT.IF_inst.EX_PC_Branch == 1) $display("TEST PASSED: BRANCH TAKEN!");
-            else $display("TEST FAILED: BRANCH NOT TAKEN");
+            #180;
+            if(UUT.IF_inst.EX_PC_Branch == 1) begin
+                $display("TEST PASSED: BRANCH TAKEN!");
+                passed_cnt++;
+            end
+            else begin
+                $display("TEST FAILED: BRANCH NOT TAKEN || TIME: %0t", $time);
+                failed_cnt++;
+            end
         end
         else begin
-            #145;
-            if(UUT.IF_inst.EX_PC_Branch == 1) $display("TEST PASSED: BRANCH TAKEN!");
-            else $display("TEST FAILED: BRANCH NOT TAKEN");
+            #150;
+            if(UUT.IF_inst.EX_PC_Branch == 1) begin
+                $display("TEST PASSED: BRANCH TAKEN!");
+                passed_cnt++;
+            end
+            else begin
+                $display("TEST FAILED: BRANCH NOT TAKEN || TIME: %0t", $time);
+                failed_cnt++;
+            end
         end
+        $display("Rd1: %0d, %0d || Rd2: %0d, %0d", DATA_Inst.rd1, regfile_rd1, DATA_Inst.rd2, regfile_rd2);
+        
+        if(regfile_rd2 == regfile_rd1) $display("Rd1 == Rd2");
+        else if(regfile_rd2 > regfile_rd1) $display("Rd1 < Rd2");
+        else if(regfile_rd2 < regfile_rd1) $display("Rd1 > Rd2");
+        $display("----------------------------------------------------------");
         Reset_n = 0;
-    endtask // TEST_BEQ
+    endtask // TEST_BRANCH
     
-    task TEST_BNE;
-        input bit direction;
-        input bit filler;
-
-        // INIT_TEST resets the DUT and pc
-        INIT_TEST();
-
-        // Load the same random number into rd1 and rd2
-        LOAD_LI(DATA_Inst.rd1, DATA_Inst.imm);
-        LOAD_LI(DATA_Inst.rd2, DATA_Inst.imm);
-
-        if(filler == 1) begin
-            LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd1-1, 16));    // @20
-            LOAD_MEM(encode_BNE(DATA_Inst.rd1, DATA_Inst.rd2,  16));     // @24
-            $display("BEQ TEST @IMEM 28: Time = %0t", $time);
-            if(direction == 1) begin
-                LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd2,  16));  // @28
-                $display("Branching forwards. Expected PC = 28+16 = 44");
-            end
-            else begin
-                LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd2,  -16));    // @28
-                $display("Branching backwards. Expected PC = 28-16 = 12");
-            end
-        end
-        else begin
-            $display("BEQ TEST @IMEM 20: Time = %0t", $time);
-            if(direction == 1) begin
-                LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd2,  16));
-                $display("Branching forwards. Expected PC = 20+16 = 36");
-            end
-            else begin
-                LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd2,  -16)); 
-                $display("Branching backwards. Expected PC = 20-16 = 4");
-            end
-        end     
-        
-        // Execute and check the test
-        // This iteration of the test checks if a branch is taken at a given
-        // point in time; a flaw is that it does not check if operands are correct
-        #100;
-        Reset_n = 1;
-        if(filler == 1) begin
-            #175;
-            if(UUT.IF_inst.EX_PC_Branch == 1) $display("TEST PASSED: BRANCH TAKEN!");
-            else $display("TEST FAILED: BRANCH NOT TAKEN");
-        end
-        else begin
-            #145;
-            if(UUT.IF_inst.EX_PC_Branch == 1) $display("TEST PASSED: BRANCH TAKEN!");
-            else $display("TEST FAILED: BRANCH NOT TAKEN");
-        end
-        Reset_n = 0;
-    endtask // TEST_BEQ
+    
 
 
     initial begin
-        TEST_BEQ(1, 1);
-        TEST_BEQ(1, 0);
+        $display("----------------------------------------------------------");
 
+        passed_cnt = 0;
+        failed_cnt = 0;
+        repeat(10) begin
+            TEST_BRANCH(1, 1, "BEQ");
+            TEST_BRANCH(1, 1, "BNE");
+            TEST_BRANCH(1, 1, "BLT");
+            TEST_BRANCH(1, 1, "BGE");
+            TEST_BRANCH(1, 1, "BLTU");
+            TEST_BRANCH(1, 1, "BGEU");
+        end
+
+        $display("%0d Tests Ran, %0d Passed, %0d Failed", (passed_cnt+failed_cnt), passed_cnt, failed_cnt);
     end
     
 endmodule
