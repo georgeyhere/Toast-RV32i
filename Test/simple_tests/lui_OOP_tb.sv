@@ -126,8 +126,6 @@ module lui_OOP_tb();
         CHECK(LI_Inst.rd, LI_Inst.imm);
     endtask
 
-
-
     covergroup CovGrp@(posedge checker_pass);
         coverpoint instruction[6:0] 
         {
@@ -154,7 +152,10 @@ module lui_OOP_tb();
     initial begin
         #100;
         
-        TEST_LI;
+        repeat(10) begin
+            TEST_LUI;
+            TEST_LI;
+        end
         
         
         $display("OPCODES Covered = %0.2f %%", CG_Inst.get_coverage());
