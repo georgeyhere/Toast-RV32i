@@ -98,8 +98,9 @@ module jumps_tb();
         end
     endtask 
     
+    task TEST_BEQ;
+        input direction;
     
-    initial begin
         Reset_n = 0;
         pc = 0;
         checker_cycles = 0;
@@ -120,11 +121,19 @@ module jumps_tb();
          
         LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd1-1, 12));    // @20
         LOAD_MEM(encode_BNE(DATA_Inst.rd1, DATA_Inst.rd2,  12));    // @24
-        LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd2,  12));    // @28
-        
+        if(direction == 1)
+            LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd2,  12));    // @28
+        else
+            LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd2,  -12));    // @28
         #100;
         Reset_n = 1;
-        
+        repeat(11) @(posedge Clk);
+        Reset_n = 0;
+    endtask
+    
+    initial begin
+        TEST_BEQ(1);
+        TEST_BEQ(0);
     end
     
 endmodule
