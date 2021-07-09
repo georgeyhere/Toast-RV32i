@@ -61,9 +61,9 @@ module ID_control
     input      [REG_DATA_WIDTH-1 :0]      IF_Instruction,
     input      [31:0]                     IF_PC,
 
-    output     [4:0]                      Rd_addr,        
-    output     [4:0]                      Rs1_addr,       
-    output     [4:0]                      Rs2_addr, 
+    output reg [4:0]                      Rd_addr,        
+    output reg [4:0]                      Rs1_addr,       
+    output reg [4:0]                      Rs2_addr, 
     
     // ALU OPERANDS
     output reg [REG_DATA_WIDTH-1 :0]      Immediate_1,    
@@ -112,10 +112,11 @@ module ID_control
     assign IMM_U       = { IF_Instruction[31:12], {12{1'b0}} };
     assign IMM_J       = { {11{1'b0}}, IF_Instruction[31], IF_Instruction[19:12], IF_Instruction[20], IF_Instruction[10:1], 1'b0};
     
+    /*
     assign Rd_addr  = IF_Instruction[11:7];
     assign Rs1_addr = IF_Instruction[19:15];
     assign Rs2_addr = IF_Instruction[24:20];
-    
+    */
     // Combinatorial process to decode instructions
     always_comb begin
         // DEFAULT 
@@ -132,6 +133,9 @@ module ID_control
         Jump           = 0;     // default: no jump
         Mem_op         = 0;     // default: no data mem mask
         
+        Rd_addr  = IF_Instruction[11:7]; 
+        Rs1_addr = IF_Instruction[19:15];
+        Rs2_addr = IF_Instruction[24:20];
         
         case(OPCODE)
         
@@ -160,6 +164,7 @@ module ID_control
                 RegFile_wr_en  = 1;
                 ALU_source_sel = 2'b01; // select immediate for op2
                 Immediate_2    = IMM_I; // assign I-type immediate
+                Rs2_addr       = 0;
                 
                 case(FUNCT3)
                     `FUNCT3_ADDI:      ALU_op = `ALU_ADD;  
@@ -182,7 +187,7 @@ module ID_control
                 Branch_op     = `PC_RELATIVE; // set branch gen control
                 RegFile_wr_en = 0;            // disable register writeback
                 Immediate_2   = IMM_B;        // assign B-type immediate (branch gen)
-                 
+                Rd_addr       = 0; 
                 case(FUNCT3)
                     `FUNCT3_BEQ: begin
                         Branch_flag = 0;

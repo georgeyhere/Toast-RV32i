@@ -16,6 +16,8 @@
 		output reg [1:0]                    ForwardA,
 		output reg [1:0]                    ForwardB,   
 		
+		input      [1:0]                    ID_ALU_source_sel,
+		
 		input      [REGFILE_ADDR_WIDTH-1:0] ID_Rs1_addr,
 		input      [REGFILE_ADDR_WIDTH-1:0] ID_Rs2_addr,
 		input      [REGFILE_ADDR_WIDTH-1:0] ID_Rd_addr,
@@ -25,8 +27,13 @@
 		input                               EX_RegFile_wr_en,
 		input                               MEM_RegFile_wr_en
 		);
-
+   
+    
 		/*
+		Check ID_ALU_source_sel : is an ALU operand going to be an immediate?
+		  -> YES: don't forward
+		  -> NO:  perform checks
+		
 		ForwardA Truth Table:
 		---------------------
 		00 -> ALU op1 comes from register file  (no hazard)
@@ -50,7 +57,8 @@
             */
             if ( (EX_RegFile_wr_en == 1'b1) &&     
                  (EX_Rd_addr       != 0   ) &&
-                 (EX_Rd_addr       == ID_Rs1_addr)
+                 (EX_Rd_addr       == ID_Rs1_addr) &&
+                 (ID_ALU_source_sel[1] != 1)
                 )
                 ForwardA = 2'b10;
             else 
@@ -60,7 +68,8 @@
                  ~ ( (EX_RegFile_wr_en  == 1'b1) &&
                      (EX_Rd_addr        != 0)    &&
                      (EX_Rd_addr        == ID_Rs1_addr)) &&
-                 (MEM_Rd_addr       == ID_Rs1_addr)         
+                 (MEM_Rd_addr       == ID_Rs1_addr)&&
+                 (ID_ALU_source_sel[1] != 1)         
                 )
                 ForwardA = 2'b01;
             else
@@ -74,7 +83,8 @@
             */
             if ( (EX_RegFile_wr_en == 1'b1) &&     
                  (EX_Rd_addr       != 0   ) &&
-                 (EX_Rd_addr       == ID_Rs2_addr)
+                 (EX_Rd_addr       == ID_Rs2_addr) &&
+                 (ID_ALU_source_sel[0] != 1)
                 )
                 ForwardB = 2'b10;
             else 
@@ -82,8 +92,9 @@
             if ( (MEM_RegFile_wr_en == 1'b1) &&
                  (MEM_Rd_addr       != 0   ) &&
                  ~ ( (EX_RegFile_wr_en  == 1'b1) && (EX_Rd_addr != 0) && (EX_Rd_addr == ID_Rs2_addr))
-                 && (MEM_Rd_addr == ID_Rs2_addr))          
-                
+                 && (MEM_Rd_addr == ID_Rs2_addr) &&
+                 (ID_ALU_source_sel[0] != 1)
+               ) 
                 ForwardB = 2'b01;
             else
                 ForwardB = 2'b0;         

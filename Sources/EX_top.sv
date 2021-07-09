@@ -154,17 +154,17 @@ module EX_top
             case(ForwardB)
                 // no data hazard
                 default: begin 
-                    ALU_op2 = (ID_ALU_source_sel[0] == 1'b1) ? ID_Immediate_2:ID_Rs2_data;
+                    ALU_op2[31:0] = (ID_ALU_source_sel[0] == 1'b1) ? ID_Immediate_2:ID_Rs2_data;
                 end
                 
                 // ALU op2 forwarded from ALU result of previous cycle
                 2'b10: begin
-                    ALU_op2 = EX_ALU_result;
+                    ALU_op2[31:0] = EX_ALU_result;
                 end
                 
                 // ALU op2 forwarded from read data mem output
                 2'b01: begin
-                    ALU_op2 = WB_Rd_data;
+                    ALU_op2[31:0] = WB_Rd_data;
                 end
             endcase
         end

@@ -47,6 +47,7 @@ module jumps_tb();
     int unsigned m, k;
     int unsigned expected;
 
+    int temp;
 
     ToastCore UUT(
     .Clk         (Clk),
@@ -78,39 +79,44 @@ module jumps_tb();
         end
     endtask // LOAD_MEM
 
-    task CHECK_BEQ;
-        $display("BEQ Checker Start.");
-        for(int i=0; i<16; i++) begin
-            @(posedge Clk) begin
-                if(UUT.IF_inst.RV32I_PC.EX_PC_Branch == 1'b1) begin
-                    if((UUT.IF_inst.IF_PC >= 28) && (regfile_rd1 == regfile_rd2)) begin
-                        $display("Branch Taken, BEQ TEST PASS");
-                        $display("Rd1: %0d ; Value1: %0d", DATA_Inst.rd1, regfile_rd1); 
-                        $display("Rd2: %0d ; Value1: %0d", DATA_Inst.rd2, regfile_rd2); 
-                        break;
-                    end
-                    else begin
-                        $display("Branch Taken... TEST FAILED. PC = %0d", UUT.IF_inst.IF_PC);
-                    end
-                end
-                else $display("Branch not yet taken."); 
+    task CLEAR_MEM;
+        begin
+            for(int i=0; i<10; i++) begin
+                UUT.IF_inst.RV32I_IMEM.Instruction_data[i*4] = 0;
             end
         end
-    endtask 
-    
-    task TEST_BEQ;
-        input direction;
-    
+    endtask // CLEAR_MEM
+
+    task INIT_TEST;
         Reset_n = 0;
         pc = 0;
         checker_cycles = 0;
         DATA_Inst = new();
+        CLEAR_MEM();
+
         if (!DATA_Inst.randomize())    // end simulation if it fails to randomize
             $finish;
+    endtask
+
+    task LOAD_LI;
+        input [4:0] rd;
+        input [31:0] imm;
+        int unsigned m, k;
+        m = (imm << 20) >> 20; 
+        k = ((imm - m) >> 12) << 12;
+        LOAD_MEM(encode_LUI(rd, k));                    
+        LOAD_MEM(encode_ADDI(rd, DATA_Inst.rd1, m));    
+    endtask
+
+    task TEST_BEQ;
+        input bit direction;
+        input bit filler;
+
+        INIT_TEST();
+
         m = (DATA_Inst.imm << 20) >> 20; 
         k = ((DATA_Inst.imm - m) >> 12) << 12; 
-        $display("m = %0b, k = %0b", m, k);
-        
+
         // load random number into rd
         LOAD_MEM(encode_LUI(DATA_Inst.rd1, k));                    // @4
         LOAD_MEM(encode_ADDI(DATA_Inst.rd1, DATA_Inst.rd1, m));     // @8
@@ -118,22 +124,43 @@ module jumps_tb();
         // load the same random number into rd+1               
         LOAD_MEM(encode_LUI(DATA_Inst.rd2, k));                    // @12
         LOAD_MEM(encode_ADDI(DATA_Inst.rd2, DATA_Inst.rd2, m));  // @16
-         
-        LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd1-1, 12));    // @20
-        LOAD_MEM(encode_BNE(DATA_Inst.rd1, DATA_Inst.rd2,  12));    // @24
-        if(direction == 1)
-            LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd2,  12));    // @28
-        else
-            LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd2,  -12));    // @28
+        
+        if(filler == 1) begin
+            LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd1-1, 12));    // @20
+            LOAD_MEM(encode_BNE(DATA_Inst.rd1, DATA_Inst.rd2,  12));     // @24
+            $display("BEQ TEST @IMEM 28: Time = %0t", $time);
+            if(direction == 1) begin
+                LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd2,  12));  // @28
+                $display("Branching forwards. Expected PC = 28+12 = 40");
+            end
+            else begin
+                LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd2,  -12));    // @28
+                $display("Branching backwards. Expected PC = 28-12 = 16");
+            end
+        end
+        else begin
+            $display("BEQ TEST @IMEM 20: Time = %0t", $time);
+            if(direction == 1) begin
+                LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd2,  12));
+                $display("Branching forwards. Expected PC = 20+12 = 32");
+            end
+            else begin
+                LOAD_MEM(encode_BEQ(DATA_Inst.rd1, DATA_Inst.rd2,  -12)); 
+                $display("Branching backwards. Expected PC = 20-12 = 8");
+            end
+        end     
+        
         #100;
         Reset_n = 1;
         repeat(11) @(posedge Clk);
         Reset_n = 0;
-    endtask
+
+    endtask // TEST_BEQ
     
     initial begin
-        TEST_BEQ(1);
-        TEST_BEQ(0);
+        TEST_BEQ(1, 0);
+        TEST_BEQ(1, 0);
+
     end
     
 endmodule

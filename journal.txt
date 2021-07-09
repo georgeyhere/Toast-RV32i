@@ -1,4 +1,36 @@
 =================================================
+7/9/2021
+-----------------------------------------------
+TODO:
+- Test all branches and jumps in simulation
+**********************************************
+- had to git reset, lost a lot of entries
+- built riscv-tests on Ubuntu 
+	- compiled riscv-tests, a lot of tests 
+          need branches or jumps just to function
+
+- wrote a task to mimic psuedo-instruction LI
+	-  m = (imm << 20) >> 20; 
+           k = ((imm - m) >> 12) << 12; 
+	- LUI(rd, k), then ADDI(rd, m)
+
+- wrote testbench to test LUI and LI
+	- testbench writes random values to 
+	  random registers
+	- self-checking
+	-> TODO: add functional coverage
+
+- wrote testbench to test branches
+
+
+- BUGFIXES
+	- PC module was not stopping on a pipeline stall
+	- Hazard Detection was causing unnecessary stalls
+	- Forwarding module did not have checks for whether
+          instructions required forwarding
+=================================================
+
+=================================================
 7/3/2021
 -----------------------------------------------
 TODO:

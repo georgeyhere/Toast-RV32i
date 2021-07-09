@@ -130,7 +130,8 @@ module ToastCore
     .EX_Rd_addr         (EX_Rd_addr),
     .MEM_Rd_addr        (MEM_Rd_addr),
     .EX_RegFile_wr_en   (EX_RegFile_wr_en),
-    .MEM_RegFile_wr_en  (MEM_RegFile_wr_en)
+    .MEM_RegFile_wr_en  (MEM_RegFile_wr_en),
+    .ID_ALU_source_sel  (ID_ALU_source_sel)
     );
     
     Hazard_detection HD_inst(
