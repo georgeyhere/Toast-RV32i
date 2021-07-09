@@ -43,11 +43,14 @@ module Hazard_detection
     IF_Rs2_addr    = Instruction[24:20];
     */
     
-
-    assign Stall = ( (((IF_Instruction == `OPCODE_OP) || (IF_Instruction == `OPCODE_BRANCH) || (IF_Instruction == `OPCODE_STORE)) &&
+   
+    assign Stall = ( (ID_Mem_rd_en == 1) && (((IF_Instruction == `OPCODE_OP) || (IF_Instruction == `OPCODE_BRANCH) || (IF_Instruction == `OPCODE_STORE)) &&
                       ((ID_Rd_addr == IF_Instruction[19:15]) || (ID_Rd_addr == IF_Instruction[24:20])) ) ||
                      (((IF_Instruction == `OPCODE_OP_IMM) || (IF_Instruction == `OPCODE_LOAD)) &&
-                      (ID_Rd_addr == IF_Instruction[19:15]))) ? 1:0;
+                       (ID_Rd_addr == IF_Instruction[19:15]))) ? 1:0;
+    
+   
+   
                     
     /*
     CONTROL HAZARD DETECTION FOR BRANCH:

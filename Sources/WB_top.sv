@@ -23,9 +23,9 @@
 module WB_top
 
     (
-    output reg [4:0]  WB_Rd_addr,
-    output reg [31:0] WB_Rd_data,
-    output reg        WB_RegFile_wr_en,
+    output  [4:0]  WB_Rd_addr,
+    output  [31:0] WB_Rd_data,
+    output         WB_RegFile_wr_en,
 
     input      [4:0]  MEM_Rd_addr,
     input      [31:0] MEM_dout,
@@ -34,12 +34,15 @@ module WB_top
     input             MEM_RegFile_wr_en   
     );
 
-
+    assign WB_Rd_addr       = MEM_Rd_addr;
+    assign WB_Rd_data       = (MEM_MemToReg == 1'b1) ? MEM_dout : MEM_ALU_result;
+    assign WB_RegFile_wr_en = MEM_RegFile_wr_en;
+    /*
     always_comb begin
         WB_Rd_addr       = MEM_Rd_addr;
         WB_Rd_data       = (MEM_MemToReg == 1'b1) ? MEM_dout : MEM_ALU_result;
         WB_RegFile_wr_en = MEM_RegFile_wr_en;
     end
-
+    */
 
 endmodule

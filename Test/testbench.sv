@@ -27,7 +27,21 @@ package testbench_pkg;
 //----------------------------------------------------------------------------
 //                               Classes:
 //----------------------------------------------------------------------------  
+    class get_branch_data;
+        randc bit [4:0]  rd1;
+        randc bit [4:0]  rd2;
+        randc bit [31:0] imm;
+        
+        constraint rd1_range {rd1 > 0;    
+                             rd1 <= 31;} 
+        constraint rd2_range {rd1 > 0;    
+                             rd1 <= 31;} 
 
+        constraint imm_range {imm <= (2**32 - 1);}
+
+        
+    endclass
+    
     class instn_LUI; 
         // generates a LUI instruction w/ random non-zero destination and random immediate.
         randc bit [4:0]  rd;
@@ -38,7 +52,7 @@ package testbench_pkg;
 
         constraint imm_range {imm <= (2**20 - 1);}
     endclass
-
+    
     class instn_LI;
         randc bit [4:0]  rd;
         randc bit [31:0] imm;
@@ -202,37 +216,37 @@ package testbench_pkg;
 //                                  Branches:
 //----------------------------------------------------------------------------
 
-    function bit [31:0] encode_BEQ (input [4:0] rd, rs1, rs2, input [12:0] imm); 
+    function bit [31:0] encode_BEQ (input [4:0] rs1, rs2, input [12:0] imm); 
         begin
             return {imm[12], imm[10:5], rs2, rs1, `FUNCT3_BEQ, imm[4:1], imm[11], `OPCODE_BRANCH};
         end
     endfunction
 
-    function bit [31:0] encode_BNE (input [4:0] rd, rs1, rs2, input [12:0] imm); 
+    function bit [31:0] encode_BNE (input [4:0] rs1, rs2, input [12:0] imm); 
         begin
             return {imm[12], imm[10:5], rs2, rs1, `FUNCT3_BNE, imm[4:1], imm[11], `OPCODE_BRANCH};
         end
     endfunction
 
-    function bit [31:0] encode_BLT (input [4:0] rd, rs1, rs2, input [12:0] imm); 
+    function bit [31:0] encode_BLT (input [4:0] rs1, rs2, input [12:0] imm); 
         begin
             return {imm[12], imm[10:5], rs2, rs1, `FUNCT3_BLT, imm[4:1], imm[11], `OPCODE_BRANCH};
         end
     endfunction
 
-    function bit [31:0] encode_BGE (input [4:0] rd, rs1, rs2, input [12:0] imm); 
+    function bit [31:0] encode_BGE (input [4:0] rs1, rs2, input [12:0] imm); 
         begin
             return {imm[12], imm[10:5], rs2, rs1, `FUNCT3_BGE, imm[4:1], imm[11], `OPCODE_BRANCH};
         end
     endfunction
 
-    function bit [31:0] encode_BLTU (input [4:0] rd, rs1, rs2, input [12:0] imm); 
+    function bit [31:0] encode_BLTU (input [4:0] rs1, rs2, input [12:0] imm); 
         begin
             return {imm[12], imm[10:5], rs2, rs1, `FUNCT3_BLTU, imm[4:1], imm[11], `OPCODE_BRANCH};
         end
     endfunction
 
-    function bit [31:0] encode_BGEU (input [4:0] rd, rs1, rs2, input [12:0] imm); 
+    function bit [31:0] encode_BGEU (input [4:0] rs1, rs2, input [12:0] imm); 
         begin
             return {imm[12], imm[10:5], rs2, rs1, `FUNCT3_BGEU, imm[4:1], imm[11], `OPCODE_BRANCH};
         end

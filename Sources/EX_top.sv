@@ -101,7 +101,7 @@ module EX_top
             EX_Rd_addr        <= 0;
             EX_ALU_result     <= 0;
             EX_PC_Branch_dest <= 0;
-            EX_PC_Branch      <= 0;
+            //EX_PC_Branch      <= 0;
             EX_RegFile_wr_en  <= 0;
             EX_Rs2_data       <= 0;
         end
@@ -114,7 +114,7 @@ module EX_top
             EX_Rd_addr        <= ID_Rd_addr;
             EX_PC_Branch_dest <= ID_PC_dest;
             EX_ALU_result     <= ALU_result;
-            EX_PC_Branch      <= PC_source_sel;
+            //EX_PC_Branch      <= PC_source_sel;
             EX_Rs2_data       <= ID_Rs2_data;
         end
     end
@@ -172,6 +172,25 @@ module EX_top
     
     
     // branch control
+    always_ff@(posedge Clk) begin
+        if(ID_Branch_op[1] == 1'b1) begin
+            if(ID_Jump == 1'b1) begin
+                EX_PC_Branch <= 1;
+            end
+            else begin
+                if(ID_Branch_flag == 1'b0) begin
+                    EX_PC_Branch <= (ALU_result == 1) ? 1:0;            
+                end
+                else begin
+                    EX_PC_Branch <= (ALU_result == 1) ? 0:1;  
+                end
+            end // end if(ID_Jump)
+        end
+        else begin
+            EX_PC_Branch <= 0;
+        end // end if(branch_jump)
+    end // end always_ff
+    /*
     always_comb begin
         if(ID_Branch_op[1] == 1'b1) begin
             if(ID_Jump == 1'b1) begin
@@ -190,5 +209,5 @@ module EX_top
             PC_source_sel = 0;
         end // end if(branch_jump)
     end // end always_ff
-    
+    */
 endmodule

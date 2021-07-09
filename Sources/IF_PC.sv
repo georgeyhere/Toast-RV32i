@@ -58,16 +58,25 @@ module PC
         PC_Out <= 0;
     end
     
+    reg [31:0] PC_Next = 0;
+    
     always@(posedge Clk) begin
         if(Reset_n == 1'b0) begin
             PC_Out <= 0;
         end
-        else if(PC_Stall == 1'b1) PC_Out <= PC_Out;
-        else if(ID_Jump == 1'b1) PC_Out <= ID_PC_dest;    
-        else if(EX_PC_Branch == 1'b1) PC_Out <= EX_PC_Branch_dest;           
-        else PC_Out <= PC_Out + 4;    // else increment PC on posedge clk
-                
-               
+        else PC_Out <= PC_Next;         
+    end
+    
+    always@(negedge Clk) begin
+        if(Reset_n == 1'b0) begin
+            PC_Next <= 0;
+        end
+        else begin
+            if(ID_Jump == 1'b1)           PC_Next = ID_PC_dest;
+            else if(EX_PC_Branch == 1'b1) PC_Next = EX_PC_Branch_dest;
+            else if(PC_Stall == 1'b1)     PC_Next = PC_Out;
+            else                          PC_Next = PC_Next + 4;
+        end
     end
     
 endmodule

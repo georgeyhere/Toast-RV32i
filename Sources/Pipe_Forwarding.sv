@@ -43,6 +43,7 @@
         
         // Forward A combinatorial logic
         always_comb begin
+        //always_ff @(posedge Clk) begin
             /*
                 EX HAZARD
             - 
@@ -80,11 +81,9 @@
             // MEM hazard 
             if ( (MEM_RegFile_wr_en == 1'b1) &&
                  (MEM_Rd_addr       != 0   ) &&
-                 ~ ( (EX_RegFile_wr_en  == 1'b1) &&
-                     (EX_Rd_addr        != 0)    &&
-                     (EX_Rd_addr        == ID_Rs2_addr)) &&
-                 (MEM_Rd_addr       == ID_Rs2_addr)         
-                )
+                 ~ ( (EX_RegFile_wr_en  == 1'b1) && (EX_Rd_addr != 0) && (EX_Rd_addr == ID_Rs2_addr))
+                 && (MEM_Rd_addr == ID_Rs2_addr))          
+                
                 ForwardB = 2'b01;
             else
                 ForwardB = 2'b0;         

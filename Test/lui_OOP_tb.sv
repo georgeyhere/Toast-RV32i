@@ -152,10 +152,7 @@ module lui_OOP_tb();
     initial begin
         #100;
         
-        repeat(10) begin
-            TEST_LUI;
-            TEST_LI;
-        end
+        TEST_LI;
         
         
         $display("OPCODES Covered = %0.2f %%", CG_Inst.get_coverage());

@@ -64,7 +64,7 @@ module ToastCore
     // hazards
     wire        IF_ID_Flush;
     wire        EX_Flush;
-    wire        Stall;
+    bit        Stall;
     
     // forwarding
     wire [1:0]  ForwardA;

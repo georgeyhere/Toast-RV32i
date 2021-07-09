@@ -119,15 +119,15 @@ module ID_control
     // Combinatorial process to decode instructions
     always_comb begin
         // DEFAULT 
-        Immediate_1    = 32'bx; 
-        Immediate_2    = 32'bx;
+        Immediate_1    = 32'b0; 
+        Immediate_2    = 32'b0;
         ALU_source_sel = 2'b0;  // [1] sets ALU op1 to imm, [0] sets ALU op2 to imm
         ALU_op         = 0;     // default ALU op: ADD
         Branch_op      = 0;     // default: no branch
         Branch_flag    = 0;     // default: branch if set
         Mem_wr_en      = 0;     // default: no data mem wr 
         Mem_rd_en      = 0;     // default: no data mem rd
-        RegFile_wr_en  = 1;     // default: regfile writeback enabled
+        RegFile_wr_en  = 0;     // default: regfile writeback disabled
         MemToReg       = 0;     // default: no data mem writeback
         Jump           = 0;     // default: no jump
         Mem_op         = 0;     // default: no data mem mask
@@ -139,6 +139,7 @@ module ID_control
              // -> perform arithmetic on rs1 and rs2
              // -> store result in rd
             `OPCODE_OP: begin 
+                RegFile_wr_en = 1;
                 case(FUNCT3)
                     `FUNCT3_ADD_SUB: ALU_op = (FUNCT7 == 1'b1) ? `ALU_SUB : `ALU_ADD;
                     `FUNCT3_SLL:     ALU_op = `ALU_SLL;
@@ -156,6 +157,7 @@ module ID_control
             // -> perform arithmetic on rs1 and IMM_I
             // -> store result in rd
             `OPCODE_OP_IMM: begin 
+                RegFile_wr_en  = 1;
                 ALU_source_sel = 2'b01; // select immediate for op2
                 Immediate_2    = IMM_I; // assign I-type immediate
                 
@@ -217,6 +219,7 @@ module ID_control
             // -> places IMM_U in top 20 bits, fills in lower 12 bits with zeroes
             // -> store result in rd
             `OPCODE_LUI: begin
+                RegFile_wr_en  = 1;
                 ALU_source_sel = 2'b11;    // set both ALU operands to immediates
                 Immediate_1    = 32'b0;        
                 Immediate_2    = IMM_U;
@@ -228,6 +231,7 @@ module ID_control
             // -> performs IF_PC + IMM_U
             // -> store result in rd
             `OPCODE_AUIPC: begin
+                RegFile_wr_en  = 1;
                 ALU_source_sel = 2'b11;
                 Immediate_1    = IF_PC;
                 Immediate_2    = IMM_U;
@@ -238,6 +242,7 @@ module ID_control
             // -> PC target address = PC + IMM_J
             // -> stores address of PC+4 to rd
             `OPCODE_JAL: begin
+                RegFile_wr_en  = 1;
                 Jump           = 1;
                 Branch_op      = `PC_RELATIVE;
                 ALU_source_sel = 2'b10; 
@@ -261,6 +266,7 @@ module ID_control
             // -> data mem load address = rs1 + IMM_I (via ALU)
             // -> store to rd
             `OPCODE_LOAD: begin
+                RegFile_wr_en  = 1;
                 ALU_source_sel = 2'b01;
                 Immediate_2    = IMM_I;
                 Mem_rd_en      = 1;

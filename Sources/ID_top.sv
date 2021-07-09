@@ -167,25 +167,25 @@ module ID_top
         end
         else begin
             if(ID_Stall == 1'b1) begin
-                ID_PC <= 0;
-                ID_ALU_source_sel <= 0;
-                ID_ALU_op <= 0;
-                ID_Branch_op <= 0;
-                ID_Branch_flag <= 0;
-                ID_Mem_wr_en <= 0;
-                ID_Mem_rd_en <= 0;
-                ID_RegFile_wr_en <= 0;
-                ID_MemToReg <= 0;
-                ID_Jump <= 0;
-                ID_Mem_op <= 0;
-                ID_Rd_addr <= ID_Rd_addr;
-                ID_Rs1_addr <= ID_Rs1_addr;
-                ID_Rs2_addr <= ID_Rs2_addr;
-                ID_PC_dest <= ID_PC_dest;
-                ID_Immediate_1 <= ID_Immediate_1;
-                ID_Immediate_2 <= ID_Immediate_2;
-                ID_Rs1_data <= ID_Rs1_data;
-                ID_Rs2_data <= ID_Rs2_data;
+                ID_PC             <= ID_PC;
+                ID_ALU_source_sel <= ID_ALU_source_sel;
+                ID_ALU_op         <= ID_ALU_op;
+                ID_Branch_op      <= ID_Branch_op;
+                ID_Branch_flag    <= ID_Branch_flag;
+                ID_Mem_wr_en      <= 0;
+                ID_Mem_rd_en      <= 0;
+                ID_RegFile_wr_en  <= 0;
+                ID_MemToReg       <= 0;
+                ID_Jump           <= 0;
+                ID_Mem_op         <= 0;
+                ID_Rd_addr        <= 0;
+                ID_Rs1_addr       <= ID_Rs1_addr;
+                ID_Rs2_addr       <= ID_Rs2_addr;
+                ID_PC_dest        <= ID_PC_dest;
+                ID_Immediate_1    <= ID_Immediate_1;
+                ID_Immediate_2    <= ID_Immediate_2;
+                ID_Rs1_data       <= ID_Rs1_data;
+                ID_Rs2_data       <= ID_Rs2_data;
             end
             else begin
                 ID_PC <= IF_PC;
