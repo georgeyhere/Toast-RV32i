@@ -21,7 +21,11 @@ TODO:
 	-> TODO: add functional coverage
 
 - wrote testbench to test branches
-
+	- task TEST_BRANCH writes random values based on 
+	  input task (i.e. "BGE", "BEQ", etc) to randomly
+          generated rd1 and rd2
+	- self-checking, reports # of passes and fails
+	- fails are reported along with time of failure
 
 - BUGFIXES
 	- PC module was not stopping on a pipeline stall
