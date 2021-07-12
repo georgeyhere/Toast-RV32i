@@ -1,10 +1,26 @@
 =================================================
+7/11/2021
+-----------------------------------------------
+TODO:
+- begin running riscv-tests
+	- figure out a way to get objdump output
+	  to Verilog $readmemh format
+**********************************************
+- branches_tb has bug in generating BGE instructions
+	- LI loading incorrect values
+	- otherwise all conditional branches are a-okay
+- set up GTKWave translate filter process for RISCV instructions
+	- also created a few translate filter files for
+	      easier debugging
+- cloned riscv-tests to Toast repo
+=================================================
+
+=================================================
 7/9/2021
 -----------------------------------------------
 TODO:
 - Test all branches and jumps in simulation
 **********************************************
-- had to git reset, lost a lot of entries
 - built riscv-tests on Ubuntu 
 	- compiled riscv-tests, a lot of tests 
           need branches or jumps just to function
@@ -32,6 +48,30 @@ TODO:
 	- Hazard Detection was causing unnecessary stalls
 	- Forwarding module did not have checks for whether
           instructions required forwarding
+=================================================
+
+=================================================
+7/7/2021
+-----------------------------------------------
+TODO:
+**********************************************
+- Built riscv-tests using riscv32-unknown-elf
+riscv32-unknown-elf-gcc -s <input.s>     -> compile 
+riscv32-unknown-elf-objdump -D <input.o> -> examine assembly code
+riscv32-unknown-elf-objcopy -O verilog <input.o> <output.vh> -> covert to verilog hex 
+
+Now for an actual plan moving forward:
+- Many riscv-tests tests need:
+	- JAL/JALR
+	- AUIPC
+	- BEQ
+	- BNEZ
+I need to verify that these work in simulation, then
+the goal is to try to get each test working.
+Thus;
+1) write directed tests for JAL, JALR, AUIPC, BEQ
+2) simulate tests, verify baseline level of functionality
+3) attempt to run riscv-tests, starting with simple.S
 =================================================
 
 =================================================

@@ -21,7 +21,7 @@
 import   RV32I_definitions::*;
 import   testbench_pkg::*;
 
-module jumps_tb();
+module branches_tb();
     
     
     reg Clk = 0;
@@ -256,18 +256,21 @@ module jumps_tb();
         else if(regfile_rd2 > regfile_rd1) $display("Rd1 < Rd2");
         else if(regfile_rd2 < regfile_rd1) $display("Rd1 > Rd2");
         $display("----------------------------------------------------------");
-        Reset_n = 0;
     endtask // TEST_BRANCH
     
     
-
+    initial begin
+        $dumpfile("testbench.vcd");
+        $dumpvars(2, UUT);
+    end
+    
 
     initial begin
         $display("----------------------------------------------------------");
 
         passed_cnt = 0;
         failed_cnt = 0;
-        repeat(10) begin
+        repeat(3) begin
             TEST_BRANCH(1, 1, "BEQ");
             TEST_BRANCH(1, 1, "BNE");
             TEST_BRANCH(1, 1, "BLT");
@@ -277,6 +280,7 @@ module jumps_tb();
         end
 
         $display("%0d Tests Ran, %0d Passed, %0d Failed", (passed_cnt+failed_cnt), passed_cnt, failed_cnt);
+        $finish;
     end
     
 endmodule

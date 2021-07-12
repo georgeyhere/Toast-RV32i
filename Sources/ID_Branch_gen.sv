@@ -42,8 +42,8 @@ module Branch_gen
     always_comb begin
         case(Branch_op)
             default:      Branch_dest = 32'bx;
-            `PC_RELATIVE: Branch_dest = PC + $signed(offset);
-            `REG_OFFSET:  Branch_dest = RegData + $signed(offset);
+            `PC_RELATIVE: Branch_dest = PC + $signed(offset)*4;
+            `REG_OFFSET:  Branch_dest = RegData + $signed(offset)*4;
         endcase
     end
     
