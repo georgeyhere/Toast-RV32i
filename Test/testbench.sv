@@ -43,21 +43,36 @@ package testbench_pkg;
         randc bit [31:0] offset;
 
         constraint rd1_range {rd1 > 0;    
-                             rd1 <= 31;} 
-        constraint rd2_range {rd1 > 0;    
-                             rd1 <= 31;} 
+                              rd1 <= 31;} 
+
+        constraint rd2_range {rd2 > 0;    
+                              rd2 <= 31;} 
 
         constraint imm_range {imm <= (2**32 - 1);}
 
-        function bit [31:0] rd2_lt();
+
+
+        function bit [31:0] rd2_lt_us();
             if((offset > imm) <= 0) return (imm - (offset - imm)/2);
             else                    return (imm - offset);
         endfunction
 
-        function bit [31:0] rd2_gt();
+        function bit [31:0] rd2_gt_us();
             if((imm + offset) >= (2**32-1) ) return (imm + (2**32-1-imm)/2);
             else                             return (imm + offset);
         endfunction
+
+        function bit [31:0] rd2_lt_s();
+            if((offset > imm) <= 0) return {1'b0, (imm - (offset - imm)/2)};
+            else                    return {1'b0, (imm - offset)};
+        endfunction
+
+        function bit [31:0] rd2_gt_s();
+            if((imm + offset) >= (2**32-1) ) return {1'b0, (imm + (2**32-1-imm)/2)};
+            else                             return {1'b0, (imm + offset)};
+        endfunction
+
+
     endclass
     
     class instn_LUI; 
