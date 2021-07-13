@@ -52,9 +52,16 @@ module IMEM
 //                              Implementation    
 // ===========================================================================
     
+    /*
+    -> uncomment the $readmemh line corresponding to the riscv-test to be run
+    
+    -> this is a really shitty way to do this, need to find an alternative; don't
+           want to be messing with source code every time a test needs to be run
+    */
     
     initial begin
-        $readmemh("add.mem", HexFile);
+        //$readmemh("add.mem", HexFile);
+        $readmemh("addi.mem", HexFile);
         for (int i=0; i<(IMEM_DATA_DEPTH/4); i++) begin
             Instruction_data[i*4] = HexFile[i];
         end

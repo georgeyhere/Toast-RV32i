@@ -161,7 +161,7 @@ module ID_control
             // -> perform arithmetic on rs1 and IMM_I
             // -> store result in rd
             `OPCODE_OP_IMM: begin 
-                RegFile_wr_en  = 1;
+                RegFile_wr_en  = (IF_Instruction[11:7] == 0) ? 0:1;
                 ALU_source_sel = 2'b01; // select immediate for op2
                 Immediate_2    = IMM_I; // assign I-type immediate
                 Rs2_addr       = 0;
@@ -185,7 +185,6 @@ module ID_control
             // -> no store
             `OPCODE_BRANCH: begin
                 Branch_op     = `PC_RELATIVE; // set branch gen control
-                RegFile_wr_en = 0;            // disable register writeback
                 Immediate_2   = IMM_B;        // assign B-type immediate (branch gen)
                 Rd_addr       = 0; 
                 case(FUNCT3)
@@ -224,11 +223,13 @@ module ID_control
             // -> places IMM_U in top 20 bits, fills in lower 12 bits with zeroes
             // -> store result in rd
             `OPCODE_LUI: begin
-                RegFile_wr_en  = 1;
+                RegFile_wr_en  = (IF_Instruction[11:7] == 0) ? 0:1;
                 ALU_source_sel = 2'b11;    // set both ALU operands to immediates
                 Immediate_1    = 32'b0;        
                 Immediate_2    = IMM_U;
                 ALU_op         = `ALU_ADD; // add IMM_U to 0
+                Rs1_addr       = 0;
+                Rs2_addr       = 0;
             end
             
             
@@ -236,23 +237,27 @@ module ID_control
             // -> performs IF_PC + IMM_U
             // -> store result in rd
             `OPCODE_AUIPC: begin
-                RegFile_wr_en  = 1;
+                RegFile_wr_en  = (IF_Instruction[11:7] == 0) ? 0:1;
                 ALU_source_sel = 2'b11;
                 Immediate_1    = IF_PC;
                 Immediate_2    = IMM_U;
                 ALU_op         = `ALU_ADD;
+                Rs1_addr       = 0;
+                Rs2_addr       = 0;
             end
             
             // JAL -> J-type instruction, Jump And Link 
             // -> PC target address = PC + IMM_J
             // -> stores address of PC+4 to rd
             `OPCODE_JAL: begin
-                RegFile_wr_en  = 1;
+                RegFile_wr_en  = (IF_Instruction[11:7] == 0) ? 0:1;
                 Jump           = 1;
                 Branch_op      = `PC_RELATIVE;
                 ALU_source_sel = 2'b10; 
                 Immediate_1    = IF_PC; // ALU op1
                 Immediate_2    = IMM_J; // Branch gen
+                Rs1_addr       = 0;
+                Rs2_addr       = 0;
             end
             
             // JALR -> I-type instruction
@@ -264,6 +269,7 @@ module ID_control
                 ALU_source_sel = 2'b10;
                 Immediate_1    = IF_PC; // ALU op1
                 Immediate_2    = IMM_I; // Branch gen
+                Rs2_addr       = 0;
             end
             
             
@@ -271,11 +277,12 @@ module ID_control
             // -> data mem load address = rs1 + IMM_I (via ALU)
             // -> store to rd
             `OPCODE_LOAD: begin
-                RegFile_wr_en  = 1;
+                RegFile_wr_en  = (IF_Instruction[11:7] == 0) ? 0:1;
                 ALU_source_sel = 2'b01;
                 Immediate_2    = IMM_I;
                 Mem_rd_en      = 1;
                 MemToReg       = 1;
+                Rs2_addr       = 0;
                 case(FUNCT3)
                     `FUNCT3_LW: Mem_op = `MEM_LW;
                     `FUNCT3_LB: Mem_op = `MEM_LB;
@@ -289,7 +296,6 @@ module ID_control
                 ALU_source_sel = 2'b01;
                 Immediate_2    = IMM_S;
                 Mem_wr_en      = 1;
-                RegFile_wr_en  = 0;
                 case(FUNCT3)
                     `FUNCT3_SW: Mem_op = `MEM_SW;
                     `FUNCT3_SB: Mem_op = `MEM_SB;
