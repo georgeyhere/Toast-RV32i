@@ -16,10 +16,16 @@ __/Documentation__
 - Contains datapath diagrams and notes
 
 __/Mem__
-- Contains memory initialization files for IMEM 
+- Contains memory initialization files for IMEM as well as dump files for each riscv-test
+
+__/Scripts__
+- experimental 
 
 __/Sources__
-- Contains ToastCore.sv as well as all submodules
+- Contains ToastCore.sv and all submodules
+
+__/Test__
+- Testbenches and riscv-tests
 
 <h1> Performance </h1>
 -  will be updated as more instructions are tested
