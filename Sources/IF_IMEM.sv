@@ -60,8 +60,8 @@ module IMEM
     */
     
     initial begin
-        //$readmemh("add.mem", HexFile);
-        $readmemh("addi.mem", HexFile);
+        $readmemh("add.mem", HexFile);
+        //$readmemh("addi.mem", HexFile);
         for (int i=0; i<(IMEM_DATA_DEPTH/4); i++) begin
             Instruction_data[i*4] = HexFile[i];
         end
