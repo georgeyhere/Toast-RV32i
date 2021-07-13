@@ -13,6 +13,9 @@ TODO:
 	- also created a few translate filter files for
 	      easier debugging
 - cloned riscv-tests to Toast repo
+- used riscv32-unknown-elf-elf2hex --bit-width 32 --input <input.o> 
+  to convert tests compiled with riscv32-unknown-elf-gcc to verilog
+  $readmemh format
 =================================================
 
 =================================================
