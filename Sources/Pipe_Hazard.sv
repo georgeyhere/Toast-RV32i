@@ -15,17 +15,18 @@ module Hazard_detection
     `endif
 
 	(
-	output                         Stall,          // pipeline stall, used for Data hazard
+  output reg                     Stall,
+	//output                      Stall,          // pipeline stall, used for Data hazard
  	output reg                     IF_ID_Flush,    // flush IF and ID in case of branch or jump taken
  	output reg                     EX_Flush,       // flush EX if branch taken
 	
 	input [31:0]                   IF_Instruction, // used to check for Data hazard
 
-	input						   ID_Mem_rd_en,
+	input						               ID_Mem_rd_en,
 	input [REGFILE_ADDR_WIDTH-1:0] ID_Rd_addr, 
     
-    input                          EX_PC_Branch,
-    input                          ID_Jump
+  input                          EX_PC_Branch,
+  input                          ID_Jump
 
 	);
     
@@ -43,13 +44,46 @@ module Hazard_detection
     IF_Rs2_addr    = Instruction[24:20];
     */
     
-   
-    assign Stall = ( (ID_Mem_rd_en == 1) && (((IF_Instruction == `OPCODE_OP) || (IF_Instruction == `OPCODE_BRANCH) || (IF_Instruction == `OPCODE_STORE)) &&
+    wire [6:0] opcode = IF_Instruction[6:0];
+
+    always_comb begin
+        Stall = 0;
+
+        if(ID_Mem_rd_en == 1) begin
+            if( (opcode == `OPCODE_OP) ||       // register-register opcodes
+                (opcode == `OPCODE_BRANCH) ||
+                (opcode == `OPCODE_STORE) ) 
+            begin
+                if( (ID_Rd_addr == IF_Instruction[19:15]) || (ID_Rd_addr == IF_Instruction[24:20]) ) 
+                     Stall = 1;
+                else 
+                     Stall = 0;
+            end
+    
+            else if( (opcode == `OPCODE_OP_IMM) ||
+                     (opcode == `OPCODE_LOAD) ) 
+            begin
+                if(ID_Rd_addr == IF_Instruction[19:15]) 
+                    Stall = 1;
+                else 
+                    Stall = 0;
+            end
+            else Stall = 0;
+        end
+        else Stall = 0;
+    end
+
+   /*
+    assign Stall = (  (IF_Instruction != 32'h00000013) &&  // 32'h13 is a NOP
+                      (ID_Mem_rd_en == 1) && 
+                      (((IF_Instruction[6:0] == `OPCODE_OP) || (IF_Instruction[6:0] == `OPCODE_BRANCH) || (IF_Instruction[6:0] == `OPCODE_STORE)) &&
                       ((ID_Rd_addr == IF_Instruction[19:15]) || (ID_Rd_addr == IF_Instruction[24:20])) ) ||
-                     (((IF_Instruction == `OPCODE_OP_IMM) || (IF_Instruction == `OPCODE_LOAD)) &&
+
+                     (((IF_Instruction[6:0] == `OPCODE_OP_IMM) || (IF_Instruction[6:0] == `OPCODE_LOAD)) &&
+
                        (ID_Rd_addr == IF_Instruction[19:15]))) ? 1:0;
     
-   
+    */
    
                     
     /*

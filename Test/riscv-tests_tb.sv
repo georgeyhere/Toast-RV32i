@@ -61,9 +61,8 @@ module riscvTests_tb();
     
     always#(10) Clk = ~Clk;     
     
-    initial begin
-        $dumpfile("add.vcd");
-        $dumpvars(2, UUT);
+    always@(posedge Clk) begin
+        if(UUT.IF_inst.IF_Instruction == 32'hc0001073) $finish; 
     end
     
     initial begin

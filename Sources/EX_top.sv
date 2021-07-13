@@ -175,7 +175,7 @@ module EX_top
     always_ff@(posedge Clk) begin
         if(ID_Branch_op[1] == 1'b1) begin
             if(ID_Jump == 1'b1) begin
-                EX_PC_Branch <= 1;
+                EX_PC_Branch <= 0;
             end
             else begin
                 if(ID_Branch_flag == 1'b0) begin

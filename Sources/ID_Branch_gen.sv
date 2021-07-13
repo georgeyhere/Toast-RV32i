@@ -37,13 +37,13 @@ module Branch_gen
     // for JALR
     // -> PC destination = rs1 + Imm
     
-    wire [31:0] offset = Immediate;
+    //wire [31:0] offset = Immediate;
     
     always_comb begin
         case(Branch_op)
             default:      Branch_dest = 32'bx;
-            `PC_RELATIVE: Branch_dest = PC + $signed(offset)*4;
-            `REG_OFFSET:  Branch_dest = RegData + $signed(offset)*4;
+            `PC_RELATIVE: Branch_dest = PC      + $signed(Immediate);
+            `REG_OFFSET:  Branch_dest = RegData + $signed(Immediate);
         endcase
     end
     

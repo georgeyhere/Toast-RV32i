@@ -34,7 +34,7 @@ module IMEM
           parameter IMEM_DATA_DEPTH = `IMEM_DATA_DEPTH)
     `else
         #(parameter IMEM_ADDR_WIDTH = 32,
-          parameter IMEM_DATA_DEPTH = 1024)
+          parameter IMEM_DATA_DEPTH = 2048)
     `endif
     
     (
@@ -51,17 +51,17 @@ module IMEM
 // ===========================================================================
 //                              Implementation    
 // ===========================================================================
+    
+    
     initial begin
-
-        /*
-        $readmemh("imem.data", HexFile);           // read hex instructions from .data
-
-        for(int i=1; i<(IMEM_DATA_DEPTH/4); i++) begin 
-            Instruction_data[i*4] = HexFile[i];    // load hex instructions into every 4th address
+        $readmemh("add.mem", HexFile);
+        for (int i=0; i<(IMEM_DATA_DEPTH/4); i++) begin
+            Instruction_data[i*4] = HexFile[i];
         end
-        */
-       
     end
+    
+    
+    
     
     always@* begin
         Instruction = Instruction_data[IMEM_address];

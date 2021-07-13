@@ -110,7 +110,7 @@ module ID_control
     assign IMM_S       = { {20{IF_Instruction[31]}}, IF_Instruction[31:25], IF_Instruction[11:7] }; 
     assign IMM_B       = { {20{IF_Instruction[31]}}, IF_Instruction[7], IF_Instruction[30:25], IF_Instruction[11:8], 1'b0 }; 
     assign IMM_U       = { IF_Instruction[31:12], {12{1'b0}} };
-    assign IMM_J       = { {11{1'b0}}, IF_Instruction[31], IF_Instruction[19:12], IF_Instruction[20], IF_Instruction[10:1], 1'b0};
+    assign IMM_J       = { {12{IF_Instruction[31]}}, IF_Instruction[19:12], IF_Instruction[20], IF_Instruction[30:25], IF_Instruction[24:21], 1'b0};
     
     /*
     assign Rd_addr  = IF_Instruction[11:7];
