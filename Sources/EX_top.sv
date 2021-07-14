@@ -147,8 +147,8 @@ module EX_top
     
     // ALU source input: op2
     always_comb begin
-        if(ID_Jump == 1) begin // if JAL or JALR, perform PC+1
-            ALU_op2 = 32'd1;
+        if(ID_Jump == 1) begin // if JAL or JALR, perform PC+4
+            ALU_op2 = 32'd4;
         end
         else begin
             case(ForwardB)

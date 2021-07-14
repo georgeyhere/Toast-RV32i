@@ -54,7 +54,14 @@ module IMEM
     
     
     initial begin
+<<<<<<< Updated upstream
         $readmemh("add.mem", HexFile);
+=======
+        //$readmemh("add.mem", HexFile);
+        //$readmemh("addi.mem", HexFile);
+        //$readmemh("and.mem", HexFile);
+        $readmemh("auipc.mem", HexFile);
+>>>>>>> Stashed changes
         for (int i=0; i<(IMEM_DATA_DEPTH/4); i++) begin
             Instruction_data[i*4] = HexFile[i];
         end

@@ -88,7 +88,7 @@ module ID_control
     wire [6:0]  OPCODE; 
     wire [4:0]  RD;     
     wire [3:0]  FUNCT3; 
-    wire [6:0]  FUNCT7; 
+    wire        FUNCT7; 
     
     wire [31:0] IMM_I; // I-type immediate
     wire [31:0] IMM_S; // S-type immediate
@@ -104,7 +104,7 @@ module ID_control
     // Instruction Decoding
     assign OPCODE      = IF_Instruction[6:0];
     assign FUNCT3      = IF_Instruction[14:12];
-    assign FUNCT7      = IF_Instruction[31:25];
+    assign FUNCT7      = IF_Instruction[30];
     
     assign IMM_I       = { {20{IF_Instruction[31]}}, IF_Instruction[31:20] }; 
     assign IMM_S       = { {20{IF_Instruction[31]}}, IF_Instruction[31:25], IF_Instruction[11:7] }; 

@@ -31,24 +31,7 @@ module riscvTests_tb();
     wire [31:0] mem_wr_data;
     wire        mem_wr_en;
     wire        mem_rst; 
-    
-    bit [31:0] instruction;
-    bit [31:0] instruction1;
 
-    reg [31:0] pc;
-    
-    reg [3:0] checker_cycles;
-    reg [4:0] checker_rd1, checker_rd2;
-    
-    
-    wire [31:0] regfile_rd1 = UUT.ID_inst.RV32I_REGFILE.Regfile_data[checker_rd1]; 
-    wire [31:0] regfile_rd2 = UUT.ID_inst.RV32I_REGFILE.Regfile_data[checker_rd2]; 
-
-    int unsigned m, k;
-    int unsigned expected;
-
-    int passed_cnt;
-    int failed_cnt;
 
     ToastCore UUT(
     .Clk         (Clk),
@@ -62,7 +45,9 @@ module riscvTests_tb();
     always#(10) Clk = ~Clk;     
     
     always@(posedge Clk) begin
-        if(UUT.IF_inst.IF_Instruction == 32'hc0001073) $finish; 
+        if(UUT.IF_inst.IF_Instruction == 32'hc0001073) begin
+            $finish; // finish if encounter an unimp, indicating end of test
+        end
     end
     
     initial begin
