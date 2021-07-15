@@ -15,18 +15,21 @@ module Hazard_detection
     `endif
 
 	(
-  output reg                     Stall,
-	//output                      Stall,          // pipeline stall, used for Data hazard
+    output reg                     Stall,
+	
  	output reg                     IF_ID_Flush,    // flush IF and ID in case of branch or jump taken
  	output reg                     EX_Flush,       // flush EX if branch taken
 	
+    input                          Clk,
+    input                          Reset_n,
+
 	input [31:0]                   IF_Instruction, // used to check for Data hazard
 
 	input						               ID_Mem_rd_en,
 	input [REGFILE_ADDR_WIDTH-1:0] ID_Rd_addr, 
     
-  input                          EX_PC_Branch,
-  input                          ID_Jump
+    input                          EX_PC_Branch,
+    input                          ID_Jump
 
 	);
     
@@ -97,17 +100,24 @@ module Hazard_detection
     
     
     */
-    always_comb begin
-        if((EX_PC_Branch == 1) || (ID_Jump == 1)) IF_ID_Flush = 1;
-        else                                      IF_ID_Flush = 0;
-    end
+    
     
     always_comb begin
         if(EX_PC_Branch == 1) EX_Flush = 1;
         else                  EX_Flush = 0;
     end
     
-    //assign IF_ID_Flush = ((EX_PC_Branch == 1) || (ID_Jump == 1)) ? 1:0;
-    //assign EX_Flush    = (EX_PC_Branch == 1) ? 1:0;
+    reg IF_ID_Flush_1;
+    always_comb begin
+        if((EX_PC_Branch == 1) || (ID_Jump == 1)) IF_ID_Flush_1 = 1;
+        else                                      IF_ID_Flush_1 = 0;
+    end
+
+    reg IF_ID_Flush_2;
+    always@(posedge Clk) begin
+        IF_ID_Flush_2 <= (EX_PC_Branch == 1) ? IF_ID_Flush_1 : 0;
+    end
+
+    assign IF_ID_Flush = (IF_ID_Flush_1 || IF_ID_Flush_2);
     
 endmodule

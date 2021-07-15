@@ -23,10 +23,11 @@
 module ToastCore
 
     (
-    input            Clk,
-    input            Reset_n,   
-    input  [31:0]    mem_rd_data,
-    
+    input             Clk,
+    input             Reset_n,   
+    input  [31:0]     IMEM_data,
+    input  [31:0]     DMEM_rd_data,
+
 `ifdef RISCV_FORMAL
     output reg        rvfi_valid,    // asserted when core retires an instruction    
     output reg [63:0] rvfi_order,    // instruction index
@@ -55,10 +56,11 @@ module ToastCore
     output reg [31:0] rvfi_mem_wdata
 `endif
     
-    output [31:0]    mem_addr,
-    output [31:0]    mem_wr_data,
-    output           mem_wr_en,
-    output           mem_rst
+    output [31:0]    IMEM_addr,
+    output [31:0]    DMEM_addr,
+    output [31:0]    DMEM_wr_data,
+    output           DMEM_wr_en,
+    output           DMEM_rst
     );
     
     // hazards
@@ -149,11 +151,11 @@ module ToastCore
     IF_top IF_inst(
     .Clk                (Clk),
     .Reset_n            (Reset_n),
-    .EX_PC_Branch_dest  (EX_PC_Branch_dest),
-    .EX_PC_Branch       (EX_PC_Branch),
+    .IMEM_data          (IMEM_data),
+    .IMEM_addr          (IMEM_addr),
     .ID_PC_dest         (ID_PC_dest),
-    .ID_Jump            (ID_Jump),
-    .IF_Stall           (Stall), //!
+    .ID_Jump            (ID_PC_source_sel),
+    .IF_Stall           (Stall), 
     .IF_Flush           (IF_ID_Flush),
     .IF_PC              (IF_PC),
     .IF_Instruction     (IF_Instruction)
@@ -178,7 +180,7 @@ module ToastCore
     .ID_Mem_rd_en       (ID_Mem_rd_en),
     .ID_RegFile_wr_en   (ID_RegFile_wr_en),
     .ID_MemToReg        (ID_MemToReg),
-    .ID_Jump            (ID_Jump),
+    .ID_PC_source_sel   (ID_PC_source_sel),
     .ID_Mem_op          (ID_Mem_op),
     .ID_PC_dest         (ID_PC_dest),
     .ID_Immediate_1     (ID_Immediate_1),
@@ -230,11 +232,11 @@ module ToastCore
     MEM_top MEM_inst(
     .Clk               (Clk),
     .Reset_n           (Reset_n),
-    .mem_addr          (mem_addr),
-    .mem_wr_data       (mem_wr_data),
-    .mem_wr_en         (mem_wr_en),
-    .mem_rst           (mem_rst),
-    .mem_rd_data       (mem_rd_data),
+    .mem_addr          (DMEM_addr),
+    .mem_wr_data       (DMEM_wr_data),
+    .mem_wr_en         (DMEM_wr_en),
+    .mem_rst           (DMEM_rst),
+    .mem_rd_data       (DMEM_rd_data),
     .MEM_dout          (MEM_dout),
     .MEM_MemToReg      (MEM_MemToReg),
     .MEM_ALU_result    (MEM_ALU_result),
