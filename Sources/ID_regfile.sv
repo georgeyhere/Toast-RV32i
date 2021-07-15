@@ -60,20 +60,6 @@ module ID_regfile
 
     
 
-    /*
-                ┏──┐  ┏──┐  ┏──┐  
-    clk :       ┛  └──┛  └──┛  └──
-    
-                ╱     ╲xxxxxxxxxxxx
-    Rs1_addr :  ╲rs1  ╱xxxxxxxxxxxx
-    
-                xxxxxxx╱    ╲xxxxxx
-    Rs1_data :  xxxxxxx╲    ╱xxxxxx
-    
-    */
-
-
-
 
 // ===========================================================================
 //                    Parameters, Registers, and Wires
