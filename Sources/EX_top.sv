@@ -19,61 +19,65 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
+// needs to be parameterized
 
 module EX_top
 
 
     (
+//*************************************************
     input             Clk,
     input             Reset_n,
     
-    //*************************************************
-    // Pipeline 
-    
-    output reg        EX_Mem_wr_en,
+//*************************************************
+
+    // pipeline out
+    output reg        EX_Mem_wr_en,     
     output reg        EX_Mem_rd_en,
     output reg [2:0]  EX_Mem_op,
     output reg [31:0] EX_Rs2_data,
     output reg        EX_MemToReg,
-    
-    output reg [31:0] EX_ALU_result,
-    
     output reg [31:0] EX_PC_Branch_dest,
-    output reg        EX_PC_Branch,      // if asserted loads branch dest to PC
-    
     output reg        EX_RegFile_wr_en,
     output reg [4:0]  EX_Rd_addr,
+
+    output reg [31:0] EX_ALU_result,
+    output reg        EX_PC_Branch,      // if asserted loads branch dest to PC
+
+//*************************************************
+    input             EX_Flush,       
     
-    //*************************************************
-    input             EX_Flush,
-    
-    input             ID_Mem_wr_en,
+    // pipeline control signals; passed through
+    input             ID_Mem_wr_en,  
     input             ID_Mem_rd_en,
     input      [2:0]  ID_Mem_op,
     input             ID_MemToReg, 
-    
-    input      [31:0] ID_PC_dest,
-    
-    
-    input      [1:0]  ID_Branch_op,   // [1] indicates a branch/jump
-    input             ID_Branch_flag, // indicates to branch on 'set' or 'not set'
-    input             ID_Jump,        // indicates a jump
-    
-    input      [1:0]  ForwardA,
-    input      [1:0]  ForwardB,
-    input      [31:0] WB_Rd_data,
- 
-    input      [1:0]  ID_ALU_source_sel,
-    input      [3:0]  ID_ALU_op,
-    
-    input             ID_RegFile_wr_en,
+    input             ID_RegFile_wr_en,   
     input      [4:0]  ID_Rd_addr,
     
+    // for conditional branches
+    input      [31:0] ID_PC_dest,         // branch destination from ID
+    input      [1:0]  ID_Branch_op,       // [1] indicates a branch/jump
+    input             ID_Branch_flag,     // indicates to branch on 'set' or 'not set'
+    input             ID_Jump,            // indicates a JAL or JALR
+    
+    // forwarding 
+    input      [1:0]  ForwardA,  
+    input      [1:0]  ForwardB,
+    input      [31:0] WB_Rd_data,
+    
+    // ALU control
+    input      [1:0]  ID_ALU_source_sel,  // [op2,op1] if asserted, use imm for operand
+    input      [3:0]  ID_ALU_op,          // alu operation
+    
+    
+    // ALU operands, muxed into ALU based on control
     input      [31:0] ID_PC,
     input      [31:0] ID_Rs1_data,
     input      [31:0] ID_Rs2_data,
     input      [31:0] ID_Immediate_1,
-    input      [31:0] ID_Immediate_2 // used for branch gen 
+    input      [31:0] ID_Immediate_2 
+ //*************************************************
     );
     
     reg  [31:0] ALU_op1, ALU_op2;
@@ -122,7 +126,7 @@ module EX_top
     
     // ALU source input: op1
     always_comb begin
-        if(ID_Jump == 1) begin // if JAL or JALR, perform PC+1
+        if(ID_Jump == 1) begin // if JAL or JALR, perform PC+4
             ALU_op1 = ID_Immediate_1;
         end
         else begin
@@ -190,24 +194,5 @@ module EX_top
             EX_PC_Branch <= 0;
         end // end if(branch_jump)
     end // end always_ff
-    /*
-    always_comb begin
-        if(ID_Branch_op[1] == 1'b1) begin
-            if(ID_Jump == 1'b1) begin
-                PC_source_sel = 1;
-            end
-            else begin
-                if(ID_Branch_flag == 1'b0) begin
-                    PC_source_sel = (ALU_result == 1) ? 1:0;            
-                end
-                else begin
-                    PC_source_sel = (ALU_result == 1) ? 0:1;  
-                end
-            end // end if(ID_Jump)
-        end
-        else begin
-            PC_source_sel = 0;
-        end // end if(branch_jump)
-    end // end always_ff
-    */
+
 endmodule

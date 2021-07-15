@@ -24,6 +24,7 @@ import RV32I_definitions ::*;
     `include "../defines.vh"
 `endif
 
+// black boxed for now, will have to be looked at again for synthesis
 
 module ID_regfile
     `ifdef CUSTOM_DEFINE
@@ -39,34 +40,77 @@ module ID_regfile
     `endif
     
     (
+//*************************************************
     input                                Clk,
     input                                Reset_n,
     
-    input      [REGFILE_ADDR_WIDTH-1 :0] Rs1_addr,
+//*************************************************
+    input      [REGFILE_ADDR_WIDTH-1 :0] Rs1_addr, 
     input      [REGFILE_ADDR_WIDTH-1 :0] Rs2_addr,
-    input      [REGFILE_ADDR_WIDTH-1 :0] Rd_addr,
+    input      [REGFILE_ADDR_WIDTH-1 :0] Rd_addr,    
     
     input      [REG_DATA_WIDTH-1 :0]     Rd_wr_data,
     input                                Rd_wr_en,
     
+//*************************************************
     output     [REG_DATA_WIDTH-1 :0]     Rs1_data,
     output     [REG_DATA_WIDTH-1 :0]     Rs2_data
+//*************************************************
     );
+
     
+
+    /*
+                ┏──┐  ┏──┐  ┏──┐  
+    clk :       ┛  └──┛  └──┛  └──
+    
+                ╱     ╲xxxxxxxxxxxx
+    Rs1_addr :  ╲rs1  ╱xxxxxxxxxxxx
+    
+                xxxxxxx╱    ╲xxxxxx
+    Rs1_data :  xxxxxxx╲    ╱xxxxxx
+    
+    */
+
+
+
+
+// ===========================================================================
+//                    Parameters, Registers, and Wires
+// ===========================================================================    
     reg [31:0] Regfile_data [0: REGFILE_DEPTH-1];
     
-    assign Rs1_data = Regfile_data[Rs1_addr];
-    assign Rs2_data = Regfile_data[Rs2_addr];
+    
 
+    
+// ===========================================================================
+//                              Instantiation   
+// ===========================================================================  
+    
+/*
+If a register address is about to be written to and the data is needed
+for the instruction currently in ID, place write data on output bus
+*/
+    assign Rs1_data = ((Rs1_addr == Rd_addr) &&
+                       (Rd_wr_en == 1'b1)    && 
+                       (Rd_addr != 0)) ? Rd_wr_data : Regfile_data[Rs1_addr];
+    
+    assign Rs2_data = ((Rs2_addr == Rd_addr) &&
+                       (Rd_wr_en == 1'b1)    && 
+                       (Rd_addr != 0)) ? Rd_wr_data : Regfile_data[Rs2_addr];
+
+
+    // set all registers to 0 on initialization
     initial begin
-        for(int i=0; i<REGFILE_DEPTH; i++) begin
+        for(int i=0; i<REGFILE_DEPTH-1; i++) begin
             Regfile_data[i] <= 0;
         end      
     end
     
+    // synchronous process for writes
     always_ff@(posedge Clk) begin
         if(Reset_n == 1'b0) begin
-            for(int i=0; i<REGFILE_DEPTH; i++) begin
+            for(int i=0; i<REGFILE_DEPTH-1; i++) begin
                 Regfile_data[i] <= 0;
             end       
         end

@@ -23,19 +23,26 @@
 module ToastCore
 
     (
+    //*************************************************
     input             Clk,
     input             Reset_n,   
+
+    //*************************************************
     input  [31:0]     IMEM_data,
     input  [31:0]     DMEM_rd_data,
 
-    
-    output [31:0]    IMEM_addr,
-    output [31:0]    DMEM_addr,
-    output [31:0]    DMEM_wr_data,
-    output           DMEM_wr_en,
-    output           DMEM_rst
+    //*************************************************
+    output [31:0]     IMEM_addr,
+    output [31:0]     DMEM_addr,
+    output [31:0]     DMEM_wr_data,
+    output            DMEM_wr_en,
+    output            DMEM_rst
+    //*************************************************
     );
-    
+
+// ===========================================================================
+//                    Parameters, Registers, and Wires
+// ===========================================================================    
     // hazards
     wire        IF_ID_Flush;
     wire        EX_Flush;
@@ -95,7 +102,9 @@ module ToastCore
     wire [31:0] WB_Rd_data;
     wire        WB_Rd_wr_en;
 
-    
+// ===========================================================================
+//                                 Instantiation
+// ===========================================================================    
     Forwarding FWD_inst(
     .ForwardA           (ForwardA),
     .ForwardB           (ForwardB),

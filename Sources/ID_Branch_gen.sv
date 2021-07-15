@@ -22,22 +22,25 @@
 
 module Branch_gen
     (
+//*************************************************
     input      [1:0]  Branch_op,
-    
     input      [31:0] PC,
     input      [31:0] RegData,
     input      [31:0] Immediate,
     
+//*************************************************
     output reg [31:0] Branch_dest
+
+//*************************************************
     );
     
-    // for conditional branch or JAL
-    // -> PC destination = PC + Imm
+    /*
+     for conditional branch or JAL
+     -> PC destination = PC + Imm
     
-    // for JALR
-    // -> PC destination = rs1 + Imm
-    
-    //wire [31:0] offset = Immediate;
+     for JALR
+     -> PC destination = rs1 + Imm
+    */
     
     always_comb begin
         case(Branch_op)

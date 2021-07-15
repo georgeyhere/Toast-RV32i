@@ -37,40 +37,73 @@ module IF_top
     `endif
 
     (
+//*************************************************
     input                        Clk,
     input                        Reset_n,
+
+//*************************************************
     input  [31:0]                IMEM_data,
 
     input  [31:0]                EX_PC_Branch_dest,
     input                        EX_PC_Branch,
-    
+   
     input  [31:0]                ID_PC_dest,
     input                        ID_Jump,
     
     input                        IF_Stall,
     input                        IF_Flush,
-    
+
+//*************************************************   
     output     [31:0]            IMEM_addr,
     output reg [31:0]            IF_PC,
     output reg [31:0]            IF_Instruction     
-    );
-    
-    wire [31:0]  Instruction;
-    
-    PC RV32I_PC (
-    .Clk              (Clk),
-    .Reset_n          (Reset_n),
-    .PC_Stall         (IF_Stall),
-    .ID_Jump          (ID_Jump),
-    .ID_PC_dest       (ID_PC_dest),
-    .EX_PC_Branch     (EX_PC_Branch),
-    .EX_PC_Branch_dest(EX_PC_Branch_dest),
-    .PC_Out           (IMEM_addr)
-    );
-    
-    
-    always@(posedge Clk) IF_PC <= IMEM_addr;
 
+//*************************************************
+    );
+
+
+// ===========================================================================
+//                    Parameters, Registers, and Wires
+// ===========================================================================    
+    wire [31:0]  Instruction;
+
+
+// ===========================================================================
+//                              Instantiation    
+// ===========================================================================    
+    PC RV32I_PC (
+    .Clk               (Clk),
+    .Reset_n           (Reset_n),
+    .PC_Stall          (IF_Stall),
+    .ID_Jump           (ID_Jump),
+    .ID_PC_dest        (ID_PC_dest),
+    .EX_PC_Branch      (EX_PC_Branch),
+    .EX_PC_Branch_dest (EX_PC_Branch_dest),
+    .PC_Out            (IMEM_addr)
+    );
+    
+// ===========================================================================
+//                              Implementation    
+// ===========================================================================    
+    /*
+--------------------------------------------------
+
+IMEM_addr placed      Instrn corresponding
+ on output bus        to Cycle 1 IMEM_addr
+                      placed on IMEM_data
+                        
+                      IF_PC gets IMEM_addr
+                          of Cycle 1
+
+    Cycle 1:                Cycle 2:
+--------------------------------------------------
+    */
+
+    // align fetched instructions with addr by flopping IMEM_addr
+    always@(posedge Clk) IF_PC <= IMEM_addr; 
+
+
+    // if flush is asserted insert a nop
     always_comb begin
         if(IF_Flush == 1'b1) begin
             IF_Instruction = 0;
@@ -79,9 +112,5 @@ module IF_top
             IF_Instruction = IMEM_data;
         end
     end
-    
-    // if a branch/jump is taken, flush the current instruction
-    
-    
-    
+
 endmodule
