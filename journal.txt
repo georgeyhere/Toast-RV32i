@@ -1,6 +1,22 @@
+================================================================================
+7/15/2021
+--------------------------------------------------------------------------------
+TODO:
+- finish synchronous IMEM conversion
+- continue running riscv-tests
+********************************************************************************
+- fully converted to sync IMEM; have to flush for an extra cycle on branches
+  and jumps now
+- passed add.S
+- 
+********************************************************************************
+
+
 
 ================================================================================
-7/12/2021
+
+================================================================================
+7/14/2021
 --------------------------------------------------------------------------------
 TODO:
 - continue running riscv-tests
@@ -47,6 +63,11 @@ BUG: SUB INSTRUCTION GETS ADD ALU OP → ID_control.sv
                          assign FUNCT7 = IF_Instruction[30];
 
 Another scary bug.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=	
+
+I made the decision to move the design from an asynchronous ROM for the IMEM to a 
+synchronous one. This means the core needs to prefetch instructions; I'm sure 
+the extra cycle will cause timing issues in the pipeline.
 
 
 ================================================================================
@@ -54,7 +75,7 @@ Another scary bug.
 
 
 ================================================================================
-7/11/2021
+7/13/2021
 --------------------------------------------------------------------------------
 TODO:
 - begin running riscv-tests
@@ -103,7 +124,7 @@ BUG: ID UNIT GENERATES INCORRECT JAL  TARGET → ID_control.sv
 
 	ISSUE: J-type immediate has incorrect format
 
-	offending code: assign IMM_J  = { {11{1'b0}}, IF_Instruction[31], IF_Instruction[19:12], 
+	offending code: assign IMM_J = { {11{1'b0}}, IF_Instruction[31], IF_Instruction[19:12], 
                                           IF_Instruction[20], IF_Instruction[10:1], 1'b0};
 
 	correction:     assign IMM_J = { {12{IF_Instruction[31]}}, IF_Instruction[19:12],IF_Instruction[20], 
@@ -176,7 +197,7 @@ TODO:
 	- testbench writes random values to 
 	  random registers
 	- self-checking
-	-> TODO: add functional coverage
+	-> TODO: add functional coverage (?)
 
 - wrote testbench to test branches
 	- task TEST_BRANCH writes random values based on 
