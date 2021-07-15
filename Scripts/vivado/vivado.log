@@ -2,8 +2,8 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Wed Jul 14 10:08:27 2021
-# Process ID: 22810
+# Start of session at: Wed Jul 14 18:41:48 2021
+# Process ID: 12866
 # Current directory: /home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado
 # Command line: vivado
 # Log file: /home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado/vivado.log
@@ -18,7 +18,7 @@ INFO: [IP_Flow 19-234] Refreshing IP repositories
 INFO: [IP_Flow 19-1704] No user IP repositories specified
 INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2020.2/data/ip'.
 INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
-open_project: Time (s): cpu = 00:00:18 ; elapsed = 00:00:05 . Memory (MB): peak = 7410.875 ; gain = 46.082 ; free physical = 11068 ; free virtual = 15790
+open_project: Time (s): cpu = 00:00:16 ; elapsed = 00:00:06 . Memory (MB): peak = 7392.938 ; gain = 40.039 ; free physical = 980 ; free virtual = 15080
 update_compile_order -fileset sources_1
 launch_simulation
 Command: launch_simulation 
@@ -34,6 +34,41 @@ INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
 INFO: [USF-XSim-2] XSim::Compile design
 INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
 xvlog --incr --relax -L uvm -prj riscvTests_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/RV32I_definitions.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/Sources/RV32I_definitions.sv" into library xil_defaultlib
+WARNING: [VRFC 10-3264] design element 'RV32I_definitions' is previously defined, ignoring this definition [/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/Sources/RV32I_definitions.sv:25]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/EX_ALU.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_ALU
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/EX_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_Branch_gen.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Branch_gen
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_control.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_control
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_regfile.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_regfile
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_top
+INFO: [VRFC 10-2458] undeclared symbol Mem_rd_en, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_top.sv:115]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_PC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IF_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/MEM_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MEM_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/Pipe_Forwarding.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Forwarding
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/Pipe_Hazard.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Hazard_detection
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ToastCore
+INFO: [VRFC 10-2458] undeclared symbol ID_PC_source_sel, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:157]
+INFO: [VRFC 10-2458] undeclared symbol WB_RegFile_wr_en, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:173]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/WB_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module WB_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/simple_tests/testbench.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/Test/riscv-tests_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module riscvTests_tb
 Waiting for jobs to finish...
 No pending jobs, compilation finished.
 INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
@@ -46,9 +81,164 @@ Running: /opt/Xilinx/Vivado/2020.2/bin/unwrapped/lnx64.o/xelab -wto 4ab5102faaa0
 Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-Completed static elaboration
-INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+ERROR: [VRFC 10-3180] cannot find port 'ID_PC_source_sel' on this module [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:183]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
+INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
+INFO: [USF-XSim-99] Step results log file:'/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'riscvTests_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/add.mem'
+INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/addi.mem'
+INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/and.mem'
+INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/auipc.mem'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj riscvTests_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/RV32I_definitions.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/Sources/RV32I_definitions.sv" into library xil_defaultlib
+WARNING: [VRFC 10-3264] design element 'RV32I_definitions' is previously defined, ignoring this definition [/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/Sources/RV32I_definitions.sv:25]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/EX_ALU.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_ALU
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/EX_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_Branch_gen.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Branch_gen
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_control.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_control
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_regfile.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_regfile
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_top
+INFO: [VRFC 10-2458] undeclared symbol Mem_rd_en, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_top.sv:115]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_PC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IF_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/MEM_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MEM_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/Pipe_Forwarding.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Forwarding
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/Pipe_Hazard.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Hazard_detection
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ToastCore
+INFO: [VRFC 10-2458] undeclared symbol ID_PC_source_sel, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:130]
+INFO: [VRFC 10-2458] undeclared symbol WB_RegFile_wr_en, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:146]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/WB_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module WB_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/simple_tests/testbench.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/Test/riscv-tests_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module riscvTests_tb
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
+xelab -wto 4ab5102faaa04b3ba47706ec12b94608 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot riscvTests_tb_behav xil_defaultlib.riscvTests_tb xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2020.2/bin/unwrapped/lnx64.o/xelab -wto 4ab5102faaa04b3ba47706ec12b94608 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot riscvTests_tb_behav xil_defaultlib.riscvTests_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+ERROR: [VRFC 10-3180] cannot find port 'ID_PC_source_sel' on this module [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:156]
+ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
 INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-99] Step results log file:'/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/elaborate.log'
+ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/elaborate.log' file for more information.
+ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
+ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
+launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'riscvTests_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/add.mem'
+INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/addi.mem'
+INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/and.mem'
+INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/auipc.mem'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj riscvTests_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/RV32I_definitions.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/Sources/RV32I_definitions.sv" into library xil_defaultlib
+WARNING: [VRFC 10-3264] design element 'RV32I_definitions' is previously defined, ignoring this definition [/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/Sources/RV32I_definitions.sv:25]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/EX_ALU.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_ALU
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/EX_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_Branch_gen.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Branch_gen
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_control.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_control
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_regfile.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_regfile
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_top
+INFO: [VRFC 10-2458] undeclared symbol Mem_rd_en, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_top.sv:115]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_PC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IF_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/MEM_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MEM_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/Pipe_Forwarding.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Forwarding
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/Pipe_Hazard.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Hazard_detection
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ToastCore
+INFO: [VRFC 10-2458] undeclared symbol WB_RegFile_wr_en, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:148]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/WB_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module WB_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/simple_tests/testbench.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/Test/riscv-tests_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module riscvTests_tb
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
+xelab -wto 4ab5102faaa04b3ba47706ec12b94608 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot riscvTests_tb_behav xil_defaultlib.riscvTests_tb xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2020.2/bin/unwrapped/lnx64.o/xelab -wto 4ab5102faaa04b3ba47706ec12b94608 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot riscvTests_tb_behav xil_defaultlib.riscvTests_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-5021] port 'Clk' is not connected on this instance [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:112]
+WARNING: [VRFC 10-3823] variable 'IF_PC' might have multiple concurrent drivers [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_top.sv:72]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.Forwarding
+Compiling module xil_defaultlib.Hazard_detection
+Compiling module xil_defaultlib.PC
+Compiling module xil_defaultlib.IF_top
+Compiling module xil_defaultlib.ID_control
+Compiling module xil_defaultlib.ID_regfile
+Compiling module xil_defaultlib.Branch_gen
+Compiling module xil_defaultlib.ID_top
+Compiling module xil_defaultlib.EX_ALU
+Compiling module xil_defaultlib.EX_top
+Compiling module xil_defaultlib.MEM_top
+Compiling module xil_defaultlib.WB_top
+Compiling module xil_defaultlib.ToastCore
+Compiling module xil_defaultlib.riscvTests_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot riscvTests_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
 INFO: [USF-XSim-4] XSim::Simulate design
 INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
 INFO: [USF-XSim-98] *** Running xsim
@@ -70,17 +260,7 @@ source riscvTests_tb.tcl
 # run 1000ns
 INFO: [USF-XSim-96] XSim completed. Design snapshot 'riscvTests_tb_behav' loaded.
 INFO: [USF-XSim-97] XSim simulation ran for 1000ns
-launch_simulation: Time (s): cpu = 00:00:15 ; elapsed = 00:00:06 . Memory (MB): peak = 7615.867 ; gain = 141.828 ; free physical = 11009 ; free virtual = 15731
-source rvTest.tcl
-# restart
-INFO: [Simtcl 6-17] Simulation restarted
-# open_vcd
-# log_vcd /riscvTests_tb/*
-run 1000 ns
-run 1 us
-run 1 us
-$finish called at time : 2390 ns : File "/home/george/Documents/work/RISCV/Toast-RV32i/Test/riscv-tests_tb.sv" Line 48
-close_vcd
+launch_simulation: Time (s): cpu = 00:00:12 ; elapsed = 00:00:10 . Memory (MB): peak = 7634.797 ; gain = 149.840 ; free physical = 903 ; free virtual = 15064
 relaunch_sim
 Command: launch_simulation -simset sim_1 -mode behavioral
 INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
@@ -111,8 +291,6 @@ INFO: [VRFC 10-311] analyzing module ID_regfile
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_top.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ID_top
 INFO: [VRFC 10-2458] undeclared symbol Mem_rd_en, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_top.sv:115]
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_IMEM.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module IMEM
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_PC.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module PC
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_top.sv" into library xil_defaultlib
@@ -125,11 +303,11 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/R
 INFO: [VRFC 10-311] analyzing module Hazard_detection
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ToastCore
-INFO: [VRFC 10-2458] undeclared symbol WB_RegFile_wr_en, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:171]
+INFO: [VRFC 10-2458] undeclared symbol WB_RegFile_wr_en, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:148]
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/WB_top.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module WB_top
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/simple_tests/testbench.sv" into library xil_defaultlib
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Test/riscv-tests_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/Test/riscv-tests_tb.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module riscvTests_tb
 Waiting for jobs to finish...
 No pending jobs, compilation finished.
@@ -145,81 +323,8 @@ Running: /opt/Xilinx/Vivado/2020.2/bin/unwrapped/lnx64.o/xelab -wto 4ab5102faaa0
 Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
-ERROR: [VRFC 10-2989] 'close_vcd' is not declared [/home/george/Documents/work/RISCV/Toast-RV32i/Test/riscv-tests_tb.sv:50]
-ERROR: [XSIM 43-3322] Static elaboration of top level Verilog design unit(s) in library work failed.
-INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
-INFO: [USF-XSim-99] Step results log file:'/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/elaborate.log'
-ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/elaborate.log' file for more information.
-ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.
-ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
-ERROR: [Common 17-69] Command failed: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.
-
-run 2200 ns
-ERROR: [Simulator 45-11] The simulation is in a state in which it cannot execute the requested operation.  If you are attempting to re-launch the simulation after code changes, please correct any compilation errors reported in the log and retry the re-launch.
-relaunch_sim
-Command: launch_simulation -simset sim_1 -mode behavioral
-INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
-INFO: [SIM-utils-51] Simulation object is 'sim_1'
-INFO: [SIM-utils-54] Inspecting design source files for 'riscvTests_tb' in fileset 'sim_1'...
-INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/add.mem'
-INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/addi.mem'
-INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/and.mem'
-INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/auipc.mem'
-INFO: [USF-XSim-97] Finding global include files...
-INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
-INFO: [USF-XSim-2] XSim::Compile design
-INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
-xvlog --incr --relax -L uvm -prj riscvTests_tb_vlog.prj
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/RV32I_definitions.sv" into library xil_defaultlib
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/Sources/RV32I_definitions.sv" into library xil_defaultlib
-WARNING: [VRFC 10-3264] design element 'RV32I_definitions' is previously defined, ignoring this definition [/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/Sources/RV32I_definitions.sv:25]
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/EX_ALU.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module EX_ALU
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/EX_top.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module EX_top
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_Branch_gen.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module Branch_gen
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_control.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ID_control
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_regfile.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ID_regfile
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_top.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ID_top
-INFO: [VRFC 10-2458] undeclared symbol Mem_rd_en, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_top.sv:115]
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_IMEM.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module IMEM
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_PC.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module PC
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_top.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module IF_top
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/MEM_top.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module MEM_top
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/Pipe_Forwarding.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module Forwarding
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/Pipe_Hazard.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module Hazard_detection
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module ToastCore
-INFO: [VRFC 10-2458] undeclared symbol WB_RegFile_wr_en, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:171]
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/WB_top.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module WB_top
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/simple_tests/testbench.sv" into library xil_defaultlib
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Test/riscv-tests_tb.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module riscvTests_tb
-Waiting for jobs to finish...
-No pending jobs, compilation finished.
-INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
-Command: launch_simulation -simset sim_1 -mode behavioral
-INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
-INFO: [USF-XSim-3] XSim::Elaborate design
-INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
-xelab -wto 4ab5102faaa04b3ba47706ec12b94608 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot riscvTests_tb_behav xil_defaultlib.riscvTests_tb xil_defaultlib.glbl -log elaborate.log
-Vivado Simulator 2020.2
-Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
-Running: /opt/Xilinx/Vivado/2020.2/bin/unwrapped/lnx64.o/xelab -wto 4ab5102faaa04b3ba47706ec12b94608 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot riscvTests_tb_behav xil_defaultlib.riscvTests_tb xil_defaultlib.glbl -log elaborate.log 
-Using 8 slave threads.
-Starting static elaboration
-Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-5021] port 'Clk' is not connected on this instance [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:112]
+WARNING: [VRFC 10-3823] variable 'IF_PC' might have multiple concurrent drivers [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_top.sv:72]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -227,7 +332,6 @@ Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.Forwarding
 Compiling module xil_defaultlib.Hazard_detection
 Compiling module xil_defaultlib.PC
-Compiling module xil_defaultlib.IMEM
 Compiling module xil_defaultlib.IF_top
 Compiling module xil_defaultlib.ID_control
 Compiling module xil_defaultlib.ID_regfile
@@ -244,19 +348,7 @@ Built simulation snapshot riscvTests_tb_behav
 INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
 Vivado Simulator 2020.2
 Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 7637.719 ; gain = 21.852 ; free physical = 10515 ; free virtual = 15364
-run 2200 ns
-$finish called at time : 2390 ns : File "/home/george/Documents/work/RISCV/Toast-RV32i/Test/riscv-tests_tb.sv" Line 49
-source rvTest.tcl
-# restart
-INFO: [Simtcl 6-17] Simulation restarted
-# open_vcd
-# log_vcd /riscvTests_tb/*
-run 2000 ns
-run 200 ns
-run 1000 ns
-$finish called at time : 2390 ns : File "/home/george/Documents/work/RISCV/Toast-RV32i/Test/riscv-tests_tb.sv" Line 49
-close_vcd
+relaunch_sim: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 7634.797 ; gain = 0.000 ; free physical = 891 ; free virtual = 15053
 relaunch_sim
 Command: launch_simulation -simset sim_1 -mode behavioral
 INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
@@ -287,8 +379,6 @@ INFO: [VRFC 10-311] analyzing module ID_regfile
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_top.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ID_top
 INFO: [VRFC 10-2458] undeclared symbol Mem_rd_en, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_top.sv:115]
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_IMEM.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module IMEM
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_PC.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module PC
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_top.sv" into library xil_defaultlib
@@ -301,11 +391,11 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/R
 INFO: [VRFC 10-311] analyzing module Hazard_detection
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ToastCore
-INFO: [VRFC 10-2458] undeclared symbol WB_RegFile_wr_en, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:171]
+INFO: [VRFC 10-2458] undeclared symbol WB_RegFile_wr_en, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:148]
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/WB_top.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module WB_top
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/simple_tests/testbench.sv" into library xil_defaultlib
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Test/riscv-tests_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/Test/riscv-tests_tb.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module riscvTests_tb
 Waiting for jobs to finish...
 No pending jobs, compilation finished.
@@ -321,6 +411,7 @@ Running: /opt/Xilinx/Vivado/2020.2/bin/unwrapped/lnx64.o/xelab -wto 4ab5102faaa0
 Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-5021] port 'Clk' is not connected on this instance [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:112]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -328,7 +419,6 @@ Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.Forwarding
 Compiling module xil_defaultlib.Hazard_detection
 Compiling module xil_defaultlib.PC
-Compiling module xil_defaultlib.IMEM
 Compiling module xil_defaultlib.IF_top
 Compiling module xil_defaultlib.ID_control
 Compiling module xil_defaultlib.ID_regfile
@@ -345,15 +435,7 @@ Built simulation snapshot riscvTests_tb_behav
 INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
 Vivado Simulator 2020.2
 Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 7668.730 ; gain = 2.996 ; free physical = 10519 ; free virtual = 15371
-source rvTest.tcl
-# restart
-INFO: [Simtcl 6-17] Simulation restarted
-# open_vcd
-# log_vcd /riscvTests_tb/*
-run 1000 ns
-run 1200 ns
-close_vcd
+relaunch_sim: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 7646.793 ; gain = 11.996 ; free physical = 894 ; free virtual = 15056
 relaunch_sim
 Command: launch_simulation -simset sim_1 -mode behavioral
 INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
@@ -384,8 +466,6 @@ INFO: [VRFC 10-311] analyzing module ID_regfile
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_top.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ID_top
 INFO: [VRFC 10-2458] undeclared symbol Mem_rd_en, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_top.sv:115]
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_IMEM.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module IMEM
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_PC.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module PC
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_top.sv" into library xil_defaultlib
@@ -398,11 +478,11 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/R
 INFO: [VRFC 10-311] analyzing module Hazard_detection
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ToastCore
-INFO: [VRFC 10-2458] undeclared symbol WB_RegFile_wr_en, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:171]
+INFO: [VRFC 10-2458] undeclared symbol WB_RegFile_wr_en, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:148]
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/WB_top.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module WB_top
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/simple_tests/testbench.sv" into library xil_defaultlib
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Test/riscv-tests_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/Test/riscv-tests_tb.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module riscvTests_tb
 Waiting for jobs to finish...
 No pending jobs, compilation finished.
@@ -418,6 +498,7 @@ Running: /opt/Xilinx/Vivado/2020.2/bin/unwrapped/lnx64.o/xelab -wto 4ab5102faaa0
 Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-5021] port 'Clk' is not connected on this instance [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:112]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -425,7 +506,6 @@ Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.Forwarding
 Compiling module xil_defaultlib.Hazard_detection
 Compiling module xil_defaultlib.PC
-Compiling module xil_defaultlib.IMEM
 Compiling module xil_defaultlib.IF_top
 Compiling module xil_defaultlib.ID_control
 Compiling module xil_defaultlib.ID_regfile
@@ -442,15 +522,7 @@ Built simulation snapshot riscvTests_tb_behav
 INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
 Vivado Simulator 2020.2
 Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 7720.754 ; gain = 52.023 ; free physical = 10337 ; free virtual = 15216
-source rvTest.tcl
-# restart
-INFO: [Simtcl 6-17] Simulation restarted
-# open_vcd
-# log_vcd /riscvTests_tb/*
-run 2000 ns
-run 200 ns
-close_vcd
+relaunch_sim: Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 7673.805 ; gain = 27.012 ; free physical = 884 ; free virtual = 15046
 relaunch_sim
 Command: launch_simulation -simset sim_1 -mode behavioral
 INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
@@ -481,8 +553,6 @@ INFO: [VRFC 10-311] analyzing module ID_regfile
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_top.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ID_top
 INFO: [VRFC 10-2458] undeclared symbol Mem_rd_en, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_top.sv:115]
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_IMEM.sv" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module IMEM
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_PC.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module PC
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_top.sv" into library xil_defaultlib
@@ -495,11 +565,11 @@ INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/R
 INFO: [VRFC 10-311] analyzing module Hazard_detection
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module ToastCore
-INFO: [VRFC 10-2458] undeclared symbol WB_RegFile_wr_en, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:171]
+INFO: [VRFC 10-2458] undeclared symbol WB_RegFile_wr_en, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:148]
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/WB_top.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module WB_top
 INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/simple_tests/testbench.sv" into library xil_defaultlib
-INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Test/riscv-tests_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/Test/riscv-tests_tb.sv" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module riscvTests_tb
 Waiting for jobs to finish...
 No pending jobs, compilation finished.
@@ -515,6 +585,7 @@ Running: /opt/Xilinx/Vivado/2020.2/bin/unwrapped/lnx64.o/xelab -wto 4ab5102faaa0
 Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-5021] port 'Clk' is not connected on this instance [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:112]
 Completed static elaboration
 Starting simulation data flow analysis
 Completed simulation data flow analysis
@@ -522,7 +593,6 @@ Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.Forwarding
 Compiling module xil_defaultlib.Hazard_detection
 Compiling module xil_defaultlib.PC
-Compiling module xil_defaultlib.IMEM
 Compiling module xil_defaultlib.IF_top
 Compiling module xil_defaultlib.ID_control
 Compiling module xil_defaultlib.ID_regfile
@@ -539,18 +609,149 @@ Built simulation snapshot riscvTests_tb_behav
 INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
 Vivado Simulator 2020.2
 Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 7736.762 ; gain = 16.008 ; free physical = 10342 ; free virtual = 15217
-source rvTest.tcl
-# restart
-INFO: [Simtcl 6-17] Simulation restarted
-# open_vcd
-# log_vcd /riscvTests_tb/*
-run 2200 ns
-close_vcd
-export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sources_1/imports/Mem/auipc.mem] -no_script -reset -force -quiet
-remove_files  /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sources_1/imports/Mem/auipc.mem
-add_files -norecurse -scan_for_includes /home/george/Documents/work/RISCV/Toast-RV32i/Mem/auipc.mem
-import_files -force -norecurse /home/george/Documents/work/RISCV/Toast-RV32i/Mem/auipc.mem
+relaunch_sim: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 7673.805 ; gain = 0.000 ; free physical = 886 ; free virtual = 15048
+relaunch_sim
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'riscvTests_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/add.mem'
+INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/addi.mem'
+INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/and.mem'
+INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/auipc.mem'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj riscvTests_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/RV32I_definitions.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/Sources/RV32I_definitions.sv" into library xil_defaultlib
+WARNING: [VRFC 10-3264] design element 'RV32I_definitions' is previously defined, ignoring this definition [/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/Sources/RV32I_definitions.sv:25]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/EX_ALU.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_ALU
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/EX_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_Branch_gen.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Branch_gen
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_control.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_control
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_regfile.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_regfile
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_top
+INFO: [VRFC 10-2458] undeclared symbol Mem_rd_en, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_top.sv:115]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_PC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IF_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/MEM_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MEM_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/Pipe_Forwarding.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Forwarding
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/Pipe_Hazard.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Hazard_detection
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ToastCore
+INFO: [VRFC 10-2458] undeclared symbol WB_RegFile_wr_en, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:148]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/WB_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module WB_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/simple_tests/testbench.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/Test/riscv-tests_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module riscvTests_tb
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
+xelab -wto 4ab5102faaa04b3ba47706ec12b94608 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot riscvTests_tb_behav xil_defaultlib.riscvTests_tb xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2020.2/bin/unwrapped/lnx64.o/xelab -wto 4ab5102faaa04b3ba47706ec12b94608 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot riscvTests_tb_behav xil_defaultlib.riscvTests_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-5021] port 'Clk' is not connected on this instance [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:112]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.Forwarding
+Compiling module xil_defaultlib.Hazard_detection
+Compiling module xil_defaultlib.PC
+Compiling module xil_defaultlib.IF_top
+Compiling module xil_defaultlib.ID_control
+Compiling module xil_defaultlib.ID_regfile
+Compiling module xil_defaultlib.Branch_gen
+Compiling module xil_defaultlib.ID_top
+Compiling module xil_defaultlib.EX_ALU
+Compiling module xil_defaultlib.EX_top
+Compiling module xil_defaultlib.MEM_top
+Compiling module xil_defaultlib.WB_top
+Compiling module xil_defaultlib.ToastCore
+Compiling module xil_defaultlib.riscvTests_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot riscvTests_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:08 ; elapsed = 00:00:08 . Memory (MB): peak = 7673.805 ; gain = 0.000 ; free physical = 875 ; free virtual = 15038
+relaunch_sim
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'riscvTests_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/add.mem'
+INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/addi.mem'
+INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/and.mem'
+INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/auipc.mem'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj riscvTests_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/Test/riscv-tests_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module riscvTests_tb
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '1' seconds
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
+xelab -wto 4ab5102faaa04b3ba47706ec12b94608 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot riscvTests_tb_behav xil_defaultlib.riscvTests_tb xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2020.2/bin/unwrapped/lnx64.o/xelab -wto 4ab5102faaa04b3ba47706ec12b94608 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot riscvTests_tb_behav xil_defaultlib.riscvTests_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-5021] port 'Clk' is not connected on this instance [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:112]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.Forwarding
+Compiling module xil_defaultlib.Hazard_detection
+Compiling module xil_defaultlib.PC
+Compiling module xil_defaultlib.IF_top
+Compiling module xil_defaultlib.ID_control
+Compiling module xil_defaultlib.ID_regfile
+Compiling module xil_defaultlib.Branch_gen
+Compiling module xil_defaultlib.ID_top
+Compiling module xil_defaultlib.EX_ALU
+Compiling module xil_defaultlib.EX_top
+Compiling module xil_defaultlib.MEM_top
+Compiling module xil_defaultlib.WB_top
+Compiling module xil_defaultlib.ToastCore
+Compiling module xil_defaultlib.riscvTests_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot riscvTests_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 7673.805 ; gain = 0.000 ; free physical = 1291 ; free virtual = 15382
 relaunch_sim
 Command: launch_simulation -simset sim_1 -mode behavioral
 INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
@@ -579,19 +780,102 @@ Running: /opt/Xilinx/Vivado/2020.2/bin/unwrapped/lnx64.o/xelab -wto 4ab5102faaa0
 Using 8 slave threads.
 Starting static elaboration
 Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-5021] port 'Clk' is not connected on this instance [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:112]
 Completed static elaboration
 INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
 INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds
 Vivado Simulator 2020.2
 Time resolution is 1 ps
-relaunch_sim: Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 7771.914 ; gain = 35.152 ; free physical = 8868 ; free virtual = 14488
-source rvTest.tcl
-# restart
-INFO: [Simtcl 6-17] Simulation restarted
-# open_vcd
-# log_vcd /riscvTests_tb/*
-run 2200 ns
-run 200 ns
-run 200 ns
-$finish called at time : 2470 ns : File "/home/george/Documents/work/RISCV/Toast-RV32i/Test/riscv-tests_tb.sv" Line 49
-close_vcd
+relaunch_sim: Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 7673.805 ; gain = 0.000 ; free physical = 1301 ; free virtual = 15392
+relaunch_sim
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'riscvTests_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/add.mem'
+INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/addi.mem'
+INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/and.mem'
+INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/auipc.mem'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj riscvTests_tb_vlog.prj
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/RV32I_definitions.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/Sources/RV32I_definitions.sv" into library xil_defaultlib
+WARNING: [VRFC 10-3264] design element 'RV32I_definitions' is previously defined, ignoring this definition [/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/Sources/RV32I_definitions.sv:25]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/EX_ALU.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_ALU
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/EX_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module EX_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_Branch_gen.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Branch_gen
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_control.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_control
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_regfile.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_regfile
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ID_top
+INFO: [VRFC 10-2458] undeclared symbol Mem_rd_en, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_top.sv:115]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_PC.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module PC
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module IF_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/MEM_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module MEM_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/Pipe_Forwarding.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Forwarding
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/Pipe_Hazard.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module Hazard_detection
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module ToastCore
+INFO: [VRFC 10-2458] undeclared symbol WB_RegFile_wr_en, assumed default net type wire [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:148]
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/WB_top.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module WB_top
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/simple_tests/testbench.sv" into library xil_defaultlib
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/Test/riscv-tests_tb.sv" into library xil_defaultlib
+INFO: [VRFC 10-311] analyzing module riscvTests_tb
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+Command: launch_simulation -simset sim_1 -mode behavioral
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
+xelab -wto 4ab5102faaa04b3ba47706ec12b94608 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot riscvTests_tb_behav xil_defaultlib.riscvTests_tb xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2020.2/bin/unwrapped/lnx64.o/xelab -wto 4ab5102faaa04b3ba47706ec12b94608 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot riscvTests_tb_behav xil_defaultlib.riscvTests_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+WARNING: [VRFC 10-5021] port 'Clk' is not connected on this instance [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv:112]
+Completed static elaboration
+Starting simulation data flow analysis
+Completed simulation data flow analysis
+Time Resolution for simulation is 1ps
+Compiling module xil_defaultlib.Forwarding
+Compiling module xil_defaultlib.Hazard_detection
+Compiling module xil_defaultlib.PC
+Compiling module xil_defaultlib.IF_top
+Compiling module xil_defaultlib.ID_control
+Compiling module xil_defaultlib.ID_regfile
+Compiling module xil_defaultlib.Branch_gen
+Compiling module xil_defaultlib.ID_top
+Compiling module xil_defaultlib.EX_ALU
+Compiling module xil_defaultlib.EX_top
+Compiling module xil_defaultlib.MEM_top
+Compiling module xil_defaultlib.WB_top
+Compiling module xil_defaultlib.ToastCore
+Compiling module xil_defaultlib.riscvTests_tb
+Compiling module xil_defaultlib.glbl
+Built simulation snapshot riscvTests_tb_behav
+INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+relaunch_sim: Time (s): cpu = 00:00:09 ; elapsed = 00:00:08 . Memory (MB): peak = 7694.820 ; gain = 21.016 ; free physical = 1286 ; free virtual = 15377
+save_wave_config {/home/george/Documents/work/RISCV/RISCV_Project/riscvTests_tb_behav.wcfg}
+close_sim
+INFO: [Simtcl 6-16] Simulation closed
+exit
+INFO: [Common 17-206] Exiting Vivado at Wed Jul 14 18:52:14 2021...

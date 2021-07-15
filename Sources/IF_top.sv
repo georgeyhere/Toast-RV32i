@@ -65,7 +65,7 @@ module IF_top
     .ID_PC_dest       (ID_PC_dest),
     .EX_PC_Branch     (EX_PC_Branch),
     .EX_PC_Branch_dest(EX_PC_Branch_dest),
-    .PC_Out           (IF_PC)
+    .PC_Out           (IMEM_addr)
     );
     
     

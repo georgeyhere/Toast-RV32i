@@ -79,9 +79,7 @@ module riscvTests_tb();
 
     initial begin
         $readmemh(tests[`RVTEST_ADD], PROGMEM);
-        for(int i=0; i<=IMEM_DEPTH/4; i=i+1) begin
-            PROGMEM[i*4] = PROGMEM[i];
-        end
+        for(int i=0; i<=IMEM_DEPTH/4; i=i+1) IMEM[i*4] = PROGMEM[i];
     end
 
     initial begin
@@ -91,7 +89,7 @@ module riscvTests_tb();
     end
 
 
-    always@(posedge Clk) IMEM_data = IMEM[IMEM_addr];
+    always@(posedge Clk) IMEM_data <= IMEM[IMEM_addr];
 
     always@(posedge Clk) begin
         if((DMEM_rst == 1) || (Reset_n == 0)) DMEM_rd_data <= 0;
