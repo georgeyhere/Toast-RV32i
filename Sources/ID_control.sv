@@ -58,9 +58,12 @@ module ID_control
     `endif
 
     (
+//*************************************************
     input      [REG_DATA_WIDTH-1 :0]      IF_Instruction,
     input      [31:0]                     IF_PC,
 
+//*************************************************
+    // REGFILE ADDRESSES
     output reg [4:0]                      Rd_addr,        
     output reg [4:0]                      Rs1_addr,       
     output reg [4:0]                      Rs2_addr, 
@@ -80,6 +83,8 @@ module ID_control
     output reg                            MemToReg,       // enable regfile writeback from data mem
     output reg                            Jump,           // indicates a jump
     output reg [2:0]                      Mem_op          // selects memory mask for load/store
+
+//*************************************************
     );
     
 // ===========================================================================
@@ -88,7 +93,7 @@ module ID_control
     wire [6:0]  OPCODE; 
     wire [4:0]  RD;     
     wire [3:0]  FUNCT3; 
-    wire [6:0]  FUNCT7; 
+    wire        FUNCT7; 
     
     wire [31:0] IMM_I; // I-type immediate
     wire [31:0] IMM_S; // S-type immediate
@@ -101,10 +106,10 @@ module ID_control
 //                              Implementation    
 // ===========================================================================
     
-    // Instruction Decoding
+    // Instruction Decoding; continuous assignment
     assign OPCODE      = IF_Instruction[6:0];
     assign FUNCT3      = IF_Instruction[14:12];
-    assign FUNCT7      = IF_Instruction[31:25];
+    assign FUNCT7      = IF_Instruction[30];
     
     assign IMM_I       = { {20{IF_Instruction[31]}}, IF_Instruction[31:20] }; 
     assign IMM_S       = { {20{IF_Instruction[31]}}, IF_Instruction[31:25], IF_Instruction[11:7] }; 
@@ -112,11 +117,7 @@ module ID_control
     assign IMM_U       = { IF_Instruction[31:12], {12{1'b0}} };
     assign IMM_J       = { {12{IF_Instruction[31]}}, IF_Instruction[19:12], IF_Instruction[20], IF_Instruction[30:25], IF_Instruction[24:21], 1'b0};
     
-    /*
-    assign Rd_addr  = IF_Instruction[11:7];
-    assign Rs1_addr = IF_Instruction[19:15];
-    assign Rs2_addr = IF_Instruction[24:20];
-    */
+    
     // Combinatorial process to decode instructions
     always_comb begin
         // DEFAULT 

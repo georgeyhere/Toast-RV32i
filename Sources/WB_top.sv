@@ -23,26 +23,29 @@
 module WB_top
 
     (
+    //*************************************************
     output  [4:0]  WB_Rd_addr,
     output  [31:0] WB_Rd_data,
     output         WB_RegFile_wr_en,
 
+    //*************************************************
     input      [4:0]  MEM_Rd_addr,
     input      [31:0] MEM_dout,
     input      [31:0] MEM_ALU_result,
     input             MEM_MemToReg,
     input             MEM_RegFile_wr_en   
+    //*************************************************
     );
+
+    /*
+    WB just consists of a mux that controls whether data memory data or ALU result
+    gets written back to the register file.
+    */
+
 
     assign WB_Rd_addr       = MEM_Rd_addr;
     assign WB_Rd_data       = (MEM_MemToReg == 1'b1) ? MEM_dout : MEM_ALU_result;
     assign WB_RegFile_wr_en = MEM_RegFile_wr_en;
-    /*
-    always_comb begin
-        WB_Rd_addr       = MEM_Rd_addr;
-        WB_Rd_data       = (MEM_MemToReg == 1'b1) ? MEM_dout : MEM_ALU_result;
-        WB_RegFile_wr_en = MEM_RegFile_wr_en;
-    end
-    */
+    
 
 endmodule

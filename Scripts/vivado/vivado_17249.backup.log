@@ -1,0 +1,60 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Wed Jul 14 10:02:18 2021
+# Process ID: 17249
+# Current directory: /home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado
+# Command line: vivado
+# Log file: /home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado/vivado.log
+# Journal file: /home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr
+WARNING: [filemgmt 56-3] Default IP Output Path : Could not find the directory '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2020.2/data/ip'.
+INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+open_project: Time (s): cpu = 00:00:25 ; elapsed = 00:00:06 . Memory (MB): peak = 7401.887 ; gain = 48.082 ; free physical = 10416 ; free virtual = 15266
+update_compile_order -fileset sources_1
+source rvTest.tcl
+# launch_simulation
+Command: launch_simulation 
+INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
+INFO: [SIM-utils-51] Simulation object is 'sim_1'
+INFO: [SIM-utils-54] Inspecting design source files for 'riscvTests_tb' in fileset 'sim_1'...
+INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/add.mem'
+INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/addi.mem'
+INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/and.mem'
+INFO: [SIM-utils-43] Exported '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/auipc.mem'
+INFO: [USF-XSim-97] Finding global include files...
+INFO: [USF-XSim-98] Fetching design files from 'sim_1'...
+INFO: [USF-XSim-2] XSim::Compile design
+INFO: [USF-XSim-61] Executing 'COMPILE and ANALYZE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
+xvlog --incr --relax -L uvm -prj riscvTests_tb_vlog.prj
+Waiting for jobs to finish...
+No pending jobs, compilation finished.
+INFO: [USF-XSim-69] 'compile' step finished in '2' seconds
+INFO: [USF-XSim-3] XSim::Elaborate design
+INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
+xelab -wto 4ab5102faaa04b3ba47706ec12b94608 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot riscvTests_tb_behav xil_defaultlib.riscvTests_tb xil_defaultlib.glbl -log elaborate.log
+Vivado Simulator 2020.2
+Copyright 1986-1999, 2001-2020 Xilinx, Inc. All Rights Reserved.
+Running: /opt/Xilinx/Vivado/2020.2/bin/unwrapped/lnx64.o/xelab -wto 4ab5102faaa04b3ba47706ec12b94608 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot riscvTests_tb_behav xil_defaultlib.riscvTests_tb xil_defaultlib.glbl -log elaborate.log 
+Using 8 slave threads.
+Starting static elaboration
+Pass Through NonSizing Optimizer
+Completed static elaboration
+INFO: [XSIM 43-4323] No Change in HDL. Linking previously generated obj files to create kernel
+INFO: [USF-XSim-69] 'elaborate' step finished in '1' seconds
+INFO: [USF-XSim-4] XSim::Simulate design
+INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim'
+INFO: [USF-XSim-98] *** Running xsim
+   with args "riscvTests_tb_behav -key {Behavioral:sim_1:Functional:riscvTests_tb} -tclbatch {riscvTests_tb.tcl} -view {/home/george/Documents/work/RISCV/RISCV_Project/riscvTests_tb_behav.wcfg} -log {simulate.log}"
+INFO: [USF-XSim-8] Loading simulator feature
+Vivado Simulator 2020.2
+Time resolution is 1 ps
+open_wave_config /home/george/Documents/work/RISCV/RISCV_Project/riscvTests_tb_behav.wcfg

@@ -23,38 +23,45 @@ import RV32I_definitions ::*;
 /*
 Handles reads and writes to data memory. Data memory is assumed to be
  a true dual-port RAM.  
+
+Applies a mask to the data going in or out of the memory based on Mem_op
 */
 
 module MEM_top
 
     (
+//*************************************************
     input             Clk,
     input             Reset_n,
 
+//*************************************************
     // DATA MEMORY
-    output reg [31:0] mem_addr,      // data mem address
-    output reg [31:0] mem_wr_data,   // data mem write data, mask applied
-    output reg        mem_wr_en,     // data mem write enable
-    output reg        mem_rst,       // data mem read port reset
-    input     [31:0]  mem_rd_data,   // data mem read data
-
+    output reg [31:0] mem_addr,          // data mem address
+    output reg [31:0] mem_wr_data,       // data mem write data, mask applied
+    output reg        mem_wr_en,         // data mem write enable
+    output reg        mem_rst,           // data mem read port reset
 
     // PIPELINE OUT
     output reg [31:0] MEM_dout,          // data mem read data, mask applied
     output reg        MEM_MemToReg,      
-    output reg [31:0] MEM_ALU_result,
+    output reg [31:0] MEM_ALU_result,    // ALU result, passed through
     output reg        MEM_RegFile_wr_en,
     output reg [4:0]  MEM_Rd_addr,
+
+//*************************************************
+    input     [31:0]  mem_rd_data,       // data mem read data
 
     // PIPELINE IN
     input             EX_Mem_wr_en,
     input             EX_Mem_rd_en,
-    input [2:0]       EX_Mem_op,
+    input [2:0]       EX_Mem_op,         // selects data mem mask 
     input             EX_MemToReg,
     input [31:0]      EX_ALU_result,
     input [31:0]      EX_Rs2_data,
     input             EX_RegFile_wr_en,
     input [4:0]       EX_Rd_addr
+
+//*************************************************
     );
     
 

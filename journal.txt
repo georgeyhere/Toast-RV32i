@@ -1,31 +1,143 @@
-=================================================
+
+================================================================================
+7/12/2021
+--------------------------------------------------------------------------------
+TODO:
+- continue running riscv-tests
+********************************************************************************
+- passed and.S first try!
+- passed auipc.S
+- 
+********************************************************************************
+				TODAY’S BUG REPORTS
+
+auipc.S
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=	
+BUG: JAL stores PC+1 instead of PC+4 → EX_top.sv
+
+ 1c4: 004005ef            jal a1,1c8
+
+	  → EXPECTED:
+		[a1] = 1c4 + 4 = 1c8
+	  → ACTUAL:
+		[a1] = 1c4 + 1 = 1c5
+	
+ -> ALU source input always_comb
+	 offending code: if(ID_Jump == 1) ALU_op2 = 32'd1; 
+	 correction:     if(ID_Jump == 1) ALU_op2 = 32'd4;
+
+Kind of scary that this is the first time I've noticed this. None of the other
+tests run to date have used the register stored to by a jump.
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=	
+BUG: SUB INSTRUCTION GETS ADD ALU OP → ID_control.sv
+
+ 1c8: 40b50533            sub a0,a0,a1
+
+	  → EXPECTED:
+		[a0] = a0 - a1 
+	  → ACTUAL:
+		[a0] = a0 + a1
+	
+ -> Parameters, Registers, and Wires || Instruction Decoding
+	 offending code: wire [6:0] FUNCT7;
+                         ...
+	                 assign FUNCT7 = IF_Instruction[31:25];
+	 correction:     wire FUNCT7;
+                         ...
+                         assign FUNCT7 = IF_Instruction[30];
+
+Another scary bug.
+
+
+================================================================================
+
+
+
+================================================================================
 7/11/2021
------------------------------------------------
+--------------------------------------------------------------------------------
 TODO:
 - begin running riscv-tests
-**********************************************
-- add.S
-	-> passes up to Test #20
-	-> found bug in branch generation:
-80000350 <test_20>:
-80000350:	00000213          	li	tp,0                         # tp = 0
-80000354:	00d00093          	li	ra,13
-80000358:	00b00113          	li	sp,11
-8000035c:	00208733          	add	a4,ra,sp                     
-80000360:	00070313          	mv	t1,a4                        
-80000364:	00120213          	addi	tp,tp,1                      # tp = 0+1 = 1
-80000368:	00200293          	li	t0,2                         # t0 = 2
-8000036c:	fe5214e3          	bne	tp,t0,80000354 <test_20+0x4> # branch if tp != t0 ???
-80000370:	01800393          	li	t2,24
-80000374:	01400193          	li	gp,20
-80000378:	2c731e63          	bne	t1,t2,80000654 <fail>
-	-> 36c results in an endless loop
+*******************************************************************************
+- passed add.S
+- passed andi.S
+
+*******************************************************************************
+				TODAY’S BUG REPORTS
+
+add.S
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=	
+BUG: BRANCH GEN TO INCORRECT TARGET → Branch_gen.sv
+00000394 <test_20>:
+ 394:	00000213          	li	tp,0
+
+00000398 <.L1#10>:
+ 398:	00d00093          	li	ra,13
+ 39c:	00b00113          	li	sp,11
+ 3a0:	00208733          	add	a4,ra,sp
+ 3a4:	00070313          	mv	t1,a4
+ 3a8:	00120213          	addi	tp,tp,1 # 1 <_start-0x3b>
+ 3ac:	00200293          	li	t0,2
+ 3b0:	fe5214e3          	bne	tp,t0,398 <.L1#10>            # BUG
+ 3b4:	01800393          	li	t2,24
+ 3b8:	01400193          	li	gp,20
+ 3bc:	2c731e63          	bne	t1,t2,698 <fail>
+	-> 3b0 results in an endless loop
+	@3b0
+	→ EXPECTED:
+		branch dest = 3b0 – 18 = 398
+	→ ACTUAL:
+		branch dest = 3b0 – 60 = 350
+	
+	ISSUE: Branch gen has old code
+
+	offending code: `PC_RELATIVE: Branch_dest = PC + $signed(offset)*4;
+		- stupid mistake
+	correction:        `PC_RELATIVE: Branch_dest = PC + $signed(Immediate);
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+BUG: ID UNIT GENERATES INCORRECT JAL  TARGET → ID_control.sv
+	→ EXPECTED:
+		JAL jumps to PC + imm_J
+	→ ACTUAL:
+		JAL jumps to PC + imm_J, but target is not what it should be
+
+	ISSUE: J-type immediate has incorrect format
+
+	offending code: assign IMM_J  = { {11{1'b0}}, IF_Instruction[31], IF_Instruction[19:12], 
+                                          IF_Instruction[20], IF_Instruction[10:1], 1'b0};
+
+	correction:     assign IMM_J = { {12{IF_Instruction[31]}}, IF_Instruction[19:12],IF_Instruction[20], 
+                                          IF_Instruction[30:25],IF_Instruction[24:21], 1'b0};
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+BUG: EX UNIT BRANCHES AFTER JUMP → EX_top.sv
+	→ EXPECTED:
+		after a JAL, PC continues as normal
+	→ ACTUAL:
+		after a JAL, EX unit branches on next cycle
+
+	ISSUE: Typo in EX stage
+
+	offending code: if(ID_Jump == 1'b1) EX_PC_Branch <= 1;
+	correction:        if(ID_Jump == 1'b1) EX_PC_Branch <= 0;
+
+-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
+BUG: HAZARD DETECTION STALLS ON NOP → Pipe_Hazard.sv
+	→ EXPECTED:
+		Stall IF and ID stages when an IF instruction depends on a load instruction in ID
+	→ ACTUAL:
+		IF and ID are stalled indefinitely on a NOP
+
+	ISSUE: Probably stems from messy code, difficult to debug with current syntax, still needs to be looked at 
+
+	offending code: <messy combinatorial logic in assign statement, see line 47 in commit cbefa53>
+	correction:     replaced assign statement logic with always_comb and if-else, need to recheck 
+			what it looks like in synthesis
+
+==================================================================================================
 
 
-=================================================
-
-
-=================================================
+==================================================================================================
 7/12/2021
 -----------------------------------------------
 TODO:

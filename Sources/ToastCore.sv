@@ -23,48 +23,30 @@
 module ToastCore
 
     (
-    input            Clk,
-    input            Reset_n,   
-    input  [31:0]    mem_rd_data,
-    
-`ifdef RISCV_FORMAL
-    output reg        rvfi_valid,    // asserted when core retires an instruction    
-    output reg [63:0] rvfi_order,    // instruction index
-    output reg [31:0] rvfi_insn,     // instruction word for retired instruction
-    output reg        rvfi_trap,     // set for instruction that cannot be decoded as legal instruction
-    output reg        rvfi_halt,     // set when instruction is the last instruction
-    output reg        rvfi_intr,     // set for trap handler
-    output reg [1:0]  rvfi_mode,     // set to privilege level 
-    output reg [1:0]  rvfi_ixl,      // MXL/SXL/UXL
-    
-    output reg [4:0]  rvfi_rs1_addr, // decoded register addresses for retired instruction
-    output reg [4:0]  rvfi_rs2_addr, 
-    output reg [4:0]  rvfi_rd_addr,  
-    
-    output reg [31:0] rvfi_rs1_data, // value of rs1 before execution 
-    output reg [31:0] rvfi_rs2_data, // value of rs2 before execution 
-    output reg [31:0] rvfi_rd_wdata, // value of rd after execution
-    
-    output reg [31:0] rvfi_pc_rdata, // PC before execution
-    output reg [31:0] rvfi_pc_wdata, // PC after execution
-    
-    output reg [31:0] rvfi_mem_addr,
-    output reg [3:0]  rvfi_mem_rmask,
-    output reg [3:0]  rvfi_mem_wmask,
-    output reg [31:0] rvfi_mem_rdata,
-    output reg [31:0] rvfi_mem_wdata
-`endif
-    
-    output [31:0]    mem_addr,
-    output [31:0]    mem_wr_data,
-    output           mem_wr_en,
-    output           mem_rst
+    //*************************************************
+    input             Clk,
+    input             Reset_n,   
+
+    //*************************************************
+    input  [31:0]     IMEM_data,
+    input  [31:0]     DMEM_rd_data,
+
+    //*************************************************
+    output [31:0]     IMEM_addr,
+    output [31:0]     DMEM_addr,
+    output [31:0]     DMEM_wr_data,
+    output            DMEM_wr_en,
+    output            DMEM_rst
+    //*************************************************
     );
-    
+
+// ===========================================================================
+//                    Parameters, Registers, and Wires
+// ===========================================================================    
     // hazards
     wire        IF_ID_Flush;
     wire        EX_Flush;
-    bit        Stall;
+    bit         Stall;
     
     // forwarding
     wire [1:0]  ForwardA;
@@ -120,7 +102,9 @@ module ToastCore
     wire [31:0] WB_Rd_data;
     wire        WB_Rd_wr_en;
 
-    
+// ===========================================================================
+//                                 Instantiation
+// ===========================================================================    
     Forwarding FWD_inst(
     .ForwardA           (ForwardA),
     .ForwardB           (ForwardB),
@@ -135,6 +119,8 @@ module ToastCore
     );
     
     Hazard_detection HD_inst(
+    .Clk                (Clk),
+    .Reset_n            (Reset_n),
     .IF_Instruction     (IF_Instruction),
     .ID_Mem_rd_en       (ID_Mem_rd_en),
     .ID_Rd_addr         (ID_Rd_addr),
@@ -149,11 +135,13 @@ module ToastCore
     IF_top IF_inst(
     .Clk                (Clk),
     .Reset_n            (Reset_n),
-    .EX_PC_Branch_dest  (EX_PC_Branch_dest),
-    .EX_PC_Branch       (EX_PC_Branch),
+    .IMEM_data          (IMEM_data),
+    .IMEM_addr          (IMEM_addr),
     .ID_PC_dest         (ID_PC_dest),
     .ID_Jump            (ID_Jump),
-    .IF_Stall           (Stall), //!
+    .EX_PC_Branch_dest  (EX_PC_Branch_dest),
+    .EX_PC_Branch       (EX_PC_Branch),
+    .IF_Stall           (Stall), 
     .IF_Flush           (IF_ID_Flush),
     .IF_PC              (IF_PC),
     .IF_Instruction     (IF_Instruction)
@@ -178,9 +166,9 @@ module ToastCore
     .ID_Mem_rd_en       (ID_Mem_rd_en),
     .ID_RegFile_wr_en   (ID_RegFile_wr_en),
     .ID_MemToReg        (ID_MemToReg),
-    .ID_Jump            (ID_Jump),
     .ID_Mem_op          (ID_Mem_op),
     .ID_PC_dest         (ID_PC_dest),
+    .ID_Jump            (ID_Jump),
     .ID_Immediate_1     (ID_Immediate_1),
     .ID_Immediate_2     (ID_Immediate_2),
     .ID_Rs1_data        (ID_Rs1_data),
@@ -230,11 +218,11 @@ module ToastCore
     MEM_top MEM_inst(
     .Clk               (Clk),
     .Reset_n           (Reset_n),
-    .mem_addr          (mem_addr),
-    .mem_wr_data       (mem_wr_data),
-    .mem_wr_en         (mem_wr_en),
-    .mem_rst           (mem_rst),
-    .mem_rd_data       (mem_rd_data),
+    .mem_addr          (DMEM_addr),
+    .mem_wr_data       (DMEM_wr_data),
+    .mem_wr_en         (DMEM_wr_en),
+    .mem_rst           (DMEM_rst),
+    .mem_rd_data       (DMEM_rd_data),
     .MEM_dout          (MEM_dout),
     .MEM_MemToReg      (MEM_MemToReg),
     .MEM_ALU_result    (MEM_ALU_result),
