@@ -15,14 +15,17 @@ module Hazard_detection
     `endif
 
 	(
-    output reg                     Stall,          // pipeline stall signal
-	
- 	output reg                     IF_ID_Flush,    // flush IF and ID in case of branch or jump taken
- 	output reg                     EX_Flush,       // flush EX if branch taken
-	
+//************************************************* 
     input                          Clk,
     input                          Reset_n,
 
+//*************************************************
+    output reg                     Stall,          // pipeline stall signal
+	
+ 	output                         IF_ID_Flush,    // flush IF and ID in case of branch or jump taken
+ 	output reg                     EX_Flush,       // flush EX if branch taken
+
+//*************************************************
 	input [31:0]                   IF_Instruction, // used to check for Data hazard
 
 	input						   ID_Mem_rd_en,   // is an ID instrn a load?
@@ -31,6 +34,7 @@ module Hazard_detection
     input                          EX_PC_Branch,
     input                          ID_Jump
 
+//*************************************************
 	);
     
     /*
@@ -86,7 +90,6 @@ module Hazard_detection
     -> it is unknown whether a branch or jump is taken until the end of EX stage.
     -> if a branch is taken, IF, ID, and EX need to be flushed.
     -> if a jump is taken, only IF and ID need to be flushed.       
-    Checks for the following conditions:
     */
     
     reg IF_ID_Flush1_i; // internal 1
@@ -102,9 +105,10 @@ module Hazard_detection
 
     
     always@(posedge Clk) begin
-        IF_ID_Flush2_i <= (EX_PC_Branch == 1) ? IF_ID_Flush1_i : 0;
+        if(Reset_n == 1'b0) IF_ID_Flush2_i <= 0;
+        else                IF_ID_Flush2_i <= IF_ID_Flush1_i;
+        
     end
-
 
     always_comb begin
         if(EX_PC_Branch == 1) EX_Flush = 1;

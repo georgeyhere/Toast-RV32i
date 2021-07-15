@@ -119,6 +119,8 @@ module ToastCore
     );
     
     Hazard_detection HD_inst(
+    .Clk                (Clk),
+    .Reset_n            (Reset_n),
     .IF_Instruction     (IF_Instruction),
     .ID_Mem_rd_en       (ID_Mem_rd_en),
     .ID_Rd_addr         (ID_Rd_addr),
