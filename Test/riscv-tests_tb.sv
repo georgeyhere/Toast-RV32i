@@ -175,7 +175,7 @@ module riscvTests_tb();
 
     initial begin
     // !!!!! EDIT THIS LINE FOR DIFFERENT TESTS !!!!!!!
-        $readmemh(tests[`RR_SRA], PROGMEM);
+        $readmemh(tests[`I_SLLI], PROGMEM);
         for(int i=0; i<=IMEM_DEPTH/4; i=i+1) IMEM[i*4] = PROGMEM[i];
     end
 
