@@ -1,0 +1,56 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Fri Jul 16 17:20:09 2021
+[*]
+[dumpfile] "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/dump.vcd"
+[dumpfile_mtime] "Fri Jul 16 17:15:00 2021"
+[dumpfile_size] 421798
+[savefile] "/home/george/Documents/work/RISCV/Toast-RV32i/Test/gtk/base_config.gtkw"
+[timestart] 9944500
+[size] 1920 1052
+[pos] 1764 -116
+*-16.000000 10156100 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] riscvTests_tb.
+[treeopen] riscvTests_tb.UUT.
+[sst_width] 268
+[signals_width] 314
+[sst_expanded] 1
+[sst_vpaned_height] 311
+@28
+riscvTests_tb.UUT.Clk
+riscvTests_tb.UUT.Reset_n
+@200
+-Pipeline
+@28
+riscvTests_tb.UUT.HD_inst.IF_ID_Flush
+riscvTests_tb.UUT.HD_inst.EX_Flush
+riscvTests_tb.UUT.HD_inst.Stall
+@200
+-IMEM Interface
+@22
+[color] 6
+riscvTests_tb.UUT.IMEM_addr[31:0]
+@4022
+^>1 /home/george/Documents/work/RISCV/Toast-RV32i/Test/gtk/filters/riscv-filter.py
+riscvTests_tb.UUT.IMEM_data[31:0]
+@200
+-PC
+@29
+[color] 1
+riscvTests_tb.UUT.IF_inst.ID_Jump
+@22
+[color] 6
+riscvTests_tb.UUT.IF_inst.ID_PC_dest[31:0]
+@29
+[color] 1
+riscvTests_tb.UUT.IF_inst.EX_PC_Branch
+@22
+[color] 6
+riscvTests_tb.UUT.IF_inst.EX_PC_Branch_dest[31:0]
+[color] 6
+riscvTests_tb.UUT.IF_inst.IF_PC[31:0]
+@4022
+^>1 /home/george/Documents/work/RISCV/Toast-RV32i/Test/gtk/filters/riscv-filter.py
+riscvTests_tb.UUT.IF_inst.IF_Instruction[31:0]
+[pattern_trace] 1
+[pattern_trace] 0

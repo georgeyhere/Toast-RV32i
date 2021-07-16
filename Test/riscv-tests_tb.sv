@@ -21,10 +21,58 @@
 import   RV32I_definitions::*;
 import   testbench_pkg::*;
 
-`define RVTEST_ADD   1
-`define RVTEST_ADDI  2
-`define RVTEST_AND   3
-`define RVTEST_AUIPC 4
+// Register-Register
+`define RR_ADD   0
+`define RR_SUB   1
+`define RR_AND   2
+`define RR_OR    3
+`define RR_XOR   4
+`define RR_SLT   5
+`define RR_SLTU  6
+`define RR_SLL   7
+`define RR_SRL   8
+`define RR_SRA   9
+ 
+ // Register-Immediate
+`define I_ADDI   10
+`define I_ANDI   11
+`define I_ORI    12
+`define I_XORI   13
+`define I_SLTI   14
+`define I_SLLI   15
+`define I_SRLI   16
+`define I_SRAI   17
+ 
+ // Conditional Branches
+`define B_BEQ    18
+`define B_BNE    19
+`define B_BLT    20
+`define B_BGE    21
+`define B_BLTU   22
+`define B_BGEU   23
+
+// Upper Immediate
+`define UI_LUI   24
+`define UI_AUIPC 25
+
+// Jumps
+`define J_JAL    26
+`define J_JALR   27
+
+// Loads
+`define L_LB     28
+`define L_LH     29
+`define L_LW     30
+`define L_LBU    31
+`define L_LHU    32
+
+// Stores
+`define S_SB     33
+`define S_SH     34
+`define S_SW     35
+`define S_SBU    36
+`define S_SHU    37
+
 
 module riscvTests_tb();
   
@@ -61,11 +109,59 @@ module riscvTests_tb();
         end
     end
     
-    reg [8*20:0] tests [0:3] = {
-    "add.mem",
-    "addi.mem",
-    "and.mem",
-    "auipc.mem"
+    reg [8*20:0] tests [0:37] = {
+    
+    // R-R [0:9] 
+    "add.S.mem",
+    "sub.S.mem",
+    "and.S.mem",
+    "or.S.mem",
+    "xor.S.mem",
+    "slt.S.mem",
+    "sltu.S.mem",
+    "sll.S.mem",
+    "srl.S.mem",
+    "sra.S.mem",
+
+    // R-I [10:17]
+    "addi.S.mem",
+    "andi.S.mem",
+    "ori.S.mem",
+    "xori.S.mem",
+    "slti.S.mem",
+    "slli.S.mem",
+    "srli.S.mem",
+    "srai.S.mem",
+
+    // CB [18:23]
+    "beq.S.mem",
+    "bne.S.mem",
+    "blt.S.mem",
+    "bge.S.mem",
+    "bltu.S.mem",
+    "bgeu.S.mem",
+
+    // UI [24:25]
+    "lui.S.mem",
+    "auipc.S.mem",
+
+    // J [26:27]
+    "jal.S.mem",
+    "jalr.S.mem",
+
+    // L [28:32]
+    "lb.S.mem",
+    "lh.S.mem",
+    "lw.S.mem",
+    "lbu.S.mem",
+    "lhu.S.mem",
+
+    // S [33:37]
+    "sb.S.mem",
+    "sh.S.mem",
+    "sw.S.mem",
+    "sbu.S.mem",
+    "shu.S.mem"
     };
 
 
@@ -78,7 +174,7 @@ module riscvTests_tb();
     reg [31:0] DMEM    [0:DMEM_DEPTH];
 
     initial begin
-        $readmemh(tests[`RVTEST_ADD], PROGMEM);
+        $readmemh(tests[`RR_SUB], PROGMEM);
         for(int i=0; i<=IMEM_DEPTH/4; i=i+1) IMEM[i*4] = PROGMEM[i];
     end
 
