@@ -82,8 +82,8 @@ module ID_control
     output reg                            RegFile_wr_en,  // enable regfile writeback 
     output reg                            MemToReg,       // enable regfile writeback from data mem
     output reg                            Jump,           // indicates a jump
-    output reg [2:0]                      Mem_op          // selects memory mask for load/store
-
+    output reg [2:0]                      Mem_op,         // selects memory mask for load/store
+    output reg                            Exception
 //*************************************************
     );
     
@@ -133,6 +133,7 @@ module ID_control
         MemToReg       = 0;     // default: no data mem writeback
         Jump           = 0;     // default: no jump
         Mem_op         = 0;     // default: no data mem mask
+        Exception      = ((IF_Instruction == `ECALL) || (IF_Instruction == `EBREAK));
         
         Rd_addr  = IF_Instruction[11:7]; 
         Rs1_addr = IF_Instruction[19:15];

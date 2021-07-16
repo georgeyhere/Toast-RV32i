@@ -82,7 +82,9 @@ module ID_top
     // regfile addresses
     output reg [REGFILE_ADDR_WIDTH-1:0]  ID_Rd_addr,
     output reg [REGFILE_ADDR_WIDTH-1:0]  ID_Rs1_addr,
-    output reg [REGFILE_ADDR_WIDTH-1:0]  ID_Rs2_addr
+    output reg [REGFILE_ADDR_WIDTH-1:0]  ID_Rs2_addr,
+
+    output reg                           ID_Exception
     //*************************************************
     );
     
@@ -109,6 +111,8 @@ module ID_top
     
     wire [31:0] Branch_dest_i;
 
+    wire        Exception_i;
+
 // ===========================================================================
 //                              Instantiation   
 // ===========================================================================    
@@ -129,7 +133,8 @@ module ID_top
     .RegFile_wr_en  (RegFile_wr_en_i),  // ctrl
     .MemToReg       (MemToReg_i),       // ctrl
     .Mem_op         (Mem_op_i),         // ctrl
-    .Jump           (Jump_i)            // ctrl
+    .Jump           (Jump_i),           // ctrl
+    .Exception      (Exception_i)
     );
     
     ID_regfile RV32I_REGFILE(
@@ -179,6 +184,7 @@ module ID_top
             ID_Immediate_2    <= 0;
             ID_Rs1_data       <= 0;
             ID_Rs2_data       <= 0;
+            ID_Exception      <= 0;
         end
         else begin
             // on stall, drop control signals to 0
@@ -202,6 +208,7 @@ module ID_top
                 ID_Immediate_2    <= ID_Immediate_2;
                 ID_Rs1_data       <= ID_Rs1_data;
                 ID_Rs2_data       <= ID_Rs2_data;
+                ID_Exception      <= ID_Exception;
             end
             else begin
                 ID_PC <= IF_PC;
@@ -223,6 +230,7 @@ module ID_top
                 ID_Immediate_2    <= Immediate_2_i;
                 ID_Rs1_data       <= Rs1_data_i;
                 ID_Rs2_data       <= Rs2_data_i;
+                ID_Exception      <= Exception_i;
             end
         end  
     end

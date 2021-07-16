@@ -47,6 +47,8 @@ module MEM_top
     output reg [31:0] MEM_ALU_result,    // ALU result, passed through
     output reg        MEM_RegFile_wr_en,
     output reg [4:0]  MEM_Rd_addr,
+    output reg        MEM_Exception,
+
 
 //*************************************************
     input     [31:0]  mem_rd_data,       // data mem read data
@@ -59,7 +61,8 @@ module MEM_top
     input [31:0]      EX_ALU_result,
     input [31:0]      EX_Rs2_data,
     input             EX_RegFile_wr_en,
-    input [4:0]       EX_Rd_addr
+    input [4:0]       EX_Rd_addr,
+    input             EX_Exception
 
 //*************************************************
     );
@@ -73,12 +76,14 @@ module MEM_top
             MEM_ALU_result    <= 0;
             MEM_RegFile_wr_en <= 0;
             MEM_Rd_addr       <= 0;
+            MEM_Exception     <= 0;
         end
         else begin
             MEM_MemToReg      <= EX_MemToReg;
             MEM_ALU_result    <= EX_ALU_result;
             MEM_RegFile_wr_en <= EX_RegFile_wr_en;
             MEM_Rd_addr       <= EX_Rd_addr;
+            MEM_Exception     <= EX_Exception;
         end
     end
     
