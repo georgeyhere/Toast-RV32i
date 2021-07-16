@@ -35,6 +35,10 @@ package RV32I_definitions;
     `define OPCODE_LOAD        7'b0000011 
     `define OPCODE_STORE       7'b0100011 
     
+    // EXCEPTIONS
+    `define ECALL              32'h00000073
+    `define EBREAK             32'h00100073
+
     // FUNCT7 - OP
     `define FUNCT7_SRA_I_SUB   7'b0100000
     `define FUNCT7_DEFAULT     7'b0000000

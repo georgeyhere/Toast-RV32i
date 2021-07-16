@@ -36,7 +36,9 @@ module ToastCore
     output [31:0]     DMEM_addr,
     output [31:0]     DMEM_wr_data,
     output            DMEM_wr_en,
-    output            DMEM_rst
+    output            DMEM_rst,
+
+    output            Exception
     //*************************************************
     );
 
@@ -76,6 +78,7 @@ module ToastCore
     wire [4:0]  ID_Rd_addr;
     wire [4:0]  ID_Rs1_addr;
     wire [4:0]  ID_Rs2_addr;
+    wire        ID_Exception;
     
     // Execution
     wire        EX_Mem_wr_en;
@@ -86,9 +89,9 @@ module ToastCore
     wire [31:0] EX_Rs2_data;
     wire        EX_RegFile_wr_en;
     wire [4:0]  EX_Rd_addr;
-
     wire [31:0] EX_PC_Branch_dest;
     wire        EX_PC_Branch;
+    wire        EX_Exception;
     
     // Memory
     wire [31:0] MEM_dout;
@@ -169,6 +172,7 @@ module ToastCore
     .ID_Mem_op          (ID_Mem_op),
     .ID_PC_dest         (ID_PC_dest),
     .ID_Jump            (ID_Jump),
+    .ID_Exception       (ID_Exception),
     .ID_Immediate_1     (ID_Immediate_1),
     .ID_Immediate_2     (ID_Immediate_2),
     .ID_Rs1_data        (ID_Rs1_data),
@@ -191,6 +195,7 @@ module ToastCore
     .EX_PC_Branch       (EX_PC_Branch),
     .EX_RegFile_wr_en   (EX_RegFile_wr_en),
     .EX_Rd_addr         (EX_Rd_addr),
+    .EX_Exception       (EX_Exception),
     .EX_Flush           (EX_Flush),
     .ID_Mem_wr_en       (ID_Mem_wr_en),
     .ID_Mem_rd_en       (ID_Mem_rd_en),
@@ -211,7 +216,8 @@ module ToastCore
     .ID_Rs1_data        (ID_Rs1_data),
     .ID_Rs2_data        (ID_Rs2_data),
     .ID_Immediate_1     (ID_Immediate_1),
-    .ID_Immediate_2     (ID_Immediate_2)
+    .ID_Immediate_2     (ID_Immediate_2),
+    .ID_Exception       (ID_Exception)
     );
     
 
@@ -228,6 +234,7 @@ module ToastCore
     .MEM_ALU_result    (MEM_ALU_result),
     .MEM_RegFile_wr_en (MEM_RegFile_wr_en),
     .MEM_Rd_addr       (MEM_Rd_addr),
+    .MEM_Exception     (Exception),
     .EX_Mem_wr_en      (EX_Mem_wr_en),
     .EX_Mem_rd_en      (EX_Mem_rd_en),
     .EX_Mem_op         (EX_Mem_op),
@@ -235,7 +242,8 @@ module ToastCore
     .EX_ALU_result     (EX_ALU_result),
     .EX_Rs2_data       (EX_Rs2_data),
     .EX_RegFile_wr_en  (EX_RegFile_wr_en),
-    .EX_Rd_addr        (EX_Rd_addr)
+    .EX_Rd_addr        (EX_Rd_addr),
+    .EX_Exception      (EX_Exception)
     );
 
 

@@ -86,6 +86,7 @@ module riscvTests_tb();
     wire [31:0] DMEM_wr_data;
     wire        DMEM_wr_en;
     wire        DMEM_rst;
+    wire        Exception;
 
 
     ToastCore UUT(
@@ -98,15 +99,29 @@ module riscvTests_tb();
     .DMEM_addr   (DMEM_addr),
     .DMEM_wr_data(DMEM_wr_data),
     .DMEM_wr_en  (DMEM_wr_en),
-    .DMEM_rst    (DMEM_rst)
+    .DMEM_rst    (DMEM_rst),
+    .Exception   (Exception)
     );
     
     always#(10) Clk = ~Clk;     
     
     always@(posedge Clk) begin
-        if(UUT.IF_inst.IF_Instruction == 32'hc0001073) begin
-            $finish; // finish if encounter an unimp, indicating end of test
+        if((UUT.ID_inst.RV32I_REGFILE.Regfile_data[3] == 1) &&   // gp = 1
+           (UUT.ID_inst.RV32I_REGFILE.Regfile_data[17] == 93) && // a7 = 93
+           (UUT.ID_inst.RV32I_REGFILE.Regfile_data[10] == 0))     // a0 = 0
+        begin  
+            $display("TEST PASSED!!!!!!");
+            $finish;
         end
+        else if (Exception == 1) begin
+            $display("EXCEPTION ASSERTED, TEST FAILED");
+            $finish;
+        end
+    end
+
+    initial begin
+        #19995 $display("TIMED OUT, TEST FAILED");
+        $finish;
     end
     
     reg [8*20:0] tests [0:37] = {
@@ -174,8 +189,7 @@ module riscvTests_tb();
     reg [31:0] DMEM    [0:DMEM_DEPTH];
 
     initial begin
-    // !!!!! EDIT THIS LINE FOR DIFFERENT TESTS !!!!!!!
-        $readmemh(tests[`I_SLLI], PROGMEM);
+        $readmemh(tests[`UI_AUIPC], PROGMEM);
         for(int i=0; i<=IMEM_DEPTH/4; i=i+1) IMEM[i*4] = PROGMEM[i];
     end
 
