@@ -2,8 +2,8 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Fri Jul 16 10:07:24 2021
-# Process ID: 8480
+# Start of session at: Fri Jul 16 14:12:41 2021
+# Process ID: 9128
 # Current directory: /home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado
 # Command line: vivado
 # Log file: /home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado/vivado.log
@@ -13,50 +13,28 @@ start_gui
 open_project /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr
 update_compile_order -fileset sources_1
 launch_simulation
-launch_simulation
 open_wave_config /home/george/Documents/work/RISCV/RISCV_Project/riscvTests_tb_behav.wcfg
 source riscvTests_tb.tcl
 source rvTest.tcl
-run 2000 ns
-run 2000 ns
-run 2000 ns
-run 500 ns
-run 500 ns
-run 500 ns
-run 1000 ns
-run 1000 ns
-run 5000 ns
-close_vcd
-relaunch_sim
-source rvTest.tcl
-run 5000 ns
-run 5000 ns
-close_vcd
-relaunch_sim
-source rvTest.tcl
+run 10 us
 run 1 us
-run 2 us
-run 2 us
-run 2us
-run 2 us
-run 5 u
-run 5 us
+run 1 us
 close_vcd
 relaunch_sim
 source rvTest.tcl
 run 10 us
-export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/Test/riscv-tests_tb.sv] -no_script -reset -force -quiet
-remove_files  -fileset sim_1 /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/Test/riscv-tests_tb.sv
-update_compile_order -fileset sim_1
-update_compile_order -fileset sim_1
-set_property SOURCE_SET sources_1 [get_filesets sim_1]
-add_files -fileset sim_1 -norecurse -scan_for_includes /home/george/Documents/work/RISCV/Toast-RV32i/Test/riscv-tests_tb.sv
-update_compile_order -fileset sim_1
-export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/add.mem] -no_script -reset -force -quiet
-remove_files  /home/george/Documents/work/RISCV/Toast-RV32i/Mem/add.mem
-export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sources_1/imports/Mem/addi.mem] -no_script -reset -force -quiet
-export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sources_1/imports/Mem/and.mem] -no_script -reset -force -quiet
-export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sources_1/imports/Mem/auipc.mem] -no_script -reset -force -quiet
-remove_files  {/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sources_1/imports/Mem/addi.mem /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sources_1/imports/Mem/and.mem /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sources_1/imports/Mem/auipc.mem}
-file delete -force /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sources_1/imports/Mem/addi.mem /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sources_1/imports/Mem/and.mem /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sources_1/imports/Mem/auipc.mem
-add_files -norecurse -scan_for_includes {/home/george/Documents/work/RISCV/Toast-RV32i/Mem/srli.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/slti.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/srl.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/addi.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/and.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/lui.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sltu.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/lb.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/andi.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/srai.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sll.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/lhu.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/slt.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/bltu.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/lbu.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/ori.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sub.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sra.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/bge.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/or.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/blt.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sltiu.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sb.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sw.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/lw.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/xor.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/auipc.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/beq.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/jalr.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/xori.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/add.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/bne.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/slli.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/jal.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sh.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/bgeu.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/lh.S.mem}
+run 10 us
+close_vcd
+relaunch_sim
+source rvTest.tcl
+run 20 us
+close_vcd
+relaunch_sim
+source rvTest.tcl
+run 20 us
+close_vcd
+relaunch_sim
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
