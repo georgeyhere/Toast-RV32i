@@ -109,8 +109,11 @@ IMEM_addr placed      Instrn corresponding
             IF_Instruction = 0;
         end
         else begin
-            IF_Instruction = IMEM_data;
+            if(IF_Stall == 1'b1) IF_Instruction = IF_Instruction;
+            else                 IF_Instruction = IMEM_data;
         end
     end
+
+   
 
 endmodule

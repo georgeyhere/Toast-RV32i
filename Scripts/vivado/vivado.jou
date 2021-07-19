@@ -2,8 +2,8 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Fri Jul 16 14:12:41 2021
-# Process ID: 9128
+# Start of session at: Mon Jul 19 14:43:47 2021
+# Process ID: 18081
 # Current directory: /home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado
 # Command line: vivado
 # Log file: /home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado/vivado.log
@@ -16,24 +16,6 @@ launch_simulation
 open_wave_config /home/george/Documents/work/RISCV/RISCV_Project/riscvTests_tb_behav.wcfg
 source riscvTests_tb.tcl
 source rvTest.tcl
-run 10 us
-run 1 us
-run 1 us
-close_vcd
-relaunch_sim
-source rvTest.tcl
-run 10 us
-run 10 us
-close_vcd
-relaunch_sim
-source rvTest.tcl
-run 20 us
-close_vcd
-relaunch_sim
-source rvTest.tcl
-run 20 us
-close_vcd
-relaunch_sim
 source rvTest.tcl
 source rvTest.tcl
 source rvTest.tcl
@@ -44,3 +26,16 @@ source rvTest.tcl
 source rvTest.tcl
 source rvTest.tcl
 source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+close_sim

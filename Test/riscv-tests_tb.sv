@@ -19,7 +19,6 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 import   RV32I_definitions::*;
-import   testbench_pkg::*;
 
 // Register-Register
 `define RR_ADD   0
@@ -104,26 +103,46 @@ module riscvTests_tb();
     );
     
     always#(10) Clk = ~Clk;     
+
     
+// ===========================================================================
+//                                TEST CONTROL
+// ===========================================================================
+    
+    parameter TEST_TO_RUN   = `L_LW;
+
+    //****************************************
+    // PASS CONDITION 1: GP=1 , A7=93, A0=0
+    //****************************************
     always@(posedge Clk) begin
-        if((UUT.ID_inst.RV32I_REGFILE.Regfile_data[3] == 1) &&   // gp = 1
-           (UUT.ID_inst.RV32I_REGFILE.Regfile_data[17] == 93) && // a7 = 93
-           (UUT.ID_inst.RV32I_REGFILE.Regfile_data[10] == 0))     // a0 = 0
+        if((UUT.ID_inst.RV32I_REGFILE.Regfile_data[3] == 1) &&   
+           (UUT.ID_inst.RV32I_REGFILE.Regfile_data[17] == 93) && 
+           (UUT.ID_inst.RV32I_REGFILE.Regfile_data[10] == 0))    
         begin  
             $display("TEST PASSED!!!!!!");
             $finish;
         end
+        //************************************************
+        // FAIL CONDITION 1: ECALL BEFORE PASS CONDITION 1
+        //************************************************
         else if (Exception == 1) begin
             $display("EXCEPTION ASSERTED, TEST FAILED");
             $finish;
         end
     end
 
+    //*********************************
+    // FAIL CONDITION 2: TEST TIMEOUT
+    //*********************************
     initial begin
         #19995 $display("TIMED OUT, TEST FAILED");
         $finish;
     end
-    
+
+
+// ===========================================================================
+//                              Implementation    
+// ===========================================================================    
     reg [8*20:0] tests [0:37] = {
     
     // R-R [0:9] 
@@ -179,37 +198,48 @@ module riscvTests_tb();
     "shu.S.mem"
     };
 
+    parameter MEMORY_DEPTH  = 32'hFFFF;
 
-    parameter IMEM_DEPTH    = 2047;
-    parameter PROGMEM_DEPTH = 2047;
-    parameter DMEM_DEPTH    = 2047;
+    //*********************************
+    //       SIMULATE MEMORY
+    //*********************************
 
-    reg [31:0] IMEM    [0:IMEM_DEPTH];
-    reg [31:0] PROGMEM [0:PROGMEM_DEPTH];
-    reg [31:0] DMEM    [0:DMEM_DEPTH];
-
-    initial begin
-        $readmemh(tests[`UI_AUIPC], PROGMEM);
-        for(int i=0; i<=IMEM_DEPTH/4; i=i+1) IMEM[i*4] = PROGMEM[i];
-    end
+    reg [31:0] MEMORY [0:MEMORY_DEPTH];
 
     initial begin
-        for(int j=0; j<=DMEM_DEPTH; j=j+1) begin
-            DMEM[j] = 32'b0;
+        for (int i=0; i<= MEMORY_DEPTH; i=i+1) begin
+            MEMORY[i] = 0;
         end
+        $readmemh(tests[TEST_TO_RUN], MEMORY);
     end
 
 
-    always@(posedge Clk) IMEM_data <= IMEM[IMEM_addr];
+/*
+    $readmemh loads program data into consecutive addresses, however 
+    RISC-V uses byte-addressable memory (i.e. a word at every fourth address)
 
-    always@(posedge Clk) begin
-        if((DMEM_rst == 1) || (Reset_n == 0)) DMEM_rd_data <= 0;
+    A workaround is to ignore the lower two bits of the address.
+    Do this for both program data and data memory. 
+
+    Note that program memory and data memory are loaded from the same .mem file.
+    Data memory begins at 0x2000, this can be changed by editing /Scripts/memgen.sh and
+    changing the -Tdata parameter of riscv32-unknown-elf-ld.
+*/
+    always@(posedge Clk, negedge Reset_n) begin
+        if(Reset_n == 1'b0) begin
+            IMEM_data <= 0;
+            DMEM_rd_data <= 0;
+        end
         else begin
-            DMEM_rd_data <= DMEM[DMEM_addr];
-            if(DMEM_wr_en == 1'b1) DMEM[DMEM_addr] = DMEM_rd_data;
+            IMEM_data <= MEMORY[IMEM_addr[31:2]];
+            
+            if(DMEM_rst)   DMEM_rd_data <= 0;
+            else           DMEM_rd_data <= MEMORY[DMEM_addr[31:2]];
+            
+            if(DMEM_wr_en) MEMORY[DMEM_addr[31:2]] <= DMEM_wr_data;
         end
-    end
 
+    end
 
     initial begin
         Reset_n = 0;

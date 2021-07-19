@@ -67,8 +67,8 @@ package RV32I_definitions;
     `define FUNCT3_LW          3'b010
     `define FUNCT3_LB          3'b000
     `define FUNCT3_LH          3'b001
-    `define FUNCT3_LBU         3'b100 // TODO
-    `define FUNCT3_LHU         3'b101 // TODO
+    `define FUNCT3_LBU         3'b100 
+    `define FUNCT3_LHU         3'b101 
     
     
     // FUNCT3 - STORE
@@ -102,7 +102,6 @@ package RV32I_definitions;
     // BRANCH GEN
     `define PC_RELATIVE       2'b10  // conditional branch
     `define REG_OFFSET        2'b11
-    
     
     
     // MEMORY STORE/LOAD MASK SELECT

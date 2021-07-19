@@ -1,0 +1,25 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sat Jul 17 09:17:20 2021
+# Process ID: 4625
+# Current directory: /home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado
+# Command line: vivado
+# Log file: /home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado/vivado.log
+# Journal file: /home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr
+WARNING: [filemgmt 56-3] Default IP Output Path : Could not find the directory '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2020.2/data/ip'.
+INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+open_project: Time (s): cpu = 00:00:28 ; elapsed = 00:00:06 . Memory (MB): peak = 7374.094 ; gain = 48.082 ; free physical = 10930 ; free virtual = 15603
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 8
+[Sat Jul 17 09:18:07 2021] Launched synth_1...
+Run output will be captured here: /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.runs/synth_1/runme.log

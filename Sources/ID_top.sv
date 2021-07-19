@@ -200,7 +200,7 @@ module ID_top
                 ID_MemToReg       <= 0;
                 ID_Jump           <= 0;
                 ID_Mem_op         <= 0;
-                ID_Rd_addr        <= 0;
+                ID_Rd_addr        <= ID_Rd_addr;
                 ID_Rs1_addr       <= ID_Rs1_addr;
                 ID_Rs2_addr       <= ID_Rs2_addr;
                 ID_PC_dest        <= ID_PC_dest;

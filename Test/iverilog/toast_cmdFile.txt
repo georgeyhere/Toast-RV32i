@@ -1,0 +1,90 @@
+# Icarus Verilog Command File 
+#
+#
+########### CONFIG ############### 
+#
+# Project Library at $TOAST
+-y $(TOAST)/Sources/
+-y $(TOAST)/Test/
+-y $(TOAST)/Mem
+#
+#
+# Plusarg to tell compiler to look for .sv and .mem
++libext+.v+.sv
+#
+#
+# enable IEEE1800-2012 for SystemVerilog
+-g verilog-ams
+#
+#
+#
+########## MEM FILES ############
+add.S.mem
+addi.S.mem
+and.S.mem
+andi.S.mem
+auipc.S.mem
+beq.S.mem
+bge.S.mem
+bgeu.S.mem
+blt.S.mem
+bltu.S.mem
+bne.S.mem
+jal.S.mem
+jalr.S.mem
+lb.S.mem
+lbu.S.mem
+lh.S.mem
+lhu.S.mem
+lui.S.mem
+lw.S.mem
+or.S.mem
+ori.S.mem
+sb.S.mem
+sh.S.mem
+sll.S.mem
+slli.S.mem
+slt.S.mem
+slti.S.mem
+sltiu.S.mem
+sltu.S.mem
+sra.S.mem
+srai.S.mem
+srl.S.mem
+srli.S.mem
+sub.S.mem
+sw.S.mem
+xor.S.mem
+xori.S.mem
+#
+######### SOURCE FILES ##########
+#
+RV32I_definitions.sv
+# IF
+IF_PC.sv
+IF_top.sv
+#
+# ID
+ID_control.sv
+ID_regfile.sv
+ID_Branch_gen.sv
+ID_top
+#
+# EX
+EX_ALU.sv
+EX_top.sv
+#
+# MEM
+MEM_top.sv
+#
+# WB
+WB_top.sv
+#
+# Core/Pipeline
+Pipe_Forwarding.sv
+Pipe_Hazard.sv
+ToastCore.sv
+#
+# Testbench
+riscv-tests_tb.sv
+
