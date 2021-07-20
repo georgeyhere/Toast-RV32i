@@ -1,4 +1,25 @@
 ================================================================================
+<<<<<<< Updated upstream
+=======
+7/19/2021
+--------------------------------------------------------------------------------
+TODO:
+- continue running riscv-tests
+********************************************************************************
+- edited memgen.sh to use riscv32-unknown-elf-ld to link assembly tests
+	-> current configuration loads data memory initialization to 0x2000
+	-> edit riscv32-unknown-elf-ld -Tdata parameter to change
+- updated riscv-tests_tb; IMEM and DMEM are no longer separate memories
+	-> now read from the same .mem file
+- passed LW test
+- fixed bug where IMEM_addr would increment by four before stopping on 'Stall' assert
+	-> had the effect of stalling on next instruction
+
+********************************************************************************
+================================================================================
+
+================================================================================
+>>>>>>> Stashed changes
 7/16/2021
 --------------------------------------------------------------------------------
 TODO:

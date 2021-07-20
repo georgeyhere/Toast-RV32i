@@ -53,6 +53,10 @@ module MEM_top
 //*************************************************
     input     [31:0]  mem_rd_data,       // data mem read data
 
+    // FORWARDING
+    input             ForwardM,
+    input [31:0]      WB_Rd_data,
+
     // PIPELINE IN
     input             EX_Mem_wr_en,
     input             EX_Mem_rd_en,
@@ -68,6 +72,25 @@ module MEM_top
     );
     
 
+<<<<<<< Updated upstream
+=======
+// ===========================================================================
+//                       Parameters, Registers, and Wires
+// ===========================================================================    
+
+    // these are asserted if misaligned load/store detected
+    // if asserted, trigger an exception
+    reg misaligned_store_i; 
+    reg misaligned_load_i;
+
+    reg [2:0] Mem_op_i;
+
+    reg [31:0] wr_data_i;
+
+// ===========================================================================
+//                              Implementation    
+// ===========================================================================
+>>>>>>> Stashed changes
 
     // pipeline register
     always_ff@(posedge Clk) begin
@@ -95,6 +118,7 @@ module MEM_top
         mem_rst   = ~Reset_n;
     end
     
+<<<<<<< Updated upstream
     
     // mask data to be written to data mem
     always_comb begin
@@ -103,6 +127,41 @@ module MEM_top
             `MEM_SH:   mem_wr_data = { {16{EX_Rs2_data[1'b0]}}, EX_Rs2_data[15:0] };
             `MEM_SW:   mem_wr_data = EX_Rs2_data;
             default:   mem_wr_data = 0;
+=======
+    //*********************************    
+    //    DATA MEM WR SOURCE SELECT
+    //*********************************
+    always_comb begin
+        wr_data_i = (ForwardM) ? MEM_ALU_result : EX_Rs2_data;
+    end
+
+
+    //*********************************    
+    //        DATA MEM STORES
+    //*********************************
+    always_comb begin
+        // DEFAULTS:
+        mem_wr_data        = wr_data_i;
+        misaligned_store_i = 0;
+        case(EX_Mem_op)
+            `MEM_SW:         mem_wr_data = wr_data_i;
+            `MEM_SB: begin
+                // determine which byte to write to based on last two bits of address
+                case(EX_ALU_result[1:0]) 
+                    2'b00:   mem_wr_data = { {24{wr_data_i[7]}},  wr_data_i[7:0] }; 
+                    2'b01:   mem_wr_data = { {24{wr_data_i[15]}}, wr_data_i[15:8]};
+                    2'b10:   mem_wr_data = { {24{wr_data_i[23]}}, wr_data_i[23:16]};
+                    2'b11:   mem_wr_data = { {24{wr_data_i[31]}}, wr_data_i[31:24]};
+                endcase
+            end  
+            `MEM_SH: begin
+                case(EX_ALU_result[1:0])
+                    2'b00:   mem_wr_data = { {16{wr_data_i[15]}}, wr_data_i[15:0] };
+                    2'b10:   mem_wr_data = { {16{wr_data_i[31]}}, wr_data_i[31:16] };
+                    default: misaligned_store_i  = 1;
+                endcase 
+            end   
+>>>>>>> Stashed changes
         endcase
     end
     

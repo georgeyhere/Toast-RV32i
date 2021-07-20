@@ -40,8 +40,9 @@ module EX_top
     output reg [31:0] EX_PC_Branch_dest,
     output reg        EX_RegFile_wr_en,
     output reg [4:0]  EX_Rd_addr,
+    output reg [4:0]  EX_Rs2_addr,
     output reg        EX_Exception,
-
+    
     output reg [31:0] EX_ALU_result,
     output reg        EX_PC_Branch,      // if asserted loads branch dest to PC
 
@@ -55,6 +56,7 @@ module EX_top
     input             ID_MemToReg, 
     input             ID_RegFile_wr_en,   
     input      [4:0]  ID_Rd_addr,
+    input      [4:0]  ID_Rs2_addr,
     
     // for conditional branches
     input      [31:0] ID_PC_dest,         // branch destination from ID
@@ -107,6 +109,7 @@ module EX_top
             EX_Mem_op         <= 0;
             EX_MemToReg       <= 0;
             EX_Rd_addr        <= 0;
+            EX_Rs2_addr       <= 0;
             EX_ALU_result     <= 0;
             EX_PC_Branch_dest <= (EX_Flush == 1'b1) ? EX_PC_Branch_dest:0;
             //EX_PC_Branch      <= 0;
@@ -121,6 +124,7 @@ module EX_top
             EX_MemToReg       <= ID_MemToReg;
             EX_RegFile_wr_en  <= ID_RegFile_wr_en;
             EX_Rd_addr        <= ID_Rd_addr;
+            EX_Rs2_addr       <= ID_Rs2_addr;
             EX_PC_Branch_dest <= ID_PC_dest;
             EX_ALU_result     <= ALU_result;
             //EX_PC_Branch      <= PC_source_sel;

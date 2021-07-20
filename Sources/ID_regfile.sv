@@ -78,12 +78,12 @@ If a register address is about to be written to and the data is needed
 for the instruction currently in ID, place write data on output bus
 */
     assign Rs1_data = ((Rs1_addr == Rd_addr) &&
-                       (Rd_wr_en == 1'b1)    && 
-                       (Rd_addr != 0)) ? Rd_wr_data : Regfile_data[Rs1_addr];
+                       (Rd_wr_en == 1'b1)    
+                      ) ? Rd_wr_data : Regfile_data[Rs1_addr];
     
     assign Rs2_data = ((Rs2_addr == Rd_addr) &&
-                       (Rd_wr_en == 1'b1)    && 
-                       (Rd_addr != 0)) ? Rd_wr_data : Regfile_data[Rs2_addr];
+                       (Rd_wr_en == 1'b1)     
+                      ) ? Rd_wr_data : Regfile_data[Rs2_addr];
 
 
     // set all registers to 0 on initialization
