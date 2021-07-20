@@ -96,6 +96,7 @@ module MEM_top
             MEM_RegFile_wr_en <= 0;
             MEM_Rd_addr       <= 0;
             MEM_Exception     <= 0;
+            Mem_op_i          <= 0;
         end
         else begin
             MEM_MemToReg      <= EX_MemToReg;
@@ -103,6 +104,7 @@ module MEM_top
             MEM_RegFile_wr_en <= EX_RegFile_wr_en;
             MEM_Rd_addr       <= EX_Rd_addr;
             MEM_Exception     <= EX_Exception;
+            Mem_op_i          <= EX_Mem_op;
         end
     end
     
@@ -130,11 +132,11 @@ module MEM_top
         // DEFAULTS:
         mem_wr_data        = wr_data_i;
         misaligned_store_i = 0;
-        case(EX_Mem_op)
+        case(Mem_op_i)
             `MEM_SW:         mem_wr_data = wr_data_i;
             `MEM_SB: begin
                 // determine which byte to write to based on last two bits of address
-                case(EX_ALU_result[1:0]) 
+                case(Mem_op_i) 
                     2'b00:   mem_wr_data = { {24{wr_data_i[7]}},  wr_data_i[7:0] }; 
                     2'b01:   mem_wr_data = { {24{wr_data_i[15]}}, wr_data_i[15:8]};
                     2'b10:   mem_wr_data = { {24{wr_data_i[23]}}, wr_data_i[23:16]};
@@ -142,7 +144,7 @@ module MEM_top
                 endcase
             end  
             `MEM_SH: begin
-                case(EX_ALU_result[1:0])
+                case(Mem_op_i)
                     2'b00:   mem_wr_data = { {16{wr_data_i[15]}}, wr_data_i[15:0] };
                     2'b10:   mem_wr_data = { {16{wr_data_i[31]}}, wr_data_i[31:16] };
                     default: misaligned_store_i  = 1;
@@ -153,7 +155,7 @@ module MEM_top
     
     // mask the data read from data mem
     always_comb begin
-        case(EX_Mem_op)
+        case(Mem_op_i)
             `MEM_LB:   MEM_dout = { {24{mem_rd_data[31]}}, mem_rd_data[7:0] }; 
             `MEM_LH:   MEM_dout = { {16{mem_rd_data[31]}}, mem_rd_data[15:0] };
             `MEM_LB_U: MEM_dout = { {24{mem_rd_data[1'b0]}}, mem_rd_data[7:0] }; 

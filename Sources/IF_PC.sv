@@ -82,7 +82,7 @@ module PC
         else begin
             if(ID_Jump == 1'b1)           PC_Next = ID_PC_dest;
             else if(EX_PC_Branch == 1'b1) PC_Next = EX_PC_Branch_dest;
-            else if(PC_Stall == 1'b1)     PC_Next = PC_Out;
+            else if(PC_Stall == 1'b1)     PC_Next = PC_Out - 4;
             else                          PC_Next = PC_Next + 4;
         end
     end
