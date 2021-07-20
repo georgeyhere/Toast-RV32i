@@ -24,8 +24,7 @@
 		input      [REGFILE_ADDR_WIDTH-1:0] ID_Rd_addr,
 		input      [REGFILE_ADDR_WIDTH-1:0] EX_Rd_addr,
 		input      [REGFILE_ADDR_WIDTH-1:0] EX_Rs2_addr,
-		input      [REGFILE_ADDR_WIDTH-1:0] MEM_Rd_addr,          
-		input      [REGFILE_ADDR_WIDTH-1:0] EX_Rs2_addr,          
+		input      [REGFILE_ADDR_WIDTH-1:0] MEM_Rd_addr,                 
 
 		input                               ID_Mem_wr_en,
 		input                               EX_RegFile_wr_en,

@@ -115,16 +115,6 @@ module MEM_top
     end
 
     
-    // mask data to be written to data mem
-    always_comb begin
-        case(EX_Mem_op)
-            `MEM_SB:   mem_wr_data = { {24{EX_Rs2_data[1'b0]}}, EX_Rs2_data[7:0] }; 
-            `MEM_SH:   mem_wr_data = { {16{EX_Rs2_data[1'b0]}}, EX_Rs2_data[15:0] };
-            `MEM_SW:   mem_wr_data = EX_Rs2_data;
-            default:   mem_wr_data = 0;
-        endcase
-    end
-    
     //*********************************    
     //    DATA MEM WR SOURCE SELECT
     //*********************************
