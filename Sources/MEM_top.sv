@@ -67,7 +67,6 @@ module MEM_top
     input             EX_RegFile_wr_en,
     input [4:0]       EX_Rd_addr,
     input             EX_Exception
-
 //*************************************************
     );
     
@@ -114,7 +113,17 @@ module MEM_top
         mem_wr_en = EX_Mem_wr_en;
         mem_rst   = ~Reset_n;
     end
+
     
+    // mask data to be written to data mem
+    always_comb begin
+        case(EX_Mem_op)
+            `MEM_SB:   mem_wr_data = { {24{EX_Rs2_data[1'b0]}}, EX_Rs2_data[7:0] }; 
+            `MEM_SH:   mem_wr_data = { {16{EX_Rs2_data[1'b0]}}, EX_Rs2_data[15:0] };
+            `MEM_SW:   mem_wr_data = EX_Rs2_data;
+            default:   mem_wr_data = 0;
+        endcase
+    end
     
     //*********************************    
     //    DATA MEM WR SOURCE SELECT
@@ -122,6 +131,7 @@ module MEM_top
     always_comb begin
         wr_data_i = (ForwardM) ? MEM_ALU_result : EX_Rs2_data;
     end
+
 
     //*********************************    
     //        DATA MEM STORES
@@ -148,7 +158,6 @@ module MEM_top
                     default: misaligned_store_i  = 1;
                 endcase 
             end   
->>>>>>> Stashed changes
         endcase
     end
     
