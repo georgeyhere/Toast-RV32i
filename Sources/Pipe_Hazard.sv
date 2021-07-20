@@ -32,7 +32,9 @@ module Hazard_detection
 	input [REGFILE_ADDR_WIDTH-1:0] ID_Rd_addr,     
     
     input                          EX_PC_Branch,
-    input                          ID_Jump
+    input                          ID_Jump,
+
+    input                          DMEM_wr_en
 
 //*************************************************
 	);
@@ -54,7 +56,7 @@ module Hazard_detection
     wire [6:0] opcode_i = IF_Instruction[6:0]; // internal 
 
     always_comb begin
-        Stall = 0;
+        Stall = (DMEM_wr_en == 1) ? 1:0;
 
         if(ID_Mem_rd_en == 1) begin
             if( (opcode_i == `OPCODE_OP) ||       // register-register opcodes
@@ -62,9 +64,7 @@ module Hazard_detection
                 (opcode_i == `OPCODE_STORE) ) 
             begin
                 if( (ID_Rd_addr == IF_Instruction[19:15]) || (ID_Rd_addr == IF_Instruction[24:20]) ) 
-                     Stall = 1;
-                else 
-                     Stall = 0;
+                    Stall = 1;
             end
     
             else if( (opcode_i == `OPCODE_OP_IMM) ||
@@ -72,12 +72,8 @@ module Hazard_detection
             begin
                 if(ID_Rd_addr == IF_Instruction[19:15]) 
                     Stall = 1;
-                else 
-                    Stall = 0;
             end
-            else Stall = 0;
         end
-        else Stall = 0;
     end
                 
     /*

@@ -74,7 +74,9 @@ import   RV32I_definitions::*;
 
 
 module riscvTests_tb();
-  
+
+    parameter TEST_TO_RUN   = `RR_ADD;
+
     reg         Clk = 0;
     reg         Reset_n;
     reg  [31:0] IMEM_data;
@@ -108,36 +110,71 @@ module riscvTests_tb();
 // ===========================================================================
 //                                TEST CONTROL
 // ===========================================================================
-    
-    parameter TEST_TO_RUN   = `L_LW;
+    reg        pass;
+    reg        fail_exception;
+    reg        fail_timeout;
+    reg [63:0] cycle_count;
 
     //****************************************
     // PASS CONDITION 1: GP=1 , A7=93, A0=0
     //****************************************
+
+    /*
     always@(posedge Clk) begin
         if((UUT.ID_inst.RV32I_REGFILE.Regfile_data[3] == 1) &&   
            (UUT.ID_inst.RV32I_REGFILE.Regfile_data[17] == 93) && 
            (UUT.ID_inst.RV32I_REGFILE.Regfile_data[10] == 0))    
         begin  
             $display("TEST PASSED!!!!!!");
-            $finish;
+            pass = 1;
         end
         //************************************************
         // FAIL CONDITION 1: ECALL BEFORE PASS CONDITION 1
         //************************************************
         else if (Exception == 1) begin
             $display("EXCEPTION ASSERTED, TEST FAILED");
-            $finish;
+            fail_exception = 0;
         end
     end
+    */
+    
+    
 
-    //*********************************
-    // FAIL CONDITION 2: TEST TIMEOUT
-    //*********************************
-    initial begin
-        #19995 $display("TIMED OUT, TEST FAILED");
-        $finish;
-    end
+    task CHECK;
+        for(int j=0; j<1999; j=j+1) begin
+            @(posedge Clk) begin
+
+                //****************************************
+                // PASS CONDITION: GP=1 , A7=93, A0=0
+                //****************************************
+                if((UUT.ID_inst.RV32I_REGFILE.Regfile_data[3] == 1) &&   
+                   (UUT.ID_inst.RV32I_REGFILE.Regfile_data[17] == 93) && 
+                   (UUT.ID_inst.RV32I_REGFILE.Regfile_data[10] == 0))    
+                begin            
+                    $display("TEST PASSED!!!!!! Cycles Elapsed: %0d", j);
+                    break;
+                end
+
+                //************************************************
+                // FAIL CONDITION 1: ECALL, NO PASS CONDITION 
+                //************************************************
+                else if (Exception == 1) begin
+                    $display("EXCEPTION ASSERTED, TEST FAILED. Cycles Elapsed: %0d", j);
+                    break;
+                end
+
+                //*********************************
+                // FAIL CONDITION 2: TEST TIMEOUT
+                //*********************************
+                else if(j == 1998) begin
+                    cycle_count  <= cycle_count;
+                    $display("TIMED OUT, TEST FAILED. Cycles Elapsed: %0d", j);
+                    break;
+                end
+            end
+        end
+    endtask // CHECK
+
 
 
 // ===========================================================================
@@ -198,30 +235,33 @@ module riscvTests_tb();
     "shu.S.mem"
     };
 
-    parameter MEMORY_DEPTH  = 32'hFFFF;
+    
 
     //*********************************
     //       SIMULATE MEMORY
     //*********************************
-
+    parameter MEMORY_DEPTH  = 32'hFFFF;
     reg [31:0] MEMORY [0:MEMORY_DEPTH];
 
+/*
+    $readmemh loads program data into consecutive addresses, however 
+    RISC-V uses byte-addressable memory (i.e. a word at every fourth address)
+
+    A workaround is to ignore the lower two bits of the address.
+    Do this for both program data and data memory. 
+
+    Note that program memory and data memory are loaded from the same .mem file.
+    Data memory begins at 0x2000, this can be changed by editing /Scripts/memgen.sh and
+    changing the -Tdata parameter of riscv32-unknown-elf-ld.
+*/
+
+/*
     initial begin
         for (int i=0; i<= MEMORY_DEPTH; i=i+1) begin
             MEMORY[i] = 0;
         end
         $readmemh(tests[TEST_TO_RUN], MEMORY);
     end
-
-
-/*
-    $readmemh loads program data into consecutive addresses, however 
-    RISC-V uses byte-addressable memory (i.e. a word at every fourth address)
-    A workaround is to ignore the lower two bits of the address.
-    Do this for both program data and data memory. 
-    Note that program memory and data memory are loaded from the same .mem file.
-    Data memory begins at 0x2000, this can be changed by editing /Scripts/memgen.sh and
-    changing the -Tdata parameter of riscv32-unknown-elf-ld.
 */
     always@(posedge Clk, negedge Reset_n) begin
         if(Reset_n == 1'b0) begin
@@ -239,10 +279,92 @@ module riscvTests_tb();
 
     end
 
+    //*********************************
+    //             TASKS:
+    //*********************************
+    task LOAD_TEST;
+        input int testSel;
+        begin
+            #10;
+            Reset_n        <= 0;
+            #10;
+            for (int i=0; i<= MEMORY_DEPTH; i=i+1) begin
+                MEMORY[i] <= 0;
+            end
+
+            $readmemh(tests[testSel], MEMORY);
+            #100;
+
+            Reset_n <= 1;
+        end
+    endtask // LOAD_TEST
+
+
+
+
+    integer x;
+
     initial begin
-        Reset_n = 0;
+        Reset_n        <= 0;
+        pass           <= 0;
+        fail_exception <= 0;
+        fail_timeout   <= 0;
+
         #100;
-        Reset_n = 1;
+        $display("Running Register-Register Unit Tests.");
+        for(x=0; x<=9; x=x+1) begin
+
+            Reset_n = 0;
+            $readmemh(tests[x], MEMORY);
+            #100;
+
+            case(x)
+                `RR_ADD: begin
+
+                 end
+
+                `RR_SUB: begin
+
+                end
+
+                `RR_AND: begin
+
+                end
+
+                `RR_OR: begin
+
+                end
+
+                `RR_XOR: begin
+
+                end
+
+                `RR_SLT: begin
+
+                end
+
+                `RR_SLTU: begin
+
+                end
+
+                `RR_SLL: begin
+
+                end
+
+                `RR_SRL: begin
+
+                end
+
+                `RR_SRA: begin
+
+                end
+            endcase
+
+            Reset_n = 1;
+            CHECK();
+        end
+        $finish;
+
     end
     
 endmodule

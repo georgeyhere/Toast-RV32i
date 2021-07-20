@@ -53,6 +53,7 @@ module ToastCore
     // forwarding
     wire [1:0]  ForwardA;
     wire [1:0]  ForwardB;
+    wire        ForwardS;
     
     // Instruction Fetch
     wire [31:0] IF_PC;
@@ -89,9 +90,11 @@ module ToastCore
     wire [31:0] EX_Rs2_data;
     wire        EX_RegFile_wr_en;
     wire [4:0]  EX_Rd_addr;
+    wire [4:0]  EX_Rs2_addr;
     wire [31:0] EX_PC_Branch_dest;
     wire        EX_PC_Branch;
     wire        EX_Exception;
+    wire [4:0]  EX_Rs2_addr;
     
     // Memory
     wire [31:0] MEM_dout;
@@ -111,11 +114,14 @@ module ToastCore
     Forwarding FWD_inst(
     .ForwardA           (ForwardA),
     .ForwardB           (ForwardB),
+    .ForwardM           (ForwardM),
     .ID_Rs1_addr        (ID_Rs1_addr),
     .ID_Rs2_addr        (ID_Rs2_addr),
     .ID_Rd_addr         (ID_Rd_addr),
     .EX_Rd_addr         (EX_Rd_addr),
+    .EX_Rs2_addr        (EX_Rs2_addr),
     .MEM_Rd_addr        (MEM_Rd_addr),
+    .ID_Mem_wr_en       (ID_Mem_wr_en),
     .EX_RegFile_wr_en   (EX_RegFile_wr_en),
     .MEM_RegFile_wr_en  (MEM_RegFile_wr_en),
     .ID_ALU_source_sel  (ID_ALU_source_sel)
@@ -131,7 +137,8 @@ module ToastCore
     .ID_Jump            (ID_Jump),
     .Stall              (Stall),
     .IF_ID_Flush        (IF_ID_Flush),
-    .EX_Flush           (EX_Flush)
+    .EX_Flush           (EX_Flush),
+    .DMEM_wr_en         (EX_Mem_wr_en)
     );
     
     
@@ -188,6 +195,7 @@ module ToastCore
     .EX_Mem_wr_en       (EX_Mem_wr_en),
     .EX_Mem_rd_en       (EX_Mem_rd_en),
     .EX_Mem_op          (EX_Mem_op),
+    .EX_Rs2_addr        (EX_Rs2_addr),
     .EX_Rs2_data        (EX_Rs2_data),
     .EX_MemToReg        (EX_MemToReg),
     .EX_ALU_result      (EX_ALU_result),
@@ -211,6 +219,7 @@ module ToastCore
     .ID_ALU_source_sel  (ID_ALU_source_sel),
     .ID_ALU_op          (ID_ALU_op),
     .ID_Rd_addr         (ID_Rd_addr),
+    .ID_Rs2_addr        (ID_Rs2_addr),
     .ID_RegFile_wr_en   (ID_RegFile_wr_en),
     .ID_PC              (ID_PC),
     .ID_Rs1_data        (ID_Rs1_data),
@@ -229,6 +238,8 @@ module ToastCore
     .mem_wr_en         (DMEM_wr_en),
     .mem_rst           (DMEM_rst),
     .mem_rd_data       (DMEM_rd_data),
+    .ForwardM          (ForwardM),
+    .WB_Rd_data        (WB_Rd_data),
     .MEM_dout          (MEM_dout),
     .MEM_MemToReg      (MEM_MemToReg),
     .MEM_ALU_result    (MEM_ALU_result),

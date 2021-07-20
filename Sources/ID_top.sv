@@ -97,7 +97,6 @@ module ID_top
     wire [4:0] Rs2_addr_i;
     
     wire [31:0] Immediate_1_i, Immediate_2_i;
-    wire [31:0] Rs1_data_i, Rs2_data_i;
     
     wire [1:0] ALU_source_sel_i;
     wire [3:0] ALU_op_i;
@@ -140,19 +139,19 @@ module ID_top
     ID_regfile RV32I_REGFILE(
     .Clk         (Clk),
     .Reset_n     (Reset_n),
-    .Rs1_addr    (Rs1_addr_i), 
-    .Rs2_addr    (Rs2_addr_i), 
+    .Rs1_addr    (ID_Rs1_addr),
+    .Rs2_addr    (ID_Rs2_addr),
     .Rd_addr     (WB_Rd_addr),
     .Rd_wr_data  (WB_Rd_data),
     .Rd_wr_en    (WB_RegFile_wr_en),
-    .Rs1_data    (Rs1_data_i),
-    .Rs2_data    (Rs2_data_i)
+    .Rs1_data    (ID_Rs1_data),
+    .Rs2_data    (ID_Rs2_data)
     );
     
     Branch_gen ID_BranchGen (
     .Branch_op   (Branch_op_i),
     .PC          (IF_PC),
-    .RegData     (Rs1_data_i),
+    .RegData     (ID_Rs1_data),
     .Immediate   (Immediate_2_i),
     .Branch_dest (Branch_dest_i)
     );
@@ -182,8 +181,6 @@ module ID_top
             ID_PC_dest        <= 0;
             ID_Immediate_1    <= 0;
             ID_Immediate_2    <= 0;
-            ID_Rs1_data       <= 0;
-            ID_Rs2_data       <= 0;
             ID_Exception      <= 0;
         end
         else begin
@@ -206,8 +203,6 @@ module ID_top
                 ID_PC_dest        <= ID_PC_dest;
                 ID_Immediate_1    <= ID_Immediate_1;
                 ID_Immediate_2    <= ID_Immediate_2;
-                ID_Rs1_data       <= ID_Rs1_data;
-                ID_Rs2_data       <= ID_Rs2_data;
                 ID_Exception      <= ID_Exception;
             end
             else begin
@@ -223,13 +218,11 @@ module ID_top
                 ID_Jump           <= Jump_i;
                 ID_Mem_op         <= Mem_op_i;
                 ID_Rd_addr        <= Rd_addr_i;
-                ID_Rs1_addr       <=  Rs1_addr_i;
+                ID_Rs1_addr       <= Rs1_addr_i;
                 ID_Rs2_addr       <= Rs2_addr_i;
                 ID_PC_dest        <= Branch_dest_i;
                 ID_Immediate_1    <= Immediate_1_i;
                 ID_Immediate_2    <= Immediate_2_i;
-                ID_Rs1_data       <= Rs1_data_i;
-                ID_Rs2_data       <= Rs2_data_i;
                 ID_Exception      <= Exception_i;
             end
         end  
