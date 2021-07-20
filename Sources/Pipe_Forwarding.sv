@@ -16,14 +16,14 @@
 		output reg [1:0]                    ForwardA,
 		output reg [1:0]                    ForwardB,   
 		output reg                          ForwardM,
-		output reg                          ForwardS,
-		
+
 		input      [1:0]                    ID_ALU_source_sel,
 		
 		input      [REGFILE_ADDR_WIDTH-1:0] ID_Rs1_addr,
 		input      [REGFILE_ADDR_WIDTH-1:0] ID_Rs2_addr,
 		input      [REGFILE_ADDR_WIDTH-1:0] ID_Rd_addr,
 		input      [REGFILE_ADDR_WIDTH-1:0] EX_Rd_addr,
+		input      [REGFILE_ADDR_WIDTH-1:0] EX_Rs2_addr,
 		input      [REGFILE_ADDR_WIDTH-1:0] MEM_Rd_addr,          
 		input      [REGFILE_ADDR_WIDTH-1:0] EX_Rs2_addr,          
 
@@ -106,18 +106,6 @@
                 ForwardB = 2'b0;         
         end
 
-        always_comb begin
-        	if( 
-        	   (EX_RegFile_wr_en == 1) &&
-        	   (MEM_Rd_addr == ID_Rs2_addr) &&
-        	   (ID_Mem_wr_en == 1)
-        	  )
-        	  ForwardS = 1;
-        	else
-        	  ForwardS = 0;
-        end
-
-
 
         /*
 		Check ID_Mem_wr_en: is a store instruction in EX?
@@ -134,8 +122,6 @@
 		else
 		1) Is there a regfile write in WB?
 		2) Does 
-
-
         */
 
         always_comb begin
@@ -148,7 +134,5 @@
         		else
         			ForwardM = 0;
         end
-
-        
         
 endmodule

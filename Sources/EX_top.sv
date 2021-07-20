@@ -42,7 +42,7 @@ module EX_top
     output reg [4:0]  EX_Rd_addr,
     output reg [4:0]  EX_Rs2_addr,
     output reg        EX_Exception,
-    
+
     output reg [31:0] EX_ALU_result,
     output reg        EX_PC_Branch,      // if asserted loads branch dest to PC
 

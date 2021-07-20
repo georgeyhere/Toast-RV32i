@@ -19,7 +19,6 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 import   RV32I_definitions::*;
-import   testbench_pkg::*;
 
 // Register-Register
 `define RR_ADD   0
@@ -75,9 +74,7 @@ import   testbench_pkg::*;
 
 
 module riscvTests_tb();
-
-    parameter TEST_TO_RUN   = `RR_ADD;
-
+  
     reg         Clk = 0;
     reg         Reset_n;
     reg  [31:0] IMEM_data;
@@ -106,90 +103,46 @@ module riscvTests_tb();
     );
     
     always#(10) Clk = ~Clk;     
-<<<<<<< Updated upstream
-    
-=======
 
     
 // ===========================================================================
 //                                TEST CONTROL
 // ===========================================================================
-    reg        pass;
-    reg        fail_exception;
-    reg        fail_timeout;
-    reg [63:0] cycle_count;
+    
+    parameter TEST_TO_RUN   = `L_LW;
 
     //****************************************
     // PASS CONDITION 1: GP=1 , A7=93, A0=0
     //****************************************
-
-    /*
->>>>>>> Stashed changes
     always@(posedge Clk) begin
-        if((UUT.ID_inst.RV32I_REGFILE.Regfile_data[3] == 1) &&   // gp = 1
-           (UUT.ID_inst.RV32I_REGFILE.Regfile_data[17] == 93) && // a7 = 93
-           (UUT.ID_inst.RV32I_REGFILE.Regfile_data[10] == 0))     // a0 = 0
+        if((UUT.ID_inst.RV32I_REGFILE.Regfile_data[3] == 1) &&   
+           (UUT.ID_inst.RV32I_REGFILE.Regfile_data[17] == 93) && 
+           (UUT.ID_inst.RV32I_REGFILE.Regfile_data[10] == 0))    
         begin  
             $display("TEST PASSED!!!!!!");
-            pass = 1;
+            $finish;
         end
+        //************************************************
+        // FAIL CONDITION 1: ECALL BEFORE PASS CONDITION 1
+        //************************************************
         else if (Exception == 1) begin
             $display("EXCEPTION ASSERTED, TEST FAILED");
-            fail_exception = 0;
+            $finish;
         end
     end
-    */
-    
-    
 
-    task CHECK;
-        for(int j=0; j<1999; j=j+1) begin
-            @(posedge Clk) begin
-
-                //****************************************
-                // PASS CONDITION: GP=1 , A7=93, A0=0
-                //****************************************
-                if((UUT.ID_inst.RV32I_REGFILE.Regfile_data[3] == 1) &&   
-                   (UUT.ID_inst.RV32I_REGFILE.Regfile_data[17] == 93) && 
-                   (UUT.ID_inst.RV32I_REGFILE.Regfile_data[10] == 0))    
-                begin            
-                    $display("TEST PASSED!!!!!! Cycles Elapsed: %0d", j);
-                    break;
-                end
-
-                //************************************************
-                // FAIL CONDITION 1: ECALL, NO PASS CONDITION 
-                //************************************************
-                else if (Exception == 1) begin
-                    $display("EXCEPTION ASSERTED, TEST FAILED. Cycles Elapsed: %0d", j);
-                    break;
-                end
-
-                //*********************************
-                // FAIL CONDITION 2: TEST TIMEOUT
-                //*********************************
-                else if(j == 1998) begin
-                    cycle_count  <= cycle_count;
-                    $display("TIMED OUT, TEST FAILED. Cycles Elapsed: %0d", j);
-                    break;
-                end
-            end
-        end
-    endtask // CHECK
-
-<<<<<<< Updated upstream
+    //*********************************
+    // FAIL CONDITION 2: TEST TIMEOUT
+    //*********************************
     initial begin
         #19995 $display("TIMED OUT, TEST FAILED");
         $finish;
     end
-    
-=======
 
 
 // ===========================================================================
 //                              Implementation    
 // ===========================================================================    
->>>>>>> Stashed changes
     reg [8*20:0] tests [0:37] = {
     
     // R-R [0:9] 
@@ -245,132 +198,51 @@ module riscvTests_tb();
     "shu.S.mem"
     };
 
-<<<<<<< Updated upstream
-
-    parameter IMEM_DEPTH    = 2047;
-    parameter PROGMEM_DEPTH = 2047;
-    parameter DMEM_DEPTH    = 2047;
-
-    reg [31:0] IMEM    [0:IMEM_DEPTH];
-    reg [31:0] PROGMEM [0:PROGMEM_DEPTH];
-    reg [31:0] DMEM    [0:DMEM_DEPTH];
-
-    initial begin
-        $readmemh(tests[`UI_AUIPC], PROGMEM);
-        for(int i=0; i<=IMEM_DEPTH/4; i=i+1) IMEM[i*4] = PROGMEM[i];
-    end
-
-    initial begin
-        for(int j=0; j<=DMEM_DEPTH; j=j+1) begin
-            DMEM[j] = 32'b0;
-        end
-    end
-
-=======
-    
+    parameter MEMORY_DEPTH  = 32'hFFFF;
 
     //*********************************
     //       SIMULATE MEMORY
     //*********************************
-    parameter MEMORY_DEPTH  = 32'hFFFF;
+
     reg [31:0] MEMORY [0:MEMORY_DEPTH];
 
-/*
-    $readmemh loads program data into consecutive addresses, however 
-    RISC-V uses byte-addressable memory (i.e. a word at every fourth address)
->>>>>>> Stashed changes
-
-    always@(posedge Clk) IMEM_data <= IMEM[IMEM_addr];
-
-<<<<<<< Updated upstream
-    always@(posedge Clk) begin
-        if((DMEM_rst == 1) || (Reset_n == 0)) DMEM_rd_data <= 0;
-=======
-    Note that program memory and data memory are loaded from the same .mem file.
-    Data memory begins at 0x2000, this can be changed by editing /Scripts/memgen.sh and
-    changing the -Tdata parameter of riscv32-unknown-elf-ld.
-*/
-
-/*
     initial begin
         for (int i=0; i<= MEMORY_DEPTH; i=i+1) begin
             MEMORY[i] = 0;
         end
         $readmemh(tests[TEST_TO_RUN], MEMORY);
     end
+
+
+/*
+    $readmemh loads program data into consecutive addresses, however 
+    RISC-V uses byte-addressable memory (i.e. a word at every fourth address)
+    A workaround is to ignore the lower two bits of the address.
+    Do this for both program data and data memory. 
+    Note that program memory and data memory are loaded from the same .mem file.
+    Data memory begins at 0x2000, this can be changed by editing /Scripts/memgen.sh and
+    changing the -Tdata parameter of riscv32-unknown-elf-ld.
 */
     always@(posedge Clk, negedge Reset_n) begin
         if(Reset_n == 1'b0) begin
             IMEM_data <= 0;
             DMEM_rd_data <= 0;
         end
->>>>>>> Stashed changes
         else begin
-            DMEM_rd_data <= DMEM[DMEM_addr];
-            if(DMEM_wr_en == 1'b1) DMEM[DMEM_addr] = DMEM_rd_data;
+            IMEM_data <= MEMORY[IMEM_addr[31:2]];
+            
+            if(DMEM_rst)   DMEM_rd_data <= 0;
+            else           DMEM_rd_data <= MEMORY[DMEM_addr[31:2]];
+            
+            if(DMEM_wr_en) MEMORY[DMEM_addr[31:2]] <= DMEM_wr_data;
         end
+
     end
 
-<<<<<<< Updated upstream
-=======
-    //*********************************
-    //             TASKS:
-    //*********************************
-    task LOAD_TEST;
-        input int testSel;
-        begin
-            #10;
-            Reset_n        <= 0;
-            #10;
-            for (int i=0; i<= MEMORY_DEPTH; i=i+1) begin
-                MEMORY[i] <= 0;
-            end
-
-            $readmemh(tests[testSel], MEMORY);
-            #100;
-
-            Reset_n <= 1;
-        end
-    endtask // LOAD_TEST
-
-
-
-
-    integer x;
->>>>>>> Stashed changes
-
     initial begin
-        Reset_n        <= 0;
-        pass           <= 0;
-        fail_exception <= 0;
-        fail_timeout   <= 0;
-
+        Reset_n = 0;
         #100;
-        $display("Running Register-Register Unit Tests.");
-        for(x=0; x<=9; x=x+1) begin
-
-            Reset_n = 0;
-            $readmemh(tests[x], MEMORY);
-            #100;
-
-            case(x)
-                `RR_ADD: begin
-
-                end
-
-                `RR_OR: begin
-
-                end
-
-                `RR
-
-            endcase
-
-            Reset_n = 1;
-            CHECK();
-        end
-        $finish;
-
+        Reset_n = 1;
     end
     
 endmodule

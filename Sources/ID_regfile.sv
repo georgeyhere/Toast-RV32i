@@ -86,6 +86,7 @@ for the instruction currently in ID, place write data on output bus
                       ) ? Rd_wr_data : Regfile_data[Rs2_addr];
 
 
+
     // set all registers to 0 on initialization
     initial begin
         for(int i=0; i<REGFILE_DEPTH-1; i++) begin

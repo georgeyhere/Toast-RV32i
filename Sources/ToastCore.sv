@@ -53,7 +53,6 @@ module ToastCore
     // forwarding
     wire [1:0]  ForwardA;
     wire [1:0]  ForwardB;
-    wire        ForwardM;
     wire        ForwardS;
     
     // Instruction Fetch
@@ -95,6 +94,7 @@ module ToastCore
     wire [31:0] EX_PC_Branch_dest;
     wire        EX_PC_Branch;
     wire        EX_Exception;
+    wire [4:0]  EX_Rs2_addr;
     
     // Memory
     wire [31:0] MEM_dout;
@@ -115,7 +115,6 @@ module ToastCore
     .ForwardA           (ForwardA),
     .ForwardB           (ForwardB),
     .ForwardM           (ForwardM),
-    .ForwardS           (ForwardS),
     .ID_Rs1_addr        (ID_Rs1_addr),
     .ID_Rs2_addr        (ID_Rs2_addr),
     .ID_Rd_addr         (ID_Rd_addr),
@@ -196,6 +195,7 @@ module ToastCore
     .EX_Mem_wr_en       (EX_Mem_wr_en),
     .EX_Mem_rd_en       (EX_Mem_rd_en),
     .EX_Mem_op          (EX_Mem_op),
+    .EX_Rs2_addr        (EX_Rs2_addr),
     .EX_Rs2_data        (EX_Rs2_data),
     .EX_MemToReg        (EX_MemToReg),
     .EX_ALU_result      (EX_ALU_result),
@@ -224,6 +224,7 @@ module ToastCore
     .ID_RegFile_wr_en   (ID_RegFile_wr_en),
     .ID_PC              (ID_PC),
     .ID_Rs1_data        (ID_Rs1_data),
+    .ID_Rs2_addr        (ID_Rs2_addr),
     .ID_Rs2_data        (ID_Rs2_data),
     .ID_Immediate_1     (ID_Immediate_1),
     .ID_Immediate_2     (ID_Immediate_2),

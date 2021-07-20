@@ -72,8 +72,6 @@ module MEM_top
     );
     
 
-<<<<<<< Updated upstream
-=======
 // ===========================================================================
 //                       Parameters, Registers, and Wires
 // ===========================================================================    
@@ -90,7 +88,6 @@ module MEM_top
 // ===========================================================================
 //                              Implementation    
 // ===========================================================================
->>>>>>> Stashed changes
 
     // pipeline register
     always_ff@(posedge Clk) begin
@@ -118,23 +115,13 @@ module MEM_top
         mem_rst   = ~Reset_n;
     end
     
-<<<<<<< Updated upstream
     
-    // mask data to be written to data mem
-    always_comb begin
-        case(EX_Mem_op)
-            `MEM_SB:   mem_wr_data = { {24{EX_Rs2_data[1'b0]}}, EX_Rs2_data[7:0] }; 
-            `MEM_SH:   mem_wr_data = { {16{EX_Rs2_data[1'b0]}}, EX_Rs2_data[15:0] };
-            `MEM_SW:   mem_wr_data = EX_Rs2_data;
-            default:   mem_wr_data = 0;
-=======
     //*********************************    
     //    DATA MEM WR SOURCE SELECT
     //*********************************
     always_comb begin
         wr_data_i = (ForwardM) ? MEM_ALU_result : EX_Rs2_data;
     end
-
 
     //*********************************    
     //        DATA MEM STORES
