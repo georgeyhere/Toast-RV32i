@@ -34,6 +34,7 @@ module ToastCore
     //*************************************************
     output [31:0]     IMEM_addr,
     output [31:0]     DMEM_addr,
+    output [3:0]      DMEM_wr_byte_en,
     output [31:0]     DMEM_wr_data,
     output            DMEM_wr_en,
     output            DMEM_rst,
@@ -70,7 +71,7 @@ module ToastCore
     wire        ID_RegFile_wr_en; 
     wire        ID_MemToReg;
     wire        ID_Jump;
-    wire [2:0]  ID_Mem_op;
+    wire [3:0]  ID_Mem_op;
     wire [31:0] ID_PC_dest;
     wire [31:0] ID_Immediate_1;
     wire [31:0] ID_Immediate_2;
@@ -84,7 +85,7 @@ module ToastCore
     // Execution
     wire        EX_Mem_wr_en;
     wire        EX_Mem_rd_en;
-    wire [2:0]  EX_Mem_op;
+    wire [3:0]  EX_Mem_op;
     wire        EX_MemToReg;
     wire [31:0] EX_ALU_result; 
     wire [31:0] EX_Rs2_data;
@@ -94,7 +95,6 @@ module ToastCore
     wire [31:0] EX_PC_Branch_dest;
     wire        EX_PC_Branch;
     wire        EX_Exception;
-    wire [4:0]  EX_Rs2_addr;
     
     // Memory
     wire [31:0] MEM_dout;
@@ -234,6 +234,7 @@ module ToastCore
     .Clk               (Clk),
     .Reset_n           (Reset_n),
     .mem_addr          (DMEM_addr),
+    .mem_wr_byte_en    (DMEM_wr_byte_en),
     .mem_wr_data       (DMEM_wr_data),
     .mem_wr_en         (DMEM_wr_en),
     .mem_rst           (DMEM_rst),

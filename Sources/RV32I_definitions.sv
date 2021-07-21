@@ -72,8 +72,8 @@ package RV32I_definitions;
     
     
     // FUNCT3 - STORE
-    `define FUNCT3_SW          3'b000
-    `define FUNCT3_SB          3'b111
+    `define FUNCT3_SB          3'b000
+    `define FUNCT3_SW          3'b010
     `define FUNCT3_SH          3'b001
     
     // FUNCT3 - BRANCH
@@ -105,14 +105,20 @@ package RV32I_definitions;
     
     
     // MEMORY STORE/LOAD MASK SELECT
-    `define MEM_LB            4'd0
-    `define MEM_LH            4'd1
-    `define MEM_LW            4'd2
-    `define MEM_LB_U          4'd3
-    `define MEM_LH_U          4'd4
-    `define MEM_SB            4'd5
-    `define MEM_SH            4'd6
-    `define MEM_SW            4'd7
+    `define MEM_LB            4'b0000
+    `define MEM_LH            4'b0001
+    `define MEM_LW            4'b0010
+    
+    `define MEM_LB_U          4'b1000
+    `define MEM_LH_U          4'b1001
+
+    `define MEM_SB            4'b0011
+    `define MEM_SH            4'b0100
+    `define MEM_SW            4'b0101
+
+    
 
 
 endpackage
+
+

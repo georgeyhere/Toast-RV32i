@@ -55,6 +55,9 @@ module Hazard_detection
     
     wire [6:0] opcode_i = IF_Instruction[6:0]; // internal 
 
+    wire [4:0] DBG_IF_Rs1 = IF_Instruction[19:15];
+    wire [4:0] DBG_IF_Rs2 = IF_Instruction[24:20];
+
     always_comb begin
         Stall = (DMEM_wr_en == 1) ? 1:0;
 

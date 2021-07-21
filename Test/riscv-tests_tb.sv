@@ -82,6 +82,7 @@ module riscvTests_tb();
 
     wire [31:0] IMEM_addr;
     wire [31:0] DMEM_addr;
+    wire [3:0]  DMEM_wr_byte_en;
     wire [31:0] DMEM_wr_data;
     wire        DMEM_wr_en;
     wire        DMEM_rst;
@@ -89,17 +90,18 @@ module riscvTests_tb();
 
 
     ToastCore UUT(
-    .Clk         (Clk),
-    .Reset_n     (Reset_n),
-    .IMEM_data   (IMEM_data),
-    .DMEM_rd_data(DMEM_rd_data),
-
-    .IMEM_addr   (IMEM_addr),
-    .DMEM_addr   (DMEM_addr),
-    .DMEM_wr_data(DMEM_wr_data),
-    .DMEM_wr_en  (DMEM_wr_en),
-    .DMEM_rst    (DMEM_rst),
-    .Exception   (Exception)
+    .Clk             (Clk),
+    .Reset_n         (Reset_n),
+    .IMEM_data       (IMEM_data),
+    .DMEM_rd_data    (DMEM_rd_data),
+    
+    .IMEM_addr       (IMEM_addr),
+    .DMEM_addr       (DMEM_addr),
+    .DMEM_wr_byte_en (DMEM_wr_byte_en),
+    .DMEM_wr_data    (DMEM_wr_data),
+    .DMEM_wr_en      (DMEM_wr_en),
+    .DMEM_rst        (DMEM_rst),
+    .Exception       (Exception)
     );
     
     always#(10) Clk = ~Clk;     
@@ -109,7 +111,7 @@ module riscvTests_tb();
 //                                TEST CONTROL
 // ===========================================================================
     
-    parameter TEST_TO_RUN   = `L_LW;
+    parameter TEST_TO_RUN   = `L_LB;
 
     //****************************************
     // PASS CONDITION 1: GP=1 , A7=93, A0=0
@@ -233,8 +235,18 @@ module riscvTests_tb();
             
             if(DMEM_rst)   DMEM_rd_data <= 0;
             else           DMEM_rd_data <= MEMORY[DMEM_addr[31:2]];
+            //else           DMEM_rd_data <= (DMEM_wr_en == 1) ? DMEM_wr_data : MEMORY[DMEM_addr[31:2]];
             
-            if(DMEM_wr_en) MEMORY[DMEM_addr[31:2]] <= DMEM_wr_data;
+            if(DMEM_wr_en) begin
+                case(DMEM_wr_byte_en)
+                    4'b0001: MEMORY[DMEM_addr[31:2]][7:0]   <= DMEM_wr_data[7:0];
+                    4'b0010: MEMORY[DMEM_addr[31:2]][15:8]  <= DMEM_wr_data[15:8];
+                    4'b0100: MEMORY[DMEM_addr[31:2]][23:16] <= DMEM_wr_data[23:16];
+                    4'b1000: MEMORY[DMEM_addr[31:2]][31:24] <= DMEM_wr_data[31:24];
+                endcase
+            end
+
+
         end
 
     end

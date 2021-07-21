@@ -82,7 +82,7 @@ module ID_control
     output reg                            RegFile_wr_en,  // enable regfile writeback 
     output reg                            MemToReg,       // enable regfile writeback from data mem
     output reg                            Jump,           // indicates a jump
-    output reg [2:0]                      Mem_op,         // selects memory mask for load/store
+    output reg [3:0]                      Mem_op,         // selects memory mask for load/store
     output reg                            Exception
 //*************************************************
     );
@@ -132,7 +132,7 @@ module ID_control
         RegFile_wr_en  = 0;     // default: regfile writeback disabled
         MemToReg       = 0;     // default: no data mem writeback
         Jump           = 0;     // default: no jump
-        Mem_op         = 0;     // default: no data mem mask
+        Mem_op         = 3'bx;  // default: no data mem mask
         Exception      = ((IF_Instruction == `ECALL) || (IF_Instruction == `EBREAK));
         
         Rd_addr  = IF_Instruction[11:7]; 
@@ -263,7 +263,7 @@ module ID_control
             end
             
             // JALR -> I-type instruction
-            // -> PC target addres = {  {31{rs1 + IMM_I}}, 1'b0} }
+            // -> PC target addres = {  {31{rs1 + IMM_I}}, 1'b0} } 
             // -> stores address of PC+4 to rd
             `OPCODE_JALR: begin
                 Jump           = 1;
@@ -286,21 +286,25 @@ module ID_control
                 MemToReg       = 1;
                 Rs2_addr       = 0;
                 case(FUNCT3)
-                    `FUNCT3_LW: Mem_op = `MEM_LW;
-                    `FUNCT3_LB: Mem_op = `MEM_LB;
+                    `FUNCT3_LW:  Mem_op = `MEM_LW;
+                    `FUNCT3_LB:  Mem_op = `MEM_LB;
+                    `FUNCT3_LH:  Mem_op = `MEM_LH;
+                    `FUNCT3_LBU: Mem_op = `MEM_LB_U; 
+                    `FUNCT3_LHU: Mem_op = `MEM_LH_U;
                 endcase
             end
             
             // Stores are S-type instructions
-            // -> data mem store address = rs1 + IMM_S (via ALU)\
+            // -> data mem store address = rs1 + IMM_S (via ALU)
             // -> copy rs2 to data mem
             `OPCODE_STORE: begin
                 ALU_source_sel = 2'b01;
                 Immediate_2    = IMM_S;
                 Mem_wr_en      = 1;
                 case(FUNCT3)
-                    `FUNCT3_SW: Mem_op = `MEM_SW;
+                    `FUNCT3_SW: Mem_op = `MEM_SB;
                     `FUNCT3_SB: Mem_op = `MEM_SB;
+                    `FUNCT3_SH: Mem_op = `MEM_SH;
                 endcase
             end
          

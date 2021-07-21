@@ -68,7 +68,7 @@ module ID_top
     output reg                           ID_RegFile_wr_en,
     output reg                           ID_MemToReg,
     output reg                           ID_Jump,
-    output reg [2:0]                     ID_Mem_op,
+    output reg [3:0]                     ID_Mem_op,
     
     // branch/jump destination
     output reg [REG_DATA_WIDTH-1:0]      ID_PC_dest,
@@ -106,7 +106,7 @@ module ID_top
     wire       RegFile_wr_en_i;
     wire       MemToReg_i;
     wire       Jump_i;
-    wire [2:0] Mem_op_i;
+    wire [3:0] Mem_op_i;
     
     wire [31:0] Branch_dest_i;
 
@@ -194,9 +194,9 @@ module ID_top
                 ID_Mem_wr_en      <= 0; 
                 ID_Mem_rd_en      <= 0;
                 ID_RegFile_wr_en  <= 0;
-                ID_MemToReg       <= 0;
+                ID_MemToReg       <= ID_MemToReg;
                 ID_Jump           <= 0;
-                ID_Mem_op         <= 0;
+                ID_Mem_op         <= ID_Mem_op;
                 ID_Rd_addr        <= ID_Rd_addr;
                 ID_Rs1_addr       <= ID_Rs1_addr;
                 ID_Rs2_addr       <= ID_Rs2_addr;
