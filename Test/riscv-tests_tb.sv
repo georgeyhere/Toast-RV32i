@@ -111,7 +111,7 @@ module riscvTests_tb();
 //                                TEST CONTROL
 // ===========================================================================
     
-    parameter TEST_TO_RUN   = `L_LB;
+    parameter TEST_TO_RUN   = `L_LHU;
 
     //****************************************
     // PASS CONDITION 1: GP=1 , A7=93, A0=0

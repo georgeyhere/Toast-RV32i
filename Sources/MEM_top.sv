@@ -205,7 +205,7 @@ module MEM_top
             end
 
             `MEM_LH: begin
-                case(EX_ALU_result[0])
+                case(EX_ALU_result[1])
                     0: MEM_dout = { {16{mem_rd_data[15]}}, mem_rd_data[15:0] };
                     1: MEM_dout = { {16{mem_rd_data[31]}}, mem_rd_data[31:16] };
                 endcase
@@ -221,7 +221,7 @@ module MEM_top
 
             end
             `MEM_LH_U: begin
-                case(EX_ALU_result[0])
+                case(EX_ALU_result[1])
                     0: MEM_dout = { {16{1'b0}}, mem_rd_data[15:0] };
                     1: MEM_dout = { {16{1'b0}}, mem_rd_data[31:16] };
                 endcase
