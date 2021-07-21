@@ -123,6 +123,7 @@ module ToastCore
     .MEM_Rd_addr        (MEM_Rd_addr),
     .ID_Mem_wr_en       (ID_Mem_wr_en),
     .EX_RegFile_wr_en   (EX_RegFile_wr_en),
+    .EX_Mem_rd_en       (EX_Mem_rd_en),
     .MEM_RegFile_wr_en  (MEM_RegFile_wr_en),
     .ID_ALU_source_sel  (ID_ALU_source_sel)
     );
@@ -248,7 +249,6 @@ module ToastCore
     .MEM_Rd_addr       (MEM_Rd_addr),
     .MEM_Exception     (Exception),
     .EX_Mem_wr_en      (EX_Mem_wr_en),
-    .EX_Mem_rd_en      (EX_Mem_rd_en),
     .EX_Mem_op         (EX_Mem_op),
     .EX_MemToReg       (EX_MemToReg),
     .EX_ALU_result     (EX_ALU_result),

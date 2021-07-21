@@ -156,9 +156,11 @@ Disassembly of section .text:
  200:	00700193          	li	gp,7
  204:	1c771063          	bne	a4,t2,3c4 <fail>
 
-00000208 <test_8>:
+00000208 <test_8>: #############
  208:	00002097          	auipc	ra,0x2
+  # ->  [ra] = 0x208 + 0x2000 = 0x2208
  20c:	dfb08093          	addi	ra,ra,-517 # 2003 <tdat4>
+  # ->  [ra] = 0x2208 - 0x517 = 0x2003
  210:	fff08703          	lb	a4,-1(ra)
  214:	ff000393          	li	t2,-16
  218:	00800193          	li	gp,8
@@ -172,11 +174,15 @@ Disassembly of section .text:
  230:	00900193          	li	gp,9
  234:	18771863          	bne	a4,t2,3c4 <fail>
 
-00000238 <test_10>:
- 238:	00002097          	auipc	ra,0x2
+00000238 <test_10>: #################
+ 238:	00002097          	auipc	ra,0x2   
+  #->  [ra] = 238 + 0x2000 = 0x2238
  23c:	dc808093          	addi	ra,ra,-568 # 2000 <__DATA_BEGIN__>
+  #->  [ra] = 0x2238 - 0x238 = 0x2000
  240:	fe008093          	addi	ra,ra,-32
+  #->  [ra] = 0x2000 - 0x20 = 0x1FE0
  244:	02008283          	lb	t0,32(ra)
+  #->  lb t0, [0x1FE0 + 0x20 = 2000]
  248:	fff00393          	li	t2,-1
  24c:	00a00193          	li	gp,10
  250:	16729a63          	bne	t0,t2,3c4 <fail>

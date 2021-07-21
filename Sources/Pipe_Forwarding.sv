@@ -28,6 +28,7 @@
 
 		input                               ID_Mem_wr_en,
 		input                               EX_RegFile_wr_en,
+		input                               EX_Mem_rd_en,
 		input                               MEM_RegFile_wr_en
 		);
    
@@ -65,7 +66,7 @@
                 ForwardA = 2'b10; 
             else 
 
-            // MEM hazard 
+            // WB hazard 
             // -> forward from WB_Rd_data to op1
             if ( (MEM_RegFile_wr_en == 1'b1) &&
                  (MEM_Rd_addr       != 0   ) &&
@@ -92,7 +93,7 @@
                 ForwardB = 2'b10;
             else 
 
-            // MEM hazard 
+            // WB hazard 
             // -> forward from WB_Rd_data to op2
             if ( (MEM_RegFile_wr_en == 1'b1) &&
                  (MEM_Rd_addr       != 0   ) &&
