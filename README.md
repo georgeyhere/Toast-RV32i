@@ -28,7 +28,7 @@ __/Documentation__
 - Contains datapath diagrams and notes
 
 __/Mem__
-- Contains memory initialization files for IMEM as well as dump files for each riscv-test
+- Contains memory initialization hex files for riscv-tests 
 
 __/Scripts__
 - Contains shell scripts to compile, link, and generate memory files from the riscv-tests, as well as a script to run tests and dump vcd from vivado
