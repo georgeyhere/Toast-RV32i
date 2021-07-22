@@ -47,7 +47,7 @@ Indirect Jump (JALR) | 3
 ALU reg-reg | 3
 ALU reg-imm | 3
 Cond. Branch (Not Taken) | 3
-Cond. Branch (Taken) | 4
+Cond. Branch (Taken) | 5
 Memory Load | 4
 Memory Store | 4
 
