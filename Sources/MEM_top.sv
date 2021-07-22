@@ -80,10 +80,8 @@ module MEM_top
     // if asserted, trigger an exception
     reg misaligned_store_i; 
 
-    reg [2:0] Mem_op_i;
-
     reg [31:0] wr_data_i;
-
+    reg [3:0]  byte_en;
 // ===========================================================================
 //                              Implementation    
 // ===========================================================================
@@ -98,8 +96,6 @@ module MEM_top
             MEM_RegFile_wr_en <= 0;
             MEM_Rd_addr       <= 0;
             MEM_Exception     <= 0;
-            Mem_op_i          <= 0;
-            //MEM_dout          <= 0;
         end
         else begin
             MEM_MemToReg      <= EX_MemToReg;
@@ -107,8 +103,6 @@ module MEM_top
             MEM_RegFile_wr_en <= EX_RegFile_wr_en;
             MEM_Rd_addr       <= EX_Rd_addr;
             MEM_Exception     <= EX_Exception || misaligned_store_i;
-            Mem_op_i          <= EX_Mem_op;
-            //MEM_dout          <= MEM_dout_i;
         end
     end
     
@@ -117,9 +111,10 @@ module MEM_top
     //    DATA MEM CNTRL SIGNALS
     //*********************************
     always_comb begin
-        mem_addr  = {EX_ALU_result[31:2], 2'b0}; 
-        mem_wr_en = EX_Mem_wr_en;
-        mem_rst   = ~Reset_n;
+        mem_addr       = {EX_ALU_result[31:2], 2'b0}; 
+        mem_wr_en      = EX_Mem_wr_en;
+        mem_rst        = ~Reset_n;
+        mem_wr_byte_en = (EX_Mem_wr_en == 1'b1) ? byte_en : 4'b0;
     end
 
     
@@ -138,30 +133,33 @@ module MEM_top
         // DEFAULTS:
         mem_wr_data        = 32'bx;
         misaligned_store_i = 0;
-        mem_wr_byte_en     = 4'b0;
+        byte_en            = 4'b0;
 
         case(EX_Mem_op)
 
-            `MEM_SW:         mem_wr_data = wr_data_i;
+            `MEM_SW: begin
+                mem_wr_data = wr_data_i;
+                byte_en     = 4'b1111;
+            end
 
             `MEM_SB: begin
                 // determine which byte to write to based on last two bits of address
                 case(EX_ALU_result[1:0]) 
                     2'b00: begin
                         mem_wr_data = { {24{1'b0}}, wr_data_i[7:0] }; 
-                        mem_wr_byte_en = (EX_Mem_wr_en) ? 4'b0001 : 0;
+                        byte_en = 4'b0001;
                     end
                     2'b01: begin
-                        mem_wr_data = { {16{1'b0}}, wr_data_i[15:8],  { 8{1'b0}} };
-                        mem_wr_byte_en = (EX_Mem_wr_en) ? 4'b0010 : 0;
+                        mem_wr_data = { {16{1'b0}}, wr_data_i[7:0],  { 8{1'b0}} };
+                        byte_en = 4'b0010;
                     end
                     2'b10: begin
                         mem_wr_data = { {8{1'b0}},  wr_data_i[7:0], {16{1'b0}} };
-                        mem_wr_byte_en = (EX_Mem_wr_en) ? 4'b0100 : 0;
+                        byte_en = 4'b0100;
                     end
                     2'b11: begin
-                       mem_wr_data = { wr_data_i[31:24], {24{1'b0}} };
-                       mem_wr_byte_en = (EX_Mem_wr_en) ? 4'b1000 : 0;
+                       mem_wr_data = { wr_data_i[7:0], {24{1'b0}} };
+                       byte_en = 4'b1000;
                     end
                 endcase
             end 
@@ -170,11 +168,11 @@ module MEM_top
                 case(EX_ALU_result[1:0])
                     2'b00: begin
                        mem_wr_data = { {16{1'b0}}, wr_data_i[15:0] };
-                       mem_wr_byte_en = (EX_Mem_wr_en) ? 4'b0011 : 0;
+                       byte_en = 4'b0011;
                     end
                     2'b10: begin
-                       mem_wr_data = { wr_data_i[31:16], {16{1'b0}} };
-                       mem_wr_byte_en = (EX_Mem_wr_en) ? 4'b1100 : 0;
+                       mem_wr_data = { wr_data_i[15:0], {16{1'b0}} };
+                       byte_en = 4'b1100;
                     end
                     default: misaligned_store_i  = 1;
                 endcase 
@@ -192,7 +190,7 @@ module MEM_top
 
     always_comb begin
         if(Reset_n == 1'b0) 
-            MEM_dout <= 0;
+            MEM_dout = 0;
         case(EX_Mem_op)
 
             `MEM_LB: begin

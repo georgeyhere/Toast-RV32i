@@ -59,7 +59,7 @@ module Hazard_detection
     wire [4:0] DBG_IF_Rs2 = IF_Instruction[24:20];
 
     always_comb begin
-        Stall = (DMEM_wr_en == 1) ? 1:0;
+        //Stall = (DMEM_wr_en == 1) ? 1:0;
 
         if(ID_Mem_rd_en == 1) begin
             if( (opcode_i == `OPCODE_OP) ||       // register-register opcodes
@@ -77,6 +77,7 @@ module Hazard_detection
                     Stall = 1;
             end
         end
+        else Stall = 0;
     end
                 
     /*

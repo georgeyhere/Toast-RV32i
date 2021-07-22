@@ -112,7 +112,7 @@ package RV32I_definitions;
     `define MEM_LB_U          4'b1000
     `define MEM_LH_U          4'b1001
 
-    `define MEM_SB            4'b0011
+    `define MEM_SB            4'b0111
     `define MEM_SH            4'b0100
     `define MEM_SW            4'b0101
 

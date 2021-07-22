@@ -132,7 +132,7 @@ module ID_control
         RegFile_wr_en  = 0;     // default: regfile writeback disabled
         MemToReg       = 0;     // default: no data mem writeback
         Jump           = 0;     // default: no jump
-        Mem_op         = 3'bx;  // default: no data mem mask
+        Mem_op         = 4'bx;  // default: no data mem mask
         Exception      = ((IF_Instruction == `ECALL) || (IF_Instruction == `EBREAK));
         
         Rd_addr  = IF_Instruction[11:7]; 
@@ -302,13 +302,14 @@ module ID_control
                 Immediate_2    = IMM_S;
                 Mem_wr_en      = 1;
                 case(FUNCT3)
-                    `FUNCT3_SW: Mem_op = `MEM_SB;
                     `FUNCT3_SB: Mem_op = `MEM_SB;
                     `FUNCT3_SH: Mem_op = `MEM_SH;
+                    `FUNCT3_SW: Mem_op = `MEM_SW;
                 endcase
             end
-         
-        endcase     
+            
+        endcase   
+
     end // end always_comb
     
 endmodule

@@ -18,7 +18,7 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-import   RV32I_definitions::*;
+//import   RV32I_definitions::*;
 
 // Register-Register
 `define RR_ADD   0
@@ -111,7 +111,7 @@ module riscvTests_tb();
 //                                TEST CONTROL
 // ===========================================================================
     
-    parameter TEST_TO_RUN   = `L_LHU;
+    parameter TEST_TO_RUN   = `S_SB;
 
     //****************************************
     // PASS CONDITION 1: GP=1 , A7=93, A0=0
@@ -225,6 +225,8 @@ module riscvTests_tb();
     Data memory begins at 0x2000, this can be changed by editing /Scripts/memgen.sh and
     changing the -Tdata parameter of riscv32-unknown-elf-ld.
 */
+    reg [31:0] DBG_MEM;
+
     always@(posedge Clk, negedge Reset_n) begin
         if(Reset_n == 1'b0) begin
             IMEM_data <= 0;
@@ -238,14 +240,13 @@ module riscvTests_tb();
             //else           DMEM_rd_data <= (DMEM_wr_en == 1) ? DMEM_wr_data : MEMORY[DMEM_addr[31:2]];
             
             if(DMEM_wr_en) begin
-                case(DMEM_wr_byte_en)
-                    4'b0001: MEMORY[DMEM_addr[31:2]][7:0]   <= DMEM_wr_data[7:0];
-                    4'b0010: MEMORY[DMEM_addr[31:2]][15:8]  <= DMEM_wr_data[15:8];
-                    4'b0100: MEMORY[DMEM_addr[31:2]][23:16] <= DMEM_wr_data[23:16];
-                    4'b1000: MEMORY[DMEM_addr[31:2]][31:24] <= DMEM_wr_data[31:24];
-                endcase
+                if(DMEM_wr_byte_en[0] == 1'b1) MEMORY[DMEM_addr[31:2]][7:0]   <= DMEM_wr_data[7:0];
+                if(DMEM_wr_byte_en[1] == 1'b1) MEMORY[DMEM_addr[31:2]][15:8]  <= DMEM_wr_data[15:8];
+                if(DMEM_wr_byte_en[2] == 1'b1) MEMORY[DMEM_addr[31:2]][23:16] <= DMEM_wr_data[23:16];
+                if(DMEM_wr_byte_en[3] == 1'b1) MEMORY[DMEM_addr[31:2]][31:24] <= DMEM_wr_data[31:24];
             end
 
+            DBG_MEM <= MEMORY[32'h2000];
 
         end
 

@@ -2,13 +2,8 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-<<<<<<< Updated upstream:Scripts/vivado/vivado_12866.backup.jou
-# Start of session at: Wed Jul 14 18:41:48 2021
-# Process ID: 12866
-=======
-# Start of session at: Mon Jul 19 14:43:47 2021
-# Process ID: 18081
->>>>>>> Stashed changes:Scripts/vivado/vivado_18081.backup.jou
+# Start of session at: Wed Jul 21 09:43:34 2021
+# Process ID: 28191
 # Current directory: /home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado
 # Command line: vivado
 # Log file: /home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado/vivado.log
@@ -18,21 +13,27 @@ start_gui
 open_project /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr
 update_compile_order -fileset sources_1
 launch_simulation
-launch_simulation
-launch_simulation
 open_wave_config /home/george/Documents/work/RISCV/RISCV_Project/riscvTests_tb_behav.wcfg
 source riscvTests_tb.tcl
-<<<<<<< Updated upstream:Scripts/vivado/vivado_12866.backup.jou
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-relaunch_sim
-save_wave_config {/home/george/Documents/work/RISCV/RISCV_Project/riscvTests_tb_behav.wcfg}
-=======
+sorce rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+refresh_design
+source rvTest.tcl
+source rvTest.tcl
+close_design
+add_files -norecurse -scan_for_includes /home/george/Documents/work/RISCV/Toast-RV32i/Sources/loadUnit.sv
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/loadUnit.sv] -no_script -reset -force -quiet
+remove_files  /home/george/Documents/work/RISCV/Toast-RV32i/Sources/loadUnit.sv
 source rvTest.tcl
 source rvTest.tcl
 source rvTest.tcl
@@ -56,5 +57,10 @@ source rvTest.tcl
 source rvTest.tcl
 source rvTest.tcl
 source rvTest.tcl
->>>>>>> Stashed changes:Scripts/vivado/vivado_18081.backup.jou
-close_sim
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl

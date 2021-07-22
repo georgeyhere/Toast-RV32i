@@ -54,7 +54,7 @@ module IF_top
     input                        IF_Flush,
 
 //*************************************************   
-    output     [31:0]            IMEM_addr,
+    output reg [31:0]            IMEM_addr,
     output reg [31:0]            IF_PC,
     output reg [31:0]            IF_Instruction     
 
@@ -66,11 +66,13 @@ module IF_top
 //                    Parameters, Registers, and Wires
 // ===========================================================================    
     wire [31:0]  Instruction;
+    wire [31:0]  IMEM_addr_i;
 
-
+    reg [31:0] PC_Next;
 // ===========================================================================
 //                              Instantiation    
 // ===========================================================================    
+    /*
     PC RV32I_PC (
     .Clk               (Clk),
     .Reset_n           (Reset_n),
@@ -81,7 +83,7 @@ module IF_top
     .EX_PC_Branch_dest (EX_PC_Branch_dest),
     .PC_Out            (IMEM_addr)
     );
-    
+    */
 // ===========================================================================
 //                              Implementation    
 // ===========================================================================    
@@ -99,9 +101,25 @@ IMEM_addr placed      Instrn corresponding
 --------------------------------------------------
     */
 
-    // align fetched instructions with addr by flopping IMEM_addr
-    always@(posedge Clk) IF_PC <= IMEM_addr; 
 
+    always_comb begin
+        if(ID_Jump == 1)            PC_Next = ID_PC_dest;
+        else if (EX_PC_Branch == 1) PC_Next = EX_PC_Branch_dest;
+        else if (IF_Stall == 1)     PC_Next = IMEM_addr - 4;
+        else                        PC_Next = IMEM_addr + 4;
+    end
+
+    // align fetched instructions with addr by flopping IMEM_addr
+    always_ff@(posedge Clk) begin
+        if(Reset_n == 1'b0) begin
+            IMEM_addr <= 0;
+            IF_PC     <= 0;
+        end
+        else begin
+            IMEM_addr <= PC_Next;
+            IF_PC     <= (IF_Stall) ? IF_PC:IMEM_addr; 
+        end  
+    end
 
     // if flush is asserted insert a nop
     always_comb begin
@@ -109,11 +127,12 @@ IMEM_addr placed      Instrn corresponding
             IF_Instruction = 0;
         end
         else begin
-            if(IF_Stall == 1'b1) IF_Instruction = IF_Instruction;
-            else                 IF_Instruction = IMEM_data;
+            if(IF_Stall == 1'b1) begin
+                IF_Instruction = IF_Instruction;
+            end
+            else begin
+                IF_Instruction = IMEM_data;
+            end               
         end
     end
-
-   
-
 endmodule

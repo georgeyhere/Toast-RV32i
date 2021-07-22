@@ -202,14 +202,14 @@ Disassembly of section .text:
  2a0:	00a00193          	li	gp,10
  2a4:	2c729463          	bne	t0,t2,56c <fail>
 
-000002a8 <test_11>:
+000002a8 <test_11>: #############
  2a8:	00002097          	auipc	ra,0x2
  2ac:	d6008093          	addi	ra,ra,-672 # 2008 <tdat9>
  2b0:	00003137          	lui	sp,0x3
  2b4:	09810113          	addi	sp,sp,152 # 3098 <__global_pointer$+0x898>
  2b8:	ffa08093          	addi	ra,ra,-6
  2bc:	002083a3          	sb	sp,7(ra)
- 2c0:	00002217          	auipc	tp,0x2
+ 2c0:	00002217          	auipc	tp,0x2 # [tp]=22c0
  2c4:	d4920213          	addi	tp,tp,-695 # 2009 <tdat10>
  2c8:	00020283          	lb	t0,0(tp) # 0 <_start>
  2cc:	f9800393          	li	t2,-104
