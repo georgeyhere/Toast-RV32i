@@ -8,17 +8,18 @@
      - Utilize synthesizable SystemVerilog features
      - Gain familiarity with Linux environment
 
-
-- Toast currently is capable of passing all RV32ui unit tests, however Toast has not been tested on hardware until updated here.
-
-- Toast does not support interrupt handling, nor the CSR, FENCE, EBREAK, or ECALL instructions.
-
 - Stretch Goals:
      
      - Interface the core with a UART peripheral and display
      some text on a PC terminal
      - Add Zicsr extension support
      - Add ISR handling
+
+
+
+- Toast currently is capable of passing all RV32ui unit tests, however Toast has not been tested on hardware until updated here.
+
+- Toast does not support interrupt handling, nor the CSR, FENCE, EBREAK, or ECALL instructions.
 
 
 <h1> Files in this Repository </h1>
