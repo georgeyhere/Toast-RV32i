@@ -82,7 +82,6 @@ module riscvTests_tb();
     wire [31:0] DMEM_addr;
     wire [3:0]  DMEM_wr_byte_en;
     wire [31:0] DMEM_wr_data;
-    wire        DMEM_wr_en;
     wire        DMEM_rst;
     wire        Exception;
 
@@ -97,7 +96,6 @@ module riscvTests_tb();
     .DMEM_addr       (DMEM_addr),
     .DMEM_wr_byte_en (DMEM_wr_byte_en),
     .DMEM_wr_data    (DMEM_wr_data),
-    .DMEM_wr_en      (DMEM_wr_en),
     .DMEM_rst        (DMEM_rst),
     .Exception       (Exception)
     );
@@ -217,12 +215,11 @@ module riscvTests_tb();
     RISC-V uses byte-addressable memory (i.e. a word at every fourth address)
     A workaround is to ignore the lower two bits of the address.
     Do this for both program data and data memory. 
+
     Note that program memory and data memory are loaded from the same .mem file.
     Data memory begins at 0x2000, this can be changed by editing /Scripts/memgen.sh and
     changing the -Tdata parameter of riscv32-unknown-elf-ld.
 */
-    reg [31:0] DBG_MEM;
-
     always@(posedge Clk, negedge Reset_n) begin
         if(Reset_n == 1'b0) begin
             IMEM_data <= 0;
@@ -233,17 +230,11 @@ module riscvTests_tb();
             
             if(DMEM_rst)   DMEM_rd_data <= 0;
             else           DMEM_rd_data <= MEMORY[DMEM_addr[31:2]];
-            //else           DMEM_rd_data <= (DMEM_wr_en == 1) ? DMEM_wr_data : MEMORY[DMEM_addr[31:2]];
-            
-            if(DMEM_wr_en) begin
-                if(DMEM_wr_byte_en[0] == 1'b1) MEMORY[DMEM_addr[31:2]][7:0]   <= DMEM_wr_data[7:0];
-                if(DMEM_wr_byte_en[1] == 1'b1) MEMORY[DMEM_addr[31:2]][15:8]  <= DMEM_wr_data[15:8];
-                if(DMEM_wr_byte_en[2] == 1'b1) MEMORY[DMEM_addr[31:2]][23:16] <= DMEM_wr_data[23:16];
-                if(DMEM_wr_byte_en[3] == 1'b1) MEMORY[DMEM_addr[31:2]][31:24] <= DMEM_wr_data[31:24];
-            end
 
-            DBG_MEM <= MEMORY[32'h2000];
-
+            if(DMEM_wr_byte_en[0] == 1'b1) MEMORY[DMEM_addr[31:2]][7:0]   <= DMEM_wr_data[7:0];
+            if(DMEM_wr_byte_en[1] == 1'b1) MEMORY[DMEM_addr[31:2]][15:8]  <= DMEM_wr_data[15:8];
+            if(DMEM_wr_byte_en[2] == 1'b1) MEMORY[DMEM_addr[31:2]][23:16] <= DMEM_wr_data[23:16];
+            if(DMEM_wr_byte_en[3] == 1'b1) MEMORY[DMEM_addr[31:2]][31:24] <= DMEM_wr_data[31:24];
         end
 
     end

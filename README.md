@@ -2,15 +2,24 @@
 
 - Toast is a RISC-V soft core written in fully synthesizable SystemVerilog that implements a subset of the RV32I ISA.
 
-- Toast currently is capable of passing all RV32ui unit tests, however Toast has not been tested on hardware until updated here.
-
-- Toast does not support interrupt handling, nor the CSR, FENCE, EBREAK, or ECALL instructions.
-
-- Objectives: 
+- Goals: 
 
      - Produce a core that is capable of running the RV32ui unit tests from official [riscv-tests](https://github.com/riscv/riscv-tests) repo
      - Utilize synthesizable SystemVerilog features
      - Gain familiarity with Linux environment
+
+
+- Toast currently is capable of passing all RV32ui unit tests, however Toast has not been tested on hardware until updated here.
+
+- Toast does not support interrupt handling, nor the CSR, FENCE, EBREAK, or ECALL instructions.
+
+- Stretch Goals:
+     
+     - Interface the core with a UART peripheral and display
+     some text on a PC terminal
+     - Add Zicsr extension support
+     - Add ISR handling
+
 
 <h1> Files in this Repository </h1>
 
@@ -21,34 +30,33 @@ __/Mem__
 - Contains memory initialization files for IMEM as well as dump files for each riscv-test
 
 __/Scripts__
-- experimental 
+- Contains shell scripts to compile, link, and generate memory files from the riscv-tests, as well as a script to run tests and dump vcd from vivado
 
 __/Sources__
-- Contains ToastCore.sv and all submodules
+- Contains all source files for Toastcore and UART peripheral (WIP)
 
 __/Test__
-- Testbenches and riscv-tests
+- Contains the riscv-tests, testbenches to either run an individual test or the entire battery of tests, GTKwave translate filter files/processes, and the vcd outputs for each test
 
 <h1> Performance </h1>
--  will be updated as more instructions are tested
-
 
 |Instruction | CPI|
 |------------|----|
-Direct Jump (JAL) | <>
+Direct Jump (JAL) | 3
+Indirect Jump (JALR) | 3
 ALU reg-reg | 3
 ALU reg-imm | 3
-Cond. Branch | 3
-Memory Load | <>
-Memory Store | <>
-Indirect Jump (JALR) | <>
+Cond. Branch (Not Taken) | 3
+Cond. Branch (Taken) | 4
+Memory Load | 4
+Memory Store | 4
+
 
 
 <h1> Memory Interface </h1>
 
-![Xilinx Dual-port RAM](./Documentation/dpr.png)
+Toast uses a simple memory interface driving DIN, ADDR, WE, and RST lines. The memory data bus is 32-bits wide for both instruction and data memory.
 
-Toast uses a simple memory interface based on that of Xilinx dual-port block memory in dual-port RAM configuration. It
-drives DIN, ADDR, WE, and RST.
+The instruction memory is word-addressable, and the data memory is byte-addressable using byte-enables.
 
 

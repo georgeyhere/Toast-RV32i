@@ -36,7 +36,6 @@ module ToastCore
     output [31:0]     DMEM_addr,
     output [3:0]      DMEM_wr_byte_en,
     output [31:0]     DMEM_wr_data,
-    output            DMEM_wr_en,
     output            DMEM_rst,
 
     output            Exception
@@ -240,7 +239,6 @@ module ToastCore
     .mem_addr          (DMEM_addr),
     .mem_wr_byte_en    (DMEM_wr_byte_en),
     .mem_wr_data       (DMEM_wr_data),
-    .mem_wr_en         (DMEM_wr_en),
     .mem_rst           (DMEM_rst),
     .mem_rd_data       (DMEM_rd_data),
     .ForwardM          (ForwardM),

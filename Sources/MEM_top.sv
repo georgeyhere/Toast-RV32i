@@ -39,7 +39,6 @@ module MEM_top
     output reg [31:0] mem_addr,          // data mem address
     output reg [3:0]  mem_wr_byte_en,   // byte write enables
     output reg [31:0] mem_wr_data,       // data mem write data
-    output reg        mem_wr_en,         // data mem write enable
     output reg        mem_rst,           // data mem read port reset
 
     // PIPELINE OUT
@@ -111,7 +110,6 @@ module MEM_top
     //*********************************
     always_comb begin
         mem_addr       = {EX_ALU_result[31:2], 2'b0}; 
-        mem_wr_en      = EX_Mem_wr_en;
         mem_rst        = ~Reset_n;
         mem_wr_byte_en = (EX_Mem_wr_en == 1'b1) ? byte_en : 4'b0;
     end
@@ -183,15 +181,9 @@ module MEM_top
     //*********************************    
     //        DATA MEM LOADS
     //*********************************
-    //reg [31:0] MEM_dout_i;
-    //always_comb begin
-        //MEM_dout_i = 32'bx;
-
     always_comb begin
-        if(Reset_n == 1'b0) 
-            MEM_dout = 0;
-        case(EX_Mem_op)
 
+        case(EX_Mem_op)
             `MEM_LB: begin
                 case(EX_ALU_result[1:0])
                     2'b00: MEM_dout = { {24{mem_rd_data[7]}},   mem_rd_data[7:0] }; 
@@ -228,8 +220,7 @@ module MEM_top
                 MEM_dout = mem_rd_data;
             end
 
-            //32'bx:   MEM_dout_i = 32'bx;
-
+            default: MEM_dout = mem_rd_data;
         endcase
     end
     
