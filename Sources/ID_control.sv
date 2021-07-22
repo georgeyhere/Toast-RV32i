@@ -263,9 +263,10 @@ module ID_control
             end
             
             // JALR -> I-type instruction
-            // -> PC target addres = {  {31{rs1 + IMM_I}}, 1'b0} } 
+            // -> PC target address = {  {31{rs1 + IMM_I}}, 1'b0} } 
             // -> stores address of PC+4 to rd
             `OPCODE_JALR: begin
+                RegFile_wr_en  = (IF_Instruction[11:7] == 0) ? 0:1;
                 Jump           = 1;
                 Branch_op      = `REG_OFFSET;
                 ALU_source_sel = 2'b10;

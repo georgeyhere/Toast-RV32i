@@ -165,6 +165,9 @@ module ToastCore
     .IF_Instruction     (IF_Instruction),
     .ID_Stall           (Stall), //!
     .ID_Flush           (IF_ID_Flush),
+    .EX_RegFile_wr_en   (EX_RegFile_wr_en),
+    .EX_Rd_addr         (EX_Rd_addr),
+    .EX_ALU_result      (EX_ALU_result),
     .WB_Rd_addr         (WB_Rd_addr),
     .WB_Rd_data         (WB_Rd_data),
     .WB_RegFile_wr_en   (WB_RegFile_wr_en),

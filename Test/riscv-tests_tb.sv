@@ -69,8 +69,6 @@
 `define S_SB     33
 `define S_SH     34
 `define S_SW     35
-`define S_SBU    36
-`define S_SHU    37
 
 
 module riscvTests_tb();
@@ -111,7 +109,7 @@ module riscvTests_tb();
 //                                TEST CONTROL
 // ===========================================================================
     
-    parameter TEST_TO_RUN   = `S_SB;
+    parameter TEST_TO_RUN   = `J_JALR;
 
     //****************************************
     // PASS CONDITION 1: GP=1 , A7=93, A0=0
@@ -145,7 +143,7 @@ module riscvTests_tb();
 // ===========================================================================
 //                              Implementation    
 // ===========================================================================    
-    reg [8*20:0] tests [0:37] = {
+    reg [8*20:0] tests [0:35] = {
     
     // R-R [0:9] 
     "add.S.mem",
@@ -192,12 +190,10 @@ module riscvTests_tb();
     "lbu.S.mem",
     "lhu.S.mem",
 
-    // S [33:37]
+    // S [33:35]
     "sb.S.mem",
     "sh.S.mem",
-    "sw.S.mem",
-    "sbu.S.mem",
-    "shu.S.mem"
+    "sw.S.mem"
     };
 
     parameter MEMORY_DEPTH  = 32'hFFFF;

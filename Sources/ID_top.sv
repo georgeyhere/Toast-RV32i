@@ -48,6 +48,11 @@ module ID_top
     input                                ID_Stall,
     input                                ID_Flush,
 
+    // jump destination forwarding
+    input                                EX_RegFile_wr_en,
+    input      [REGFILE_ADDR_WIDTH-1:0]  EX_Rd_addr,
+    input      [REG_DATA_WIDTH-1:0]      EX_ALU_result,
+
     // regfile
     input      [REGFILE_ADDR_WIDTH-1:0]  WB_Rd_addr,
     input      [REG_DATA_WIDTH-1:0]      WB_Rd_data,
@@ -109,8 +114,10 @@ module ID_top
     wire [3:0] Mem_op_i;
     
     wire [31:0] Branch_dest_i;
+    reg  [31:0] Branch_RegData_i;
 
     wire        Exception_i;
+
 
 // ===========================================================================
 //                              Instantiation   
@@ -149,17 +156,28 @@ module ID_top
     );
     
     Branch_gen ID_BranchGen (
-    .Branch_op   (Branch_op_i),
+    .Branch_op   (ID_Branch_op),
     .PC          (IF_PC),
-    .RegData     (ID_Rs1_data),
-    .Immediate   (Immediate_2_i),
-    .Branch_dest (Branch_dest_i)
+    .RegData     (Branch_RegData_i),
+    .Immediate   (ID_Immediate_2),
+    .Branch_dest (ID_PC_dest)
     );
     
     
 // ===========================================================================
 //                              Implementation    
 // ===========================================================================    
+    // branchgen forwarding
+    always_comb begin
+        if((ID_Branch_op[1] == 1'b1)    &&
+           (EX_Rd_addr == ID_Rs1_addr) &&
+           (EX_RegFile_wr_en == 1'b1))
+                Branch_RegData_i = EX_ALU_result;
+        else
+            Branch_RegData_i = ID_Rs1_data;
+    end
+
+
     // pipeline registers
     always_ff@(posedge Clk) begin
         // reset state is the same as NOP, all control signals set to 0
@@ -178,7 +196,6 @@ module ID_top
             ID_Rd_addr        <= 0;
             ID_Rs1_addr       <= 0;
             ID_Rs2_addr       <= 0;
-            ID_PC_dest        <= 0;
             ID_Immediate_1    <= 0;
             ID_Immediate_2    <= 0;
             ID_Exception      <= 0;
@@ -200,7 +217,6 @@ module ID_top
                 ID_Rd_addr        <= ID_Rd_addr;
                 ID_Rs1_addr       <= ID_Rs1_addr;
                 ID_Rs2_addr       <= ID_Rs2_addr;
-                ID_PC_dest        <= ID_PC_dest;
                 ID_Immediate_1    <= ID_Immediate_1;
                 ID_Immediate_2    <= ID_Immediate_2;
                 ID_Exception      <= ID_Exception;
@@ -220,7 +236,6 @@ module ID_top
                 ID_Rd_addr        <= Rd_addr_i;
                 ID_Rs1_addr       <= Rs1_addr_i;
                 ID_Rs2_addr       <= Rs2_addr_i;
-                ID_PC_dest        <= Branch_dest_i;
                 ID_Immediate_1    <= Immediate_1_i;
                 ID_Immediate_2    <= Immediate_2_i;
                 ID_Exception      <= Exception_i;
