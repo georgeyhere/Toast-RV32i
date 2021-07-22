@@ -54,7 +54,7 @@ module ToastCore
     // forwarding
     wire [1:0]  ForwardA;
     wire [1:0]  ForwardB;
-    wire        ForwardS;
+    wire        ForwardM;
     
     // Instruction Fetch
     wire [31:0] IF_PC;

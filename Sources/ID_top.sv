@@ -115,6 +115,7 @@ module ID_top
     
     wire [31:0] Branch_dest_i;
     reg  [31:0] Branch_RegData_i;
+    reg  [31:0] Branch_PC_i;
 
     wire        Exception_i;
 
@@ -157,7 +158,7 @@ module ID_top
     
     Branch_gen ID_BranchGen (
     .Branch_op   (ID_Branch_op),
-    .PC          (IF_PC),
+    .PC          (Branch_PC_i),
     .RegData     (Branch_RegData_i),
     .Immediate   (ID_Immediate_2),
     .Branch_dest (ID_PC_dest)
@@ -199,6 +200,7 @@ module ID_top
             ID_Immediate_1    <= 0;
             ID_Immediate_2    <= 0;
             ID_Exception      <= 0;
+            Branch_PC_i       <= 0;
         end
         else begin
             // on stall, drop control signals to 0
@@ -220,6 +222,7 @@ module ID_top
                 ID_Immediate_1    <= ID_Immediate_1;
                 ID_Immediate_2    <= ID_Immediate_2;
                 ID_Exception      <= ID_Exception;
+                Branch_PC_i       <= Branch_PC_i;
             end
             else begin
                 ID_PC <= IF_PC;
@@ -239,6 +242,7 @@ module ID_top
                 ID_Immediate_1    <= Immediate_1_i;
                 ID_Immediate_2    <= Immediate_2_i;
                 ID_Exception      <= Exception_i;
+                Branch_PC_i       <= IF_PC;
             end
         end  
     end

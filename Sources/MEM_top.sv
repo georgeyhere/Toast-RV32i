@@ -60,7 +60,6 @@ module MEM_top
 
     // PIPELINE IN
     input             EX_Mem_wr_en,
-    input             EX_Mem_rd_en,
     input [3:0]       EX_Mem_op,         // selects data mem mask 
     input             EX_MemToReg,
     input [31:0]      EX_ALU_result,
