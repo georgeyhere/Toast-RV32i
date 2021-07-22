@@ -1,19 +1,16 @@
 # Test
 
-__branches_tb.sv__
-- basic directed tests for conditional branches
-
-__lui_OOP_tb.sv__
-- basic directed tests for lui and li
-
-__riscv-tests_tb.sv__
-- testbench for running riscv-tests
+__/Archive__
+- basic directed tests; outdated
 
 __/gtk__
-- contains translate filter files/processes used in debug process
+- contains translate filter files/processes for GTKWave
+
+__riscv-tests_tb.sv__
+- testbench for running individual riscv-tests
 
 __/riscv-tests__
-- from riscv-tests repo
+- from official [riscv-tests](https://github.com/riscv/riscv-tests) repo
 
 __/test_results__
-- vcd for passed tests
+- .vcd for all passed tests
