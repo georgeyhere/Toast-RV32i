@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -20,18 +21,14 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-module Branch_gen
+module toast_branchgen
     (
-//*************************************************
-    input      [1:0]  Branch_op,
-    input      [31:0] PC,
-    input      [31:0] RegData,
-    input      [31:0] Immediate,
-    
-//*************************************************
-    output reg [31:0] Branch_dest
+    output logic [31:0] branch_dest_o,
 
-//*************************************************
+    input  wire logic [1:0]  branch_op_i,
+    input  wire logic [31:0] pc_i,
+    input  wire logic [31:0] regdata_i,
+    input  wire logic [31:0] imm_i
     );
     
     /*
@@ -43,10 +40,10 @@ module Branch_gen
     */
     
     always_comb begin
-        case(Branch_op)
-            default:      Branch_dest = 32'bx;
-            `PC_RELATIVE: Branch_dest = PC      + $signed(Immediate);
-            `REG_OFFSET:  Branch_dest = RegData + $signed(Immediate);
+        branch_dest_o = 0;
+        case(branch_op_i)
+            `PC_RELATIVE: branch_dest_o = pc_i      + $signed(imm_i);
+            `REG_OFFSET:  branch_dest_o = regdata_i + $signed(imm_i);
         endcase
     end
     

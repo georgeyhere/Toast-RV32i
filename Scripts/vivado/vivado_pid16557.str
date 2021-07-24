@@ -1,0 +1,2365 @@
+/*
+
+Xilinx Vivado v2020.2 (64-bit) [Major: 2020, Minor: 2]
+SW Build: 3064766 on Wed Nov 18 09:12:47 MST 2020
+IP Build: 3064653 on Wed Nov 18 14:17:31 MST 2020
+
+Process ID (PID): 16557
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Sat Jul 24 14:16:14 PDT 2021
+Time zone: 	Pacific Standard Time (America/Los_Angeles)
+
+OS: Ubuntu
+OS Version: 5.4.0-80-generic
+OS Architecture: amd64
+Available processors (cores): 16
+
+Display: 0
+Screen size: 1920x1080
+Screen resolution (DPI): 100
+Available screens: 2
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+Scale size: 12
+
+Java version: 	11.0.2 64-bit
+Java home: 	/opt/Xilinx/Vivado/2020.2/tps/lnx64/jre11.0.2
+Java executable location: 	/opt/Xilinx/Vivado/2020.2/tps/lnx64/jre11.0.2/bin/java
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	george
+User home directory: /home/george
+User working directory: /home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /opt/Xilinx/Vivado
+HDI_APPROOT: /opt/Xilinx/Vivado/2020.2
+RDI_DATADIR: /opt/Xilinx/Vivado/2020.2/data
+RDI_BINDIR: /opt/Xilinx/Vivado/2020.2/bin
+
+Vivado preferences file location: /home/george/.Xilinx/Vivado/2020.2/vivado.xml
+Vivado preferences directory: /home/george/.Xilinx/Vivado/2020.2/
+Vivado layouts directory: /home/george/.Xilinx/Vivado/2020.2/data/layouts
+PlanAhead jar file location: 	/opt/Xilinx/Vivado/2020.2/lib/classes/planAhead.jar
+Vivado log file location: 	/home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado/vivado.log
+Vivado journal file location: 	/home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-16557-george-desktop
+
+Xilinx Environment Variables
+----------------------------
+XILINX: /opt/Xilinx/Vivado/2020.2/ids_lite/ISE
+XILINX_DSP: /opt/Xilinx/Vivado/2020.2/ids_lite/ISE
+XILINX_HLS: /opt/Xilinx//Vitis_HLS/2020.2
+XILINX_PLANAHEAD: /opt/Xilinx/Vivado/2020.2
+XILINX_VITIS: 
+XILINX_VIVADO: /opt/Xilinx/Vivado/2020.2
+XILINX_VIVADO_HLS: /opt/Xilinx/Vivado/2020.2
+
+
+GUI allocated memory:	185 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 1,554 MB
+
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// Tcl Command: 'rdi::info_commands {device::*}'
+// Tcl Command: 'rdi::info_commands {debug::*}'
+// Tcl Command: 'rdi::info_commands {*}'
+// HMemoryUtils.trashcanNow. Engine heap size: 1,554 MB. GUI used memory: 60 MB. Current time: 7/24/21, 2:16:15 PM PDT
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+selectList(PAResourceQtoS.SyntheticaGettingStartedView_RECENT_PROJECTS, "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr", 1); // r
+// [GUI Memory]: 97 MB (+98952kb) [00:00:36]
+// [Engine Memory]: 1,557 MB (+1480964kb) [00:00:36]
+// bz (cr):  Open Project : addNotify
+// Opening Vivado Project: /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr. Version: Vivado v2020.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 117 MB (+16655kb) [00:00:41]
+// WARNING: HEventQueue.dispatchEvent() is taking  2809 ms.
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2020.2/data/ip'. 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,619 MB. GUI used memory: 68 MB. Current time: 7/24/21, 2:16:47 PM PDT
+// Tcl Message: INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'. 
+// Tcl Message: open_project: Time (s): cpu = 00:00:20 ; elapsed = 00:00:06 . Memory (MB): peak = 7380.375 ; gain = 47.043 ; free physical = 9271 ; free virtual = 15162 
+// Project name: RISCV_Project; location: /home/george/Documents/work/RISCV/RISCV_Project; part: xc7a50tcsg324-1
+dismissDialog("Open Project"); // bz
+// [Engine Memory]: 1,638 MB (+3618kb) [00:00:43]
+// a (cr): Critical Messages: addNotify
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // a
+// [GUI Memory]: 130 MB (+6803kb) [00:00:47]
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files]", 2); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, EX_ALU.sv]", 3, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, WB_top.sv]", 16, false, true, false, false, false, false); // D - Shift Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, EX_ALU.sv]", 3, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, EX_top.sv]", 4, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, ID_Branch_gen.sv]", 5, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, ID_control.sv]", 6, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, ID_regfile.sv]", 7, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, ID_top.sv]", 8, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, IF_top.sv]", 10, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, IF_PC.sv]", 9, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, MEM_top.sv]", 11, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, Pipe_Forwarding.sv]", 12, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, Pipe_Hazard.sv]", 13, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, RV32I_definitions.sv]", 14, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, ToastCore.sv]", 15, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, RV32I_definitions.sv]", 14, false, false, false, false, true, false); // D - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ak
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (cr): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Remove Sources"); // aE
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/WB_top.sv] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/EX_ALU.sv] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/EX_top.sv] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_Branch_gen.sv] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_control.sv] -no_script -reset -force -quiet 
+// aE (cr): Remove Sources: addNotify
+// bz (aE):  Remove Sources : addNotify
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_regfile.sv] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_top.sv] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_top.sv] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_PC.sv] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/MEM_top.sv] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/Pipe_Forwarding.sv] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/Pipe_Hazard.sv] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/RV32I_definitions.sv] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+dismissDialog("Remove Sources"); // bz
+// [Engine Memory]: 1,728 MB (+8824kb) [00:01:01]
+// Elapsed time: 18 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources]", 3); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 4); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, Syntax Error Files]", 5); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, Syntax Error Files, lui_OOP_tb.sv]", 6, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, Syntax Error Files, testbench.sv]", 7, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, Syntax Error Files, testbench.sv]", 7, false, false, false, false, true, false); // D - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ak
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (cr): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Remove Sources"); // aE
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/simple_tests/lui_OOP_tb.sv] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/simple_tests/testbench.sv] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: remove_files  -fileset sim_1 {/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/simple_tests/lui_OOP_tb.sv /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/simple_tests/testbench.sv} 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, lui_OOP_tb (lui_OOP_tb.sv)]", 10, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, lui_OOP_tb (lui_OOP_tb.sv)]", 10, true, false, false, false, true, false); // D - Popup Trigger - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, branches_tb (branches_tb.sv)]", 9, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, branches_tb (branches_tb.sv)]", 9, true, false, false, false, true, false); // D - Popup Trigger - Node
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ak
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (cr): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Remove Sources"); // aE
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/simple_tests/branches_tb.sv] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: remove_files  -fileset sim_1 /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/simple_tests/branches_tb.sv 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,740 MB. GUI used memory: 76 MB. Current time: 7/24/21, 2:17:35 PM PDT
+selectButton(PAResourceCommand.PACommandNames_ADD_SOURCES, "Sources_add_sources"); // E
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+// c (cr): Add Sources: addNotify
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+dismissFileChooser();
+// Elapsed time: 22 seconds
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+// Elapsed time: 30 seconds
+String[] filenames31467 = {"/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_EX_stage.sv", "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.sv", "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.sv", "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv", "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_WB_stage.sv", "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_alu.sv", "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_branchgen.sv", "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_control.sv", "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv", "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_def_pkg.sv", "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv", "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv", "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_regfile.sv", "/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv"};
+setFileChooser(filenames31467);
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 63 seconds
+// TclEventType: DG_GRAPH_STALE
+dismissDialog("Add Sources"); // c
+// TclEventType: FILE_SET_CHANGE
+// bz (cr):  Add Sources  : addNotify
+// [GUI Memory]: 143 MB (+6925kb) [00:02:40]
+dismissDialog("Add Sources"); // bz
+// HMemoryUtils.trashcanNow. Engine heap size: 1,761 MB. GUI used memory: 77 MB. Current time: 7/24/21, 2:18:45 PM PDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files]", 1); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, toast_EX_stage.sv]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, toast_EX_stage.sv]", 2, false, false, false, false, false, true); // D - Double Click
+// [Engine Memory]: 1,824 MB (+9633kb) [00:02:47]
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 34 seconds
+selectCodeEditor("toast_EX_stage.sv", 212, 290); // bP
+selectCodeEditor("toast_EX_stage.sv", 212, 290, false, false, false, false, true); // bP - Double Click
+selectCodeEditor("toast_EX_stage.sv", 229, 252); // bP
+selectCodeEditor("toast_EX_stage.sv", 419, 266); // bP
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectCodeEditor("toast_EX_stage.sv", 397, 278); // bP
+// Elapsed time: 130 seconds
+selectCodeEditor("toast_EX_stage.sv", 75, 219); // bP
+selectCodeEditor("toast_EX_stage.sv", 433, 338); // bP
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+selectCodeEditor("toast_EX_stage.sv", 290, 342); // bP
+// Elapsed time: 74 seconds
+selectCodeEditor("toast_EX_stage.sv", 77, 219); // bP
+selectCodeEditor("toast_EX_stage.sv", 77, 219, true, false, false, true, false); // bP - Shift Key - Popup Trigger
+dismissFileChooser();
+// Elapsed time: 28 seconds
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 48 seconds
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // F
+// HMemoryUtils.trashcanNow. Engine heap size: 1,868 MB. GUI used memory: 86 MB. Current time: 7/24/21, 2:24:35 PM PDT
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, toast_EX_stage.sv]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, toast_EX_stage.sv]", 2, false, false, false, false, false, true); // D - Double Click
+selectCodeEditor("toast_EX_stage.sv", 343, 338); // bP
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, toast_IF_stage.sv]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, toast_IF_stage.sv]", 2, false, false, false, false, false, true); // D - Double Click
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 28 seconds
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // F
+// HMemoryUtils.trashcanNow. Engine heap size: 1,907 MB. GUI used memory: 87 MB. Current time: 7/24/21, 2:25:20 PM PDT
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, toast_IF_stage.sv]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, toast_IF_stage.sv]", 2, false, false, false, false, false, true); // D - Double Click
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [Engine Memory]: 1,931 MB (+16670kb) [00:09:33]
+// HMemoryUtils.trashcanNow. Engine heap size: 1,931 MB. GUI used memory: 88 MB. Current time: 7/24/21, 2:25:40 PM PDT
+// Elapsed time: 25 seconds
+selectButton(PAResourceAtoD.AbstractFileView_RELOAD, "Reload"); // h
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 1,951 MB. GUI used memory: 88 MB. Current time: 7/24/21, 2:26:05 PM PDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 32 seconds
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // F
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, toast_top.sv]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Syntax Error Files, toast_top.sv]", 2, false, false, false, false, false, true); // D - Double Click
+selectCodeEditor("toast_top.sv", 293, 367); // bP
+selectCodeEditor("toast_top.sv", 310, 383); // bP
+selectCodeEditor("toast_top.sv", 285, 402); // bP
+selectCodeEditor("toast_top.sv", 268, 434); // bP
+selectCodeEditor("toast_top.sv", 275, 413); // bP
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+typeControlKey(null, null, 'z');
+selectCodeEditor("toast_top.sv", 390, 451); // bP
+// Elapsed time: 19 seconds
+selectCodeEditor("toast_top.sv", 360, 343); // bP
+selectCodeEditor("toast_top.sv", 341, 419); // bP
+selectCodeEditor("toast_top.sv", 290, 444); // bP
+selectCodeEditor("toast_top.sv", 216, 384); // bP
+selectCodeEditor("toast_top.sv", 216, 384, false, false, false, false, true); // bP - Double Click
+selectCodeEditor("toast_top.sv", 306, 445); // bP
+selectCodeEditor("toast_top.sv", 274, 341); // bP
+selectCodeEditor("toast_top.sv", 183, 292); // bP
+selectCodeEditor("toast_top.sv", 183, 292, false, false, false, false, true); // bP - Double Click
+selectCodeEditor("toast_top.sv", 132, 297); // bP
+selectCodeEditor("toast_top.sv", 131, 297, false, false, false, false, true); // bP - Double Click
+selectCodeEditor("toast_top.sv", 128, 353); // bP
+selectCodeEditor("toast_top.sv", 43, 159); // bP
+selectCodeEditor("toast_top.sv", 56, 363); // bP
+selectCodeEditor("toast_top.sv", 60, 159); // bP
+selectCodeEditor("toast_top.sv", 55, 166); // bP
+selectCodeEditor("toast_top.sv", 95, 334); // bP
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// HMemoryUtils.trashcanNow. Engine heap size: 1,973 MB. GUI used memory: 88 MB. Current time: 7/24/21, 2:27:40 PM PDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 10 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a50tcsg324-1 Top: toast_top 
+selectButton(RDIResource.ProgressDialog_CANCEL, "Cancel"); // a
+// TclEventType: ELABORATE_START
+// TclEventType: ELABORATE_FAIL
+// TclEventType: DESIGN_NEW_FAILED
+// Tcl Message: INFO: [Device 21-403] Loading part xc7a50tcsg324-1 
+// Tcl Message: 1 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered. synth_design completed successfully 
+// Tcl Message: synth_design: Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 8014.551 ; gain = 0.000 ; free physical = 8943 ; free virtual = 14897 
+// Tcl Message: INFO: [Common 17-344] 'synth_design' was cancelled 
+// CommandFailedException: ERROR: [Common 17-69] Command failed:  
+// 'dV' command handler elapsed time: 5 seconds
+dismissDialog("Open Elaborated Design"); // bz
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // F
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 29 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toast_top (toast_top.sv)]", 2, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toast_top (toast_top.sv)]", 2, true, false, false, false, false, true); // D - Double Click - Node
+// HMemoryUtils.trashcanNow. Engine heap size: 2,012 MB. GUI used memory: 89 MB. Current time: 7/24/21, 2:28:25 PM PDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [Engine Memory]: 2,039 MB (+11430kb) [00:12:53]
+// HMemoryUtils.trashcanNow. Engine heap size: 2,039 MB. GUI used memory: 89 MB. Current time: 7/24/21, 2:29:00 PM PDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 61 seconds
+selectButton(PAResourceAtoD.AbstractFileView_RELOAD, "Reload"); // h
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,068 MB. GUI used memory: 89 MB. Current time: 7/24/21, 2:30:00 PM PDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 42 seconds
+selectCodeEditor("toast_top.sv", 399, 349); // bP
+// Elapsed time: 10 seconds
+selectButton(PAResourceAtoD.AbstractFileView_RELOAD, "Reload"); // h
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,100 MB. GUI used memory: 89 MB. Current time: 7/24/21, 2:31:10 PM PDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 70 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "toast_top.sv", 1); // m
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // F
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toast_top (toast_top.sv)]", 2, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toast_top (toast_top.sv)]", 2, true, false, false, false, false, true); // D - Double Click - Node
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,132 MB. GUI used memory: 89 MB. Current time: 7/24/21, 2:31:50 PM PDT
+// [Engine Memory]: 2,148 MB (+7793kb) [00:15:47]
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 48 seconds
+closeView(PAResourceOtoP.PAViews_CODE, "Code"); // F
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// TclEventType: ELABORATE_START
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a50tcsg324-1 Top: toast_top 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,182 MB. GUI used memory: 90 MB. Current time: 7/24/21, 2:32:25 PM PDT
+// TclEventType: ELABORATE_FAIL
+// TclEventType: DESIGN_NEW_FAILED
+// Tcl Message: ERROR: [Synth 8-1031] ID_Branch_flag is not declared [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_EX_stage.sv:185] 
+// Tcl Message: INFO: [Synth 8-2350] module toast_EX_stage ignored due to previous errors [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_EX_stage.sv:25] 
+// Tcl Message: Failed to read verilog '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_EX_stage.sv' 
+// Tcl Message: 1 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered. synth_design failed 
+// Tcl Message: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details  
+// 'dV' command handler elapsed time: 3 seconds
+// U (cr): Critical Messages: addNotify
+dismissDialog("Open Elaborated Design"); // bz
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // U
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 33 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// TclEventType: ELABORATE_START
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a50tcsg324-1 Top: toast_top 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,201 MB. GUI used memory: 90 MB. Current time: 7/24/21, 2:33:05 PM PDT
+// TclEventType: ELABORATE_FAIL
+// TclEventType: DESIGN_NEW_FAILED
+// Tcl Message: Failed to read verilog '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.sv' 
+// Tcl Message: 0 Infos, 0 Warnings, 0 Critical Warnings and 20 Errors encountered. synth_design failed 
+// Tcl Message: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details  
+// 'dV' command handler elapsed time: 3 seconds
+// U (cr): Critical Messages: addNotify
+dismissDialog("Open Elaborated Design"); // bz
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // U
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,237 MB. GUI used memory: 90 MB. Current time: 7/24/21, 2:33:45 PM PDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 49 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// TclEventType: ELABORATE_START
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a50tcsg324-1 Top: toast_top 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,252 MB. GUI used memory: 90 MB. Current time: 7/24/21, 2:34:05 PM PDT
+// TclEventType: ELABORATE_FAIL
+// TclEventType: DESIGN_NEW_FAILED
+// Tcl Message: INFO: [Synth 8-2350] module toast_ID_stage ignored due to previous errors [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.sv:24] 
+// Tcl Message: Failed to read verilog '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.sv' 
+// Tcl Message: 1 Infos, 0 Warnings, 0 Critical Warnings and 17 Errors encountered. synth_design failed 
+// Tcl Message: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details  
+// 'dV' command handler elapsed time: 3 seconds
+// U (cr): Critical Messages: addNotify
+dismissDialog("Open Elaborated Design"); // bz
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [Engine Memory]: 2,268 MB (+13490kb) [00:18:57]
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,287 MB. GUI used memory: 92 MB. Current time: 7/24/21, 2:35:35 PM PDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,319 MB. GUI used memory: 92 MB. Current time: 7/24/21, 2:36:35 PM PDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [GUI Memory]: 150 MB (+130kb) [00:21:45]
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 231 seconds
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // U
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// TclEventType: ELABORATE_START
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a50tcsg324-1 Top: toast_top 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,351 MB. GUI used memory: 90 MB. Current time: 7/24/21, 2:38:00 PM PDT
+// TclEventType: ELABORATE_FAIL
+// TclEventType: DESIGN_NEW_FAILED
+// Tcl Message: ERROR: [Synth 8-1031] branch_op_o is not declared [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.sv:171] 
+// Tcl Message: INFO: [Synth 8-2350] module toast_ID_stage ignored due to previous errors [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.sv:24] 
+// Tcl Message: Failed to read verilog '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.sv' 
+// Tcl Message: 1 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered. synth_design failed 
+// Tcl Message: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details  
+// 'dV' command handler elapsed time: 3 seconds
+// U (cr): Critical Messages: addNotify
+dismissDialog("Open Elaborated Design"); // bz
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // U
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 54 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// TclEventType: ELABORATE_START
+// HMemoryUtils.trashcanNow. Engine heap size: 2,388 MB. GUI used memory: 90 MB. Current time: 7/24/21, 2:39:00 PM PDT
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a50tcsg324-1 Top: toast_top 
+// TclEventType: ELABORATE_FAIL
+// TclEventType: DESIGN_NEW_FAILED
+// Tcl Message: INFO: [Synth 8-2350] module toast_MEM_stage ignored due to previous errors [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv:31] 
+// Tcl Message: Failed to read verilog '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv' 
+// Tcl Message: 1 Infos, 0 Warnings, 0 Critical Warnings and 15 Errors encountered. synth_design failed 
+// Tcl Message: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details  
+// 'dV' command handler elapsed time: 4 seconds
+// [Engine Memory]: 2,388 MB (+6921kb) [00:23:00]
+// U (cr): Critical Messages: addNotify
+dismissDialog("Open Elaborated Design"); // bz
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 21 seconds
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // U
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// TclEventType: ELABORATE_START
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a50tcsg324-1 Top: toast_top 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,405 MB. GUI used memory: 90 MB. Current time: 7/24/21, 2:39:30 PM PDT
+// TclEventType: ELABORATE_FAIL
+// TclEventType: DESIGN_NEW_FAILED
+// Tcl Message: ERROR: [Synth 8-6735] net type must be explicitly specified for 'DMEM_rd_data_i' when default_nettype is none [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv:52] ERROR: [Synth 8-6735] net type must be explicitly specified for 'ForwardM_i' when default_nettype is none [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv:55] ERROR: [Synth 8-6735] net type must be explicitly specified for 'WB_rd_data_i' when default_nettype is none [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv:56] 
+// Tcl Message: INFO: [Synth 8-2350] module toast_MEM_stage ignored due to previous errors [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv:31] 
+// Tcl Message: Failed to read verilog '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv' 
+// Tcl Message: 1 Infos, 0 Warnings, 0 Critical Warnings and 4 Errors encountered. synth_design failed 
+// Tcl Message: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details  
+// 'dV' command handler elapsed time: 3 seconds
+// U (cr): Critical Messages: addNotify
+dismissDialog("Open Elaborated Design"); // bz
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // U
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 14 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// TclEventType: ELABORATE_START
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a50tcsg324-1 Top: toast_top 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,431 MB. GUI used memory: 90 MB. Current time: 7/24/21, 2:39:55 PM PDT
+// TclEventType: ELABORATE_FAIL
+// TclEventType: DESIGN_NEW_FAILED
+// Tcl Message: INFO: [Synth 8-2350] module toast_WB_stage ignored due to previous errors [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_WB_stage.sv:24] 
+// Tcl Message: Failed to read verilog '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_WB_stage.sv' 
+// Tcl Message: 1 Infos, 0 Warnings, 0 Critical Warnings and 6 Errors encountered. synth_design failed 
+// Tcl Message: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details  
+// 'dV' command handler elapsed time: 4 seconds
+// U (cr): Critical Messages: addNotify
+dismissDialog("Open Elaborated Design"); // bz
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // U
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a50tcsg324-1 Top: toast_top 
+// TclEventType: ELABORATE_START
+// HMemoryUtils.trashcanNow. Engine heap size: 2,484 MB. GUI used memory: 90 MB. Current time: 7/24/21, 2:40:15 PM PDT
+// TclEventType: ELABORATE_FAIL
+// TclEventType: DESIGN_NEW_FAILED
+// Tcl Message: ERROR: [Synth 8-6735] net type must be explicitly specified for 'alu_ctrl_i' when default_nettype is none [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_alu.sv:29] ERROR: [Synth 8-6735] net type must be explicitly specified for 'alu_op1_i' when default_nettype is none [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_alu.sv:30] ERROR: [Synth 8-6735] net type must be explicitly specified for 'alu_op2_i' when default_nettype is none [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_alu.sv:31] 
+// Tcl Message: INFO: [Synth 8-2350] module toast_alu ignored due to previous errors [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_alu.sv:24] 
+// Tcl Message: Failed to read verilog '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_alu.sv' 
+// Tcl Message: 1 Infos, 0 Warnings, 0 Critical Warnings and 4 Errors encountered. synth_design failed 
+// Tcl Message: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details  
+// 'dV' command handler elapsed time: 4 seconds
+// U (cr): Critical Messages: addNotify
+dismissDialog("Open Elaborated Design"); // bz
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // U
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,484 MB. GUI used memory: 90 MB. Current time: 7/24/21, 2:40:35 PM PDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [Engine Memory]: 2,516 MB (+8663kb) [00:24:47]
+// HMemoryUtils.trashcanNow. Engine heap size: 2,516 MB. GUI used memory: 90 MB. Current time: 7/24/21, 2:40:55 PM PDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,548 MB. GUI used memory: 90 MB. Current time: 7/24/21, 2:41:35 PM PDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 83 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// TclEventType: ELABORATE_START
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a50tcsg324-1 Top: toast_top 
+// TclEventType: ELABORATE_FAIL
+// TclEventType: DESIGN_NEW_FAILED
+// Tcl Message: INFO: [Synth 8-2350] module toast_forwarder ignored due to previous errors [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv:4] 
+// Tcl Message: Failed to read verilog '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv' 
+// Tcl Message: 1 Infos, 0 Warnings, 0 Critical Warnings and 10 Errors encountered. synth_design failed 
+// Tcl Message: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details  
+// 'dV' command handler elapsed time: 3 seconds
+// U (cr): Critical Messages: addNotify
+dismissDialog("Open Elaborated Design"); // bz
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 16 seconds
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // U
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// TclEventType: ELABORATE_START
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a50tcsg324-1 Top: toast_top 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,581 MB. GUI used memory: 91 MB. Current time: 7/24/21, 2:42:10 PM PDT
+// TclEventType: ELABORATE_FAIL
+// TclEventType: DESIGN_NEW_FAILED
+// Tcl Message: ERROR: [Synth 8-6735] net type must be explicitly specified for 'clk_i' when default_nettype is none [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv:19] ERROR: [Synth 8-6735] net type must be explicitly specified for 'resetn_i' when default_nettype is none [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv:20] 
+// Tcl Message: INFO: [Synth 8-2350] module toast_hazards ignored due to previous errors [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv:6] 
+// Tcl Message: Failed to read verilog '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv' 
+// Tcl Message: 1 Infos, 0 Warnings, 0 Critical Warnings and 3 Errors encountered. synth_design failed 
+// Tcl Message: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details  
+// 'dV' command handler elapsed time: 4 seconds
+// U (cr): Critical Messages: addNotify
+dismissDialog("Open Elaborated Design"); // bz
+// Elapsed time: 18 seconds
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+dismissDialog("Critical Messages"); // U
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+expandTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis]", 3); // u
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a50tcsg324-1 Top: toast_top 
+// TclEventType: ELABORATE_START
+// HMemoryUtils.trashcanNow. Engine heap size: 2,613 MB. GUI used memory: 91 MB. Current time: 7/24/21, 2:42:35 PM PDT
+// TclEventType: ELABORATE_FAIL
+// TclEventType: DESIGN_NEW_FAILED
+// Tcl Message: INFO: [Synth 8-2350] module toast_regfile ignored due to previous errors [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_regfile.sv:30] 
+// Tcl Message: Failed to read verilog '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_regfile.sv' 
+// Tcl Message: 1 Infos, 0 Warnings, 0 Critical Warnings and 6 Errors encountered. synth_design failed 
+// Tcl Message: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details  
+// 'dV' command handler elapsed time: 5 seconds
+// U (cr): Critical Messages: addNotify
+dismissDialog("Open Elaborated Design"); // bz
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 15 seconds
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // U
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// TclEventType: ELABORATE_START
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a50tcsg324-1 Top: toast_top 
+// TclEventType: ELABORATE_FAIL
+// TclEventType: DESIGN_NEW_FAILED
+// Tcl Message: ERROR: [Synth 8-1031] WB_rd_data is not declared [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:309] 
+// Tcl Message: INFO: [Synth 8-2350] module toast_top ignored due to previous errors [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:24] 
+// Tcl Message: Failed to read verilog '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv' 
+// Tcl Message: 1 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered. synth_design failed 
+// Tcl Message: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details  
+// 'dV' command handler elapsed time: 4 seconds
+// U (cr): Critical Messages: addNotify
+dismissDialog("Open Elaborated Design"); // bz
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,638 MB. GUI used memory: 92 MB. Current time: 7/24/21, 2:43:15 PM PDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [Engine Memory]: 2,654 MB (+12527kb) [00:27:37]
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 48 seconds
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // U
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// TclEventType: ELABORATE_START
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a50tcsg324-1 Top: toast_top 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,678 MB. GUI used memory: 91 MB. Current time: 7/24/21, 2:43:55 PM PDT
+// TclEventType: ELABORATE_FAIL
+// TclEventType: DESIGN_NEW_FAILED
+// Tcl Message: ERROR: [Synth 8-1031] WB_wr_rd_data is not declared [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:309] 
+// Tcl Message: INFO: [Synth 8-2350] module toast_top ignored due to previous errors [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:24] 
+// Tcl Message: Failed to read verilog '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv' 
+// Tcl Message: 1 Infos, 0 Warnings, 0 Critical Warnings and 2 Errors encountered. synth_design failed 
+// Tcl Message: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details  
+// 'dV' command handler elapsed time: 4 seconds
+// U (cr): Critical Messages: addNotify
+dismissDialog("Open Elaborated Design"); // bz
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // U
+// Elapsed time: 13 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a50tcsg324-1 Top: toast_top 
+// TclEventType: ELABORATE_START
+// TclEventType: ELABORATE_FAIL
+// TclEventType: DESIGN_NEW_FAILED
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 8664.336 ; gain = 0.000 ; free physical = 8190 ; free virtual = 14269 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_top' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:24] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_forwarder' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv:4] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_forwarder' (1#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv:4] 
+// Tcl Message: ERROR: [Synth 8-448] named port connection 'ForwardA_o' does not exist for instance 'fwd_i' of module 'toast_forwarder' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:131] ERROR: [Synth 8-448] named port connection 'ForwardB_o' does not exist for instance 'fwd_i' of module 'toast_forwarder' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:132] ERROR: [Synth 8-448] named port connection 'ForwardM_o' does not exist for instance 'fwd_i' of module 'toast_forwarder' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:133] 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_hazards' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv:6] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  
+// Tcl Message: ERROR: [Synth 8-6156] failed synthesizing module 'toast_hazards' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv:6] ERROR: [Synth 8-6156] failed synthesizing module 'toast_top' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:24] 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 8664.336 ; gain = 0.000 ; free physical = 8217 ; free virtual = 14303 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: RTL Elaboration failed 
+// Tcl Message: 4 Infos, 1 Warnings, 0 Critical Warnings and 6 Errors encountered. synth_design failed 
+// Tcl Message: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details  
+// 'dV' command handler elapsed time: 6 seconds
+// U (cr): Critical Messages: addNotify
+dismissDialog("Open Elaborated Design"); // bz
+// HMemoryUtils.trashcanNow. Engine heap size: 2,729 MB. GUI used memory: 92 MB. Current time: 7/24/21, 2:44:25 PM PDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 14 seconds
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // U
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// TclEventType: ELABORATE_START
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a50tcsg324-1 Top: toast_top 
+// TclEventType: ELABORATE_FAIL
+// TclEventType: DESIGN_NEW_FAILED
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 8738.352 ; gain = 8.004 ; free physical = 8191 ; free virtual = 14266 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_top' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:24] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_forwarder' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv:4] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_forwarder' (1#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv:4] 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_hazards' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv:6] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_hazards' (2#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv:6] INFO: [Synth 8-6157] synthesizing module 'toast_IF_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.sv:28] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_IF_stage' (3#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.sv:28] 
+// Tcl Message: ERROR: [Synth 8-448] named port connection 'IMEM_addr_i' does not exist for instance 'if_stage_i' of module 'toast_IF_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:172] ERROR: [Synth 8-448] named port connection 'EX_pc_dest_i' does not exist for instance 'if_stage_i' of module 'toast_IF_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:177] ERROR: [Synth 8-448] named port connection 'ID_pc_dest_i' does not exist for instance 'if_stage_i' of module 'toast_IF_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:179] 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_ID_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.sv:24] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_decoder' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:45] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:293] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:309] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:146] 
+// Tcl Message: ERROR: [Synth 8-6156] failed synthesizing module 'toast_decoder' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:45] ERROR: [Synth 8-6156] failed synthesizing module 'toast_ID_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.sv:24] ERROR: [Synth 8-6156] failed synthesizing module 'toast_top' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:24] 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 8738.352 ; gain = 8.004 ; free physical = 8228 ; free virtual = 14303 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: RTL Elaboration failed 
+// Tcl Message: 12 Infos, 2 Warnings, 0 Critical Warnings and 7 Errors encountered. synth_design failed 
+// Tcl Message: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details  
+// 'dV' command handler elapsed time: 5 seconds
+// U (cr): Critical Messages: addNotify
+dismissDialog("Open Elaborated Design"); // bz
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,780 MB. GUI used memory: 93 MB. Current time: 7/24/21, 2:45:30 PM PDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 58 seconds
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // U
+// [Engine Memory]: 2,796 MB (+9563kb) [00:29:35]
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// TclEventType: ELABORATE_START
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a50tcsg324-1 Top: toast_top 
+// TclEventType: ELABORATE_FAIL
+// TclEventType: DESIGN_NEW_FAILED
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 8781.371 ; gain = 0.000 ; free physical = 8175 ; free virtual = 14254 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_top' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:24] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_forwarder' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv:4] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_forwarder' (1#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv:4] 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_hazards' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv:6] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_hazards' (2#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv:6] INFO: [Synth 8-6157] synthesizing module 'toast_IF_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.sv:28] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_IF_stage' (3#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.sv:28] INFO: [Synth 8-6157] synthesizing module 'toast_ID_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.sv:24] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_decoder' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:45] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:293] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:309] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:146] INFO: [Synth 8-6155] done synthesizing module 'toast_decoder' (4#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:45] INFO: [Synth 8-6157] synthesizing module 'toast_regfile' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_regfile.sv:30] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_regfile' (5#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_regfile.sv:30] 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_branchgen' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_branchgen.sv:24] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_branchgen.sv:44] INFO: [Synth 8-6155] done synthesizing module 'toast_branchgen' (6#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_branchgen.sv:24] 
+// Tcl Message: ERROR: [Synth 8-448] named port connection 'branch_dest_i' does not exist for instance 'branchgen_i' of module 'toast_branchgen' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.sv:158] ERROR: [Synth 8-6156] failed synthesizing module 'toast_ID_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.sv:24] ERROR: [Synth 8-6156] failed synthesizing module 'toast_top' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:24] 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 8781.371 ; gain = 0.000 ; free physical = 8211 ; free virtual = 14290 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: RTL Elaboration failed 
+// Tcl Message: 18 Infos, 3 Warnings, 0 Critical Warnings and 4 Errors encountered. synth_design failed 
+// Tcl Message: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details  
+// 'dV' command handler elapsed time: 5 seconds
+// U (cr): Critical Messages: addNotify
+dismissDialog("Open Elaborated Design"); // bz
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 41 seconds
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // U
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// TclEventType: ELABORATE_START
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a50tcsg324-1 Top: toast_top 
+// HMemoryUtils.trashcanNow. Engine heap size: 2,819 MB. GUI used memory: 92 MB. Current time: 7/24/21, 2:46:30 PM PDT
+// TclEventType: ELABORATE_FAIL
+// TclEventType: DESIGN_NEW_FAILED
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 8799.387 ; gain = 0.000 ; free physical = 8179 ; free virtual = 14258 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_top' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:24] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_forwarder' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv:4] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_forwarder' (1#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv:4] 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_hazards' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv:6] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_hazards' (2#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv:6] INFO: [Synth 8-6157] synthesizing module 'toast_IF_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.sv:28] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_IF_stage' (3#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.sv:28] INFO: [Synth 8-6157] synthesizing module 'toast_ID_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.sv:24] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_decoder' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:45] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:293] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:309] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:146] INFO: [Synth 8-6155] done synthesizing module 'toast_decoder' (4#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:45] INFO: [Synth 8-6157] synthesizing module 'toast_regfile' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_regfile.sv:30] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  
+// Tcl Message: ERROR: [Synth 8-448] named port connection 'ID_Rs2_data_o' does not exist for instance 'id_stage_i' of module 'toast_ID_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:216] 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_EX_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_EX_stage.sv:25] INFO: [Synth 8-6157] synthesizing module 'toast_alu' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_alu.sv:24] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_alu.sv:40] 
+// Tcl Message: ERROR: [Synth 8-6156] failed synthesizing module 'toast_alu' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_alu.sv:24] ERROR: [Synth 8-6156] failed synthesizing module 'toast_EX_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_EX_stage.sv:25] ERROR: [Synth 8-6156] failed synthesizing module 'toast_top' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:24] 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 8799.387 ; gain = 0.000 ; free physical = 8214 ; free virtual = 14293 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: RTL Elaboration failed 
+// Tcl Message: 22 Infos, 2 Warnings, 0 Critical Warnings and 5 Errors encountered. synth_design failed 
+// Tcl Message: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details  
+// 'dV' command handler elapsed time: 5 seconds
+// U (cr): Critical Messages: addNotify
+dismissDialog("Open Elaborated Design"); // bz
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 20 seconds
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // U
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// TclEventType: ELABORATE_START
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a50tcsg324-1 Top: toast_top 
+// TclEventType: ELABORATE_FAIL
+// TclEventType: DESIGN_NEW_FAILED
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 8818.355 ; gain = 0.000 ; free physical = 8174 ; free virtual = 14252 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_top' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:24] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_forwarder' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv:4] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_forwarder' (1#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv:4] 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_hazards' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv:6] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_hazards' (2#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv:6] INFO: [Synth 8-6157] synthesizing module 'toast_IF_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.sv:28] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_IF_stage' (3#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.sv:28] INFO: [Synth 8-6157] synthesizing module 'toast_ID_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.sv:24] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_decoder' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:45] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:293] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:309] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:146] INFO: [Synth 8-6155] done synthesizing module 'toast_decoder' (4#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:45] INFO: [Synth 8-6157] synthesizing module 'toast_regfile' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_regfile.sv:30] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  
+// Tcl Message: ERROR: [Synth 8-448] named port connection 'WB_rd_data_i' does not exist for instance 'ex_stage_i' of module 'toast_EX_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:276] 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_MEM_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv:31] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv:133] 
+// Tcl Message: ERROR: [Synth 8-6156] failed synthesizing module 'toast_MEM_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv:31] ERROR: [Synth 8-6156] failed synthesizing module 'toast_top' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:24] 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 8818.355 ; gain = 0.000 ; free physical = 8205 ; free virtual = 14284 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: RTL Elaboration failed 
+// Tcl Message: 26 Infos, 6 Warnings, 0 Critical Warnings and 4 Errors encountered. synth_design failed 
+// Tcl Message: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details  
+// 'dV' command handler elapsed time: 5 seconds
+// U (cr): Critical Messages: addNotify
+dismissDialog("Open Elaborated Design"); // bz
+// Elapsed time: 20 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a50tcsg324-1 Top: toast_top 
+// TclEventType: ELABORATE_START
+selectButton(RDIResource.ProgressDialog_BACKGROUND, "Background"); // a
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // U
+// HMemoryUtils.trashcanNow. Engine heap size: 2,867 MB. GUI used memory: 92 MB. Current time: 7/24/21, 2:47:25 PM PDT
+// TclEventType: ELABORATE_FAIL
+// TclEventType: DESIGN_NEW_FAILED
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Starting RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:04 . Memory (MB): peak = 8818.355 ; gain = 0.000 ; free physical = 8176 ; free virtual = 14255 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_top' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:24] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_forwarder' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv:4] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_forwarder' (1#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv:4] 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_hazards' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv:6] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_hazards' (2#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv:6] INFO: [Synth 8-6157] synthesizing module 'toast_IF_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.sv:28] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_IF_stage' (3#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.sv:28] INFO: [Synth 8-6157] synthesizing module 'toast_ID_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.sv:24] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_decoder' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:45] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:293] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:309] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:146] INFO: [Synth 8-6155] done synthesizing module 'toast_decoder' (4#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:45] INFO: [Synth 8-6157] synthesizing module 'toast_regfile' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_regfile.sv:30] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_MEM_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv:31] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv:133] INFO: [Synth 8-6155] done synthesizing module 'toast_MEM_stage' (10#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv:31] INFO: [Synth 8-6157] synthesizing module 'toast_WB_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_WB_stage.sv:24] INFO: [Synth 8-6155] done synthesizing module 'toast_WB_stage' (11#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_WB_stage.sv:24] 
+// Tcl Message: ERROR: [Synth 8-448] named port connection 'WB_rd_wr_en' does not exist for instance 'wb_stage_i' of module 'toast_WB_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:336] ERROR: [Synth 8-448] named port connection 'MEM_rd_wr_en' does not exist for instance 'wb_stage_i' of module 'toast_WB_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:342] ERROR: [Synth 8-6156] failed synthesizing module 'toast_top' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:24] 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 8818.355 ; gain = 0.000 ; free physical = 8208 ; free virtual = 14286 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: RTL Elaboration failed 
+// Tcl Message: 29 Infos, 5 Warnings, 0 Critical Warnings and 4 Errors encountered. synth_design failed 
+// Tcl Message: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details  
+// U (cr): Critical Messages: addNotify
+dismissDialog("Open Elaborated Design"); // bz
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 35 seconds
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // U
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // u
+// HMemoryUtils.trashcanNow. Engine heap size: 2,899 MB. GUI used memory: 92 MB. Current time: 7/24/21, 2:48:05 PM PDT
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis]", 11, true); // u - Node
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis]", 11, true); // u - Node
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// TclEventType: ELABORATE_START
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a50tcsg324-1 Top: toast_top 
+// TclEventType: ELABORATE_FINISH
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 3,023 MB. GUI used memory: 92 MB. Current time: 7/24/21, 2:48:16 PM PDT
+// [Engine Memory]: 3,023 MB (+91460kb) [00:32:11]
+// TclEventType: DESIGN_NEW
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// [GUI Memory]: 162 MB (+4821kb) [00:32:13]
+// Schematic: addNotify
+// WARNING: HEventQueue.dispatchEvent() is taking  1562 ms.
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 8884.188 ; gain = 0.000 ; free physical = 8157 ; free virtual = 14236 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_top' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:24] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_forwarder' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv:4] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_forwarder' (1#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv:4] 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_hazards' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv:6] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_hazards' (2#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv:6] INFO: [Synth 8-6157] synthesizing module 'toast_IF_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.sv:28] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_IF_stage' (3#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.sv:28] INFO: [Synth 8-6157] synthesizing module 'toast_ID_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.sv:24] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_decoder' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:45] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:293] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:309] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:146] INFO: [Synth 8-6155] done synthesizing module 'toast_decoder' (4#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:45] INFO: [Synth 8-6157] synthesizing module 'toast_regfile' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_regfile.sv:30] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 8884.188 ; gain = 0.000 ; free physical = 8184 ; free virtual = 14264 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: --------------------------------------------------------------------------------- Start Handling Custom Attributes --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 8884.188 ; gain = 0.000 ; free physical = 8184 ; free virtual = 14265 
+// Tcl Message: --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 8884.188 ; gain = 0.000 ; free physical = 8184 ; free virtual = 14265 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.04 . Memory (MB): peak = 8884.188 ; gain = 0.000 ; free physical = 8181 ; free virtual = 14262 
+// Tcl Message: INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message:  Processing XDC Constraints Initializing timing engine Completed Processing XDC Constraints  
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 8884.188 ; gain = 0.000 ; free physical = 8097 ; free virtual = 14193 
+// Tcl Message: INFO: [Project 1-111] Unisim Transformation Summary: No Unisim elements were transformed.  
+// Tcl Message: RTL Elaboration Complete:  : Time (s): cpu = 00:00:18 ; elapsed = 00:00:10 . Memory (MB): peak = 8884.188 ; gain = 0.000 ; free physical = 7986 ; free virtual = 14090 
+// Tcl Message: 32 Infos, 5 Warnings, 0 Critical Warnings and 0 Errors encountered. synth_design completed successfully 
+// Tcl Message: synth_design: Time (s): cpu = 00:00:18 ; elapsed = 00:00:10 . Memory (MB): peak = 8884.188 ; gain = 0.000 ; free physical = 7986 ; free virtual = 14090 
+// 'dV' command handler elapsed time: 11 seconds
+// Elapsed time: 11 seconds
+dismissDialog("Open Elaborated Design"); // bz
+maximizeView(PAResourceOtoP.PAViews_BASE_WORKSPACE, "BaseWorkspace"); // F
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "Schematic_zoom_in"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// [GUI Memory]: 171 MB (+889kb) [00:32:20]
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// PAPropertyPanels.initPanels (if_stage_i (toast_IF_stage)) elapsed time: 0.2s
+// Elapsed time: 14 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "Schematic_zoom_out"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "Schematic_zoom_in"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "Schematic_zoom_in"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// [GUI Memory]: 181 MB (+1215kb) [00:32:53]
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 3,174 MB. GUI used memory: 123 MB. Current time: 7/24/21, 2:50:20 PM PDT
+// Elapsed time: 101 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "Schematic_zoom_out"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [Engine Memory]: 3,190 MB (+16458kb) [00:35:11]
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 3,206 MB. GUI used memory: 124 MB. Current time: 7/24/21, 2:52:40 PM PDT
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 146 seconds
+selectButton(PAResourceOtoP.ProjectTab_RELOAD, "Reload"); // h
+// bz (cr):  Reloading : addNotify
+// Tcl Message: refresh_design 
+// TclEventType: ELABORATE_START
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 9184.082 ; gain = 0.000 ; free physical = 8405 ; free virtual = 14425 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// TclEventType: ELABORATE_FINISH
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 3,270 MB. GUI used memory: 159 MB. Current time: 7/24/21, 2:53:03 PM PDT
+// Engine heap size: 3,271 MB. GUI used memory: 127 MB. Current time: 7/24/21, 2:53:03 PM PDT
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_top' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:24] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_forwarder' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv:4] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_forwarder' (1#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv:4] 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_hazards' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv:6] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_hazards' (2#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv:6] INFO: [Synth 8-6157] synthesizing module 'toast_IF_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.sv:28] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_IF_stage' (3#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.sv:28] INFO: [Synth 8-6157] synthesizing module 'toast_ID_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.sv:24] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_decoder' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:45] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:293] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:309] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:146] INFO: [Synth 8-6155] done synthesizing module 'toast_decoder' (4#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:45] INFO: [Synth 8-6157] synthesizing module 'toast_regfile' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_regfile.sv:30] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_MEM_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv:31] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv:133] INFO: [Synth 8-6155] done synthesizing module 'toast_MEM_stage' (10#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv:31] 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_WB_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_WB_stage.sv:24] INFO: [Synth 8-6155] done synthesizing module 'toast_WB_stage' (11#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_WB_stage.sv:24] INFO: [Synth 8-6155] done synthesizing module 'toast_top' (12#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:24] 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 9184.082 ; gain = 0.000 ; free physical = 8427 ; free virtual = 14447 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: --------------------------------------------------------------------------------- Start Handling Custom Attributes --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 9184.082 ; gain = 0.000 ; free physical = 8431 ; free virtual = 14451 
+// Tcl Message: --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 9184.082 ; gain = 0.000 ; free physical = 8431 ; free virtual = 14451 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 3,257 MB. GUI used memory: 96 MB. Current time: 7/24/21, 2:53:04 PM PDT
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// Schematic: addNotify
+// WARNING: HEventQueue.dispatchEvent() is taking  1655 ms.
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.03 . Memory (MB): peak = 9184.082 ; gain = 0.000 ; free physical = 8505 ; free virtual = 14525 
+// Tcl Message: INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message:  Processing XDC Constraints Initializing timing engine Completed Processing XDC Constraints  
+// Tcl Message: refresh_design: Time (s): cpu = 00:00:15 ; elapsed = 00:00:10 . Memory (MB): peak = 9184.082 ; gain = 0.000 ; free physical = 8417 ; free virtual = 14437 
+// Elapsed time: 10 seconds
+dismissDialog("Reloading"); // bz
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "Schematic_zoom_in"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 50 seconds
+selectButton(PAResourceOtoP.ProjectTab_RELOAD, "Reload"); // h
+// HOptionPane Warning: 'A background task is running. Please wait until it completes and try again. (Background Task)'
+selectButton("OptionPane.button", "OK"); // JButton
+selectButton(PAResourceOtoP.ProjectTab_RELOAD, "Reload"); // h
+// bz (cr):  Reloading : addNotify
+// TclEventType: ELABORATE_START
+// Tcl Message: refresh_design 
+// HMemoryUtils.trashcanNow. Engine heap size: 3,310 MB. GUI used memory: 119 MB. Current time: 7/24/21, 2:54:05 PM PDT
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 9288.207 ; gain = 0.000 ; free physical = 7962 ; free virtual = 14078 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// TclEventType: ELABORATE_FINISH
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 3,315 MB. GUI used memory: 117 MB. Current time: 7/24/21, 2:54:08 PM PDT
+// Engine heap size: 3,315 MB. GUI used memory: 118 MB. Current time: 7/24/21, 2:54:08 PM PDT
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_top' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:24] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_forwarder' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv:4] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_forwarder' (1#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv:4] 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_hazards' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv:6] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_hazards' (2#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv:6] INFO: [Synth 8-6157] synthesizing module 'toast_IF_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.sv:28] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_IF_stage' (3#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.sv:28] INFO: [Synth 8-6157] synthesizing module 'toast_ID_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.sv:24] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_decoder' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:45] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:293] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:309] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:146] INFO: [Synth 8-6155] done synthesizing module 'toast_decoder' (4#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:45] INFO: [Synth 8-6157] synthesizing module 'toast_regfile' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_regfile.sv:30] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_MEM_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv:31] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv:133] INFO: [Synth 8-6155] done synthesizing module 'toast_MEM_stage' (10#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv:31] 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_WB_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_WB_stage.sv:24] INFO: [Synth 8-6155] done synthesizing module 'toast_WB_stage' (11#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_WB_stage.sv:24] INFO: [Synth 8-6155] done synthesizing module 'toast_top' (12#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:24] 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 9288.207 ; gain = 0.000 ; free physical = 8005 ; free virtual = 14121 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: --------------------------------------------------------------------------------- Start Handling Custom Attributes --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 9288.207 ; gain = 0.000 ; free physical = 8006 ; free virtual = 14122 
+// Tcl Message: --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:05 . Memory (MB): peak = 9288.207 ; gain = 0.000 ; free physical = 8006 ; free virtual = 14122 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 3,301 MB. GUI used memory: 96 MB. Current time: 7/24/21, 2:54:09 PM PDT
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// [Engine Memory]: 3,372 MB (+24175kb) [00:38:06]
+// Schematic: addNotify
+// WARNING: HEventQueue.dispatchEvent() is taking  1524 ms.
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00.10 ; elapsed = 00:00:00.04 . Memory (MB): peak = 9288.207 ; gain = 0.000 ; free physical = 8062 ; free virtual = 14178 
+// Tcl Message: INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message:  Processing XDC Constraints Initializing timing engine Completed Processing XDC Constraints  
+// Tcl Message: refresh_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:09 . Memory (MB): peak = 9288.207 ; gain = 0.000 ; free physical = 7968 ; free virtual = 14084 
+dismissDialog("Reloading"); // bz
+maximizeView(PAResourceOtoP.PAViews_BASE_WORKSPACE, "BaseWorkspace"); // F
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "Schematic_zoom_in"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// Elapsed time: 11 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "Schematic_zoom_in"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// Elapsed time: 47 seconds
+unMinimizeFrame(PAResourceOtoP.PAViews_MESSAGES, "Messages"); // az
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, General Messages, [Project 1-19] Could not find the file '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/RV32I_definitions.sv'.. ]", 3, true); // ah - Node
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, General Messages, [Project 1-19] Could not find the file '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/RV32I_definitions.sv'.. ]", 3); // ah
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, General Messages, [Project 1-19] Could not find the file '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/RV32I_definitions.sv'.. , [Project 1-19] Could not find the file '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/EX_ALU.sv'.. ]", 4, false); // ah
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, General Messages, [Project 1-19] Could not find the file '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/RV32I_definitions.sv'.. , [Project 1-19] Could not find the file '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/EX_top.sv'.. ]", 5, false); // ah
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, General Messages, [Project 1-19] Could not find the file '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/RV32I_definitions.sv'.. , [Project 1-19] Could not find the file '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_control.sv'.. ]", 7, false); // ah
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, General Messages, [Project 1-19] Could not find the file '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/RV32I_definitions.sv'.. , [Project 1-19] Could not find the file '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv'.. ]", 15, false); // ah
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, General Messages, [Project 1-19] Could not find the file '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/RV32I_definitions.sv'.. , [Project 1-19] Could not find the file '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_PC.sv'.. ]", 16, false); // ah
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, General Messages, [Project 1-19] Could not find the file '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/RV32I_definitions.sv'.. ]", 3, true); // ah - Node
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [GUI Memory]: 193 MB (+2468kb) [00:39:53]
+// Tcl Message: update_compile_order -fileset sources_1 
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 3,419 MB. GUI used memory: 129 MB. Current time: 7/24/21, 2:56:05 PM PDT
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// HMemoryUtils.trashcanNow. Engine heap size: 3,476 MB. GUI used memory: 129 MB. Current time: 7/24/21, 2:56:30 PM PDT
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 74 seconds
+selectButton(PAResourceOtoP.ProjectTab_RELOAD, "Reload"); // h
+// bz (cr):  Reloading : addNotify
+// Tcl Message: refresh_design 
+// TclEventType: ELABORATE_START
+// HMemoryUtils.trashcanNow. Engine heap size: 3,547 MB. GUI used memory: 130 MB. Current time: 7/24/21, 2:56:45 PM PDT
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Starting RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:04 . Memory (MB): peak = 9479.297 ; gain = 8.004 ; free physical = 7887 ; free virtual = 14003 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// TclEventType: ELABORATE_FINISH
+// TclEventType: DESIGN_REFRESH
+// [Engine Memory]: 3,547 MB (+6162kb) [00:40:45]
+// HMemoryUtils.trashcanNow. Engine heap size: 3,558 MB. GUI used memory: 119 MB. Current time: 7/24/21, 2:56:49 PM PDT
+// Engine heap size: 3,559 MB. GUI used memory: 119 MB. Current time: 7/24/21, 2:56:49 PM PDT
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_top' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:24] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_forwarder' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv:4] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_forwarder' (1#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv:4] 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_hazards' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv:6] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_hazards' (2#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv:6] INFO: [Synth 8-6157] synthesizing module 'toast_IF_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.sv:28] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_IF_stage' (3#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.sv:28] INFO: [Synth 8-6157] synthesizing module 'toast_ID_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.sv:24] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_decoder' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:45] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:293] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:309] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:146] INFO: [Synth 8-6155] done synthesizing module 'toast_decoder' (4#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv:45] INFO: [Synth 8-6157] synthesizing module 'toast_regfile' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_regfile.sv:30] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_MEM_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv:31] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv:133] INFO: [Synth 8-6155] done synthesizing module 'toast_MEM_stage' (10#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv:31] 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_WB_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_WB_stage.sv:24] INFO: [Synth 8-6155] done synthesizing module 'toast_WB_stage' (11#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_WB_stage.sv:24] INFO: [Synth 8-6155] done synthesizing module 'toast_top' (12#1) [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:24] 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Elaboration : Time (s): cpu = 00:00:07 ; elapsed = 00:00:05 . Memory (MB): peak = 9479.297 ; gain = 8.004 ; free physical = 7922 ; free virtual = 14038 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: --------------------------------------------------------------------------------- Start Handling Custom Attributes --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 9479.297 ; gain = 8.004 ; free physical = 7926 ; free virtual = 14042 
+// Tcl Message: --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:06 . Memory (MB): peak = 9479.297 ; gain = 8.004 ; free physical = 7926 ; free virtual = 14042 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 3,545 MB. GUI used memory: 97 MB. Current time: 7/24/21, 2:56:51 PM PDT
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// Schematic: addNotify
+// WARNING: HEventQueue.dispatchEvent() is taking  1548 ms.
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00.06 ; elapsed = 00:00:00.04 . Memory (MB): peak = 9479.297 ; gain = 0.000 ; free physical = 7987 ; free virtual = 14103 
+// Tcl Message: INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message:  Processing XDC Constraints Initializing timing engine Completed Processing XDC Constraints  
+// Tcl Message: refresh_design: Time (s): cpu = 00:00:16 ; elapsed = 00:00:10 . Memory (MB): peak = 9479.297 ; gain = 24.012 ; free physical = 7927 ; free virtual = 14045 
+// Elapsed time: 10 seconds
+dismissDialog("Reloading"); // bz
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_control.sv:288]. ]", 18, true); // ah - Node
+messagesViewCrossProbe(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "src;-;/home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_control.sv;-;;-;16;-;line;-;288;-;;-;16;-;"); // ah
+// ag (cr): Unable to Open File: addNotify
+selectButton(PAResourceOtoP.OpenFileAction_CANCEL, "Cancel"); // a
+dismissDialog("Unable to Open File"); // ag
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, General Messages, [Project 1-19] Could not find the file '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/RV32I_definitions.sv'.. ]", 3, true); // ah - Node
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Vivado Commands, General Messages, [Project 1-19] Could not find the file '/home/george/Documents/work/RISCV/Toast-RV32i/Sources/RV32I_definitions.sv'.. ]", 3); // ah
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Libraries", 1); // i
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, SystemVerilog]", 1); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, SystemVerilog, xil_defaultlib]", 2); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, SystemVerilog, xil_defaultlib, Unreferenced]", 16); // D
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Hierarchy", 0); // i
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toast_top (toast_top.sv)]", 2); // D
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Libraries", 1); // i
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, SystemVerilog, xil_defaultlib, toast_def_pkg.sv]", 4, false); // D
+unMinimizeFrame(RDIResource.RDIViews_PROPERTIES, "Properties"); // az
+selectTab(RDIResource.PropertiesView_TABBED_PANE, (HResource) null, "Properties", 1); // i
+selectTreeTable(PAResourceTtoZ.TclObjectTreeTable_TREETABLE, "IS_GLOBAL_INCLUDE ; false", 6, "false", 1, false); // l
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: set_property IS_GLOBAL_INCLUDE 1 [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_def_pkg.sv] 
+selectTab(PAResourceEtoH.FileSetView_TABBED_PANE, (HResource) null, "Hierarchy", 0); // i
+// Elapsed time: 25 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // u
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ak
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// e (cr):  Run Simulation : addNotify
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: Command: launch_simulation  
+// Tcl Message: xvlog --incr --relax -L uvm -prj riscvTests_tb_vlog.prj 
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '2' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim' 
+// Tcl Message: xelab -wto 4ab5102faaa04b3ba47706ec12b94608 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot riscvTests_tb_behav xil_defaultlib.riscvTests_tb xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds INFO: [USF-XSim-99] Step results log file:'/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/elaborate.log' 
+// Tcl Message: ERROR: [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/elaborate.log' file for more information. 
+// Tcl Message: ERROR: [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation. 
+// Tcl Message: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors. 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.  
+// HOptionPane Error: 'ERROR: [Common 17-39] 'launch_simulation' failed due to earlier errors.  (Run Simulation)'
+// 'd' command handler elapsed time: 5 seconds
+selectButton("OptionPane.button", "OK"); // JButton
+// a (cr): Critical Messages: addNotify
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // a
+unMinimizeFrame(PAResourceOtoP.PAViews_MESSAGES, "Messages"); // az
+selectCheckBox(PAResourceItoN.MsgView_INFORMATION_MESSAGES, (String) null, false); // g: FALSE
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, rtl_1, General Messages, [USF-XSim-62] 'elaborate' step failed with error(s). Please check the Tcl console output or '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/elaborate.log' file for more information.. ]", 6, false); // ah
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, rtl_1, General Messages, [Vivado 12-4473] Detected error while running simulation. Please correct the issue and retry this operation.. ]", 7, false); // ah
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Simulation, sim_1, [VRFC 10-2991] 'ID_inst' is not declared under prefix 'UUT' [/home/george/Documents/work/RISCV/Toast-RV32i/Test/riscv-tests_tb.sv:115]. ]", 10, true); // ah - Node
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Elapsed time: 61 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Simulation, Run Simulation]", 10, false); // u
+selectMenuItem(PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL, "Run Behavioral Simulation"); // ak
+// HMemoryUtils.trashcanNow. Engine heap size: 3,592 MB. GUI used memory: 121 MB. Current time: 7/24/21, 2:59:20 PM PDT
+// Run Command: PAResourceCommand.PACommandNames_SIMULATION_RUN_BEHAVIORAL
+// e (cr):  Run Simulation : addNotify
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: launch_simulation 
+// Tcl Message: Command: launch_simulation  
+// TclEventType: LAUNCH_SIM_LOG
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim' 
+// Tcl Message: Built simulation snapshot riscvTests_tb_behav 
+// Tcl Message:  ****** Webtalk v2020.2 (64-bit)   **** SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020   **** IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020     ** Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.  source /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/xsim.dir/riscvTests_tb_behav/webtalk/xsim_webtalk.tcl -notrace 
+// TclEventType: LAUNCH_SIM
+// TclEventType: LOAD_FEATURE
+// Tcl Message: INFO: [Common 17-186] '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim/xsim.dir/riscvTests_tb_behav/webtalk/usage_statistics_ext_xsim.xml' has been successfully sent to Xilinx on Sat Jul 24 14:59:30 2021. For additional details about this file, please refer to the WebTalk help file at /opt/Xilinx/Vivado/2020.2/doc/webtalk_introduction.html. INFO: [Common 17-206] Exiting Webtalk at Sat Jul 24 14:59:30 2021... 
+// Tcl Message: run_program: Time (s): cpu = 00:00:06 ; elapsed = 00:00:08 . Memory (MB): peak = 9519.312 ; gain = 0.000 ; free physical = 7789 ; free virtual = 14019 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '8' seconds INFO: [USF-XSim-4] XSim::Simulate design INFO: [USF-XSim-61] Executing 'SIMULATE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim' INFO: [USF-XSim-98] *** Running xsim 
+// Tcl Message:    with args "riscvTests_tb_behav -key {Behavioral:sim_1:Functional:riscvTests_tb} -tclbatch {riscvTests_tb.tcl} -view {/home/george/Documents/work/RISCV/RISCV_Project/riscvTests_tb_behav.wcfg} -log {simulate.log}" 
+// Tcl Message: INFO: [USF-XSim-8] Loading simulator feature 
+// Tcl Message: Vivado Simulator 2020.2 
+// TclEventType: SIMULATION_CREATE_SIMULATION_OBJECT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// Elapsed time: 12 seconds
+closeView(PAResourceOtoP.PAViews_PROJECT_SUMMARY, "Project Summary"); // v
+// Tcl Message: Time resolution is 1 ps 
+// TclEventType: WAVEFORM_UPDATE_TITLE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_OPEN_WCFG
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// Waveform: addNotify
+// Waveform: addNotify
+// Tcl Message: open_wave_config /home/george/Documents/work/RISCV/RISCV_Project/riscvTests_tb_behav.wcfg 
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// HMemoryUtils.trashcanNow. Engine heap size: 3,644 MB. GUI used memory: 132 MB. Current time: 7/24/21, 2:59:33 PM PDT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: source riscvTests_tb.tcl 
+// Tcl Message: # set curr_wave [current_wave_config] # if { [string length $curr_wave] == 0 } { #   if { [llength [get_objects]] > 0} { #     add_wave / #     set_property needs_save false [current_wave_config] #   } else { #      send_msg_id Add_Wave-1 WARNING "No top level signals found. Simulator will start without a wave window. If you want to open a wave window go to 'File->New Waveform Configuration' or type 'create_wave_config' in the TCL console." #   } # } # run 1000ns 
+// Tcl Message: INFO: [USF-XSim-96] XSim completed. Design snapshot 'riscvTests_tb_behav' loaded. INFO: [USF-XSim-97] XSim simulation ran for 1000ns 
+// Tcl Message: launch_simulation: Time (s): cpu = 00:00:14 ; elapsed = 00:00:13 . Memory (MB): peak = 9519.312 ; gain = 0.000 ; free physical = 7738 ; free virtual = 13978 
+// 'd' command handler elapsed time: 13 seconds
+dismissDialog("Run Simulation"); // e
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "source rvTest.tcl", true); // l
+// Tcl Command: 'source rvTest.tcl'
+// Tcl Command: 'source rvTest.tcl'
+// bz (cr):  Tcl Command Line : addNotify
+// TclEventType: SIMULATION_MODEL_ABOUT_TO_CLOSE
+// Tcl Message: source rvTest.tcl 
+// Tcl Message: # relaunch_sim 
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_MODEL_RELOADED
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: Command: launch_simulation -simset sim_1 -mode behavioral 
+// TclEventType: LAUNCH_SIM
+// Tcl Message: xvlog --incr --relax -L uvm -prj riscvTests_tb_vlog.prj Waiting for jobs to finish... No pending jobs, compilation finished. 
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds 
+// Tcl Message: Command: launch_simulation -simset sim_1 -mode behavioral 
+// Tcl Message: INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim' INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim' 
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '2' seconds 
+// Tcl Message: Vivado Simulator 2020.2 
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_MODEL_ABOUT_TO_CLOSE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_MODEL_RELOADED
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_DELETE_ALL_BREAKPOINTS
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// HMemoryUtils.trashcanNow. Engine heap size: 3,635 MB. GUI used memory: 129 MB. Current time: 7/24/21, 2:59:48 PM PDT
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: Time resolution is 1 ps 
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// HMemoryUtils.trashcanNow. Engine heap size: 3,635 MB. GUI used memory: 132 MB. Current time: 7/24/21, 2:59:49 PM PDT
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_STOPPED
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: relaunch_sim: Time (s): cpu = 00:00:08 ; elapsed = 00:00:09 . Memory (MB): peak = 9519.312 ; gain = 0.000 ; free physical = 7774 ; free virtual = 14015 
+// Tcl Message: # restart 
+// Tcl Message: INFO: [Simtcl 6-17] Simulation restarted 
+// Tcl Message: # open_vcd # log_vcd /riscvTests_tb/* 
+// Tcl Message: INFO: HDL object /riscvTests_tb/tests is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5. INFO: HDL object /riscvTests_tb/MEMORY is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5. 
+// Tcl Message: # run 20 us 
+// Tcl Message: TIMED OUT, TEST FAILED $finish called at time : 19995 ns : File "/home/george/Documents/work/RISCV/Toast-RV32i/Test/riscv-tests_tb.sv" Line 136 
+// Tcl Message: # close_vcd 
+// Elapsed time: 10 seconds
+dismissDialog("Tcl Command Line"); // bz
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 34 seconds
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "source rvTest.tcl", true); // l
+// Tcl Command: 'source rvTest.tcl'
+// Tcl Command: 'source rvTest.tcl'
+// bz (cr):  Tcl Command Line : addNotify
+// TclEventType: SIMULATION_MODEL_ABOUT_TO_CLOSE
+// Tcl Message: source rvTest.tcl 
+// Tcl Message: # relaunch_sim 
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_MODEL_RELOADED
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: Command: launch_simulation -simset sim_1 -mode behavioral 
+// TclEventType: LAUNCH_SIM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '2' seconds 
+// Tcl Message: Command: launch_simulation -simset sim_1 -mode behavioral 
+// Tcl Message: INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim' INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim' 
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: Built simulation snapshot riscvTests_tb_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds 
+// Tcl Message: Vivado Simulator 2020.2 
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_MODEL_ABOUT_TO_CLOSE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_MODEL_RELOADED
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_DELETE_ALL_BREAKPOINTS
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_STOPPED
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: Time resolution is 1 ps relaunch_sim: Time (s): cpu = 00:00:09 ; elapsed = 00:00:08 . Memory (MB): peak = 9604.125 ; gain = 84.812 ; free physical = 7775 ; free virtual = 14016 
+// Tcl Message: # restart 
+// Tcl Message: INFO: [Simtcl 6-17] Simulation restarted 
+// Tcl Message: # open_vcd # log_vcd /riscvTests_tb/* 
+// Tcl Message: INFO: HDL object /riscvTests_tb/tests is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5. INFO: HDL object /riscvTests_tb/MEMORY is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5. 
+// Tcl Message: # run 20 us 
+// Tcl Message: TIMED OUT, TEST FAILED $finish called at time : 19995 ns : File "/home/george/Documents/work/RISCV/Toast-RV32i/Test/riscv-tests_tb.sv" Line 136 
+// Tcl Message: # close_vcd 
+dismissDialog("Tcl Command Line"); // bz
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,661 MB. GUI used memory: 127 MB. Current time: 7/24/21, 3:00:35 PM PDT
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 3,688 MB. GUI used memory: 127 MB. Current time: 7/24/21, 3:04:20 PM PDT
+// Elapsed time: 239 seconds
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "source rvTest.tcl", true); // l
+// Tcl Command: 'source rvTest.tcl'
+// Tcl Command: 'source rvTest.tcl'
+// bz (cr):  Tcl Command Line : addNotify
+// TclEventType: SIMULATION_MODEL_ABOUT_TO_CLOSE
+// Tcl Message: source rvTest.tcl 
+// Tcl Message: # relaunch_sim 
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_MODEL_RELOADED
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: Command: launch_simulation -simset sim_1 -mode behavioral 
+// TclEventType: LAUNCH_SIM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '2' seconds 
+// Tcl Message: Command: launch_simulation -simset sim_1 -mode behavioral 
+// Tcl Message: INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim' INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim' 
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: Built simulation snapshot riscvTests_tb_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds 
+// Tcl Message: Vivado Simulator 2020.2 
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_MODEL_ABOUT_TO_CLOSE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_MODEL_RELOADED
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_DELETE_ALL_BREAKPOINTS
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// Tcl Message: Time resolution is 1 ps relaunch_sim: Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 9631.137 ; gain = 0.000 ; free physical = 7680 ; free virtual = 13950 
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// Tcl Message: # restart 
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_STOPPED
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: INFO: [Simtcl 6-17] Simulation restarted 
+// Tcl Message: # open_vcd # log_vcd /riscvTests_tb/* 
+// Tcl Message: INFO: HDL object /riscvTests_tb/tests is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5. INFO: HDL object /riscvTests_tb/MEMORY is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5. 
+// Tcl Message: # run 20 us 
+// Tcl Message: TIMED OUT, TEST FAILED $finish called at time : 19995 ns : File "/home/george/Documents/work/RISCV/Toast-RV32i/Test/riscv-tests_tb.sv" Line 136 
+// Tcl Message: # close_vcd 
+dismissDialog("Tcl Command Line"); // bz
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 3,720 MB. GUI used memory: 121 MB. Current time: 7/24/21, 3:13:20 PM PDT
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [Engine Memory]: 3,736 MB (+12479kb) [00:57:19]
+// Elapsed time: 522 seconds
+selectTab((HResource) null, (HResource) null, "Messages", 1); // aK
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Simulation, sim_1, [VRFC 10-3091] actual bit length 1 differs from formal bit length 2 for port 'forwardA_o' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:130]. ]", 10, true); // ah - Node
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Simulation, sim_1, [VRFC 10-3091] actual bit length 1 differs from formal bit length 2 for port 'forwardA_o' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:130]. ]", 10); // ah
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Simulation, sim_1, [VRFC 10-3091] actual bit length 1 differs from formal bit length 2 for port 'forwardA_o' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:130]. , [VRFC 10-3091] actual bit length 1 differs from formal bit length 2 for port 'forwardA_i' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:274]. ]", 12, false); // ah
+selectTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Simulation, sim_1, [VRFC 10-3091] actual bit length 1 differs from formal bit length 2 for port 'forwardA_o' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:130]. , [VRFC 10-3091] actual bit length 1 differs from formal bit length 2 for port 'forwardB_i' [/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv:275]. ]", 13, false); // ah
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 20 seconds
+selectTab((HResource) null, (HResource) null, "Tcl Console", 0); // aK
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "source rvTest.tcl", true); // l
+// Tcl Command: 'source rvTest.tcl'
+// Tcl Command: 'source rvTest.tcl'
+// bz (cr):  Tcl Command Line : addNotify
+// TclEventType: SIMULATION_MODEL_ABOUT_TO_CLOSE
+// Tcl Message: source rvTest.tcl 
+// Tcl Message: # relaunch_sim 
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_MODEL_RELOADED
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: Command: launch_simulation -simset sim_1 -mode behavioral 
+// Tcl Message: xvlog --incr --relax -L uvm -prj riscvTests_tb_vlog.prj 
+// TclEventType: LAUNCH_SIM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds 
+// Tcl Message: Command: launch_simulation -simset sim_1 -mode behavioral 
+// Tcl Message: INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim' INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim' 
+// Tcl Message: xelab -wto 4ab5102faaa04b3ba47706ec12b94608 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot riscvTests_tb_behav xil_defaultlib.riscvTests_tb xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: Built simulation snapshot riscvTests_tb_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds 
+// Tcl Message: Vivado Simulator 2020.2 
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_MODEL_ABOUT_TO_CLOSE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_MODEL_RELOADED
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_DELETE_ALL_BREAKPOINTS
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// Tcl Message: Time resolution is 1 ps relaunch_sim: Time (s): cpu = 00:00:10 ; elapsed = 00:00:07 . Memory (MB): peak = 9703.172 ; gain = 24.012 ; free physical = 7592 ; free virtual = 13933 
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// Tcl Message: # restart 
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_STOPPED
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: INFO: [Simtcl 6-17] Simulation restarted 
+// Tcl Message: # open_vcd # log_vcd /riscvTests_tb/* 
+// Tcl Message: INFO: HDL object /riscvTests_tb/tests is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5. INFO: HDL object /riscvTests_tb/MEMORY is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5. 
+// Tcl Message: # run 20 us 
+// Tcl Message: TIMED OUT, TEST FAILED $finish called at time : 19995 ns : File "/home/george/Documents/work/RISCV/Toast-RV32i/Test/riscv-tests_tb.sv" Line 136 
+// Tcl Message: # close_vcd 
+dismissDialog("Tcl Command Line"); // bz
+// HMemoryUtils.trashcanNow. Engine heap size: 3,752 MB. GUI used memory: 121 MB. Current time: 7/24/21, 3:14:00 PM PDT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// Elapsed time: 102 seconds
+selectTab((HResource) null, (HResource) null, "Messages", 1); // aK
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_PROTOCOL_INSTANCE_TREE
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 3,784 MB. GUI used memory: 121 MB. Current time: 7/24/21, 3:17:40 PM PDT
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// Elapsed time: 134 seconds
+selectTab((HResource) null, (HResource) null, "Tcl Console", 0); // aK
+// TclEventType: FILE_SET_CHANGE
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "source rvTest.tcl", true); // l
+// Tcl Command: 'source rvTest.tcl'
+// Tcl Command: 'source rvTest.tcl'
+// bz (cr):  Tcl Command Line : addNotify
+// TclEventType: SIMULATION_MODEL_ABOUT_TO_CLOSE
+// Tcl Message: source rvTest.tcl 
+// Tcl Message: # relaunch_sim 
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_MODEL_RELOADED
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: Command: launch_simulation -simset sim_1 -mode behavioral 
+// Tcl Message: xvlog --incr --relax -L uvm -prj riscvTests_tb_vlog.prj 
+// TclEventType: LAUNCH_SIM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '1' seconds 
+// Tcl Message: Command: launch_simulation -simset sim_1 -mode behavioral 
+// Tcl Message: INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim' INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim' 
+// Tcl Message: xelab -wto 4ab5102faaa04b3ba47706ec12b94608 --incr --debug typical --relax --mt 8 -L xil_defaultlib -L uvm -L unisims_ver -L unimacro_ver -L secureip --snapshot riscvTests_tb_behav xil_defaultlib.riscvTests_tb xil_defaultlib.glbl -log elaborate.log 
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: Built simulation snapshot riscvTests_tb_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds 
+// Tcl Message: Vivado Simulator 2020.2 
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_MODEL_ABOUT_TO_CLOSE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_MODEL_RELOADED
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_DELETE_ALL_BREAKPOINTS
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// Tcl Message: Time resolution is 1 ps relaunch_sim: Time (s): cpu = 00:00:10 ; elapsed = 00:00:08 . Memory (MB): peak = 9754.207 ; gain = 27.023 ; free physical = 7515 ; free virtual = 13897 
+// Tcl Message: # restart 
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_STOPPED
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: INFO: [Simtcl 6-17] Simulation restarted 
+// Tcl Message: # open_vcd # log_vcd /riscvTests_tb/* 
+// Tcl Message: INFO: HDL object /riscvTests_tb/tests is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5. INFO: HDL object /riscvTests_tb/MEMORY is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5. 
+// Tcl Message: # run 20 us 
+// Tcl Message: TEST PASSED!!!!!! $finish called at time : 11230 ns : File "/home/george/Documents/work/RISCV/Toast-RV32i/Test/riscv-tests_tb.sv" Line 120 
+// Tcl Message: # close_vcd 
+dismissDialog("Tcl Command Line"); // bz
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 19 seconds
+setText(RDIResource.CommandsInput_TYPE_TCL_COMMAND_HERE, "source rvTest.tcl", true); // l
+// Tcl Command: 'source rvTest.tcl'
+// Tcl Command: 'source rvTest.tcl'
+// bz (cr):  Tcl Command Line : addNotify
+// TclEventType: SIMULATION_MODEL_ABOUT_TO_CLOSE
+// Tcl Message: source rvTest.tcl 
+// Tcl Message: # relaunch_sim 
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_MODEL_RELOADED
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: LAUNCH_SIM
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: Command: launch_simulation -simset sim_1 -mode behavioral 
+// TclEventType: LAUNCH_SIM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// Tcl Message: INFO: [USF-XSim-69] 'compile' step finished in '2' seconds 
+// Tcl Message: Command: launch_simulation -simset sim_1 -mode behavioral 
+// Tcl Message: INFO: [Vivado 12-5682] Launching behavioral simulation in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim' INFO: [USF-XSim-3] XSim::Elaborate design INFO: [USF-XSim-61] Executing 'ELABORATE' step in '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.sim/sim_1/behav/xsim' 
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: Built simulation snapshot riscvTests_tb_behav 
+// Tcl Message: INFO: [USF-XSim-69] 'elaborate' step finished in '3' seconds 
+// Tcl Message: Vivado Simulator 2020.2 
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_MODEL_ABOUT_TO_CLOSE
+// TclEventType: WAVEFORM_DELAYED_MODEL_EVENT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_MODEL_RELOADED
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_DELETE_ALL_BREAKPOINTS
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// TclEventType: SIMULATION_CLEAR_CURRENT_LINE
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_UPDATE_COMMANDS
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: SIMULATION_OBJECT_TREE_RESTORED
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: SIMULATION_UPDATE_LATEST_TIME
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: SIMULATION_CURRENT_SCOPE_CHANGED
+// TclEventType: SIMULATION_CURRENT_STACK_CHANGED
+// TclEventType: SIMULATION_UPDATE_STACK_FRAMES
+// TclEventType: SIMULATION_CURRENT_STACK_FRAME_CHANGED
+// TclEventType: SIMULATION_UPDATE_LOCALS
+// TclEventType: SIMULATION_UPDATE_SCOPE_TREE
+// TclEventType: SIMULATION_UPDATE_STACKS
+// TclEventType: SIMULATION_UPDATE_OBJECT_TREE
+// TclEventType: SIMULATION_STOPPED
+// TclEventType: SIMULATION_UPDATE_SIMULATION_STATE
+// Tcl Message: Time resolution is 1 ps relaunch_sim: Time (s): cpu = 00:00:09 ; elapsed = 00:00:07 . Memory (MB): peak = 9759.199 ; gain = 4.992 ; free physical = 7525 ; free virtual = 13905 
+// Tcl Message: # restart 
+// Tcl Message: INFO: [Simtcl 6-17] Simulation restarted 
+// Tcl Message: # open_vcd # log_vcd /riscvTests_tb/* 
+// Tcl Message: INFO: HDL object /riscvTests_tb/tests is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5. INFO: HDL object /riscvTests_tb/MEMORY is an unpacked array. VCD does not support unpacked array type according to IEEE LRM 1800-2009, section21.7.5. 
+// Tcl Message: # run 20 us 
+// Tcl Message: TEST PASSED!!!!!! $finish called at time : 10350 ns : File "/home/george/Documents/work/RISCV/Toast-RV32i/Test/riscv-tests_tb.sv" Line 120 
+// Tcl Message: # close_vcd 
+dismissDialog("Tcl Command Line"); // bz
+// HMemoryUtils.trashcanNow. Engine heap size: 3,808 MB. GUI used memory: 121 MB. Current time: 7/24/21, 3:18:35 PM PDT
+// TclEventType: WAVEFORM_MODEL_EVENT
+// TclEventType: WAVEFORM_UPDATE_WAVEFORM
+// TclEventType: WAVEFORM_MODEL_EVENT

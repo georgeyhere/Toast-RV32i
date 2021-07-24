@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -18,15 +19,15 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-import RV32I_definitions ::*;
+import toast_def_pkg ::*;
 
 `ifdef CUSTOM_DEFINE
     `include "../defines.vh"
 `endif
 
-// black boxed for now, will have to be looked at again for synthesis
+// synthesized as FFs
 
-module ID_regfile
+module toast_regfile
     `ifdef CUSTOM_DEFINE
         #(parameter REG_DATA_WIDTH      = `REG_DATA_WIDTH,
           parameter REGFILE_ADDR_WIDTH  = `REGFILE_ADDR_WIDTH
@@ -40,22 +41,18 @@ module ID_regfile
     `endif
     
     (
-//*************************************************
-    input                                Clk,
-    input                                Reset_n,
+    input   wire logic                        clk_i,
+    input   wire logic                        resetn_i,
+
+    output  logic   [REG_DATA_WIDTH-1 :0]     rs1_data_o,
+    output  logic   [REG_DATA_WIDTH-1 :0]     rs2_data_o,
     
-//*************************************************
-    input      [REGFILE_ADDR_WIDTH-1 :0] Rs1_addr, 
-    input      [REGFILE_ADDR_WIDTH-1 :0] Rs2_addr,
-    input      [REGFILE_ADDR_WIDTH-1 :0] Rd_addr,    
-    
-    input      [REG_DATA_WIDTH-1 :0]     Rd_wr_data,
-    input                                Rd_wr_en,
-    
-//*************************************************
-    output     [REG_DATA_WIDTH-1 :0]     Rs1_data,
-    output     [REG_DATA_WIDTH-1 :0]     Rs2_data
-//*************************************************
+    input   wire logic   [REGFILE_ADDR_WIDTH-1 :0] rs1_addr_i, 
+    input   wire logic   [REGFILE_ADDR_WIDTH-1 :0] rs2_addr_i,
+ 
+    input   wire logic   [REGFILE_ADDR_WIDTH-1 :0] rd_addr_i,    
+    input   wire logic   [REG_DATA_WIDTH-1 :0]     rd_wr_data_i,
+    input   wire logic                             rd_wr_en_i
     );
 
     
@@ -64,49 +61,47 @@ module ID_regfile
 // ===========================================================================
 //                    Parameters, Registers, and Wires
 // ===========================================================================    
-    reg [31:0] Regfile_data [0: REGFILE_DEPTH-1];
+    reg [REG_DATA_WIDTH-1:0] regfile_data [0: REGFILE_DEPTH-1];
     
     
-
     
 // ===========================================================================
-//                              Instantiation   
+//                              Implementation   
 // ===========================================================================  
     
-/*
-If a register address is about to be written to and the data is needed
-for the instruction currently in ID, place write data on output bus
-*/
-    assign Rs1_data = ((Rs1_addr == Rd_addr) &&
-                       (Rd_wr_en == 1'b1)    
-                      ) ? Rd_wr_data : Regfile_data[Rs1_addr];
     
-    assign Rs2_data = ((Rs2_addr == Rd_addr) &&
-                       (Rd_wr_en == 1'b1)     
-                      ) ? Rd_wr_data : Regfile_data[Rs2_addr];
+    // If a register address is about to be written to and the data is needed
+    // for the instruction currently in ID, place write data on output bus
+    assign rs1_data_o = ((rs1_addr_i == rd_addr_i) &&
+                         (rd_wr_en_i == 1'b1))  
+                         ? rd_wr_data_i : regfile_data[rs1_addr_i];
+    
+    assign rs2_data_o = ((rs2_addr_i == rd_addr_i) &&
+                         (rd_wr_en_i == 1'b1))     
+                         ? rd_wr_data_i : regfile_data[rs2_addr_i];
 
 
 
     // set all registers to 0 on initialization
     initial begin
         for(int i=0; i<REGFILE_DEPTH-1; i++) begin
-            Regfile_data[i] <= 0;
+            regfile_data[i] <= 0;
         end      
     end
     
     // synchronous process for writes
-    always_ff@(posedge Clk) begin
-        if(Reset_n == 1'b0) begin
+    always_ff@(posedge clk_i) begin
+        if(resetn_i == 1'b0) begin
             for(int i=0; i<REGFILE_DEPTH-1; i++) begin
-                Regfile_data[i] <= 0;
+                regfile_data[i] <= 0;
             end       
         end
         else begin
-            if((Rd_wr_en == 1'b1) && (Rd_addr != 0)) begin
-                Regfile_data[Rd_addr] <= Rd_wr_data;
+            if((rd_wr_en_i == 1'b1) && (rd_addr_i != 0)) begin
+                regfile_data[rd_addr_i] <= rd_wr_data_i;
             end
             else begin
-                Regfile_data <= Regfile_data;
+                regfile_data <= regfile_data;
             end
         end
     end
