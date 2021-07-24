@@ -86,18 +86,17 @@ module riscvTests_tb();
     wire        Exception;
 
 
-    ToastCore UUT(
-    .Clk             (Clk),
-    .Reset_n         (Reset_n),
-    .IMEM_data       (IMEM_data),
-    .DMEM_rd_data    (DMEM_rd_data),
-    
-    .IMEM_addr       (IMEM_addr),
-    .DMEM_addr       (DMEM_addr),
-    .DMEM_wr_byte_en (DMEM_wr_byte_en),
-    .DMEM_wr_data    (DMEM_wr_data),
-    .DMEM_rst        (DMEM_rst),
-    .Exception       (Exception)
+    toast_top UUT(
+    .clk_i             (Clk),
+    .resetn_i          (Reset_n),
+    .DMEM_wr_byte_en_o (DMEM_wr_byte_en),
+    .DMEM_addr_o       (DMEM_addr),
+    .DMEM_wr_data_o    (DMEM_wr_data),
+    .DMEM_rd_data_i    (DMEM_wr_data),
+    .DMEM_rst_o        (DMEM_rst),
+    .IMEM_data_i       (IMEM_data),
+    .IMEM_addr_o       (IMEM_addr),
+    .exception_o       (Exception)
     );
     
     always#(10) Clk = ~Clk;     
@@ -107,15 +106,15 @@ module riscvTests_tb();
 //                                TEST CONTROL
 // ===========================================================================
     
-    parameter TEST_TO_RUN   = `S_SW;
+    parameter TEST_TO_RUN   = `S_SB;
 
     //****************************************
     // PASS CONDITION 1: GP=1 , A7=93, A0=0
     //****************************************
     always@(posedge Clk) begin
-        if((UUT.ID_inst.RV32I_REGFILE.Regfile_data[3] == 1) &&   
-           (UUT.ID_inst.RV32I_REGFILE.Regfile_data[17] == 93) && 
-           (UUT.ID_inst.RV32I_REGFILE.Regfile_data[10] == 0))    
+        if((UUT.id_stage_i.regfile_i.regfile_data[3] == 1) &&   
+           (UUT.id_stage_i.regfile_i.regfile_data[17] == 93) && 
+           (UUT.id_stage_i.regfile_i.regfile_data[10] == 0))    
         begin  
             $display("TEST PASSED!!!!!!");
             $finish;

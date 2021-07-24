@@ -5,7 +5,7 @@
 // 
 // Create Date: 06/14/2021 12:25:28 PM
 // Design Name: 
-// Module Name: RV32I_definitions
+// Module Name: toast_def_pkg
 // Project Name: 
 // Target Devices: 
 // Tool Versions: 
@@ -22,7 +22,7 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-package RV32I_definitions;
+package toast_def_pkg;
     
     // OPCODES
     `define OPCODE_OP          7'b0110011  
