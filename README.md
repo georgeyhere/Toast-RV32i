@@ -9,7 +9,7 @@
      - Gain familiarity with Linux environment
 
 - Stretch Goals:
-     
+     - Formal Verification
      - Interface the core with a UART peripheral and display
      some text on a PC terminal
      - Add Zicsr extension support
