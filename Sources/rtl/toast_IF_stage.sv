@@ -41,14 +41,14 @@ module toast_IF_stage
     output logic [IMEM_ADDR_WIDTH-1:0]      IMEM_addr_o,  
     output logic [REG_DATA_WIDTH-1:0]       IF_instruction_o,
     output logic [REG_DATA_WIDTH-1:0]       IF_pc_o,           // PC of IF_instruction_o  
-
-    input  logic [REG_DATA_WIDTH-1:0]       IMEM_data_i,    // instruction fetched from IMEM
- 
+  
+    input  logic [REG_DATA_WIDTH-1:0]       IMEM_data_i,       // instruction fetched from IMEM
+   
     input  logic                            EX_branch_en_i,    // indicates branch taken (EX)
-    input  logic [REG_DATA_WIDTH-1:0]       EX_pc_dest_i,  // branch dest 
- 
+    input  logic [REG_DATA_WIDTH-1:0]       EX_pc_dest_i,      // branch dest 
+   
     input  logic                            ID_jump_en_i,      // jump taken (ID)
-    input  logic [REG_DATA_WIDTH-1:0]       ID_pc_dest_i,    // jump dest
+    input  logic [REG_DATA_WIDTH-1:0]       ID_pc_dest_i,      // jump dest
  
     input  logic                            stall_i,        
     input  logic                            flush_i  

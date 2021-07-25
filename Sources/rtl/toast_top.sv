@@ -124,7 +124,7 @@ module toast_top
 // ===========================================================================
 //                                 Instantiation
 // ===========================================================================    
-    
+    /*
     toast_forwarder fwd_i (
         .forwardA_o          (forwardA),
         .forwardB_o          (forwardB),
@@ -155,6 +155,40 @@ module toast_top
         .EX_branch_en_i      (EX_branch_en),
         .ID_jump_en_i        (ID_jump_en)
     );
+    */
+    //*********************************    
+    //            CONTROL
+    //*********************************
+    toast_control control_i   (
+        .clk_i               (clk_i),
+        .resetn_i            (resetn_i),
+
+        // forwarding
+        .forwardA_o          (forwardA),
+        .forwardB_o          (forwardB),
+        .forwardM_o          (forwardM),
+
+        .ID_alu_source_sel_i (ID_alu_source_sel),
+        .ID_rs1_addr_i       (ID_rs1_addr),
+        .ID_rs2_addr_i       (ID_rs2_addr),
+        .ID_rd_addr_i        (ID_rd_addr),
+        .EX_rd_addr_i        (EX_rd_addr),
+        .EX_rs2_addr_i       (EX_rs2_addr),
+        .MEM_rd_addr_i       (MEM_rd_addr),
+        .EX_rd_wr_en_i       (EX_rd_wr_en),
+        .MEM_rd_wr_en_i      (MEM_rd_wr_en),
+
+        // pipeline stall/flushes
+        .stall_o             (stall_IF_ID),
+        .IF_ID_flush_o       (flush_IF_ID),
+        .EX_flush_o          (flush_EX),
+
+        .IF_instruction_i    (IF_instruction),
+        .ID_mem_rd_en_i      (ID_mem_rd_en),
+        .EX_branch_en_i      (EX_branch_en),
+        .ID_jump_en_i        (ID_jump_en)
+    );
+
 
     //*********************************    
     //          IF STAGE

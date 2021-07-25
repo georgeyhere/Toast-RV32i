@@ -50,3 +50,14 @@ open_wave_config /home/george/Documents/work/RISCV/RISCV_Project/riscvTests_tb_b
 source riscvTests_tb.tcl
 source rvTest.tcl
 source rvTest.tcl
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+set_property is_enabled false [get_files  {/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv}]
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+close_sim
+synth_design -rtl -rtl_skip_mlo -name rtl_1

@@ -34,10 +34,10 @@ module toast_WB_stage
     input  logic        MEM_rd_wr_en_i   
     );
 
-    /*
-    WB just consists of a mux that controls whether data memory data or ALU result
-    gets written back to the register file.
-    */
+/*
+WB just consists of a mux that controls whether data memory data or ALU result
+gets written back to the register file. Not really a real 'stage', just a passthrough really
+*/
 
     always_comb begin
         WB_rd_addr_o       = MEM_rd_addr_i;

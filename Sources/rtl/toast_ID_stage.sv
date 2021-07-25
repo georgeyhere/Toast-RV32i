@@ -46,16 +46,16 @@ module toast_ID_stage
     output logic [REG_DATA_WIDTH-1:0]      ID_pc_o,
 
     // control signals
-    output logic [1:0]                     ID_alu_source_sel_o,
-    output logic [ALU_OP_WIDTH-1 :0]       ID_alu_ctrl_o,
-    output logic [1:0]                     ID_branch_op_o, 
-    output logic                           ID_branch_flag_o,
-    output logic                           ID_mem_wr_en_o,
-    output logic                           ID_mem_rd_en_o,
-    output logic                           ID_rd_wr_en_o,
-    output logic                           ID_memtoreg_o,
-    output logic                           ID_jump_en_o,
-    output logic [3:0]                     ID_mem_op_o,
+    output logic [1:0]                     ID_alu_source_sel_o, // [1] -> op1 [2] -> op2  || gets imm
+    output logic [ALU_OP_WIDTH-1 :0]       ID_alu_ctrl_o,       // alu operation to perform
+    output logic [1:0]                     ID_branch_op_o,      // branch gen operation to perform
+    output logic                           ID_branch_flag_o,    // execute branch on ALU 'set' or 'not set'
+    output logic                           ID_mem_wr_en_o,      // enable data mem write
+    output logic                           ID_mem_rd_en_o,      // indicates data mem load (name misleading)
+    output logic                           ID_rd_wr_en_o,       // enable regfile writeback 
+    output logic                           ID_memtoreg_o,       // enable regfile writeback from data mem
+    output logic                           ID_jump_en_o,        // indicates a jump
+    output logic [3:0]                     ID_mem_op_o,         // selects memory mask for load/store
     
     // branch/jump destination
     output logic [REG_DATA_WIDTH-1:0]      ID_pc_dest_o,
@@ -83,7 +83,7 @@ module toast_ID_stage
     input  logic [REGFILE_ADDR_WIDTH-1:0]  EX_rd_addr_i,
     input  logic [REG_DATA_WIDTH-1:0]      EX_alu_result_i,
 
-    // regfile
+    // regfile write
     input  logic [REGFILE_ADDR_WIDTH-1:0]  WB_rd_addr_i,
     input  logic [REG_DATA_WIDTH-1:0]      WB_rd_wr_data_i,
     input  logic                           WB_rd_wr_en_i

@@ -30,22 +30,22 @@ Misaligned memory access is not supported.
 module toast_MEM_stage
 
     (
-    input  logic             clk_i,
-    input  logic             resetn_i,
+    input  logic              clk_i,
+    input  logic              resetn_i,
 
     // TO DATA MEMORY
-    output logic [31:0]           DMEM_addr_o,       // data mem address
-    output logic [3:0]            DMEM_wr_byte_en_o, // byte write enables
-    output logic [31:0]           DMEM_wr_data_o,    // data mem write data
-    output logic                  DMEM_rst_o,        // data mem read port reset
+    output logic [31:0]       DMEM_addr_o,       // data mem address
+    output logic [3:0]        DMEM_wr_byte_en_o, // byte write enables
+    output logic [31:0]       DMEM_wr_data_o,    // data mem write data
+    output logic              DMEM_rst_o,        // data mem read port reset
           
     // PIPELINE OUT          
-    output logic [31:0]           MEM_dout_o,        // data mem read data, mask applied
-    output logic                  MEM_memtoreg_o,    
-    output logic [31:0]           MEM_alu_result_o,  // ALU result, passed through
-    output logic                  MEM_rd_wr_en_o,    // passed through from EX, used for forwarding/stall logic
-    output logic [4:0]            MEM_rd_addr_o,     // passed through from EX
-    output logic                  MEM_exception_o,   // triggered on misaligned store
+    output logic [31:0]       MEM_dout_o,        // data mem read data, mask applied
+    output logic              MEM_memtoreg_o,    
+    output logic [31:0]       MEM_alu_result_o,  // ALU result, passed through
+    output logic              MEM_rd_wr_en_o,    // passed through from EX, used for forwarding/stall logic
+    output logic [4:0]        MEM_rd_addr_o,     // passed through from EX
+    output logic              MEM_exception_o,   // triggered on misaligned store
 
     // FROM DATA MEMORY
     input  logic  [31:0]      DMEM_rd_data_i,    // data mem read data
