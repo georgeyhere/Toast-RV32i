@@ -1,5 +1,4 @@
 `timescale 1ns / 1ps
-`default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -37,22 +36,22 @@ module toast_top
     `endif
     (
     // Clock and Reset
-    input  wire logic            clk_i,
-    input  wire logic            resetn_i,   
+    input  logic            clk_i,
+    input  logic            resetn_i,   
 
     // Data memory interface
-    output      logic [3:0]      DMEM_wr_byte_en_o,
-    output      logic [31:0]     DMEM_addr_o,
-    output      logic [31:0]     DMEM_wr_data_o,
-    input  wire logic [31:0]     DMEM_rd_data_i,
-    output      logic            DMEM_rst_o,
+    output logic [3:0]      DMEM_wr_byte_en_o,
+    output logic [31:0]     DMEM_addr_o,
+    output logic [31:0]     DMEM_wr_data_o,
+    input  logic [31:0]     DMEM_rd_data_i,
+    output logic            DMEM_rst_o,
 
     // Instruction memory interface
-    input  wire logic [31:0]     IMEM_data_i,
-    output      logic [31:0]     IMEM_addr_o,
+    input  logic [31:0]     IMEM_data_i,
+    output logic [31:0]     IMEM_addr_o,
     
-    // debug
-    output      logic            exception_o
+    // ECALL, EBREAK, misaligned store indicator
+    output logic            exception_o
     );
 
 // ===========================================================================
@@ -125,7 +124,7 @@ module toast_top
 // ===========================================================================
 //                                 Instantiation
 // ===========================================================================    
-    
+    /*
     toast_forwarder fwd_i (
         .forwardA_o          (forwardA),
         .forwardB_o          (forwardB),
@@ -156,6 +155,40 @@ module toast_top
         .EX_branch_en_i      (EX_branch_en),
         .ID_jump_en_i        (ID_jump_en)
     );
+    */
+    //*********************************    
+    //            CONTROL
+    //*********************************
+    toast_control control_i   (
+        .clk_i               (clk_i),
+        .resetn_i            (resetn_i),
+
+        // forwarding
+        .forwardA_o          (forwardA),
+        .forwardB_o          (forwardB),
+        .forwardM_o          (forwardM),
+
+        .ID_alu_source_sel_i (ID_alu_source_sel),
+        .ID_rs1_addr_i       (ID_rs1_addr),
+        .ID_rs2_addr_i       (ID_rs2_addr),
+        .ID_rd_addr_i        (ID_rd_addr),
+        .EX_rd_addr_i        (EX_rd_addr),
+        .EX_rs2_addr_i       (EX_rs2_addr),
+        .MEM_rd_addr_i       (MEM_rd_addr),
+        .EX_rd_wr_en_i       (EX_rd_wr_en),
+        .MEM_rd_wr_en_i      (MEM_rd_wr_en),
+
+        // pipeline stall/flushes
+        .stall_o             (stall_IF_ID),
+        .IF_ID_flush_o       (flush_IF_ID),
+        .EX_flush_o          (flush_EX),
+
+        .IF_instruction_i    (IF_instruction),
+        .ID_mem_rd_en_i      (ID_mem_rd_en),
+        .EX_branch_en_i      (EX_branch_en),
+        .ID_jump_en_i        (ID_jump_en)
+    );
+
 
     //*********************************    
     //          IF STAGE
@@ -251,6 +284,7 @@ module toast_top
         .ID_rd_wr_en_i        (ID_rd_wr_en),
         .ID_rd_addr_i         (ID_rd_addr),
         .ID_rs2_addr_i        (ID_rs2_addr),
+        .ID_exception_i       (ID_exception),
 
         // pipeline out
         .EX_mem_wr_en_o       (EX_mem_wr_en),

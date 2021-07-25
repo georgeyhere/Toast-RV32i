@@ -1,0 +1,76 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Sat Jul 24 14:15:54 2021
+# Process ID: 16557
+# Current directory: /home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado
+# Command line: vivado
+# Log file: /home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado/vivado.log
+# Journal file: /home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/WB_top.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/EX_ALU.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/EX_top.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_Branch_gen.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_control.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_regfile.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_top.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_top.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_PC.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/MEM_top.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/Pipe_Forwarding.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/Pipe_Hazard.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/RV32I_definitions.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv] -no_script -reset -force -quiet
+remove_files  {/home/george/Documents/work/RISCV/Toast-RV32i/Sources/WB_top.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/EX_ALU.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/EX_top.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_Branch_gen.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_control.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_regfile.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/ID_top.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_top.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/IF_PC.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/MEM_top.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/Pipe_Forwarding.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/Pipe_Hazard.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/RV32I_definitions.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/ToastCore.sv}
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/simple_tests/lui_OOP_tb.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/simple_tests/testbench.sv] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 {/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/simple_tests/lui_OOP_tb.sv /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/simple_tests/testbench.sv}
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/simple_tests/branches_tb.sv] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sim_1/imports/simple_tests/branches_tb.sv
+add_files -norecurse -scan_for_includes {/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_WB_stage.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_branchgen.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_regfile.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_control.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_def_pkg.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_EX_stage.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_alu.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+refresh_design
+refresh_design
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+refresh_design
+set_property IS_GLOBAL_INCLUDE 1 [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_def_pkg.sv]
+launch_simulation
+launch_simulation
+open_wave_config /home/george/Documents/work/RISCV/RISCV_Project/riscvTests_tb_behav.wcfg
+source riscvTests_tb.tcl
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl
+source rvTest.tcl

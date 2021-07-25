@@ -1,5 +1,4 @@
 `timescale 1ns / 1ps
-`default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -61,13 +60,13 @@ module toast_decoder
     (
 //*************************************************
     // REGFILE ADDRESSES
-    output logic [4:0]                      rd_addr_o,        
-    output logic [4:0]                      rs1_addr_o,       
-    output logic [4:0]                      rs2_addr_o, 
+    output logic [4:0]                      rd_addr_o,        // regfile write addr
+    output logic [4:0]                      rs1_addr_o,       // referenced rs1 addr
+    output logic [4:0]                      rs2_addr_o,       // referenced rs2 addr
     
     // ALU OPERANDS
-    output logic [REG_DATA_WIDTH-1 :0]      imm1_o,    
-    output logic [REG_DATA_WIDTH-1 :0]      imm2_o,
+    output logic [REG_DATA_WIDTH-1 :0]      imm1_o,           // imm for alu operand1
+    output logic [REG_DATA_WIDTH-1 :0]      imm2_o,           // imm for alu operand2
     
     // CONTROL SIGNALS    
     output logic [1:0]                      alu_source_sel_o, // [1] -> op1 [2] -> op2  || gets imm
@@ -75,7 +74,7 @@ module toast_decoder
     output logic [1:0]                      branch_op_o,      // branch gen operation to perform
     output logic                            branch_flag_o,    // execute branch on ALU 'set' or 'not set'
     output logic                            mem_wr_en_o,      // enable data mem wr
-    output logic                            mem_rd_en_o,      // enable data mem rd
+    output logic                            mem_rd_en_o,      // indicates data mem load
     output logic                            rd_wr_en_o,       // enable regfile writeback 
     output logic                            memtoreg_o,       // enable regfile writeback from data mem
     output logic                            jump_en_o,        // indicates a jump
@@ -84,8 +83,8 @@ module toast_decoder
 
 //*************************************************
     // IF STAGE
-    input  wire logic [REG_DATA_WIDTH-1 :0]      instruction_i,
-    input  wire logic [31:0]                     pc_i
+    input  logic [REG_DATA_WIDTH-1 :0]      instruction_i,    // fetched instruction from IF
+    input  logic [31:0]                     pc_i              // corresponding PC value
 //*************************************************
     );
     
@@ -135,7 +134,7 @@ module toast_decoder
         rd_wr_en_o       = 0;     // default: regfile writeback disabled
         memtoreg_o       = 0;     // default: no data mem writeback
         jump_en_o        = 0;     // default: no jump
-        mem_op_o         = 4'bx;  // default: no data mem mask
+        mem_op_o         = `MEM_LW;      
         
         rd_addr_o        = instruction_i[11:7]; 
         rs1_addr_o       = instruction_i[19:15];

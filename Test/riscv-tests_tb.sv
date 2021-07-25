@@ -92,7 +92,7 @@ module riscvTests_tb();
     .DMEM_wr_byte_en_o (DMEM_wr_byte_en),
     .DMEM_addr_o       (DMEM_addr),
     .DMEM_wr_data_o    (DMEM_wr_data),
-    .DMEM_rd_data_i    (DMEM_wr_data),
+    .DMEM_rd_data_i    (DMEM_rd_data),
     .DMEM_rst_o        (DMEM_rst),
     .IMEM_data_i       (IMEM_data),
     .IMEM_addr_o       (IMEM_addr),
@@ -106,7 +106,7 @@ module riscvTests_tb();
 //                                TEST CONTROL
 // ===========================================================================
     
-    parameter TEST_TO_RUN   = `S_SB;
+    parameter TEST_TO_RUN   = `S_SW;
 
     //****************************************
     // PASS CONDITION 1: GP=1 , A7=93, A0=0

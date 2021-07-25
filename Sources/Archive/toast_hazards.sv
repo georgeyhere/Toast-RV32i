@@ -1,5 +1,4 @@
 `timescale 1ns / 1ps
-`default_nettype none
 
 import toast_def_pkg ::*;
 
@@ -16,8 +15,8 @@ module toast_hazards
     `endif
 
 	(
-    input  wire logic                          clk_i,
-    input  wire logic                          resetn_i,
+    input  logic                          clk_i,
+    input  logic                          resetn_i,
        
     output logic                          stall_o,          // pipeline stall signal
 	       
@@ -25,11 +24,11 @@ module toast_hazards
  	output logic                          EX_flush_o,       // flush EX if branch taken
 
 
-	input  wire logic [31:0]                   IF_instruction_i, // used to check for Data hazard
-	input  wire logic 						  ID_mem_rd_en_i,   // is an ID instrn a load?
-	input  wire logic [REGFILE_ADDR_WIDTH-1:0] ID_rd_addr_i,     
-    input  wire logic                          EX_branch_en_i,
-    input  wire logic                          ID_jump_en_i
+	input  logic [31:0]                   IF_instruction_i, // used to check for Data hazard
+	input  logic 						  ID_mem_rd_en_i,   // is an ID instrn a load?
+	input  logic [REGFILE_ADDR_WIDTH-1:0] ID_rd_addr_i,     
+    input  logic                          EX_branch_en_i,
+    input  logic                          ID_jump_en_i
 
 	);
     
@@ -52,20 +51,18 @@ module toast_hazards
 
     always_comb begin
         if(ID_mem_rd_en_i == 1) begin
-            if( (opcode == `OPCODE_OP) ||       // register-register opcodes
-                (opcode == `OPCODE_BRANCH) ||
-                (opcode == `OPCODE_STORE) ) 
+            if( ( (opcode == `OPCODE_OP) || (opcode == `OPCODE_BRANCH) || (opcode == `OPCODE_STORE) ) &&
+                ( (ID_rd_addr_i == IF_instruction_i[19:15]) || (ID_rd_addr_i == IF_instruction_i[24:20]) )
+              )     
             begin
-                if( (ID_rd_addr_i == IF_instruction_i[19:15]) || (ID_rd_addr_i == IF_instruction_i[24:20]) ) 
-                    stall_o = 1;
-            end
-    
-            else if( (opcode == `OPCODE_OP_IMM) ||
-                     (opcode == `OPCODE_LOAD) ) 
+                stall_o = 1;
+            end else if( ( (opcode == `OPCODE_OP_IMM) ||(opcode == `OPCODE_LOAD) )  &&
+                         ( (ID_rd_addr_i == IF_instruction_i[19:15]) )
+                       )
             begin
-                if(ID_rd_addr_i == IF_instruction_i[19:15]) 
-                    stall_o = 1;
-            end
+                stall_o = 1;
+            end     
+            else stall_o = 0;   
         end
         else stall_o = 0;
     end
