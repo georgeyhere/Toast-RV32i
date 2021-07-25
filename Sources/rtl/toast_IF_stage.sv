@@ -1,5 +1,4 @@
 `timescale 1ns / 1ps
-`default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -36,23 +35,23 @@ module toast_IF_stage
     `endif
 
     (
-    input  wire logic                            clk_i,
-    input  wire logic                            resetn_i,
+    input  logic                            clk_i,
+    input  logic                            resetn_i,
 
-    output      logic [IMEM_ADDR_WIDTH-1:0]      IMEM_addr_o,  
-    output      logic [REG_DATA_WIDTH-1:0]       IF_instruction_o,
-    output      logic [REG_DATA_WIDTH-1:0]       IF_pc_o,           // PC of IF_instruction_o  
+    output logic [IMEM_ADDR_WIDTH-1:0]      IMEM_addr_o,  
+    output logic [REG_DATA_WIDTH-1:0]       IF_instruction_o,
+    output logic [REG_DATA_WIDTH-1:0]       IF_pc_o,           // PC of IF_instruction_o  
 
-    input  wire logic [REG_DATA_WIDTH-1:0]       IMEM_data_i,    // instruction fetched from IMEM
+    input  logic [REG_DATA_WIDTH-1:0]       IMEM_data_i,    // instruction fetched from IMEM
  
-    input  wire logic                            EX_branch_en_i,    // indicates branch taken (EX)
-    input  wire logic [REG_DATA_WIDTH-1:0]       EX_pc_dest_i,  // branch dest 
+    input  logic                            EX_branch_en_i,    // indicates branch taken (EX)
+    input  logic [REG_DATA_WIDTH-1:0]       EX_pc_dest_i,  // branch dest 
  
-    input  wire logic                            ID_jump_en_i,      // jump taken (ID)
-    input  wire logic [REG_DATA_WIDTH-1:0]       ID_pc_dest_i,    // jump dest
+    input  logic                            ID_jump_en_i,      // jump taken (ID)
+    input  logic [REG_DATA_WIDTH-1:0]       ID_pc_dest_i,    // jump dest
  
-    input  wire logic                            stall_i,        
-    input  wire logic                            flush_i  
+    input  logic                            stall_i,        
+    input  logic                            flush_i  
     );
 
 
@@ -60,6 +59,7 @@ module toast_IF_stage
 //                    Parameters, Registers, and Wires
 // ===========================================================================    
     logic [31:0]  pc_next;
+    logic [31:0]  prev_instruction;
 
 // ===========================================================================
 //                              Implementation    
@@ -77,12 +77,14 @@ module toast_IF_stage
     // align fetched instructions with addr by flopping IMEM_addr
     always_ff@(posedge clk_i) begin
         if(resetn_i == 1'b0) begin
-            IMEM_addr_o <= 0;
-            IF_pc_o     <= 0;
+            IMEM_addr_o      <= 0;
+            IF_pc_o          <= 0;
+            prev_instruction <= 0;
         end
         else begin
-            IMEM_addr_o <= pc_next;
-            IF_pc_o     <= (stall_i == 1'b1) ? IF_pc_o : IMEM_addr_o; 
+            IMEM_addr_o      <= pc_next;
+            IF_pc_o          <= (stall_i == 1'b1) ? IF_pc_o : IMEM_addr_o; 
+            prev_instruction <= IF_instruction_o;
         end  
     end
 
@@ -90,14 +92,11 @@ module toast_IF_stage
     always_comb begin
         if(flush_i == 1'b1) begin
             IF_instruction_o = 0;
-        end
-        else begin
-            if(stall_i == 1'b1) begin
-                IF_instruction_o = IF_instruction_o;
-            end
-            else begin
-                IF_instruction_o = IMEM_data_i;
-            end               
+        end else if(stall_i == 1'b1) begin
+            IF_instruction_o = prev_instruction;
+        end else begin
+            IF_instruction_o = IMEM_data_i;          
         end
     end
+
 endmodule

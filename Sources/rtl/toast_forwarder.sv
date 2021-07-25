@@ -1,5 +1,4 @@
 `timescale 1ns / 1ps
-`default_nettype none
     
 	module toast_forwarder
 	      
@@ -18,17 +17,17 @@
 		output logic [1:0]                    forwardB_o,   
 		output logic                          forwardM_o,
 
-		input  wire logic [1:0]                    ID_alu_source_sel_i,
+		input  logic [1:0]                    ID_alu_source_sel_i,
 		 
-		input  wire logic [REGFILE_ADDR_WIDTH-1:0] ID_rs1_addr_i,
-		input  wire logic [REGFILE_ADDR_WIDTH-1:0] ID_rs2_addr_i,
-		input  wire logic [REGFILE_ADDR_WIDTH-1:0] ID_rd_addr_i,
-		input  wire logic [REGFILE_ADDR_WIDTH-1:0] EX_rd_addr_i,
-		input  wire logic [REGFILE_ADDR_WIDTH-1:0] EX_rs2_addr_i,
-		input  wire logic [REGFILE_ADDR_WIDTH-1:0] MEM_rd_addr_i,                 
+		input  logic [REGFILE_ADDR_WIDTH-1:0] ID_rs1_addr_i,
+		input  logic [REGFILE_ADDR_WIDTH-1:0] ID_rs2_addr_i,
+		input  logic [REGFILE_ADDR_WIDTH-1:0] ID_rd_addr_i,
+		input  logic [REGFILE_ADDR_WIDTH-1:0] EX_rd_addr_i,
+		input  logic [REGFILE_ADDR_WIDTH-1:0] EX_rs2_addr_i,
+		input  logic [REGFILE_ADDR_WIDTH-1:0] MEM_rd_addr_i,                 
  
-		input  wire logic                          EX_rd_wr_en_i,
-		input  wire logic                          MEM_rd_wr_en_i
+		input  logic                          EX_rd_wr_en_i,
+		input  logic                          MEM_rd_wr_en_i
 		);
    
     

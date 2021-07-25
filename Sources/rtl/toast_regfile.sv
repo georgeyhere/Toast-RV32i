@@ -1,5 +1,4 @@
 `timescale 1ns / 1ps
-`default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -41,18 +40,18 @@ module toast_regfile
     `endif
     
     (
-    input   wire logic                        clk_i,
-    input   wire logic                        resetn_i,
+    input  logic                             clk_i,
+    input  logic                             resetn_i,
 
-    output  logic   [REG_DATA_WIDTH-1 :0]     rs1_data_o,
-    output  logic   [REG_DATA_WIDTH-1 :0]     rs2_data_o,
+    output logic   [REG_DATA_WIDTH-1 :0]     rs1_data_o,
+    output logic   [REG_DATA_WIDTH-1 :0]     rs2_data_o,
     
-    input   wire logic   [REGFILE_ADDR_WIDTH-1 :0] rs1_addr_i, 
-    input   wire logic   [REGFILE_ADDR_WIDTH-1 :0] rs2_addr_i,
+    input  logic   [REGFILE_ADDR_WIDTH-1 :0] rs1_addr_i, 
+    input  logic   [REGFILE_ADDR_WIDTH-1 :0] rs2_addr_i,
  
-    input   wire logic   [REGFILE_ADDR_WIDTH-1 :0] rd_addr_i,    
-    input   wire logic   [REG_DATA_WIDTH-1 :0]     rd_wr_data_i,
-    input   wire logic                             rd_wr_en_i
+    input  logic   [REGFILE_ADDR_WIDTH-1 :0] rd_addr_i,    
+    input  logic   [REG_DATA_WIDTH-1 :0]     rd_wr_data_i,
+    input  logic                             rd_wr_en_i
     );
 
     

@@ -1,5 +1,4 @@
 `timescale 1ns / 1ps
-`default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -38,56 +37,56 @@ module toast_ID_stage
     `endif
     
     (
-    input  wire logic                           clk_i,
-    input  wire logic                           resetn_i,
-    input  wire logic                           flush_i,
-    input  wire logic                           stall_i,
+    input  logic                           clk_i,
+    input  logic                           resetn_i,
+    input  logic                           flush_i,
+    input  logic                           stall_i,
 
     // pipeline out
-    output      logic [REG_DATA_WIDTH-1:0]      ID_pc_o,
+    output logic [REG_DATA_WIDTH-1:0]      ID_pc_o,
 
     // control signals
-    output      logic [1:0]                     ID_alu_source_sel_o,
-    output      logic [ALU_OP_WIDTH-1 :0]       ID_alu_ctrl_o,
-    output      logic [1:0]                     ID_branch_op_o, 
-    output      logic                           ID_branch_flag_o,
-    output      logic                           ID_mem_wr_en_o,
-    output      logic                           ID_mem_rd_en_o,
-    output      logic                           ID_rd_wr_en_o,
-    output      logic                           ID_memtoreg_o,
-    output      logic                           ID_jump_en_o,
-    output      logic [3:0]                     ID_mem_op_o,
+    output logic [1:0]                     ID_alu_source_sel_o,
+    output logic [ALU_OP_WIDTH-1 :0]       ID_alu_ctrl_o,
+    output logic [1:0]                     ID_branch_op_o, 
+    output logic                           ID_branch_flag_o,
+    output logic                           ID_mem_wr_en_o,
+    output logic                           ID_mem_rd_en_o,
+    output logic                           ID_rd_wr_en_o,
+    output logic                           ID_memtoreg_o,
+    output logic                           ID_jump_en_o,
+    output logic [3:0]                     ID_mem_op_o,
     
     // branch/jump destination
-    output      logic [REG_DATA_WIDTH-1:0]      ID_pc_dest_o,
+    output logic [REG_DATA_WIDTH-1:0]      ID_pc_dest_o,
    
     // ALU operands
-    output      logic [REG_DATA_WIDTH-1 :0]     ID_imm1_o,
-    output      logic [REG_DATA_WIDTH-1 :0]     ID_imm2_o,
-    output      logic [REG_DATA_WIDTH-1 :0]     ID_rs1_data_o,
-    output      logic [REG_DATA_WIDTH-1 :0]     ID_rs2_data_o,
+    output logic [REG_DATA_WIDTH-1 :0]     ID_imm1_o,
+    output logic [REG_DATA_WIDTH-1 :0]     ID_imm2_o,
+    output logic [REG_DATA_WIDTH-1 :0]     ID_rs1_data_o,
+    output logic [REG_DATA_WIDTH-1 :0]     ID_rs2_data_o,
   
     // regfile addresses
-    output      logic [REGFILE_ADDR_WIDTH-1:0]  ID_rd_addr_o,
-    output      logic [REGFILE_ADDR_WIDTH-1:0]  ID_rs1_addr_o,
-    output      logic [REGFILE_ADDR_WIDTH-1:0]  ID_rs2_addr_o,
+    output logic [REGFILE_ADDR_WIDTH-1:0]  ID_rd_addr_o,
+    output logic [REGFILE_ADDR_WIDTH-1:0]  ID_rs1_addr_o,
+    output logic [REGFILE_ADDR_WIDTH-1:0]  ID_rs2_addr_o,
 
     // ECALL or EBREAK detected
-    output      logic                           ID_exception_o,
+    output logic                           ID_exception_o,
 
     // pipeline in
-    input  wire logic [REG_DATA_WIDTH-1:0]      IF_pc_i,
-    input  wire logic [REG_DATA_WIDTH-1:0]      IF_instruction_i,
+    input  logic [REG_DATA_WIDTH-1:0]      IF_pc_i,
+    input  logic [REG_DATA_WIDTH-1:0]      IF_instruction_i,
     
     // jump destination forwarding
-    input  wire logic                           EX_rd_wr_en_i,
-    input  wire logic [REGFILE_ADDR_WIDTH-1:0]  EX_rd_addr_i,
-    input  wire logic [REG_DATA_WIDTH-1:0]      EX_alu_result_i,
+    input  logic                           EX_rd_wr_en_i,
+    input  logic [REGFILE_ADDR_WIDTH-1:0]  EX_rd_addr_i,
+    input  logic [REG_DATA_WIDTH-1:0]      EX_alu_result_i,
 
     // regfile
-    input  wire logic [REGFILE_ADDR_WIDTH-1:0]  WB_rd_addr_i,
-    input  wire logic [REG_DATA_WIDTH-1:0]      WB_rd_wr_data_i,
-    input  wire logic                           WB_rd_wr_en_i
+    input  logic [REGFILE_ADDR_WIDTH-1:0]  WB_rd_addr_i,
+    input  logic [REG_DATA_WIDTH-1:0]      WB_rd_wr_data_i,
+    input  logic                           WB_rd_wr_en_i
     );
     
 // ===========================================================================

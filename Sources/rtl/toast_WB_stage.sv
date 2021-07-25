@@ -1,5 +1,4 @@
 `timescale 1ns / 1ps
-`default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -28,11 +27,11 @@ module toast_WB_stage
     output logic [31:0] WB_rd_wr_data_o,
     output logic        WB_rd_wr_en_o,
 
-    input  wire logic [4:0]  MEM_rd_addr_i,
-    input  wire logic [31:0] MEM_dout_i,
-    input  wire logic [31:0] MEM_alu_result_i,
-    input  wire logic        MEM_memtoreg_i,
-    input  wire logic        MEM_rd_wr_en_i   
+    input  logic [4:0]  MEM_rd_addr_i,
+    input  logic [31:0] MEM_dout_i,
+    input  logic [31:0] MEM_alu_result_i,
+    input  logic        MEM_memtoreg_i,
+    input  logic        MEM_rd_wr_en_i   
     );
 
     /*
@@ -42,7 +41,7 @@ module toast_WB_stage
 
     always_comb begin
         WB_rd_addr_o       = MEM_rd_addr_i;
-        WB_rd_wr_data_o       = (MEM_memtoreg_i == 1'b1) ? MEM_dout_i : MEM_alu_result_i;
+        WB_rd_wr_data_o    = (MEM_memtoreg_i == 1'b1) ? MEM_dout_i : MEM_alu_result_i;
         WB_rd_wr_en_o      = MEM_rd_wr_en_i;
     end
 

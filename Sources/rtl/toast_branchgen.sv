@@ -1,5 +1,4 @@
 `timescale 1ns / 1ps
-`default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -25,10 +24,10 @@ module toast_branchgen
     (
     output logic [31:0] branch_dest_o,
 
-    input  wire logic [1:0]  branch_op_i,
-    input  wire logic [31:0] pc_i,
-    input  wire logic [31:0] regdata_i,
-    input  wire logic [31:0] imm_i
+    input  logic [1:0]  branch_op_i,
+    input  logic [31:0] pc_i,
+    input  logic [31:0] regdata_i,
+    input  logic [31:0] imm_i
     );
     
     /*

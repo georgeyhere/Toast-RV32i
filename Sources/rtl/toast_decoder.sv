@@ -1,5 +1,4 @@
 `timescale 1ns / 1ps
-`default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -84,8 +83,8 @@ module toast_decoder
 
 //*************************************************
     // IF STAGE
-    input  wire logic [REG_DATA_WIDTH-1 :0]      instruction_i,
-    input  wire logic [31:0]                     pc_i
+    input  logic [REG_DATA_WIDTH-1 :0]      instruction_i,
+    input  logic [31:0]                     pc_i
 //*************************************************
     );
     
@@ -135,7 +134,7 @@ module toast_decoder
         rd_wr_en_o       = 0;     // default: regfile writeback disabled
         memtoreg_o       = 0;     // default: no data mem writeback
         jump_en_o        = 0;     // default: no jump
-        mem_op_o         = 4'bx;  // default: no data mem mask
+        mem_op_o         = `MEM_LW;      
         
         rd_addr_o        = instruction_i[11:7]; 
         rs1_addr_o       = instruction_i[19:15];
