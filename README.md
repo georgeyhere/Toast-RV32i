@@ -25,20 +25,21 @@
 
 <h1> Files in this Repository </h1>
 
-__/Documentation__
-- Contains datapath diagrams and notes
+__Makefile__
+Run ```make test``` to compile, link and convert riscv-tests to hex memory files and run the entire battery of tests. Memory generation requires a 32-bit riscv-unknown-elf toolchain installed at /opt/riscv32i, and the testbench is ran using Icarus Verilog. See the Makefile targets for more details.
 
-__/Mem__
-- Contains memory initialization hex files for riscv-tests 
+__/docs__
+- Contains datapath diagrams and notes, wip
 
-__/Scripts__
+__/scripts__
 - Contains shell scripts to compile, link, and generate memory files from the riscv-tests, as well as a script to run tests and dump vcd from vivado
 
-__/Sources__
+__/rtl__
 - Contains all source files for Toastcore and UART peripheral (WIP)
 
-__/Test__
-- Contains the riscv-tests, testbenches to either run an individual test or the entire battery of tests, GTKwave translate filter files/processes, and the vcd outputs for each test
+__/test__
+- Contains the riscv-tests, testbench, and GTKwave translate filter files/processes
+
 
 <h1> Performance </h1>
 
