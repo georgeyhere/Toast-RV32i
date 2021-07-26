@@ -1,0 +1,405 @@
+/*
+
+Xilinx Vivado v2020.2 (64-bit) [Major: 2020, Minor: 2]
+SW Build: 3064766 on Wed Nov 18 09:12:47 MST 2020
+IP Build: 3064653 on Wed Nov 18 14:17:31 MST 2020
+
+Process ID (PID): 15101
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Mon Jul 26 11:17:19 PDT 2021
+Time zone: 	Pacific Standard Time (America/Los_Angeles)
+
+OS: Ubuntu
+OS Version: 5.4.0-80-generic
+OS Architecture: amd64
+Available processors (cores): 16
+
+Display: 0
+Screen size: 1920x1080
+Screen resolution (DPI): 100
+Available screens: 2
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+Scale size: 12
+
+Java version: 	11.0.2 64-bit
+Java home: 	/opt/Xilinx/Vivado/2020.2/tps/lnx64/jre11.0.2
+Java executable location: 	/opt/Xilinx/Vivado/2020.2/tps/lnx64/jre11.0.2/bin/java
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	george
+User home directory: /home/george
+User working directory: /home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /opt/Xilinx/Vivado
+HDI_APPROOT: /opt/Xilinx/Vivado/2020.2
+RDI_DATADIR: /opt/Xilinx/Vivado/2020.2/data
+RDI_BINDIR: /opt/Xilinx/Vivado/2020.2/bin
+
+Vivado preferences file location: /home/george/.Xilinx/Vivado/2020.2/vivado.xml
+Vivado preferences directory: /home/george/.Xilinx/Vivado/2020.2/
+Vivado layouts directory: /home/george/.Xilinx/Vivado/2020.2/data/layouts
+PlanAhead jar file location: 	/opt/Xilinx/Vivado/2020.2/lib/classes/planAhead.jar
+Vivado log file location: 	/home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado/vivado.log
+Vivado journal file location: 	/home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-15101-george-desktop
+
+Xilinx Environment Variables
+----------------------------
+XILINX: /opt/Xilinx/Vivado/2020.2/ids_lite/ISE
+XILINX_DSP: /opt/Xilinx/Vivado/2020.2/ids_lite/ISE
+XILINX_HLS: /opt/Xilinx//Vitis_HLS/2020.2
+XILINX_PLANAHEAD: /opt/Xilinx/Vivado/2020.2
+XILINX_VITIS: 
+XILINX_VIVADO: /opt/Xilinx/Vivado/2020.2
+XILINX_VIVADO_HLS: /opt/Xilinx/Vivado/2020.2
+
+
+GUI allocated memory:	154 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 1,521 MB
+
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// Tcl Command: 'rdi::info_commands {device::*}'
+// Tcl Command: 'rdi::info_commands {debug::*}'
+// Tcl Command: 'rdi::info_commands {*}'
+// HMemoryUtils.trashcanNow. Engine heap size: 1,521 MB. GUI used memory: 65 MB. Current time: 7/26/21, 11:17:20 AM PDT
+// WARNING: HEventQueue.dispatchEvent() is taking  1001 ms.
+selectList(PAResourceQtoS.SyntheticaGettingStartedView_RECENT_PROJECTS, "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr", 0); // r
+// [GUI Memory]: 95 MB (+97167kb) [00:01:00]
+// [Engine Memory]: 1,526 MB (+1448126kb) [00:01:00]
+// bz (cr):  Open Project : addNotify
+// Opening Vivado Project: /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr. Version: Vivado v2020.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 114 MB (+15354kb) [00:01:05]
+// WARNING: HEventQueue.dispatchEvent() is taking  2714 ms.
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2020.2/data/ip'. 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,589 MB. GUI used memory: 74 MB. Current time: 7/26/21, 11:18:16 AM PDT
+// Tcl Message: INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'. 
+// Tcl Message: open_project: Time (s): cpu = 00:00:17 ; elapsed = 00:00:06 . Memory (MB): peak = 7384.047 ; gain = 47.043 ; free physical = 7348 ; free virtual = 13498 
+// Project name: RISCV_Project; location: /home/george/Documents/work/RISCV/RISCV_Project; part: xc7a50tcsg324-1
+dismissDialog("Open Project"); // bz
+// [Engine Memory]: 1,608 MB (+5985kb) [00:01:08]
+// a (cr): Critical Messages: addNotify
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// Tcl Message: update_compile_order -fileset sim_1 
+// [GUI Memory]: 134 MB (+14255kb) [00:01:11]
+// G (cr): Invalid Top Module: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+dismissDialog("Invalid Top Module"); // G
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // a
+// [Engine Memory]: 1,826 MB (+144943kb) [00:01:15]
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources]", 6); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 7); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, Non-module Files]", 9); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, Non-module Files, riscv-tests_tb.sv]", 11, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, Non-module Files, riscv-tests_tb.sv]", 11, false, false, false, false, true, false); // D - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ak
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (cr): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Remove Sources"); // aE
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Test/riscv-tests_tb.sv] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: remove_files  -fileset sim_1 /home/george/Documents/work/RISCV/Toast-RV32i/Test/riscv-tests_tb.sv 
+selectButton(PAResourceCommand.PACommandNames_ADD_SOURCES, "Sources_add_sources"); // E
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+// c (cr): Add Sources: addNotify
+selectRadioButton(PAResourceAtoD.AddSrcWizard_SPECIFY_SIMULATION_SPECIFIC_HDL_FILES, "Add or create simulation sources"); // a
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+setFileChooser("/home/george/Documents/work/RISCV/Toast-RV32i/Test/testbench.v");
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 11 seconds
+// TclEventType: FILE_SET_CHANGE
+dismissDialog("Add Sources"); // c
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: set_property SOURCE_SET sources_1 [get_filesets sim_1] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// bz (cr):  Add Simulation Sources  : addNotify
+// Tcl Message: add_files -fileset sim_1 -norecurse -scan_for_includes /home/george/Documents/work/RISCV/Toast-RV32i/Test/testbench.v 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+dismissDialog("Add Simulation Sources"); // bz
+// HMemoryUtils.trashcanNow. Engine heap size: 1,673 MB. GUI used memory: 78 MB. Current time: 7/26/21, 11:18:50 AM PDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sim_1 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, riscvTests_tb (testbench.v)]", 12, true); // D - Node
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sim_1 
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 701 seconds
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, Non-module Files, toast_definitions.vh]", 11, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, Non-module Files, toast_definitions.vh]", 11, false, false, false, false, true, false); // D - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ak
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (cr): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Remove Sources"); // aE
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_definitions.vh] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: remove_files  -fileset sim_1 /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_definitions.vh 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, riscvTests_tb (testbench.v)]", 12, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, riscvTests_tb (testbench.v)]", 12, true, false, false, false, true, false); // D - Popup Trigger - Node
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ak
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (cr): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Remove Sources"); // aE
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Test/testbench.v] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: remove_files  -fileset sim_1 /home/george/Documents/work/RISCV/Toast-RV32i/Test/testbench.v 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toast_top (toast_top.v)]", 3, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toast_top (toast_top.v)]", 3, true, false, false, false, true, false); // D - Popup Trigger - Node
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toast_top (toast_top.v)]", 3); // D
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toast_top (toast_top.v), control_i : toast_control (toast_control.v)]", 4, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toast_top (toast_top.v), if_stage_i : toast_IF_stage (toast_IF_stage.v)]", 5, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toast_top (toast_top.v), id_stage_i : toast_ID_stage (toast_ID_stage.v)]", 6, true, false, true, false, false, false); // D - Control Key - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toast_top (toast_top.v), ex_stage_i : toast_EX_stage (toast_EX_stage.v)]", 7, true, false, true, false, false, false); // D - Control Key - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toast_top (toast_top.v), mem_stage_i : toast_MEM_stage (toast_MEM_stage.v)]", 8, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toast_top (toast_top.v), wb_stage_i : toast_WB_stage (toast_WB_stage.v)]", 9, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toast_top (toast_top.v), ex_stage_i : toast_EX_stage (toast_EX_stage.v)]", 7, true, false, true, false, false, false); // D - Control Key - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toast_top (toast_top.v), id_stage_i : toast_ID_stage (toast_ID_stage.v)]", 6, true, false, true, false, false, false); // D - Control Key - Node
+// HMemoryUtils.trashcanNow. Engine heap size: 1,732 MB. GUI used memory: 78 MB. Current time: 7/26/21, 11:30:50 AM PDT
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toast_top (toast_top.v), if_stage_i : toast_IF_stage (toast_IF_stage.v)]", 5, false, false, true, false, false, false); // D - Control Key
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources]", 4, true, false, true, false, false, false); // D - Control Key - Node
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files]", 1); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, toast_alu.v]", 7, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, toast_branchgen.v]", 8, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, toast_control.v]", 9, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, toast_decoder.v]", 10, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, toast_regfile.v]", 11, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, toast_top.v]", 12, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, toast_top.v]", 12, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, toast_definitions.vh]", 13, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, toast_top.v]", 12, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, toast_definitions.vh]", 14, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Non-module Files, toast_definitions.vh]", 13, false, false, false, false, true, false); // D - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ak
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (cr): Remove Sources: addNotify
+selectCheckBox(PAResourceQtoS.RemoveSourcesDialog_ALSO_DELETE, "Also delete the project local file/directory from disk", true); // g: TRUE
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Remove Sources"); // aE
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_WB_stage.v] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.v] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.v] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.v] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_EX_stage.v] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_alu.v] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_branchgen.v] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_control.v] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.v] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_regfile.v] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.v] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_definitions.vh] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// aE (cr): Remove Sources: addNotify
+// bz (aE):  Remove Sources : addNotify
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sources_1/imports/rtl/toast_definitions.vh] -no_script -reset -force -quiet 
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: remove_files  /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sources_1/imports/rtl/toast_definitions.vh 
+// Tcl Message: file delete -force /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sources_1/imports/rtl/toast_definitions.vh 
+dismissDialog("Remove Sources"); // bz
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File]", 15); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, add.S.mem]", 16, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, addi.S.mem]", 17, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, and.S.mem]", 18, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, andi.S.mem]", 19, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, jal.S.mem]", 14, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, auipc.S.mem]", 6, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, beq.S.mem]", 7, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, bgeu.S.mem]", 9, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, bge.S.mem]", 8, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, blt.S.mem]", 10, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, bltu.S.mem]", 11, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, bne.S.mem]", 12, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, fence_i.S.mem]", 13, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, jalr.S.mem]", 15, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, lb.S.mem]", 16, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, lbu.S.mem]", 17, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, lh.S.mem]", 18, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, lhu.S.mem]", 19, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, lui.S.mem]", 20, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, lw.S.mem]", 21, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, sb.S.mem]", 24, false, false, false, false, true, false); // D - Popup Trigger
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, slt.S.mem]", 28, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, add.S.mem]", 2, false, true, false, false, false, false); // D - Shift Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, add.S.mem]", 2, false, false, false, false, true, false); // D - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ak
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (cr): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Remove Sources"); // aE
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/add.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/addi.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/and.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/andi.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/auipc.S.mem] -no_script -reset -force -quiet 
+// aE (cr): Remove Sources: addNotify
+// bz (aE):  Remove Sources : addNotify
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/beq.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/bge.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/bgeu.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/blt.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/bltu.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/bne.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/fence_i.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/jal.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/jalr.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/lb.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/lbu.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/lh.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/lhu.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/lui.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/lw.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/or.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/ori.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sb.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sh.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sll.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/slli.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/slt.S.mem] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+dismissDialog("Remove Sources"); // bz
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, add.S.mem]", 2, false); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, xori.S.mem]", 12, false, true, false, false, false, false); // D - Shift Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, slti.S.mem]", 2, false, true, false, false, false, false); // D - Shift Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File, slti.S.mem]", 2, false, false, false, false, true, false); // D - Popup Trigger
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ak
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (cr): Remove Sources: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Remove Sources"); // aE
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/slti.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sltiu.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sltu.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sra.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/srai.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/srl.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/srli.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sub.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sw.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/xor.S.mem] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/xori.S.mem] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: remove_files  {/home/george/Documents/work/RISCV/Toast-RV32i/Mem/slti.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sltiu.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sltu.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sra.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/srai.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/srl.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/srli.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sub.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sw.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/xor.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/xori.S.mem} 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,777 MB. GUI used memory: 78 MB. Current time: 7/26/21, 11:31:35 AM PDT
+// Elapsed time: 16 seconds
+selectButton(PAResourceCommand.PACommandNames_ADD_SOURCES, "Sources_add_sources"); // E
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+// c (cr): Add Sources: addNotify
+selectRadioButton(PAResourceAtoD.AddSrcWizard_SPECIFY_HDL_NETLIST_BLOCK_DESIGN, "Add or create design sources"); // a
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_DIRECTORIES, "Add Directories"); // a
+setFolderChooser("/home/george/Documents/work/RISCV/Toast-RV32i/rtl");
+selectCheckBox(PAResourceQtoS.SrcChooserPanel_ADD_SOURCES_FROM_SUBDIRECTORIES, "Add sources from subdirectories", false); // g: FALSE
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 13 seconds
+dismissDialog("Add Sources"); // c
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// bz (cr):  Add Sources  : addNotify
+dismissDialog("Add Sources"); // bz
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Tcl Message: update_compile_order -fileset sources_1 
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, toast_top (toast_top.v)]", 5); // D
+// HMemoryUtils.trashcanNow. Engine heap size: 1,799 MB. GUI used memory: 79 MB. Current time: 7/26/21, 11:32:10 AM PDT
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, toast_top (toast_top.v), ex_stage_i : toast_EX_stage (toast_EX_stage.v)]", 9); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, toast_top (toast_top.v), id_stage_i : toast_ID_stage (toast_ID_stage.v)]", 8); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, toast_top (toast_top.v), id_stage_i : toast_ID_stage (toast_ID_stage.v)]", 8); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1, toast_top (toast_top.v), ex_stage_i : toast_EX_stage (toast_EX_stage.v)]", 9); // D
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0, true); // D - Node
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toast_top (toast_top.v)]", 2); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Verilog Header]", 1); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Verilog Header]", 1); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toast_top (toast_top.v)]", 2); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Simulation Sources, sim_1]", 5); // D
+selectButton(PAResourceCommand.PACommandNames_ADD_SOURCES, "Sources_add_sources"); // E
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+// c (cr): Add Sources: addNotify
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_DIRECTORIES, "Add Directories"); // a
+setFolderChooser("/home/george/Documents/work/RISCV/Toast-RV32i/mem");
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 6 seconds
+dismissDialog("Add Sources"); // c
+selectButton(PAResourceCommand.PACommandNames_ADD_SOURCES, "Sources_add_sources"); // E
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+// c (cr): Add Sources: addNotify
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_DIRECTORIES, "Add Directories"); // a
+dismissFolderChooser();
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+String[] filenames31467 = {"/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/add.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/addi.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/and.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/andi.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/auipc.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/beq.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/bge.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/bgeu.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/blt.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/bltu.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/bne.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/fence_i.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/jal.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/jalr.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/lb.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/lbu.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/lh.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/lhu.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/lui.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/lw.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/or.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/ori.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/sb.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/sh.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/sll.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/slli.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/slt.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/slti.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/sltiu.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/sltu.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/sra.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/srai.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/srl.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/srli.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/sub.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/sw.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/xor.S.mem", "/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/xori.S.mem"};
+setFileChooser(filenames31467);
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 10 seconds
+dismissDialog("Add Sources"); // c
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// bz (cr):  Add Sources  : addNotify
+dismissDialog("Add Sources"); // bz
+// HMemoryUtils.trashcanNow. Engine heap size: 1,839 MB. GUI used memory: 79 MB. Current time: 7/26/21, 11:32:55 AM PDT
+// Elapsed time: 12 seconds
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, toast_top (toast_top.v)]", 2); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File]", 9); // D
+collapseTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, Memory File]", 9); // D

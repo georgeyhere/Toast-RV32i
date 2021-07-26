@@ -1,0 +1,85 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Mon Jul 26 11:16:57 2021
+# Process ID: 15101
+# Current directory: /home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado
+# Command line: vivado
+# Log file: /home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado/vivado.log
+# Journal file: /home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr
+update_compile_order -fileset sources_1
+update_compile_order -fileset sim_1
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Test/riscv-tests_tb.sv] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 /home/george/Documents/work/RISCV/Toast-RV32i/Test/riscv-tests_tb.sv
+set_property SOURCE_SET sources_1 [get_filesets sim_1]
+add_files -fileset sim_1 -norecurse -scan_for_includes /home/george/Documents/work/RISCV/Toast-RV32i/Test/testbench.v
+update_compile_order -fileset sim_1
+update_compile_order -fileset sim_1
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_definitions.vh] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_definitions.vh
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Test/testbench.v] -no_script -reset -force -quiet
+remove_files  -fileset sim_1 /home/george/Documents/work/RISCV/Toast-RV32i/Test/testbench.v
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_WB_stage.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_EX_stage.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_alu.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_branchgen.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_control.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_regfile.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_definitions.vh] -no_script -reset -force -quiet
+remove_files  {/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_WB_stage.v /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.v /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.v /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.v /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_EX_stage.v /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_alu.v /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_branchgen.v /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_control.v /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.v /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_regfile.v /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.v /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_definitions.vh}
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sources_1/imports/rtl/toast_definitions.vh] -no_script -reset -force -quiet
+remove_files  /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sources_1/imports/rtl/toast_definitions.vh
+file delete -force /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/sources_1/imports/rtl/toast_definitions.vh
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/add.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/addi.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/and.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/andi.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/auipc.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/beq.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/bge.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/bgeu.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/blt.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/bltu.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/bne.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/fence_i.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/jal.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/jalr.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/lb.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/lbu.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/lh.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/lhu.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/lui.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/lw.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/or.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/ori.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sb.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sh.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sll.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/slli.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/slt.S.mem] -no_script -reset -force -quiet
+remove_files  {/home/george/Documents/work/RISCV/Toast-RV32i/Mem/add.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/addi.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/and.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/andi.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/auipc.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/beq.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/bge.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/bgeu.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/blt.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/bltu.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/bne.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/fence_i.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/jal.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/jalr.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/lb.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/lbu.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/lh.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/lhu.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/lui.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/lw.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/or.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/ori.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sb.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sh.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sll.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/slli.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/slt.S.mem}
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/slti.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sltiu.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sltu.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sra.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/srai.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/srl.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/srli.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sub.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sw.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/xor.S.mem] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Mem/xori.S.mem] -no_script -reset -force -quiet
+remove_files  {/home/george/Documents/work/RISCV/Toast-RV32i/Mem/slti.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sltiu.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sltu.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sra.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/srai.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/srl.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/srli.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sub.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/sw.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/xor.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/Mem/xori.S.mem}
+add_files -norecurse -scan_for_includes {/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v /home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_alu.v /home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_regfile.v /home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_definitions.vh /home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_MEM_stage.v /home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_control.v /home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_ID_stage.v /home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_WB_stage.v /home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_IF_stage.v /home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_EX_stage.v /home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_top.v /home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_branchgen.v}
+update_compile_order -fileset sources_1
+add_files -norecurse -scan_for_includes {/home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/slt.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/lhu.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/fence_i.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/lw.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/blt.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/beq.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/or.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/bgeu.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/bltu.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/and.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/lb.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/andi.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/sw.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/slli.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/sub.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/ori.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/lbu.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/slti.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/addi.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/jalr.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/sb.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/auipc.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/jal.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/sh.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/sll.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/sltiu.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/add.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/lui.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/srl.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/bge.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/srai.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/xor.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/lh.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/srli.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/sltu.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/xori.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/bne.S.mem /home/george/Documents/work/RISCV/Toast-RV32i/mem/hex/sra.S.mem}
