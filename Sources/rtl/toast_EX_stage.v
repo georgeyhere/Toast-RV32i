@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -22,67 +23,68 @@
 // needs to be parameterized
 
 module toast_EX_stage
+    `include "toast_definitions.vh"
     (
-    input  logic         clk_i,
-    input  logic         resetn_i,
-    input  logic         flush_i,  
-    output logic         EX_exception_o,
+    input  wire          clk_i,
+    input  wire          resetn_i,
+    input  wire          flush_i,  
+    output reg           EX_exception_o,
 
     // pipeline out
-    output logic         EX_mem_wr_en_o,     
-    output logic         EX_mem_rd_en_o,
-    output logic [3:0]   EX_mem_op_o,
+    output reg           EX_mem_wr_en_o,     
+    output reg           EX_mem_rd_en_o,
+    output reg   [3:0]   EX_mem_op_o,
      
-    output logic [31:0]  EX_rs2_data_o,
-    output logic         EX_memtoreg_o,
-    output logic         EX_rd_wr_en_o,
-    output logic [4:0]   EX_rd_addr_o,
-    output logic [4:0]   EX_rs2_addr_o,
+    output reg   [31:0]  EX_rs2_data_o,
+    output reg           EX_memtoreg_o,
+    output reg           EX_rd_wr_en_o,
+    output reg   [4:0]   EX_rd_addr_o,
+    output reg   [4:0]   EX_rs2_addr_o,
 
-    output logic [31:0]  EX_alu_result_o,
+    output reg   [31:0]  EX_alu_result_o,
      
-    output logic [31:0]  EX_pc_dest_o,
-    output logic         EX_branch_en_o,      // if asserted loads branch dest to PC
+    output reg   [31:0]  EX_pc_dest_o,
+    output reg           EX_branch_en_o,      // if asserted loads branch dest to PC
 
     // pipeline control signals; passed through
-    input  logic         ID_mem_wr_en_i,
-    input  logic         ID_mem_rd_en_i,
-    input  logic [3:0]   ID_mem_op_i,
-    input  logic         ID_memtoreg_i, 
-    input  logic         ID_rd_wr_en_i,   
-    input  logic [4:0]   ID_rd_addr_i,
-    input  logic [4:0]   ID_rs2_addr_i,
+    input  wire          ID_mem_wr_en_i,
+    input  wire          ID_mem_rd_en_i,
+    input  wire  [3:0]   ID_mem_op_i,
+    input  wire          ID_memtoreg_i, 
+    input  wire          ID_rd_wr_en_i,   
+    input  wire  [4:0]   ID_rd_addr_i,
+    input  wire  [4:0]   ID_rs2_addr_i,
     
     // for conditional branches
-    input  logic [31:0]  ID_pc_dest_i,     // branch destination from ID
-    input  logic [1:0]   ID_branch_op_i,       // [1] indicates a branch/jump
-    input  logic         ID_branch_flag_i,     // indicates to branch on 'set' or 'not set'
-    input  logic         ID_jump_en_i,         // indicates a JAL or JALR
+    input  wire  [31:0]  ID_pc_dest_i,     // branch destination from ID
+    input  wire  [1:0]   ID_branch_op_i,       // [1] indicates a branch/jump
+    input  wire          ID_branch_flag_i,     // indicates to branch on 'set' or 'not set'
+    input  wire          ID_jump_en_i,         // indicates a JAL or JALR
     
     // forwarding 
-    input  logic [1:0]   forwardA_i,  
-    input  logic [1:0]   forwardB_i,
-    input  logic [31:0]  WB_rd_wr_data_i,
+    input  wire  [1:0]   forwardA_i,  
+    input  wire  [1:0]   forwardB_i,
+    input  wire  [31:0]  WB_rd_wr_data_i,
     
     // ALU control
-    input  logic [1:0]   ID_alu_source_sel_i,  // [op2,op1] if asserted, use imm for operand
-    input  logic [3:0]   ID_alu_ctrl_i,        
+    input  wire  [1:0]   ID_alu_source_sel_i,  // [op2,op1] if asserted, use imm for operand
+    input  wire  [3:0]   ID_alu_ctrl_i,        
     
     
     // ALU operands, muxed into ALU based on control
-    input  logic [31:0]  ID_pc_i,
-    input  logic [31:0]  ID_rs1_data_i,
-    input  logic [31:0]  ID_rs2_data_i,
-    input  logic [31:0]  ID_imm1_i,
-    input  logic [31:0]  ID_imm2_i,
+    input  wire  [31:0]  ID_pc_i,
+    input  wire  [31:0]  ID_rs1_data_i,
+    input  wire  [31:0]  ID_rs2_data_i,
+    input  wire  [31:0]  ID_imm1_i,
+    input  wire  [31:0]  ID_imm2_i,
 
     // exception
-    input  logic         ID_exception_i
+    input  wire          ID_exception_i
     );
     
 
-    logic  [31:0] alu_op1, alu_op2;
-    logic  [31:0] alu_result;
+    reg  [31:0] alu_op1, alu_op2;
+    wire [31:0] alu_result;
     
     toast_alu alu_i (
     .alu_result_o   (alu_result  ),
@@ -92,7 +94,7 @@ module toast_EX_stage
     );
 
     // pipeline
-    always_ff@(posedge clk_i) begin
+    always@(posedge clk_i) begin
         // reset state is the same as NOP, all control signals set to 0
         if((resetn_i == 1'b0) || (flush_i == 1'b1)) begin 
             EX_mem_wr_en_o      <= 0;
@@ -124,7 +126,7 @@ module toast_EX_stage
     
     
     // ALU source input: op1
-    always_comb begin
+    always@* begin
         if(ID_jump_en_i == 1) begin // if JAL or JALR, perform PC+4
             alu_op1 = ID_imm1_i;
         end
@@ -149,7 +151,7 @@ module toast_EX_stage
     end
     
     // ALU source input: op2
-    always_comb begin
+    always@* begin
         if(ID_jump_en_i == 1) begin // if JAL or JALR, perform PC+4
             alu_op2 = 32'd4;
         end
@@ -175,7 +177,7 @@ module toast_EX_stage
     
     
     // branch control
-    always_ff@(posedge clk_i) begin
+    always@(posedge clk_i) begin
         if(ID_branch_op_i[1] == 1'b1) begin
             if(ID_jump_en_i == 1'b1) begin
                 EX_branch_en_o <= 0;

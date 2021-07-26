@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -18,14 +19,12 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-import toast_def_pkg ::*;
-
 `ifdef CUSTOM_DEFINE
     `include "../defines.vh"
 `endif
 
 module toast_IF_stage
-    
+    `include "toast_definitions.vh"
     `ifdef CUSTOM_DEFINE
         #(parameter REG_DATA_WIDTH  = `REG_DATA_WIDTH
           parameter IMEM_ADDR_WIDTH = `ADDR_DATA_WIDTH)
@@ -35,31 +34,31 @@ module toast_IF_stage
     `endif
 
     (
-    input  logic                            clk_i,
-    input  logic                            resetn_i,
+    input  wire                             clk_i,
+    input  wire                             resetn_i,
 
-    output logic [IMEM_ADDR_WIDTH-1:0]      IMEM_addr_o,  
-    output logic [REG_DATA_WIDTH-1:0]       IF_instruction_o,
-    output logic [REG_DATA_WIDTH-1:0]       IF_pc_o,           // PC of IF_instruction_o  
+    output reg   [IMEM_ADDR_WIDTH-1:0]      IMEM_addr_o,  
+    output reg   [REG_DATA_WIDTH-1:0]       IF_instruction_o,
+    output reg   [REG_DATA_WIDTH-1:0]       IF_pc_o,           // PC of IF_instruction_o  
   
-    input  logic [REG_DATA_WIDTH-1:0]       IMEM_data_i,       // instruction fetched from IMEM
+    input  wire  [REG_DATA_WIDTH-1:0]       IMEM_data_i,       // instruction fetched from IMEM
    
-    input  logic                            EX_branch_en_i,    // indicates branch taken (EX)
-    input  logic [REG_DATA_WIDTH-1:0]       EX_pc_dest_i,      // branch dest 
+    input  wire                             EX_branch_en_i,    // indicates branch taken (EX)
+    input  wire  [REG_DATA_WIDTH-1:0]       EX_pc_dest_i,      // branch dest 
    
-    input  logic                            ID_jump_en_i,      // jump taken (ID)
-    input  logic [REG_DATA_WIDTH-1:0]       ID_pc_dest_i,      // jump dest
+    input  wire                             ID_jump_en_i,      // jump taken (ID)
+    input  wire  [REG_DATA_WIDTH-1:0]       ID_pc_dest_i,      // jump dest
  
-    input  logic                            stall_i,        
-    input  logic                            flush_i  
+    input  wire                             stall_i,        
+    input  wire                             flush_i  
     );
 
 
 // ===========================================================================
 //                    Parameters, Registers, and Wires
 // ===========================================================================    
-    logic [31:0]  pc_next;
-    logic [31:0]  prev_instruction;
+    reg  [31:0]  pc_next;
+    reg  [31:0]  prev_instruction;
 
 // ===========================================================================
 //                              Implementation    
@@ -67,7 +66,7 @@ module toast_IF_stage
 
 
     // logic to get next PC
-    always_comb begin
+    always@* begin
         if      (ID_jump_en_i == 1)    pc_next = ID_pc_dest_i;
         else if (EX_branch_en_i == 1)  pc_next = EX_pc_dest_i;
         else if (stall_i == 1)         pc_next = IMEM_addr_o - 4;
@@ -75,7 +74,7 @@ module toast_IF_stage
     end
 
     // align fetched instructions with addr by flopping IMEM_addr
-    always_ff@(posedge clk_i) begin
+    always@(posedge clk_i) begin
         if(resetn_i == 1'b0) begin
             IMEM_addr_o      <= 0;
             IF_pc_o          <= 0;
@@ -89,7 +88,7 @@ module toast_IF_stage
     end
 
     // flush and stall logic
-    always_comb begin
+    always@* begin
         if(flush_i == 1'b1) begin
             IF_instruction_o = 0;
         end else if(stall_i == 1'b1) begin

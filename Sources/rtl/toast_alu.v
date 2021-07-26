@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -18,21 +19,20 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-import toast_def_pkg ::*;
 
 module toast_alu
-
+    `include "toast_definitions.vh"
     (
-    output logic [31:0]     alu_result_o, 
+    output reg  [31:0]     alu_result_o, 
 
-    input  logic [3:0]      alu_ctrl_i,  // controls ALU operation for current instrn
-    input  logic [31:0]     alu_op1_i,   // operand 1
-    input  logic [31:0]     alu_op2_i    // operand 2
+    input  wire [3:0]      alu_ctrl_i,  // controls ALU operation for current instrn
+    input  wire [31:0]     alu_op1_i,   // operand 1
+    input  wire [31:0]     alu_op2_i    // operand 2
     );
 
     // shamt -> alu_op2[4:0] 
    
-    always_comb begin
+    always@* begin
         // DEFAULT
         alu_result_o = 0;
 

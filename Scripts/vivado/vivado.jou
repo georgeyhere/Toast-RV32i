@@ -2,8 +2,8 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Sun Jul 25 13:11:07 2021
-# Process ID: 15271
+# Start of session at: Sun Jul 25 19:40:03 2021
+# Process ID: 3284
 # Current directory: /home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado
 # Command line: vivado
 # Log file: /home/george/Documents/work/RISCV/Toast-RV32i/Scripts/vivado/vivado.log
@@ -12,52 +12,64 @@
 start_gui
 open_project /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr
 update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_WB_stage.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_control.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_EX_stage.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv] -no_script -reset -force -quiet
+remove_files  {/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_WB_stage.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_control.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_EX_stage.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.sv}
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_regfile.sv] -no_script -reset -force -quiet
+remove_files  /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_regfile.sv
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv] -no_script -reset -force -quiet
+remove_files  /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.sv
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_alu.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_branchgen.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_def_pkg.sv] -no_script -reset -force -quiet
+remove_files  {/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_alu.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_branchgen.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_def_pkg.sv}
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv] -no_script -reset -force -quiet
+remove_files  {/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv}
+add_files -norecurse -scan_for_includes /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_definitions.vh
+add_files -norecurse -scan_for_includes /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_alu.v
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_definitions.vh] -no_script -reset -force -quiet
+remove_files  /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_definitions.vh
+add_files -norecurse -scan_for_includes /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_definitions.vh
+import_files -norecurse /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_definitions.vh
+update_compile_order -fileset sources_1
+set_property include_dirs /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl [current_fileset]
+add_files -norecurse -scan_for_includes {/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_control.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_branchgen.v}
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_branchgen.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_control.sv] -no_script -reset -force -quiet
+remove_files  {/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_branchgen.v /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_control.sv}
+add_files -norecurse -scan_for_includes {/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_control.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_branchgen.v}
+update_compile_order -fileset sources_1
+export_ip_user_files -of_objects  [get_files /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_control.sv] -no_script -reset -force -quiet
+remove_files  /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_control.sv
+add_files -norecurse -scan_for_includes {/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_ID_stage.v /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_control.v /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_EX_stage.v /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_decoder.v}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+add_files -norecurse -scan_for_includes {/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_WB_stage.v /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_IF_stage.v /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_MEM_stage.v /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_top.v /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_regfile.v}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
+launch_simulation
 launch_simulation
 open_wave_config /home/george/Documents/work/RISCV/RISCV_Project/riscvTests_tb_behav.wcfg
 source riscvTests_tb.tcl
-sorce rvTest.tcl
-source rvTest.tcl
-run 1000 ns
-restart
-open_vcd
-close_vcd
-open_vcd
-log_vcd /riscvTests_tb/*
-run 2000 ns
-run 1000 ns
-close_vcd
-source rvTest.tcl
-source rvTest.tcl
-source rvTest.tcl
-source rvTest.tcl
-source rvTest.tcl
-source rvTest.tcl
-source rvTest.tcl
-source rvTest.tcl
-source rvTest.tcl
-source rvTest.tcl
-source rvTest.tcl
-source rvTest.tcl
-source rvTest.tcl
 source rvTest.tcl
 close_sim
-reset_run synth_1
-launch_runs synth_1 -jobs 8
-wait_on_run synth_1
-source rvTest.tcl
-launch_simulation
-open_wave_config /home/george/Documents/work/RISCV/RISCV_Project/riscvTests_tb_behav.wcfg
-source riscvTests_tb.tcl
-source rvTest.tcl
-source rvTest.tcl
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-set_property is_enabled false [get_files  {/home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_forwarder.sv /home/george/Documents/work/RISCV/Toast-RV32i/Sources/rtl/toast_hazards.sv}]
-source rvTest.tcl
-source rvTest.tcl
-source rvTest.tcl
-reset_run synth_1
-launch_runs synth_1 -jobs 8
-wait_on_run synth_1
-close_sim
-synth_design -rtl -rtl_skip_mlo -name rtl_1

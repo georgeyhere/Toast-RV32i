@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -19,7 +20,6 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 
-import toast_def_pkg ::*;
 /*
 Handles reads and writes to data memory. Data memory is assumed to be
  a true dual-port RAM. 
@@ -28,41 +28,41 @@ Misaligned memory access is not supported.
 */
 
 module toast_MEM_stage
-
+    `include "toast_definitions.vh"
     (
-    input  logic              clk_i,
-    input  logic              resetn_i,
+    input  wire               clk_i,
+    input  wire               resetn_i,
 
     // TO DATA MEMORY
-    output logic [31:0]       DMEM_addr_o,       // data mem address
-    output logic [3:0]        DMEM_wr_byte_en_o, // byte write enables
-    output logic [31:0]       DMEM_wr_data_o,    // data mem write data
-    output logic              DMEM_rst_o,        // data mem read port reset
+    output reg   [31:0]       DMEM_addr_o,       // data mem address
+    output reg   [3:0]        DMEM_wr_byte_en_o, // byte write enables
+    output reg   [31:0]       DMEM_wr_data_o,    // data mem write data
+    output reg                DMEM_rst_o,        // data mem read port reset
           
     // PIPELINE OUT          
-    output logic [31:0]       MEM_dout_o,        // data mem read data, mask applied
-    output logic              MEM_memtoreg_o,    
-    output logic [31:0]       MEM_alu_result_o,  // ALU result, passed through
-    output logic              MEM_rd_wr_en_o,    // passed through from EX, used for forwarding/stall logic
-    output logic [4:0]        MEM_rd_addr_o,     // passed through from EX
-    output logic              MEM_exception_o,   // triggered on misaligned store
+    output reg   [31:0]       MEM_dout_o,        // data mem read data, mask applied
+    output reg                MEM_memtoreg_o,    
+    output reg   [31:0]       MEM_alu_result_o,  // ALU result, passed through
+    output reg                MEM_rd_wr_en_o,    // passed through from EX, used for forwarding/stall logic
+    output reg   [4:0]        MEM_rd_addr_o,     // passed through from EX
+    output reg                MEM_exception_o,   // triggered on misaligned store
 
     // FROM DATA MEMORY
-    input  logic  [31:0]      DMEM_rd_data_i,    // data mem read data
+    input  wire  [31:0]       DMEM_rd_data_i,    // data mem read data
 
     // FORWARDING
-    input  logic              ForwardM_i,        // forward write data from MEM/WB
+    input  wire               ForwardM_i,        // forward write data from MEM/WB
 
     // PIPELINE IN
-    input  logic              EX_mem_wr_en_i,    // enables data mem write
-    input  logic  [3:0]       EX_mem_op_i,       // select data mem mask, flopped locally for loads 
-    input  logic              EX_memtoreg_i,     // passed through, enables WB to regfile
-    input  logic  [31:0]      EX_alu_result_i,   // used for memory write/read address
-    input  logic  [31:0]      EX_rs2_data_i,     // data to be copied to data mem on store instrn
-
-    input  logic              EX_rd_wr_en_i,     // passed through, enables write to regfile[rd]
-    input  logic  [4:0]       EX_rd_addr_i,      // passed through
-    input  logic              EX_exception_i     // passed through
+    input  wire               EX_mem_wr_en_i,    // enables data mem write
+    input  wire  [3:0]        EX_mem_op_i,       // select data mem mask, flopped locally for loads 
+    input  wire               EX_memtoreg_i,     // passed through, enables WB to regfile
+    input  wire  [31:0]       EX_alu_result_i,   // used for memory write/read address
+    input  wire  [31:0]       EX_rs2_data_i,     // data to be copied to data mem on store instrn
+ 
+    input  wire               EX_rd_wr_en_i,     // passed through, enables write to regfile[rd]
+    input  wire  [4:0]        EX_rd_addr_i,      // passed through
+    input  wire               EX_exception_i     // passed through
     );
     
 
@@ -72,12 +72,12 @@ module toast_MEM_stage
 
     // these are asserted if misaligned store detected
     // if asserted, trigger an exception
-    logic        misaligned_store; 
+    reg        misaligned_store; 
 
-    logic [31:0] wr_data;
-    logic [3:0]  byte_en;
-    logic [3:0]  mem_op;
-    logic [1:0]  byte_addr;
+    reg [31:0] wr_data;
+    reg [3:0]  byte_en;
+    reg [3:0]  mem_op;
+    reg [1:0]  byte_addr;
 
 // ===========================================================================
 //                              Implementation    
@@ -86,7 +86,7 @@ module toast_MEM_stage
     //*********************************    
     //          PIPELINE OUT
     //*********************************
-    always_ff@(posedge clk_i) begin
+    always@(posedge clk_i) begin
         if(resetn_i == 1'b0) begin
             MEM_memtoreg_o      <= 0;
             MEM_alu_result_o    <= 0;
@@ -107,7 +107,7 @@ module toast_MEM_stage
     //*********************************    
     //    DATA MEM CNTRL SIGNALS
     //*********************************
-    always_comb begin
+    always@* begin
         DMEM_addr_o       = {EX_alu_result_i[31:2], 2'b0}; 
         DMEM_rst_o        = ~resetn_i;
         DMEM_wr_byte_en_o = (EX_mem_wr_en_i == 1'b1) ? byte_en : 4'b0;
@@ -117,7 +117,7 @@ module toast_MEM_stage
     //*********************************    
     //    DATA MEM WR SOURCE SELECT
     //*********************************
-    always_comb begin
+    always@* begin
         wr_data = (ForwardM_i) ? MEM_alu_result_o : EX_rs2_data_i;
     end
 
@@ -125,7 +125,7 @@ module toast_MEM_stage
     //*********************************    
     //        DATA MEM STORES
     //*********************************
-    always_comb begin
+    always@* begin
         // DEFAULTS:
         DMEM_wr_data_o        = 32'bx;
         misaligned_store = 0;
@@ -186,7 +186,7 @@ module toast_MEM_stage
     // need to flop: 1) memory operation and 2) byte address
 
     // flop mem_op and EX_alu_result_i 
-    always_ff @(posedge clk_i) begin
+    always@(posedge clk_i) begin
         if(resetn_i == 1'b0) begin
             mem_op    <= 0;
             byte_addr <= 0;
@@ -197,7 +197,7 @@ module toast_MEM_stage
     end
 
     // combinatorial logic to 'snipe' the bits we want
-    always_comb begin
+    always@* begin
         case(mem_op)
             `MEM_LB: begin
                 case(byte_addr)

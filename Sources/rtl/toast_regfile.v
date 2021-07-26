@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -18,8 +19,6 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-import toast_def_pkg ::*;
-
 `ifdef CUSTOM_DEFINE
     `include "../defines.vh"
 `endif
@@ -27,6 +26,7 @@ import toast_def_pkg ::*;
 // synthesized as FFs
 
 module toast_regfile
+    `include "toast_definitions.vh"
     `ifdef CUSTOM_DEFINE
         #(parameter REG_DATA_WIDTH      = `REG_DATA_WIDTH,
           parameter REGFILE_ADDR_WIDTH  = `REGFILE_ADDR_WIDTH
@@ -40,18 +40,18 @@ module toast_regfile
     `endif
     
     (
-    input  logic                             clk_i,
-    input  logic                             resetn_i,
+    input  wire                              clk_i,
+    input  wire                              resetn_i,
 
-    output logic   [REG_DATA_WIDTH-1 :0]     rs1_data_o,
-    output logic   [REG_DATA_WIDTH-1 :0]     rs2_data_o,
+    output wire    [REG_DATA_WIDTH-1 :0]     rs1_data_o,
+    output wire    [REG_DATA_WIDTH-1 :0]     rs2_data_o,
     
-    input  logic   [REGFILE_ADDR_WIDTH-1 :0] rs1_addr_i, 
-    input  logic   [REGFILE_ADDR_WIDTH-1 :0] rs2_addr_i,
+    input  wire    [REGFILE_ADDR_WIDTH-1 :0] rs1_addr_i, 
+    input  wire    [REGFILE_ADDR_WIDTH-1 :0] rs2_addr_i,
  
-    input  logic   [REGFILE_ADDR_WIDTH-1 :0] rd_addr_i,    
-    input  logic   [REG_DATA_WIDTH-1 :0]     rd_wr_data_i,
-    input  logic                             rd_wr_en_i
+    input  wire    [REGFILE_ADDR_WIDTH-1 :0] rd_addr_i,    
+    input  wire    [REG_DATA_WIDTH-1 :0]     rd_wr_data_i,
+    input  wire                              rd_wr_en_i
     );
 
     
@@ -79,19 +79,19 @@ module toast_regfile
                          (rd_wr_en_i == 1'b1))     
                          ? rd_wr_data_i : regfile_data[rs2_addr_i];
 
-
+    integer i;
 
     // set all registers to 0 on initialization
     initial begin
-        for(int i=0; i<REGFILE_DEPTH-1; i++) begin
+        for(i=0; i<REGFILE_DEPTH-1; i=i+1) begin
             regfile_data[i] <= 0;
         end      
     end
     
     // synchronous process for writes
-    always_ff@(posedge clk_i) begin
+    always@(posedge clk_i) begin
         if(resetn_i == 1'b0) begin
-            for(int i=0; i<REGFILE_DEPTH-1; i++) begin
+            for(i=0; i<REGFILE_DEPTH-1; i=i+1) begin
                 regfile_data[i] <= 0;
             end       
         end
@@ -99,9 +99,11 @@ module toast_regfile
             if((rd_wr_en_i == 1'b1) && (rd_addr_i != 0)) begin
                 regfile_data[rd_addr_i] <= rd_wr_data_i;
             end
+            /*
             else begin
                 regfile_data <= regfile_data;
             end
+            */
         end
     end
     

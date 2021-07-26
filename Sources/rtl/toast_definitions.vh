@@ -22,8 +22,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 
-package toast_def_pkg;
-    
+`ifndef toast_definitions
+`define toast_definitions
+
     // OPCODES
     `define OPCODE_OP          7'b0110011  
     `define OPCODE_OP_IMM      7'b0010011
@@ -116,9 +117,6 @@ package toast_def_pkg;
     `define MEM_SH            4'b0100
     `define MEM_SW            4'b0101
 
-    
-
-
-endpackage
+`endif
 
 

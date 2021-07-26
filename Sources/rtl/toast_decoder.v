@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -19,7 +20,6 @@
 // 
 // Drives Control signals and generates immediate
 //////////////////////////////////////////////////////////////////////////////////
-import toast_def_pkg ::*;
 
 /*
 This module integrates the functions of a decoder and a control module. Models
@@ -42,7 +42,7 @@ It drives the control signals for:
        
 */
 module toast_decoder 
-    
+    `include "toast_definitions.vh"
     `ifdef CUSTOM_DEFINE
         #(parameter REG_DATA_WIDTH      = `REG_DATA_WIDTH,
           parameter REGFILE_ADDR_WIDTH  = `REGFILE_ADDR_WIDTH
@@ -60,47 +60,47 @@ module toast_decoder
     (
 //*************************************************
     // REGFILE ADDRESSES
-    output logic [4:0]                      rd_addr_o,        // regfile write addr
-    output logic [4:0]                      rs1_addr_o,       // referenced rs1 addr
-    output logic [4:0]                      rs2_addr_o,       // referenced rs2 addr
+    output reg   [4:0]                      rd_addr_o,        // regfile write addr
+    output reg   [4:0]                      rs1_addr_o,       // referenced rs1 addr
+    output reg   [4:0]                      rs2_addr_o,       // referenced rs2 addr
     
     // ALU OPERANDS
-    output logic [REG_DATA_WIDTH-1 :0]      imm1_o,           // imm for alu operand1
-    output logic [REG_DATA_WIDTH-1 :0]      imm2_o,           // imm for alu operand2
+    output reg   [REG_DATA_WIDTH-1 :0]      imm1_o,           // imm for alu operand1
+    output reg   [REG_DATA_WIDTH-1 :0]      imm2_o,           // imm for alu operand2
     
     // CONTROL SIGNALS    
-    output logic [1:0]                      alu_source_sel_o, // [1] -> op1 [2] -> op2  || gets imm
-    output logic [3:0]                      alu_op_o,         // alu operation to perform
-    output logic [1:0]                      branch_op_o,      // branch gen operation to perform
-    output logic                            branch_flag_o,    // execute branch on ALU 'set' or 'not set'
-    output logic                            mem_wr_en_o,      // enable data mem wr
-    output logic                            mem_rd_en_o,      // indicates data mem load
-    output logic                            rd_wr_en_o,       // enable regfile writeback 
-    output logic                            memtoreg_o,       // enable regfile writeback from data mem
-    output logic                            jump_en_o,        // indicates a jump
-    output logic [3:0]                      mem_op_o,         // selects memory mask for load/store
-    output logic                            exception_o,
+    output reg   [1:0]                      alu_source_sel_o, // [1] -> op1 [2] -> op2  || gets imm
+    output reg   [3:0]                      alu_op_o,         // alu operation to perform
+    output reg   [1:0]                      branch_op_o,      // branch gen operation to perform
+    output reg                              branch_flag_o,    // execute branch on ALU 'set' or 'not set'
+    output reg                              mem_wr_en_o,      // enable data mem wr
+    output reg                              mem_rd_en_o,      // indicates data mem load
+    output reg                              rd_wr_en_o,       // enable regfile writeback 
+    output reg                              memtoreg_o,       // enable regfile writeback from data mem
+    output reg                              jump_en_o,        // indicates a jump
+    output reg   [3:0]                      mem_op_o,         // selects memory mask for load/store
+    output reg                              exception_o,
 
 //*************************************************
     // IF STAGE
-    input  logic [REG_DATA_WIDTH-1 :0]      instruction_i,    // fetched instruction from IF
-    input  logic [31:0]                     pc_i              // corresponding PC value
+    input  wire  [REG_DATA_WIDTH-1 :0]      instruction_i,    // fetched instruction from IF
+    input  wire  [31:0]                     pc_i              // corresponding PC value
 //*************************************************
     );
     
 // ===========================================================================
 // 			          Parameters, Registers, and Wires
 // ===========================================================================
-    logic [6:0]  OPCODE; 
-    logic [4:0]  RD;     
-    logic [3:0]  FUNCT3; 
-    logic        FUNCT7; 
+    reg [6:0]  OPCODE; 
+    reg [4:0]  RD;     
+    reg [3:0]  FUNCT3; 
+    reg        FUNCT7; 
     
-    logic [31:0] IMM_I; // I-type immediate
-    logic [31:0] IMM_S; // S-type immediate
-    logic [31:0] IMM_B; // SB-type immediate
-    logic [31:0] IMM_U; // U-type immediate
-    logic [31:0] IMM_J; // J-type immediate
+    reg [31:0] IMM_I; // I-type immediate
+    reg [31:0] IMM_S; // S-type immediate
+    reg [31:0] IMM_B; // SB-type immediate
+    reg [31:0] IMM_U; // U-type immediate
+    reg [31:0] IMM_J; // J-type immediate
 
    
 // ===========================================================================
@@ -108,7 +108,7 @@ module toast_decoder
 // ===========================================================================
     
     // Instruction Decoding; combinatorial 
-    always_comb begin
+    always@* begin
         OPCODE      = instruction_i[6:0];
         FUNCT3      = instruction_i[14:12];
         FUNCT7      = instruction_i[30];
@@ -121,7 +121,7 @@ module toast_decoder
     end
     
     // Combinatorial process to decode instructions
-    always_comb begin
+    always@* begin
         // DEFAULT 
         imm1_o           = 32'b0; 
         imm2_o           = 32'b0;
@@ -314,6 +314,6 @@ module toast_decoder
             
         endcase   
 
-    end // end always_comb
+    end // end always@*
     
 endmodule

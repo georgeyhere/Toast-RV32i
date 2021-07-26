@@ -1,4 +1,5 @@
 `timescale 1ns / 1ps
+`default_nettype none
 //////////////////////////////////////////////////////////////////////////////////
 // Company: 
 // Engineer: 
@@ -36,22 +37,22 @@ module toast_top
     `endif
     (
     // Clock and Reset
-    input  logic            clk_i,
-    input  logic            resetn_i,   
+    input  wire              clk_i,
+    input  wire              resetn_i,   
 
     // Data memory interface
-    output logic [3:0]      DMEM_wr_byte_en_o,
-    output logic [31:0]     DMEM_addr_o,
-    output logic [31:0]     DMEM_wr_data_o,
-    input  logic [31:0]     DMEM_rd_data_i,
-    output logic            DMEM_rst_o,
+    output wire   [3:0]      DMEM_wr_byte_en_o,
+    output wire   [31:0]     DMEM_addr_o,
+    output wire   [31:0]     DMEM_wr_data_o,
+    input  wire   [31:0]     DMEM_rd_data_i,
+    output wire              DMEM_rst_o,
 
     // Instruction memory interface
-    input  logic [31:0]     IMEM_data_i,
-    output logic [31:0]     IMEM_addr_o,
+    input  wire   [31:0]     IMEM_data_i,
+    output wire   [31:0]     IMEM_addr_o,
     
     // ECALL, EBREAK, misaligned store indicator
-    output logic            exception_o
+    output wire              exception_o
     );
 
 // ===========================================================================
@@ -59,103 +60,72 @@ module toast_top
 // ===========================================================================    
     
     // forwarding
-    logic [1:0]                     forwardA;
-    logic [1:0]                     forwardB;
-    logic                           forwardM;
+    wire [1:0]                     forwardA;
+    wire [1:0]                     forwardB;
+    wire                           forwardM;
      
     // stalls and flushes     
-    logic                           stall_IF_ID;
-    logic                           flush_IF_ID;
-    logic                           flush_EX;
+    wire                           stall_IF_ID;
+    wire                           flush_IF_ID;
+    wire                           flush_EX;
      
     // IF     
-    logic [REG_DATA_WIDTH-1:0]      IF_instruction;
-    logic [REG_DATA_WIDTH-1:0]      IF_pc;
+    wire [REG_DATA_WIDTH-1:0]      IF_instruction;
+    wire [REG_DATA_WIDTH-1:0]      IF_pc;
 
     // ID
-    logic [REG_DATA_WIDTH-1:0]      ID_pc;
-    logic [1:0]                     ID_alu_source_sel;
-    logic [ALU_OP_WIDTH-1 :0]       ID_alu_ctrl;
-    logic [1:0]                     ID_branch_op;
-    logic                           ID_branch_flag;
-    logic                           ID_mem_wr_en;
-    logic                           ID_mem_rd_en;
-    logic                           ID_rd_wr_en;
-    logic                           ID_memtoreg;
-    logic                           ID_jump_en;
-    logic [3:0]                     ID_mem_op;
-    logic [REG_DATA_WIDTH-1:0]      ID_pc_dest;
-    logic [REG_DATA_WIDTH-1 :0]     ID_imm1;
-    logic [REG_DATA_WIDTH-1 :0]     ID_imm2;
-    logic [REG_DATA_WIDTH-1 :0]     ID_rs1_data;
-    logic [REG_DATA_WIDTH-1 :0]     ID_rs2_data;
-    logic [REGFILE_ADDR_WIDTH-1:0]  ID_rd_addr;
-    logic [REGFILE_ADDR_WIDTH-1:0]  ID_rs1_addr;
-    logic [REGFILE_ADDR_WIDTH-1:0]  ID_rs2_addr;
-    logic                           ID_exception;
+    wire [REG_DATA_WIDTH-1:0]      ID_pc;
+    wire [1:0]                     ID_alu_source_sel;
+    wire [ALU_OP_WIDTH-1 :0]       ID_alu_ctrl;
+    wire [1:0]                     ID_branch_op;
+    wire                           ID_branch_flag;
+    wire                           ID_mem_wr_en;
+    wire                           ID_mem_rd_en;
+    wire                           ID_rd_wr_en;
+    wire                           ID_memtoreg;
+    wire                           ID_jump_en;
+    wire [3:0]                     ID_mem_op;
+    wire [REG_DATA_WIDTH-1:0]      ID_pc_dest;
+    wire [REG_DATA_WIDTH-1 :0]     ID_imm1;
+    wire [REG_DATA_WIDTH-1 :0]     ID_imm2;
+    wire [REG_DATA_WIDTH-1 :0]     ID_rs1_data;
+    wire [REG_DATA_WIDTH-1 :0]     ID_rs2_data;
+    wire [REGFILE_ADDR_WIDTH-1:0]  ID_rd_addr;
+    wire [REGFILE_ADDR_WIDTH-1:0]  ID_rs1_addr;
+    wire [REGFILE_ADDR_WIDTH-1:0]  ID_rs2_addr;
+    wire                           ID_exception;
 
     // EX
-    logic                           EX_exception;
-    logic                           EX_mem_wr_en;
-    logic                           EX_mem_rd_en;
-    logic [3:0]                     EX_mem_op;
-    logic [REG_DATA_WIDTH-1:0]      EX_rs2_data;
-    logic                           EX_memtoreg;
-    logic                           EX_rd_wr_en;
-    logic [REGFILE_ADDR_WIDTH-1:0]  EX_rd_addr;
-    logic [REGFILE_ADDR_WIDTH-1:0]  EX_rs2_addr;
-    logic [REG_DATA_WIDTH-1:0]      EX_alu_result;
-    logic [REG_DATA_WIDTH-1:0]      EX_pc_dest;
-    logic                           EX_branch_en;
+    wire                           EX_exception;
+    wire                           EX_mem_wr_en;
+    wire                           EX_mem_rd_en;
+    wire [3:0]                     EX_mem_op;
+    wire [REG_DATA_WIDTH-1:0]      EX_rs2_data;
+    wire                           EX_memtoreg;
+    wire                           EX_rd_wr_en;
+    wire [REGFILE_ADDR_WIDTH-1:0]  EX_rd_addr;
+    wire [REGFILE_ADDR_WIDTH-1:0]  EX_rs2_addr;
+    wire [REG_DATA_WIDTH-1:0]      EX_alu_result;
+    wire [REG_DATA_WIDTH-1:0]      EX_pc_dest;
+    wire                           EX_branch_en;
 
     // MEM
-    logic [REG_DATA_WIDTH-1:0]      MEM_dout;
-    logic                           MEM_memtoreg;
-    logic [REG_DATA_WIDTH-1:0]      MEM_alu_result;
-    logic                           MEM_rd_wr_en;
-    logic [REGFILE_ADDR_WIDTH-1:0]  MEM_rd_addr;
+    wire [REG_DATA_WIDTH-1:0]      MEM_dout;
+    wire                           MEM_memtoreg;
+    wire [REG_DATA_WIDTH-1:0]      MEM_alu_result;
+    wire                           MEM_rd_wr_en;
+    wire [REGFILE_ADDR_WIDTH-1:0]  MEM_rd_addr;
 
     // WB
-    logic [REGFILE_ADDR_WIDTH-1:0]  WB_rd_addr;
-    logic [REG_DATA_WIDTH-1:0]      WB_rd_wr_data;
-    logic                           WB_rd_wr_en;
+    wire [REGFILE_ADDR_WIDTH-1:0]  WB_rd_addr;
+    wire [REG_DATA_WIDTH-1:0]      WB_rd_wr_data;
+    wire                           WB_rd_wr_en;
 
 
 // ===========================================================================
 //                                 Instantiation
 // ===========================================================================    
-    /*
-    toast_forwarder fwd_i (
-        .forwardA_o          (forwardA),
-        .forwardB_o          (forwardB),
-        .forwardM_o          (forwardM),
-
-        .ID_alu_source_sel_i (ID_alu_source_sel),
-        .ID_rs1_addr_i       (ID_rs1_addr),
-        .ID_rs2_addr_i       (ID_rs2_addr),
-        .ID_rd_addr_i        (ID_rd_addr),
-        .EX_rd_addr_i        (EX_rd_addr),
-        .EX_rs2_addr_i       (EX_rs2_addr),
-        .MEM_rd_addr_i       (MEM_rd_addr),
-        .EX_rd_wr_en_i       (EX_rd_wr_en),
-        .MEM_rd_wr_en_i      (MEM_rd_wr_en)
-    );
-
-    toast_hazards hzd_i (
-        .clk_i               (clk_i),
-        .resetn_i            (resetn_i),
-
-        .stall_o             (stall_IF_ID),
-        .IF_ID_flush_o       (flush_IF_ID),
-        .EX_flush_o          (flush_EX),
-
-        .IF_instruction_i    (IF_instruction),
-        .ID_mem_rd_en_i      (ID_mem_rd_en),
-        .ID_rd_addr_i        (ID_rd_addr),
-        .EX_branch_en_i      (EX_branch_en),
-        .ID_jump_en_i        (ID_jump_en)
-    );
-    */
+   
     //*********************************    
     //            CONTROL
     //*********************************
