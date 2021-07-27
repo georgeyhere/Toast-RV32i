@@ -25,10 +25,6 @@
 
 <h1> Files in this Repository </h1>
 
-__Makefile__
-
-Run ```make test``` to compile, link and convert riscv-tests to hex memory files and run the entire battery of tests. Memory generation requires a 32-bit riscv-unknown-elf toolchain installed at /opt/riscv32i, and the testbench is ran using Icarus Verilog. See the Makefile targets for more details.
-
 __/docs__
 - Contains datapath diagrams and notes, wip
 
