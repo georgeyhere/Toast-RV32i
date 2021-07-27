@@ -1,6 +1,6 @@
 # Toast-RV32i
 
-- Toast is a RISC-V soft core written in Verilog that implements a subset of the RV32I ISA.
+- Toast is a RISC-V soft core written in Verilog that implements a subset of the [RV32I ISA version 2.2](https://riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf).
 
 - Goals: 
 
