@@ -13,13 +13,13 @@ WORKINGDIR = $(shell pwd)
 
 TOAST_MODULES = $(shell ls $(WORKINGDIR)/rtl/*.{v,vh})
 
-TOAST_TESTBENCH = $(WORKINGDIR)/test/testbench.v
+TOAST_TESTBENCH = $(WORKINGDIR)/testbench.v
 RVTEST_MEMS = $(shell ls $(WORKINGDIR)/mem/hex/*.hex)
 
 test: testbench.vvp 
 	@echo "##############################################################"
 	@echo "Running testbench.vvp"
-	$(VVP) -N $< $(RVTEST_MEMS)
+	$(VVP) -N $< $(RVTEST_MEMS) -I$(WORKINGDIR)/mem/hex
 	@echo ""
 	@echo ""
 

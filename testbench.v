@@ -157,54 +157,54 @@ module riscvTests_tb();
         case(TEST_TO_RUN)
 
             // R-R [0:9] 
-            `RR_ADD:  $readmemh("add.S.hex"  ,MEMORY);
-            `RR_SUB:  $readmemh("sub.S.hex"  ,MEMORY);
-            `RR_AND:  $readmemh("and.S.hex"  ,MEMORY);
-            `RR_OR:   $readmemh("or.S.hex"   ,MEMORY);
-            `RR_XOR:  $readmemh("xor.S.hex"  ,MEMORY);
-            `RR_SLT:  $readmemh("slt.S.hex"  ,MEMORY);
-            `RR_SLTU: $readmemh("sltu.S.hex" ,MEMORY);
-            `RR_SLL:  $readmemh("sll.S.hex"  ,MEMORY);
-            `RR_SRL:  $readmemh("srl.S.hex"  ,MEMORY);
-            `RR_SRA:  $readmemh("sra.S.hex"  ,MEMORY);
+            `RR_ADD:  $readmemh("mem/hex/add.S.hex"  ,MEMORY);
+            `RR_SUB:  $readmemh("mem/hex/sub.S.hex"  ,MEMORY);
+            `RR_AND:  $readmemh("mem/hex/and.S.hex"  ,MEMORY);
+            `RR_OR:   $readmemh("mem/hex/or.S.hex"   ,MEMORY);
+            `RR_XOR:  $readmemh("mem/hex/xor.S.hex"  ,MEMORY);
+            `RR_SLT:  $readmemh("mem/hex/slt.S.hex"  ,MEMORY);
+            `RR_SLTU: $readmemh("mem/hex/sltu.S.hex" ,MEMORY);
+            `RR_SLL:  $readmemh("mem/hex/sll.S.hex"  ,MEMORY);
+            `RR_SRL:  $readmemh("mem/hex/srl.S.hex"  ,MEMORY);
+            `RR_SRA:  $readmemh("mem/hex/sra.S.hex"  ,MEMORY);
     
             // R-I [10:17]
-            `I_ADDI:  $readmemh("addi.S.hex" ,MEMORY);
-            `I_ANDI:  $readmemh("andi.S.hex" ,MEMORY);
-            `I_ORI:   $readmemh("ori.S.hex"  ,MEMORY);
-            `I_XORI:  $readmemh("xori.S.hex" ,MEMORY);
-            `I_SLTI:  $readmemh("slti.S.hex" ,MEMORY);
-            `I_SLLI:  $readmemh("slli.S.hex" ,MEMORY);
-            `I_SRLI:  $readmemh("srli.S.hex" ,MEMORY);
-            `I_SRAI:  $readmemh("srai.S.hex" ,MEMORY);
+            `I_ADDI:  $readmemh("mem/hex/addi.S.hex" ,MEMORY);
+            `I_ANDI:  $readmemh("mem/hex/andi.S.hex" ,MEMORY);
+            `I_ORI:   $readmemh("mem/hex/ori.S.hex"  ,MEMORY);
+            `I_XORI:  $readmemh("mem/hex/xori.S.hex" ,MEMORY);
+            `I_SLTI:  $readmemh("mem/hex/slti.S.hex" ,MEMORY);
+            `I_SLLI:  $readmemh("mem/hex/slli.S.hex" ,MEMORY);
+            `I_SRLI:  $readmemh("mem/hex/srli.S.hex" ,MEMORY);
+            `I_SRAI:  $readmemh("mem/hex/srai.S.hex" ,MEMORY);
             
             // Conditional Branches [18:23]
-            `B_BEQ:   $readmemh("beq.S.hex"  ,MEMORY);
-            `B_BNE:   $readmemh("bne.S.hex"  ,MEMORY);
-            `B_BLT:   $readmemh("blt.S.hex"  ,MEMORY);
-            `B_BGE:   $readmemh("bge.S.hex"  ,MEMORY);
-            `B_BLTU:  $readmemh("bltu.S.hex" ,MEMORY);
-            `B_BGEU:  $readmemh("bgeu.S.hex" ,MEMORY);
+            `B_BEQ:   $readmemh("mem/hex/beq.S.hex"  ,MEMORY);
+            `B_BNE:   $readmemh("mem/hex/bne.S.hex"  ,MEMORY);
+            `B_BLT:   $readmemh("mem/hex/blt.S.hex"  ,MEMORY);
+            `B_BGE:   $readmemh("mem/hex/bge.S.hex"  ,MEMORY);
+            `B_BLTU:  $readmemh("mem/hex/bltu.S.hex" ,MEMORY);
+            `B_BGEU:  $readmemh("mem/hex/bgeu.S.hex" ,MEMORY);
 
             // Upper Imm [24:25]
-            `UI_LUI:  $readmemh("lui.S.hex"  ,MEMORY);
-            `UI_AUIPC:$readmemh("auipc.S.hex",MEMORY);
+            `UI_LUI:  $readmemh("mem/hex/lui.S.hex"  ,MEMORY);
+            `UI_AUIPC:$readmemh("mem/hex/auipc.S.hex",MEMORY);
 
             // Jumps [26:27]
-            `J_JAL:   $readmemh("jal.S.hex"  ,MEMORY);
-            `J_JALR:  $readmemh("jalr.S.hex" ,MEMORY);
+            `J_JAL:   $readmemh("mem/hex/jal.S.hex"  ,MEMORY);
+            `J_JALR:  $readmemh("mem/hex/jalr.S.hex" ,MEMORY);
 
             // Loads [28:32]
-            `L_LB:    $readmemh("lb.S.hex"   ,MEMORY);
-            `L_LH:    $readmemh("lh.S.hex"   ,MEMORY);
-            `L_LW:    $readmemh("lw.S.hex"   ,MEMORY);
-            `L_LBU:   $readmemh("lbu.S.hex"  ,MEMORY);
-            `L_LHU:   $readmemh("lhu.S.hex"  ,MEMORY);
+            `L_LB:    $readmemh("mem/hex/lb.S.hex"   ,MEMORY);
+            `L_LH:    $readmemh("mem/hex/lh.S.hex"   ,MEMORY);
+            `L_LW:    $readmemh("mem/hex/lw.S.hex"   ,MEMORY);
+            `L_LBU:   $readmemh("mem/hex/lbu.S.hex"  ,MEMORY);
+            `L_LHU:   $readmemh("mem/hex/lhu.S.hex"  ,MEMORY);
             
             // Stores [33:35]
-            `S_SB:    $readmemh("sb.S.hex"   ,MEMORY);
-            `S_SH:    $readmemh("sh.S.hex"   ,MEMORY);
-            `S_SW:    $readmemh("sw.S.hex"   ,MEMORY);
+            `S_SB:    $readmemh("mem/hex/sb.S.hex"   ,MEMORY);
+            `S_SH:    $readmemh("mem/hex/sh.S.hex"   ,MEMORY);
+            `S_SW:    $readmemh("mem/hex/sw.S.hex"   ,MEMORY);
 
         endcase
     end
