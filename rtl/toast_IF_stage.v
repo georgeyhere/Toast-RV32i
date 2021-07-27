@@ -58,7 +58,6 @@ module toast_IF_stage
 //                    Parameters, Registers, and Wires
 // ===========================================================================    
     reg  [31:0]  pc_next;
-    reg  [31:0]  prev_instruction;
 
 // ===========================================================================
 //                              Implementation    
@@ -78,21 +77,20 @@ module toast_IF_stage
         if(resetn_i == 1'b0) begin
             IMEM_addr_o      <= 0;
             IF_pc_o          <= 0;
-            prev_instruction <= 0;
+            
         end
         else begin
             IMEM_addr_o      <= pc_next;
-            IF_pc_o          <= (stall_i == 1'b1) ? IF_pc_o : IMEM_addr_o; 
-            prev_instruction <= IF_instruction_o;
+            IF_pc_o          <= (stall_i == 1'b1) ? IF_pc_o : IMEM_addr_o;
+            
         end  
     end
+
 
     // flush and stall logic
     always@* begin
         if(flush_i == 1'b1) begin
             IF_instruction_o = 0;
-        end else if(stall_i == 1'b1) begin
-            IF_instruction_o = prev_instruction;
         end else begin
             IF_instruction_o = IMEM_data_i;          
         end

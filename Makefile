@@ -16,17 +16,31 @@ TOAST_MODULES = $(shell ls $(WORKINGDIR)/rtl/*.{v,vh})
 TOAST_TESTBENCH = $(WORKINGDIR)/testbench.v
 RVTEST_MEMS = $(shell ls $(WORKINGDIR)/mem/hex/*.hex)
 
-test: testbench.vvp 
+
+
+IVLG_FLAGS += -Wall
+
+
+
+alltests: testbench.vvp 
 	@echo "##############################################################"
-	@echo "Running testbench.vvp"
-	$(VVP) -N $< $(RVTEST_MEMS) -I$(WORKINGDIR)/mem/hex
+	@echo "Running testbench.vvp with all riscv-tests. No VCD gen."
+	$(VVP) -N $< $(RVTEST_MEMS) -I$(WORKINGDIR)/mem/hex +runall
 	@echo ""
 	@echo ""
+
+alltests_vcd: testbench.vvp
+	@echo "##############################################################"
+	@echo "Running testbench.vvp with all riscv-tests and VCD gen."
+	$(VVP) -N $< $(RVTEST_MEMS) -I$(WORKINGDIR)/mem/hex +runall +vcd
+	@echo ""
+	@echo ""
+
 
 testbench.vvp: testmems
 	@echo "##############################################################"
 	@echo "Generating testbench.vvp"
-	$(IVERILOG) -o $@ $(TOAST_MODULES) $(TOAST_TESTBENCH)  \
+	$(IVERILOG) $(IVLG_FLAGS) -o $@ $(TOAST_MODULES) $(TOAST_TESTBENCH)  \
 	            -I$(WORKINGDIR)/rtl -I$(WORKINGDIR)/mem/hex
 	@echo ""
 	@echo ""
@@ -44,5 +58,6 @@ testmems:
 .PHONY: clean
 clean:
 	rm -rf testbench.vvp
+	rm -rf testbench.vcd
 	rm -r  mem
 

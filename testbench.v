@@ -70,8 +70,11 @@
 `define S_SH     34
 `define S_SW     35
 
+// INDIVIDUAL TEST TO RUN
+`define TEST_TO_RUN 0
 
-module riscvTests_tb();
+
+module testbench();
   
     reg         Clk = 0;
     reg         Reset_n;
@@ -101,115 +104,22 @@ module riscvTests_tb();
     
     always#(10) Clk = ~Clk;     
 
-    
-// ===========================================================================
-//                                TEST CONTROL
-// ===========================================================================
-    
-    parameter TEST_TO_RUN   = `S_SW;
 
-    //****************************************
-    // PASS CONDITION 1: GP=1 , A7=93, A0=0
-    //****************************************
-    always@(posedge Clk) begin
-        if((UUT.id_stage_i.regfile_i.regfile_data[3] == 1) &&   
-           (UUT.id_stage_i.regfile_i.regfile_data[17] == 93) && 
-           (UUT.id_stage_i.regfile_i.regfile_data[10] == 0))    
-        begin  
-            $display("TEST PASSED!!!!!!");
-            $finish;
-        end
-        //************************************************
-        // FAIL CONDITION 1: ECALL BEFORE PASS CONDITION 1
-        //************************************************
-        else if (Exception == 1) begin
-            $display("EXCEPTION ASSERTED, TEST FAILED");
-            $finish;
-        end
-    end
-
-    //*********************************
-    // FAIL CONDITION 2: TEST TIMEOUT
-    //*********************************
+    // dump vcd?
     initial begin
-        #19995 $display("TIMED OUT, TEST FAILED");
-        $finish;
+        if($test$plusargs("vcd")) begin
+            $dumpfile("testbench.vcd");
+            $dumpvars(0, testbench);
+        end
     end
 
 
-// ===========================================================================
-//                              Implementation    
-// ===========================================================================    
+    parameter MEMORY_DEPTH  = 32'hFFF;
+
     
-    parameter MEMORY_DEPTH  = 32'hFFFF;
-
-    //*********************************
-    //       SIMULATE MEMORY
-    //*********************************
-
+    // MEMORY SIMULATION
     reg [31:0] MEMORY [0:MEMORY_DEPTH];
     integer i;
-
-    initial begin
-        for (i=0; i<= MEMORY_DEPTH; i=i+1) begin
-            MEMORY[i] = 0;
-        end
-        case(TEST_TO_RUN)
-
-            // R-R [0:9] 
-            `RR_ADD:  $readmemh("mem/hex/add.S.hex"  ,MEMORY);
-            `RR_SUB:  $readmemh("mem/hex/sub.S.hex"  ,MEMORY);
-            `RR_AND:  $readmemh("mem/hex/and.S.hex"  ,MEMORY);
-            `RR_OR:   $readmemh("mem/hex/or.S.hex"   ,MEMORY);
-            `RR_XOR:  $readmemh("mem/hex/xor.S.hex"  ,MEMORY);
-            `RR_SLT:  $readmemh("mem/hex/slt.S.hex"  ,MEMORY);
-            `RR_SLTU: $readmemh("mem/hex/sltu.S.hex" ,MEMORY);
-            `RR_SLL:  $readmemh("mem/hex/sll.S.hex"  ,MEMORY);
-            `RR_SRL:  $readmemh("mem/hex/srl.S.hex"  ,MEMORY);
-            `RR_SRA:  $readmemh("mem/hex/sra.S.hex"  ,MEMORY);
-    
-            // R-I [10:17]
-            `I_ADDI:  $readmemh("mem/hex/addi.S.hex" ,MEMORY);
-            `I_ANDI:  $readmemh("mem/hex/andi.S.hex" ,MEMORY);
-            `I_ORI:   $readmemh("mem/hex/ori.S.hex"  ,MEMORY);
-            `I_XORI:  $readmemh("mem/hex/xori.S.hex" ,MEMORY);
-            `I_SLTI:  $readmemh("mem/hex/slti.S.hex" ,MEMORY);
-            `I_SLLI:  $readmemh("mem/hex/slli.S.hex" ,MEMORY);
-            `I_SRLI:  $readmemh("mem/hex/srli.S.hex" ,MEMORY);
-            `I_SRAI:  $readmemh("mem/hex/srai.S.hex" ,MEMORY);
-            
-            // Conditional Branches [18:23]
-            `B_BEQ:   $readmemh("mem/hex/beq.S.hex"  ,MEMORY);
-            `B_BNE:   $readmemh("mem/hex/bne.S.hex"  ,MEMORY);
-            `B_BLT:   $readmemh("mem/hex/blt.S.hex"  ,MEMORY);
-            `B_BGE:   $readmemh("mem/hex/bge.S.hex"  ,MEMORY);
-            `B_BLTU:  $readmemh("mem/hex/bltu.S.hex" ,MEMORY);
-            `B_BGEU:  $readmemh("mem/hex/bgeu.S.hex" ,MEMORY);
-
-            // Upper Imm [24:25]
-            `UI_LUI:  $readmemh("mem/hex/lui.S.hex"  ,MEMORY);
-            `UI_AUIPC:$readmemh("mem/hex/auipc.S.hex",MEMORY);
-
-            // Jumps [26:27]
-            `J_JAL:   $readmemh("mem/hex/jal.S.hex"  ,MEMORY);
-            `J_JALR:  $readmemh("mem/hex/jalr.S.hex" ,MEMORY);
-
-            // Loads [28:32]
-            `L_LB:    $readmemh("mem/hex/lb.S.hex"   ,MEMORY);
-            `L_LH:    $readmemh("mem/hex/lh.S.hex"   ,MEMORY);
-            `L_LW:    $readmemh("mem/hex/lw.S.hex"   ,MEMORY);
-            `L_LBU:   $readmemh("mem/hex/lbu.S.hex"  ,MEMORY);
-            `L_LHU:   $readmemh("mem/hex/lhu.S.hex"  ,MEMORY);
-            
-            // Stores [33:35]
-            `S_SB:    $readmemh("mem/hex/sb.S.hex"   ,MEMORY);
-            `S_SH:    $readmemh("mem/hex/sh.S.hex"   ,MEMORY);
-            `S_SW:    $readmemh("mem/hex/sw.S.hex"   ,MEMORY);
-
-        endcase
-    end
-
-
 /*
     $readmemh loads program data into consecutive addresses, however 
     RISC-V uses byte-addressable memory (i.e. a word at every fourth address)
@@ -239,10 +149,142 @@ module riscvTests_tb();
 
     end
 
+    //
+    // SIMULATION TASKS
+    //
+
+    task LOAD_TEST;
+        input integer TESTID;
+        begin
+            Reset_n = 0;
+            #10;
+            for (i=0; i<= MEMORY_DEPTH; i=i+1) begin
+                MEMORY[i] = 0;
+            end
+            case(TESTID)
+                
+                // R-R [0:9] 
+                `RR_ADD:  $readmemh("mem/hex/add.S.hex"  ,MEMORY);
+                `RR_SUB:  $readmemh("mem/hex/sub.S.hex"  ,MEMORY);
+                `RR_AND:  $readmemh("mem/hex/and.S.hex"  ,MEMORY);
+                `RR_OR:   $readmemh("mem/hex/or.S.hex"   ,MEMORY);
+                `RR_XOR:  $readmemh("mem/hex/xor.S.hex"  ,MEMORY);
+                `RR_SLT:  $readmemh("mem/hex/slt.S.hex"  ,MEMORY);
+                `RR_SLTU: $readmemh("mem/hex/sltu.S.hex" ,MEMORY);
+                `RR_SLL:  $readmemh("mem/hex/sll.S.hex"  ,MEMORY);
+                `RR_SRL:  $readmemh("mem/hex/srl.S.hex"  ,MEMORY);
+                `RR_SRA:  $readmemh("mem/hex/sra.S.hex"  ,MEMORY);
+        
+                // R-I [10:17]
+                `I_ADDI:  $readmemh("mem/hex/addi.S.hex" ,MEMORY);
+                `I_ANDI:  $readmemh("mem/hex/andi.S.hex" ,MEMORY);
+                `I_ORI:   $readmemh("mem/hex/ori.S.hex"  ,MEMORY);
+                `I_XORI:  $readmemh("mem/hex/xori.S.hex" ,MEMORY);
+                `I_SLTI:  $readmemh("mem/hex/slti.S.hex" ,MEMORY);
+                `I_SLLI:  $readmemh("mem/hex/slli.S.hex" ,MEMORY);
+                `I_SRLI:  $readmemh("mem/hex/srli.S.hex" ,MEMORY);
+                `I_SRAI:  $readmemh("mem/hex/srai.S.hex" ,MEMORY);
+                
+                // Conditional Branches [18:23]
+                `B_BEQ:   $readmemh("mem/hex/beq.S.hex"  ,MEMORY);
+                `B_BNE:   $readmemh("mem/hex/bne.S.hex"  ,MEMORY);
+                `B_BLT:   $readmemh("mem/hex/blt.S.hex"  ,MEMORY);
+                `B_BGE:   $readmemh("mem/hex/bge.S.hex"  ,MEMORY);
+                `B_BLTU:  $readmemh("mem/hex/bltu.S.hex" ,MEMORY);
+                `B_BGEU:  $readmemh("mem/hex/bgeu.S.hex" ,MEMORY);
+    
+                // Upper Imm [24:25]
+                `UI_LUI:  $readmemh("mem/hex/lui.S.hex"  ,MEMORY);
+                `UI_AUIPC:$readmemh("mem/hex/auipc.S.hex",MEMORY);
+    
+                // Jumps [26:27]
+                `J_JAL:   $readmemh("mem/hex/jal.S.hex"  ,MEMORY);
+                `J_JALR:  $readmemh("mem/hex/jalr.S.hex" ,MEMORY);
+    
+                // Loads [28:32]
+                `L_LB:    $readmemh("mem/hex/lb.S.hex"   ,MEMORY);
+                `L_LH:    $readmemh("mem/hex/lh.S.hex"   ,MEMORY);
+                `L_LW:    $readmemh("mem/hex/lw.S.hex"   ,MEMORY);
+                `L_LBU:   $readmemh("mem/hex/lbu.S.hex"  ,MEMORY);
+                `L_LHU:   $readmemh("mem/hex/lhu.S.hex"  ,MEMORY);
+                
+                // Stores [33:35]
+                `S_SB:    $readmemh("mem/hex/sb.S.hex"   ,MEMORY);
+                `S_SH:    $readmemh("mem/hex/sh.S.hex"   ,MEMORY);
+                `S_SW:    $readmemh("mem/hex/sw.S.hex"   ,MEMORY);
+
+            endcase
+        end
+    endtask // LOAD_TEST
+
+
+    
+    integer t;
+    task EVAL_TEST;
+        input integer TESTID;
+        begin
+            Reset_n = 1;
+            for(t=0; t<=1000000; t=t+1) begin
+                @(posedge Clk) begin
+                    
+                    // Check if test pass
+                    // pass condition: GP=1 , A7=93, A0=0
+                    if((UUT.id_stage_i.regfile_i.regfile_data[3] == 1) &&   
+                       (UUT.id_stage_i.regfile_i.regfile_data[17] == 93) && 
+                       (UUT.id_stage_i.regfile_i.regfile_data[10] == 0))    
+                    begin
+                        $display("TEST PASSED; ID: %0d", TESTID);
+                        t=1000000;
+    
+                    end else if (Exception == 1) begin
+                        $display("EXCEPTION ASSERTED, TEST FAILED");
+                        $display("FAILED TEST ID: %0d", TESTID);
+                        $finish;
+                    
+                    end else if (t==999999) begin
+                        $display("TEST FAILED: TIMED OUT");
+                        $display("FAILED TEST ID: %0d", TESTID);
+                        $finish;
+                    end
+                    
+                end
+            end
+        end
+    endtask // EVAL_TEST
+
+
+    //
+    // TESTBENCH BEGIN
+    //
+    integer j;
     initial begin
         Reset_n = 0;
         #100;
-        Reset_n = 1;
+
+        if($test$plusargs("runall")) begin
+            $display("Running all tests.");
+            for(j=`RR_ADD; j<=`S_SW; j=j+1) begin
+                $display("***********************************");
+                $display("Running Test ID: %0d", j);
+                LOAD_TEST(j);
+                #100;
+                EVAL_TEST(j);
+
+            end
+            $display("");
+            $display("***********************************");
+            $display("ALL TESTS PASSED !");
+            $finish;
+
+        end
+
+        else begin
+            $display("Running Test ID: %0d", `TEST_TO_RUN);
+            LOAD_TEST(`TEST_TO_RUN);
+            EVAL_TEST(`TEST_TO_RUN);
+            $display("***********************************");
+            $display("TEST PASSED !");
+            $finish;
+        end
     end
-    
 endmodule
