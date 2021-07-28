@@ -97,6 +97,7 @@ module testbench();
     .DMEM_wr_data_o    (DMEM_wr_data),
     .DMEM_rd_data_i    (DMEM_rd_data),
     .DMEM_rst_o        (DMEM_rst),
+    .boot_addr_i       (32'b0),
     .IMEM_data_i       (IMEM_data),
     .IMEM_addr_o       (IMEM_addr),
     .exception_o       (Exception)

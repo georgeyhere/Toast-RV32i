@@ -59,9 +59,6 @@ module toast_ID_stage
     output reg                             ID_memtoreg_o,       // enable regfile writeback from data mem
     output reg                             ID_jump_en_o,        // indicates a jump
     output reg   [3:0]                     ID_mem_op_o,         // selects memory mask for load/store
-    
-    // branch/jump destination
-    output wire  [REG_DATA_WIDTH-1:0]      ID_pc_dest_o,
    
     // ALU operands
     output reg   [REG_DATA_WIDTH-1 :0]     ID_imm1_o,
@@ -163,35 +160,33 @@ module toast_ID_stage
     .rd_wr_en_i        (WB_rd_wr_en_i     )
     );
     
-    toast_branchgen branchgen_i(
-    .branch_dest_o     (ID_pc_dest_o      ),
-    .branch_op_i       (ID_branch_op_o    ),
-    .pc_i              (ID_pc_o           ),
-    .regdata_i         (branch_regdata    ),
-    .imm_i             (ID_imm2_o         )
-    );
     
     
 // ===========================================================================
 //                              Implementation    
 // ===========================================================================    
-    // branchgen forwarding
-    always@* begin
-        if((ID_branch_op_o[1] == 1'b1)    &&
-           (EX_rd_addr_i == ID_rs1_addr_o) &&
-           (EX_rd_wr_en_i == 1'b1))
-                branch_regdata = EX_alu_result_i;
-        else if((ID_branch_op_o[1] == 1'b1)    &&
-           (WB_rd_addr_i == ID_rs1_addr_o) &&
-           (WB_rd_wr_en_i == 1'b1))
-                branch_regdata = WB_rd_wr_data_i;
-        else 
-            branch_regdata = ID_rs1_data_o;
+    
+    // pipeline registers
+    always@(posedge clk_i) begin
+        if(resetn_i == 1'b0) begin
+            ID_rd_addr_o        <= 0;
+            ID_rs1_addr_o       <= 0;
+            ID_rs2_addr_o       <= 0;
+            ID_imm1_o           <= 0;
+            ID_imm2_o           <= 0;
+            ID_exception_o      <= 0;
+        end
+        else begin
+            ID_rd_addr_o        <= rd_addr;
+            ID_rs1_addr_o       <= rs1_addr;
+            ID_rs2_addr_o       <= rs2_addr;
+            ID_imm1_o           <= imm1;
+            ID_imm2_o           <= imm2;
+            ID_exception_o      <= exception;
+        end
     end
 
-    
-
-    // pipeline registers
+    // decoded control signals
     always@(posedge clk_i) begin
         // reset state is the same as NOP, all control signals set to 0
         if((resetn_i == 1'b0) || (flush_i == 1'b1)) begin
@@ -206,17 +201,9 @@ module toast_ID_stage
             ID_memtoreg_o       <= 0;
             ID_jump_en_o        <= 0;
             ID_mem_op_o         <= 0;
-            ID_rd_addr_o        <= 0;
-            ID_rs1_addr_o       <= 0;
-            ID_rs2_addr_o       <= 0;
-            ID_imm1_o           <= 0;
-            ID_imm2_o           <= 0;
-            ID_exception_o      <= 0;
-            rs1_rd_data         <= 0;
-            rs2_rd_data         <= 0;
         end
         else begin
-            // on stall, drop control signals to 0
+            // stall control signals
             if(stall_i == 1'b1) begin
                 ID_pc_o             <= ID_pc_o;
                 ID_alu_source_sel_o <= ID_alu_source_sel_o;
@@ -229,14 +216,6 @@ module toast_ID_stage
                 ID_memtoreg_o       <= ID_memtoreg_o;
                 ID_jump_en_o        <= 0;
                 ID_mem_op_o         <= ID_mem_op_o;
-                ID_rd_addr_o        <= rd_addr;
-                ID_rs1_addr_o       <= rs1_addr;
-                ID_rs2_addr_o       <= rs2_addr;
-                ID_imm1_o           <= imm1;
-                ID_imm2_o           <= imm2;
-                ID_exception_o      <= exception;
-                rs1_rd_data         <= rs1_data;
-                rs2_rd_data         <= rs2_data;
             end
             else begin
                 ID_pc_o             <= IF_pc_i;
@@ -250,14 +229,6 @@ module toast_ID_stage
                 ID_memtoreg_o       <= memtoreg;
                 ID_jump_en_o        <= jump_en;
                 ID_mem_op_o         <= mem_op;
-                ID_rd_addr_o        <= rd_addr;
-                ID_rs1_addr_o       <= rs1_addr;
-                ID_rs2_addr_o       <= rs2_addr;
-                ID_imm1_o           <= imm1;
-                ID_imm2_o           <= imm2;
-                ID_exception_o      <= exception;
-                rs1_rd_data         <= rs1_data;
-                rs2_rd_data         <= rs2_data;
             end
         end  
     end
@@ -269,7 +240,17 @@ module toast_ID_stage
     // However, since register file data is read on the same cycle that the fetched
     // instruction comes in and then placed in the ID register, this can cause data 
     // coming in to be 'missed'.
-    // 
+    
+    always@(posedge clk_i) begin
+        if(resetn_i == 1'b0) begin
+            rs1_rd_data         <= 0;
+            rs2_rd_data         <= 0;
+        end else begin
+            rs1_rd_data         <= rs1_data;
+            rs2_rd_data         <= rs2_data;
+        end
+    end
+
     assign rd_rs1_match = (WB_rd_addr_i == ID_rs1_addr_o) & |ID_rs1_addr_o;
     assign rd_rs2_match = (WB_rd_addr_i == ID_rs2_addr_o) & |ID_rs2_addr_o;
 

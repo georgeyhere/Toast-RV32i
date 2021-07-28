@@ -42,12 +42,13 @@ module toast_IF_stage
     output reg   [REG_DATA_WIDTH-1:0]       IF_pc_o,           // PC of IF_instruction_o  
   
     input  wire  [REG_DATA_WIDTH-1:0]       IMEM_data_i,       // instruction fetched from IMEM
-   
+    
+    input  wire  [IMEM_ADDR_WIDTH-1:0]      boot_addr_i,
     input  wire                             EX_branch_en_i,    // indicates branch taken (EX)
     input  wire  [REG_DATA_WIDTH-1:0]       EX_pc_dest_i,      // branch dest 
    
     input  wire                             ID_jump_en_i,      // jump taken (ID)
-    input  wire  [REG_DATA_WIDTH-1:0]       ID_pc_dest_i,      // jump dest
+    input  wire  [REG_DATA_WIDTH-1:0]       BG_pc_dest_i,      // jump dest
  
     input  wire                             stall_i,        
     input  wire                             flush_i  
@@ -66,7 +67,7 @@ module toast_IF_stage
 
     // logic to get next PC
     always@* begin
-        if      (ID_jump_en_i == 1)    pc_next = ID_pc_dest_i;
+        if      (ID_jump_en_i == 1)    pc_next = BG_pc_dest_i;
         else if (EX_branch_en_i == 1)  pc_next = EX_pc_dest_i;
         else if (stall_i == 1)         pc_next = IMEM_addr_o - 4;
         else                           pc_next = IMEM_addr_o + 4;
@@ -75,7 +76,7 @@ module toast_IF_stage
     // align fetched instructions with addr by flopping IMEM_addr
     always@(posedge clk_i) begin
         if(resetn_i == 1'b0) begin
-            IMEM_addr_o      <= 0;
+            IMEM_addr_o      <= boot_addr_i;
             IF_pc_o          <= 0;
             
         end

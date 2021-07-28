@@ -28,3 +28,37 @@ reset_run synth_1
 launch_runs synth_1 -jobs 8
 wait_on_run synth_1
 refresh_design
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+close_design
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+close_design
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+open_run synth_1 -name synth_1
+create_clock -period 10.000 -name clk_i -waveform {0.000 5.000}
+file mkdir /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/constrs_1/new
+close [ open /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/constrs_1/new/synth_xdc.xdc w ]
+add_files -fileset constrs_1 /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/constrs_1/new/synth_xdc.xdc
+set_property target_constrs_file /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/constrs_1/new/synth_xdc.xdc [current_fileset -constrset]
+save_constraints -force
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+refresh_design
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+save_constraints
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_2
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_2
+refresh_design
+check_timing -verbose -name timing_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+save_constraints
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+wait_on_run synth_1
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
