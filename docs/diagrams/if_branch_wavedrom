@@ -1,0 +1,24 @@
+{signal: [
+  {name: 'i_clk', wave: 'p......'},
+  {},
+  
+  {name: 'flush_i', wave: '0.1.0..', data: []},
+  
+  {name: 'ID_jump_en_i', wave: '0.10...', data: []},
+  
+  {name: 'ID_pc_dest_i', wave: '2.92...', data: ["0", "jump_addr: addr_6", "0"]},
+  {},
+  
+  {name: 'IMEM_addr_o', wave: '3459876', data: ["addr0", "addr1", "addr2", "addr_6", "addr7", "addr8","addr9",
+                                                   "addr7"]},
+  
+  {name: 'IMEM_data_i', wave: 'x345498', data: ["instr0: JAL", "instr1", "instr2", "instr6", "instr7", "instr8"]},
+  {},
+  {name: 'IF_pc_o', wave: '0345987', data:["addr0", "addr1", "addr2", "addr6", "addr7", "addr8","addr6",
+                                                 "addr7"]},
+  {name: 'IF_instruction_o', wave: '232.987', data:["0", "instr0: JAL", "0", "instr6", "instr7", "instr8"]},
+  
+  
+  ],
+  config: { hscale: 4 }
+  }
