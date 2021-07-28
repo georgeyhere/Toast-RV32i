@@ -62,10 +62,3 @@ Memory Store | 4
 
 
 
-<h1> Memory Interface </h1>
-
-Toast uses a simple memory interface driving DIN, ADDR, WE, and RST lines. The memory data bus is 32-bits wide for both instruction and data memory.
-
-The instruction memory is word-addressable, and the data memory is byte-addressable using byte-enables.
-
-
