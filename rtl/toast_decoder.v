@@ -41,6 +41,10 @@ It drives the control signals for:
         -> ALU immediate selection (select correct type of immediate for instruction)
        
 */
+`ifdef CUSTOM_DEFINE
+    `include "defines.vh"
+`endif
+
 module toast_decoder 
     `include "toast_definitions.vh"
     `ifdef CUSTOM_DEFINE

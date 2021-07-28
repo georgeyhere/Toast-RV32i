@@ -19,7 +19,9 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
+`ifdef CUSTOM_DEFINE
+    `include "defines.vh"
+`endif
 
 module toast_branchgen
     `include "toast_definitions.vh"

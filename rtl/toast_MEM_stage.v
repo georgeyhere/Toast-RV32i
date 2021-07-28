@@ -19,7 +19,9 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
-
+`ifdef CUSTOM_DEFINE
+    `include "defines.vh"
+`endif
 /*
 Handles reads and writes to data memory. Data memory is assumed to be
  a true dual-port RAM. 
@@ -97,7 +99,7 @@ module toast_MEM_stage
         else begin
             MEM_memtoreg_o      <= EX_memtoreg_i;
             MEM_alu_result_o    <= EX_alu_result_i;
-            MEM_rd_wr_en_o <= EX_rd_wr_en_i;
+            MEM_rd_wr_en_o      <= EX_rd_wr_en_i;
             MEM_rd_addr_o       <= EX_rd_addr_i;
             MEM_exception_o     <= EX_exception_i || misaligned_store;
         end
@@ -118,7 +120,10 @@ module toast_MEM_stage
     //    DATA MEM WR SOURCE SELECT
     //*********************************
     always@* begin
-        wr_data = (ForwardM_i) ? MEM_alu_result_o : EX_rs2_data_i;
+        if(ForwardM_i)
+            wr_data = MEM_alu_result_o;
+        else 
+            wr_data = EX_rs2_data_i;
     end
 
 
@@ -127,7 +132,7 @@ module toast_MEM_stage
     //*********************************
     always@* begin
         // DEFAULTS:
-        DMEM_wr_data_o        = 32'bx;
+        DMEM_wr_data_o        = 32'bx; // !!!!
         misaligned_store = 0;
         byte_en            = 4'b0;
 

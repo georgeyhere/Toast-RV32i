@@ -1,0 +1,133 @@
+[*]
+[*] GTKWave Analyzer v3.3.86 (w)1999-2017 BSI
+[*] Wed Jul 28 06:46:38 2021
+[*]
+[dumpfile] "/home/george/Documents/work/RISCV/Toast-RV32i/testbench.vcd"
+[dumpfile_mtime] "Wed Jul 28 06:28:26 2021"
+[dumpfile_size] 15216657
+[savefile] "/home/george/Documents/work/RISCV/Toast-RV32i/test/gtk/config.gtkw"
+[timestart] 265691600
+[size] 1920 1052
+[pos] -1 -1
+*-15.052895 265810000 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1 -1
+[treeopen] testbench.
+[treeopen] testbench.UUT.
+[treeopen] testbench.UUT.ex_stage_i.
+[treeopen] testbench.UUT.id_stage_i.
+[sst_width] 223
+[signals_width] 290
+[sst_expanded] 1
+[sst_vpaned_height] 311
+@28
+testbench.UUT.clk_i
+testbench.UUT.resetn_i
+testbench.UUT.control_i.stall_o
+@200
+-IF
+@24
+[color] 5
+testbench.UUT.if_stage_i.ID_jump_en_i
+[color] 5
+testbench.UUT.if_stage_i.ID_pc_dest_i[31:0]
+@28
+[color] 1
+testbench.UUT.if_stage_i.EX_branch_en_i
+@22
+[color] 1
+testbench.UUT.if_stage_i.EX_pc_dest_i[31:0]
+testbench.UUT.if_stage_i.IF_pc_o[31:0]
+@4022
+^>1 /home/george/Documents/work/RISCV/Toast-RV32i/test/gtk/filters/riscv-filter.py
+testbench.UUT.if_stage_i.IF_instruction_o[31:0]
+@200
+-ID
+@2024
+[color] 6
+^1 /home/george/Documents/work/RISCV/Toast-RV32i/test/gtk/filters/regfile-names-filter.txt
+testbench.UUT.id_stage_i.rs1_addr[4:0]
+[color] 6
+^1 /home/george/Documents/work/RISCV/Toast-RV32i/test/gtk/filters/regfile-names-filter.txt
+testbench.UUT.id_stage_i.rs2_addr[4:0]
+@23
+testbench.UUT.id_stage_i.rs2_data[31:0]
+@2024
+[color] 7
+^1 /home/george/Documents/work/RISCV/Toast-RV32i/test/gtk/filters/regfile-names-filter.txt
+testbench.UUT.id_stage_i.ID_rs1_addr_o[4:0]
+@22
+[color] 2
+testbench.UUT.id_stage_i.ID_rs1_data_o[31:0]
+@2024
+[color] 7
+^1 /home/george/Documents/work/RISCV/Toast-RV32i/test/gtk/filters/regfile-names-filter.txt
+testbench.UUT.id_stage_i.ID_rs2_addr_o[4:0]
+@22
+[color] 2
+testbench.UUT.id_stage_i.ID_rs2_data_o[31:0]
+@2024
+[color] 6
+^1 /home/george/Documents/work/RISCV/Toast-RV32i/test/gtk/filters/regfile-names-filter.txt
+testbench.UUT.id_stage_i.ID_rd_addr_o[4:0]
+^2 /home/george/Documents/work/RISCV/Toast-RV32i/test/gtk/filters/ALU-op-filter.txt
+testbench.UUT.id_stage_i.ID_alu_ctrl_o[3:0]
+@28
+testbench.UUT.id_stage_i.ID_mem_rd_en_o
+@200
+-Branch Gen
+@22
+testbench.UUT.id_stage_i.branchgen_i.branch_dest_o[31:0]
+[color] 2
+testbench.UUT.id_stage_i.branchgen_i.regdata_i[31:0]
+[color] 2
+testbench.UUT.id_stage_i.branchgen_i.imm_i[31:0]
+@200
+-EX
+@28
+testbench.UUT.ex_stage_i.forwardA_i[1:0]
+testbench.UUT.ex_stage_i.forwardB_i[1:0]
+@22
+[color] 2
+testbench.UUT.ex_stage_i.alu_i.alu_op1_i[31:0]
+[color] 2
+testbench.UUT.ex_stage_i.alu_i.alu_op2_i[31:0]
+[color] 3
+testbench.UUT.ex_stage_i.EX_alu_result_o[31:0]
+@2024
+[color] 7
+^1 /home/george/Documents/work/RISCV/Toast-RV32i/test/gtk/filters/regfile-names-filter.txt
+testbench.UUT.ex_stage_i.EX_rd_addr_o[4:0]
+[color] 6
+^1 /home/george/Documents/work/RISCV/Toast-RV32i/test/gtk/filters/regfile-names-filter.txt
+testbench.UUT.ex_stage_i.EX_rs2_addr_o[4:0]
+@22
+testbench.UUT.ex_stage_i.EX_rs2_data_o[31:0]
+@200
+-MEM
+@22
+[color] 5
+testbench.UUT.mem_stage_i.DMEM_addr_o[31:0]
+@28
+testbench.UUT.mem_stage_i.DMEM_wr_byte_en_o[3:0]
+@22
+[color] 2
+testbench.UUT.mem_stage_i.DMEM_wr_data_o[31:0]
+[color] 2
+testbench.UUT.mem_stage_i.DMEM_rd_data_i[31:0]
+[color] 3
+testbench.UUT.mem_stage_i.MEM_dout_o[31:0]
+@28
+testbench.UUT.control_i.forwardM_o
+@22
+testbench.UUT.mem_stage_i.MEM_alu_result_o[31:0]
+@200
+-WB
+@2024
+[color] 7
+^1 /home/george/Documents/work/RISCV/Toast-RV32i/test/gtk/filters/regfile-names-filter.txt
+testbench.UUT.wb_stage_i.WB_rd_addr_o[4:0]
+@22
+testbench.UUT.wb_stage_i.WB_rd_wr_data_o[31:0]
+@28
+testbench.UUT.wb_stage_i.WB_rd_wr_en_o
+[pattern_trace] 1
+[pattern_trace] 0

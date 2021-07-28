@@ -1,0 +1,957 @@
+/*
+
+Xilinx Vivado v2020.2 (64-bit) [Major: 2020, Minor: 2]
+SW Build: 3064766 on Wed Nov 18 09:12:47 MST 2020
+IP Build: 3064653 on Wed Nov 18 14:17:31 MST 2020
+
+Process ID (PID): 2309
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Tue Jul 27 21:57:59 PDT 2021
+Time zone: 	Pacific Standard Time (America/Los_Angeles)
+
+OS: Ubuntu
+OS Version: 5.4.0-80-generic
+OS Architecture: amd64
+Available processors (cores): 16
+
+Display: 0
+Screen size: 1920x1080
+Screen resolution (DPI): 100
+Available screens: 2
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+Scale size: 12
+
+Java version: 	11.0.2 64-bit
+Java home: 	/opt/Xilinx/Vivado/2020.2/tps/lnx64/jre11.0.2
+Java executable location: 	/opt/Xilinx/Vivado/2020.2/tps/lnx64/jre11.0.2/bin/java
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	george
+User home directory: /home/george
+User working directory: /home/george/Documents/work/RISCV/Toast-RV32i/scripts/vivado
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /opt/Xilinx/Vivado
+HDI_APPROOT: /opt/Xilinx/Vivado/2020.2
+RDI_DATADIR: /opt/Xilinx/Vivado/2020.2/data
+RDI_BINDIR: /opt/Xilinx/Vivado/2020.2/bin
+
+Vivado preferences file location: /home/george/.Xilinx/Vivado/2020.2/vivado.xml
+Vivado preferences directory: /home/george/.Xilinx/Vivado/2020.2/
+Vivado layouts directory: /home/george/.Xilinx/Vivado/2020.2/data/layouts
+PlanAhead jar file location: 	/opt/Xilinx/Vivado/2020.2/lib/classes/planAhead.jar
+Vivado log file location: 	/home/george/Documents/work/RISCV/Toast-RV32i/scripts/vivado/vivado.log
+Vivado journal file location: 	/home/george/Documents/work/RISCV/Toast-RV32i/scripts/vivado/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-2309-george-desktop
+
+Xilinx Environment Variables
+----------------------------
+XILINX: /opt/Xilinx/Vivado/2020.2/ids_lite/ISE
+XILINX_DSP: /opt/Xilinx/Vivado/2020.2/ids_lite/ISE
+XILINX_HLS: /opt/Xilinx//Vitis_HLS/2020.2
+XILINX_PLANAHEAD: /opt/Xilinx/Vivado/2020.2
+XILINX_VITIS: 
+XILINX_VIVADO: /opt/Xilinx/Vivado/2020.2
+XILINX_VIVADO_HLS: /opt/Xilinx/Vivado/2020.2
+
+
+GUI allocated memory:	185 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 1,549 MB
+
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+// Tcl Command: 'rdi::info_commands {device::*}'
+// Tcl Command: 'rdi::info_commands {debug::*}'
+// Tcl Command: 'rdi::info_commands {*}'
+// HMemoryUtils.trashcanNow. Engine heap size: 1,549 MB. GUI used memory: 65 MB. Current time: 7/27/21, 9:58:00 PM PDT
+selectList(PAResourceQtoS.SyntheticaGettingStartedView_RECENT_PROJECTS, "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr", 0); // r
+// [GUI Memory]: 90 MB (+92118kb) [00:00:12]
+// [Engine Memory]: 1,551 MB (+1474820kb) [00:00:12]
+// bz (cr):  Open Project : addNotify
+// Opening Vivado Project: /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr. Version: Vivado v2020.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr 
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 111 MB (+16852kb) [00:00:17]
+// WARNING: HEventQueue.dispatchEvent() is taking  2832 ms.
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2020.2/data/ip'. 
+// Tcl Message: INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'. 
+// Tcl Message: open_project: Time (s): cpu = 00:00:19 ; elapsed = 00:00:07 . Memory (MB): peak = 7378.121 ; gain = 45.043 ; free physical = 12276 ; free virtual = 16137 
+// Project name: RISCV_Project; location: /home/george/Documents/work/RISCV/RISCV_Project; part: xc7a50tcsg324-1
+// [GUI Memory]: 123 MB (+7035kb) [00:00:20]
+dismissDialog("Open Project"); // bz
+// [Engine Memory]: 1,643 MB (+15127kb) [00:00:23]
+// Tcl Message: update_compile_order -fileset sources_1 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,638 MB. GUI used memory: 74 MB. Current time: 7/27/21, 9:58:15 PM PDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [GUI Memory]: 131 MB (+2240kb) [00:01:56]
+// HMemoryUtils.trashcanNow. Engine heap size: 1,659 MB. GUI used memory: 73 MB. Current time: 7/27/21, 9:59:50 PM PDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 140 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a50tcsg324-1 Top: toast_top 
+// TclEventType: ELABORATE_START
+// TclEventType: ELABORATE_FAIL
+// TclEventType: DESIGN_NEW_FAILED
+// Tcl Message: INFO: [Device 21-403] Loading part xc7a50tcsg324-1 
+// Tcl Message: INFO: [Synth 8-2350] module toast_ID_stage ignored due to previous errors [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_ID_stage.v:24] 
+// Tcl Message: Failed to read verilog '/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_ID_stage.v' 
+// Tcl Message: 2 Infos, 0 Warnings, 0 Critical Warnings and 7 Errors encountered. synth_design failed 
+// Tcl Message: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details  
+// 'dV' command handler elapsed time: 9 seconds
+// U (cr): Critical Messages: addNotify
+dismissDialog("Open Elaborated Design"); // bz
+// HMemoryUtils.trashcanNow. Engine heap size: 1,706 MB. GUI used memory: 75 MB. Current time: 7/27/21, 10:00:40 PM PDT
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // U
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 25 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a50tcsg324-1 Top: toast_top 
+// TclEventType: ELABORATE_START
+// TclEventType: ELABORATE_FINISH
+// HMemoryUtils.trashcanNow. Engine heap size: 1,801 MB. GUI used memory: 74 MB. Current time: 7/27/21, 10:01:20 PM PDT
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 1,918 MB. GUI used memory: 74 MB. Current time: 7/27/21, 10:01:21 PM PDT
+// [Engine Memory]: 1,918 MB (+201993kb) [00:03:32]
+// [GUI Memory]: 139 MB (+1067kb) [00:03:32]
+// [Engine Memory]: 2,015 MB (+1344kb) [00:03:32]
+// TclEventType: DESIGN_NEW
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// Schematic: addNotify
+// [GUI Memory]: 153 MB (+7494kb) [00:03:34]
+// WARNING: HEventQueue.dispatchEvent() is taking  1382 ms.
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 7892.371 ; gain = 0.000 ; free physical = 11612 ; free virtual = 15578 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_top' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_top.v:24] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_control' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_control.v:7] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_control' (1#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_control.v:7] INFO: [Synth 8-6157] synthesizing module 'toast_IF_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_IF_stage.v:26] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_IF_stage' (2#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_IF_stage.v:26] INFO: [Synth 8-6157] synthesizing module 'toast_ID_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_ID_stage.v:24] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_decoder' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:44] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:292] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:308] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:145] INFO: [Synth 8-6155] done synthesizing module 'toast_decoder' (3#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:44] INFO: [Synth 8-6157] synthesizing module 'toast_regfile' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_regfile.v:28] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 7892.371 ; gain = 0.000 ; free physical = 11637 ; free virtual = 15611 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: --------------------------------------------------------------------------------- Start Handling Custom Attributes --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 7892.371 ; gain = 0.000 ; free physical = 11632 ; free virtual = 15607 
+// Tcl Message: --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 7892.371 ; gain = 0.000 ; free physical = 11632 ; free virtual = 15607 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 7892.371 ; gain = 0.000 ; free physical = 11624 ; free virtual = 15600 
+// Tcl Message: INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message:  Processing XDC Constraints Initializing timing engine Completed Processing XDC Constraints  
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 7892.371 ; gain = 0.000 ; free physical = 11535 ; free virtual = 15523 
+// Tcl Message: INFO: [Project 1-111] Unisim Transformation Summary: No Unisim elements were transformed.  
+// Tcl Message: RTL Elaboration Complete:  : Time (s): cpu = 00:00:18 ; elapsed = 00:00:10 . Memory (MB): peak = 7892.371 ; gain = 0.000 ; free physical = 11416 ; free virtual = 15411 
+// Tcl Message: 29 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered. synth_design completed successfully 
+// Tcl Message: synth_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:11 . Memory (MB): peak = 7892.371 ; gain = 0.000 ; free physical = 11416 ; free virtual = 15411 
+// 'dV' command handler elapsed time: 12 seconds
+// Elapsed time: 12 seconds
+dismissDialog("Open Elaborated Design"); // bz
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "Schematic_zoom_in"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "Schematic_zoom_in"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "Schematic_zoom_in"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "Schematic_zoom_out"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+maximizeView(PAResourceOtoP.PAViews_BASE_WORKSPACE, "BaseWorkspace"); // F
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,107 MB. GUI used memory: 100 MB. Current time: 7/27/21, 10:19:40 PM PDT
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [Engine Memory]: 2,122 MB (+6193kb) [00:24:08]
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,140 MB. GUI used memory: 100 MB. Current time: 7/27/21, 10:24:45 PM PDT
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 1487 seconds
+selectButton(PAResourceOtoP.ProjectTab_RELOAD, "Reload"); // h
+// bz (cr):  Reloading : addNotify
+// TclEventType: ELABORATE_START
+// Tcl Message: refresh_design 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 8194.160 ; gain = 0.000 ; free physical = 10468 ; free virtual = 14836 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// TclEventType: ELABORATE_FINISH
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 2,204 MB. GUI used memory: 98 MB. Current time: 7/27/21, 10:26:25 PM PDT
+// Engine heap size: 2,204 MB. GUI used memory: 99 MB. Current time: 7/27/21, 10:26:25 PM PDT
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_top' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_top.v:24] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_control' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_control.v:7] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_control' (1#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_control.v:7] INFO: [Synth 8-6157] synthesizing module 'toast_IF_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_IF_stage.v:26] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'toast_IF_stage' (2#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_IF_stage.v:26] INFO: [Synth 8-6157] synthesizing module 'toast_ID_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_ID_stage.v:24] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'toast_decoder' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:44] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  	Parameter ALU_OP_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:292] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:308] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:145] INFO: [Synth 8-6155] done synthesizing module 'toast_decoder' (3#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:44] INFO: [Synth 8-6157] synthesizing module 'toast_regfile' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_regfile.v:28] 
+// Tcl Message: 	Parameter REG_DATA_WIDTH bound to: 32 - type: integer  	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer  	Parameter REGFILE_DEPTH bound to: 32 - type: integer  
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 8194.160 ; gain = 0.000 ; free physical = 10515 ; free virtual = 14883 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: --------------------------------------------------------------------------------- Start Handling Custom Attributes --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 8194.160 ; gain = 0.000 ; free physical = 10516 ; free virtual = 14884 
+// Tcl Message: --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 8194.160 ; gain = 0.000 ; free physical = 10516 ; free virtual = 14884 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 2,190 MB. GUI used memory: 78 MB. Current time: 7/27/21, 10:26:26 PM PDT
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// Schematic: addNotify
+// WARNING: HEventQueue.dispatchEvent() is taking  1560 ms.
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.03 . Memory (MB): peak = 8194.160 ; gain = 0.000 ; free physical = 10586 ; free virtual = 14955 
+// Tcl Message: INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message:  Processing XDC Constraints Initializing timing engine Completed Processing XDC Constraints  
+// Tcl Message: refresh_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:08 . Memory (MB): peak = 8194.160 ; gain = 0.000 ; free physical = 10495 ; free virtual = 14863 
+dismissDialog("Reloading"); // bz
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "Schematic_zoom_in"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "Schematic_zoom_in"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "Schematic_zoom_in"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "Schematic_zoom_out"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+// Elapsed time: 12 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "Schematic_zoom_out"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "Schematic_zoom_out"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+// PAPropertyPanels.initPanels (branch_regdata_i_n_0) elapsed time: 0.2s
+// Elapsed time: 487 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "Schematic_zoom_in"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "Schematic_zoom_in"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// Elapsed time: 16 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "Schematic_zoom_out"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "Schematic_zoom_out"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+// Elapsed time: 49 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "Schematic_zoom_in"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// [GUI Memory]: 161 MB (+422kb) [00:38:11]
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "Schematic_zoom_in"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [Engine Memory]: 2,240 MB (+12360kb) [00:50:52]
+// HMemoryUtils.trashcanNow. Engine heap size: 2,240 MB. GUI used memory: 99 MB. Current time: 7/27/21, 10:48:45 PM PDT
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,271 MB. GUI used memory: 99 MB. Current time: 7/27/21, 10:50:46 PM PDT
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,303 MB. GUI used memory: 97 MB. Current time: 7/27/21, 10:53:21 PM PDT
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,336 MB. GUI used memory: 97 MB. Current time: 7/27/21, 10:55:56 PM PDT
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [Engine Memory]: 2,352 MB (+145kb) [00:58:28]
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,368 MB. GUI used memory: 97 MB. Current time: 7/27/21, 10:56:36 PM PDT
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,403 MB. GUI used memory: 97 MB. Current time: 7/27/21, 10:58:11 PM PDT
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,433 MB. GUI used memory: 97 MB. Current time: 7/27/21, 10:58:36 PM PDT
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,466 MB. GUI used memory: 97 MB. Current time: 7/27/21, 10:59:11 PM PDT
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [Engine Memory]: 2,480 MB (+11289kb) [01:01:32]
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,512 MB. GUI used memory: 97 MB. Current time: 7/27/21, 10:59:46 PM PDT
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,544 MB. GUI used memory: 97 MB. Current time: 7/27/21, 11:07:36 PM PDT
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,579 MB. GUI used memory: 97 MB. Current time: 7/27/21, 11:09:01 PM PDT
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [Engine Memory]: 2,609 MB (+5508kb) [01:21:24]
+// HMemoryUtils.trashcanNow. Engine heap size: 2,609 MB. GUI used memory: 97 MB. Current time: 7/27/21, 11:19:16 PM PDT
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,640 MB. GUI used memory: 96 MB. Current time: 7/27/21, 11:25:21 PM PDT
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,672 MB. GUI used memory: 96 MB. Current time: 7/27/21, 11:25:36 PM PDT
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,705 MB. GUI used memory: 96 MB. Current time: 7/27/21, 11:28:26 PM PDT
+// Elapsed time: 3144 seconds
+selectMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // ac
+selectMenu(PAResourceItoN.MainMenuMgr_PROJECT, "Project"); // ah
+selectMenuItem(PAResourceCommand.PACommandNames_NEW_PROJECT, "New..."); // ak
+dismissMenu(PAResourceItoN.MainMenuMgr_FILE, "File"); // ac
+// Run Command: PAResourceCommand.PACommandNames_NEW_PROJECT
+// f (cr): New Project: addNotify
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceOtoP.ProjectNameChooser_CHOOSE_PROJECT_LOCATION, (String) null); // t
+setFolderChooser("/home/george/Desktop");
+selectButton("NEXT", "Next >"); // JButton
+selectButton("NEXT", "Next >"); // JButton
+selectButton("NEXT", "Next >"); // JButton
+selectButton("NEXT", "Next >"); // JButton
+selectButton("NEXT", "Next >"); // JButton
+// bz (cr):  Create Project : addNotify
+selectButton("OptionPane.button", "No"); // JButton
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_ADD
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// WARNING: HEventQueue.dispatchEvent() is taking  3579 ms.
+// Tcl Message: create_project project_1 /home/george/Desktop/project_1 -part xc7vx485tffg1157-1 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2020.2/data/ip'. 
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,768 MB. GUI used memory: 118 MB. Current time: 7/27/21, 11:28:56 PM PDT
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// [Engine Memory]: 2,768 MB (+29753kb) [01:31:06]
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// Tcl Message: create_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:05 . Memory (MB): peak = 8741.246 ; gain = 0.000 ; free physical = 9613 ; free virtual = 14375 
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 29 seconds
+dismissDialog("Create Project"); // bz
+dismissDialog("New Project"); // f
+// Elapsed time: 61 seconds
+selectButton(PAResourceCommand.PACommandNames_ADD_SOURCES, "Sources_add_sources"); // E
+// Run Command: PAResourceCommand.PACommandNames_ADD_SOURCES
+// c (cr): Add Sources: addNotify
+selectButton("NEXT", "Next >"); // JButton
+selectButton(PAResourceQtoS.SrcChooserPanel_ADD_HDL_AND_NETLIST_FILES_TO_YOUR_PROJECT, "Add Files"); // a
+// Elapsed time: 22 seconds
+String[] filenames31467 = {"/home/george/Documents/work/fuck/RISCV_CPU/Source/ALUInstDef.vh", "/home/george/Documents/work/fuck/RISCV_CPU/Source/Cache.v", "/home/george/Documents/work/fuck/RISCV_CPU/Source/Ctrl.v", "/home/george/Documents/work/fuck/RISCV_CPU/Source/Defines.vh", "/home/george/Documents/work/fuck/RISCV_CPU/Source/EX.v", "/home/george/Documents/work/fuck/RISCV_CPU/Source/EX_ME.v", "/home/george/Documents/work/fuck/RISCV_CPU/Source/ID.v", "/home/george/Documents/work/fuck/RISCV_CPU/Source/IDInstDef.vh", "/home/george/Documents/work/fuck/RISCV_CPU/Source/ID_EX.v", "/home/george/Documents/work/fuck/RISCV_CPU/Source/IF.v", "/home/george/Documents/work/fuck/RISCV_CPU/Source/IF_ID.v", "/home/george/Documents/work/fuck/RISCV_CPU/Source/ME.v", "/home/george/Documents/work/fuck/RISCV_CPU/Source/ME_WB.v", "/home/george/Documents/work/fuck/RISCV_CPU/Source/Regfile.v", "/home/george/Documents/work/fuck/RISCV_CPU/Source/State_display.v", "/home/george/Documents/work/fuck/RISCV_CPU/Source/TopCPU.v", "/home/george/Documents/work/fuck/RISCV_CPU/Source/WB.v", "/home/george/Documents/work/fuck/RISCV_CPU/Source/common.vh", "/home/george/Documents/work/fuck/RISCV_CPU/Source/cpu.v", "/home/george/Documents/work/fuck/RISCV_CPU/Source/pc_reg.v", "/home/george/Documents/work/fuck/RISCV_CPU/Source/uart_comm.v"};
+setFileChooser(filenames31467);
+selectButton("FINISH", "Finish"); // JButton
+// 'g' command handler elapsed time: 25 seconds
+// [GUI Memory]: 181 MB (+12457kb) [01:32:34]
+dismissDialog("Add Sources"); // c
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: add_files -norecurse -scan_for_includes {/home/george/Documents/work/fuck/RISCV_CPU/Source/Defines.vh /home/george/Documents/work/fuck/RISCV_CPU/Source/ALUInstDef.vh /home/george/Documents/work/fuck/RISCV_CPU/Source/common.vh /home/george/Documents/work/fuck/RISCV_CPU/Source/IDInstDef.vh} 
+// c (cr): Add Sources: addNotify
+// bz (c):  Add Sources  : addNotify
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: import_files -norecurse {/home/george/Documents/work/fuck/RISCV_CPU/Source/Defines.vh /home/george/Documents/work/fuck/RISCV_CPU/Source/ALUInstDef.vh /home/george/Documents/work/fuck/RISCV_CPU/Source/common.vh /home/george/Documents/work/fuck/RISCV_CPU/Source/IDInstDef.vh} 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+dismissDialog("Add Sources"); // bz
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,816 MB. GUI used memory: 117 MB. Current time: 7/27/21, 11:30:36 PM PDT
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 14 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7vx485tffg1157-1 Top: TopCPU 
+selectButton(RDIResource.ProgressDialog_BACKGROUND, "Background"); // a
+// 'dV' command handler elapsed time: 4 seconds
+// [Engine Memory]: 2,931 MB (+25741kb) [01:32:57]
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources]", 0); // D
+expandTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopCPU (TopCPU.v)]", 3); // D
+// TclEventType: ELABORATE_START
+// HMemoryUtils.trashcanNow. Engine heap size: 3,032 MB. GUI used memory: 118 MB. Current time: 7/27/21, 11:30:51 PM PDT
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopCPU (TopCPU.v), MEM_CTRL : xil_defaultlib.memory_controller]", 8, false); // D
+// [Engine Memory]: 3,083 MB (+5732kb) [01:33:05]
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopCPU (TopCPU.v), COMM : xil_defaultlib.multchan_comm]", 7, false); // D
+// TclEventType: ELABORATE_FAIL
+// TclEventType: DESIGN_NEW_FAILED
+// Tcl Message: INFO: [Device 21-403] Loading part xc7vx485tffg1157-1 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 8766.297 ; gain = 25.051 ; free physical = 9145 ; free virtual = 14056 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'TopCPU' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/TopCPU.v:10] 
+// Tcl Message: 	Parameter CHANNEL_BIT bound to: 1 - type: integer  	Parameter MESSAGE_BIT bound to: 72 - type: integer  	Parameter CHANNEL bound to: 2 - type: integer  
+// Tcl Message: ERROR: [Synth 8-439] module 'clk_wiz_0' not found [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/TopCPU.v:34] ERROR: [Synth 8-6156] failed synthesizing module 'TopCPU' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/TopCPU.v:10] 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 8804.234 ; gain = 62.988 ; free physical = 9196 ; free virtual = 14106 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: RTL Elaboration failed 
+// Tcl Message: 2 Infos, 0 Warnings, 0 Critical Warnings and 3 Errors encountered. synth_design failed 
+// Tcl Message: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details 
+// CommandFailedException: ERROR: [Common 17-69] Command failed: ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details  
+// U (cr): Critical Messages: addNotify
+dismissDialog("Open Elaborated Design"); // bz
+selectButton(PAResourceAtoD.CmdMsgDialog_OK, "OK"); // f
+dismissDialog("Critical Messages"); // U
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopCPU (TopCPU.v), cpu0 : cpu (cpu.v)]", 9, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopCPU (TopCPU.v), cpu0 : cpu (cpu.v)]", 9, true, false, false, false, true, false); // D - Popup Trigger - Node
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // ah
+selectMenu(PAResourceQtoS.SrcMenu_IP_HIERARCHY, "IP Hierarchy"); // ah
+selectMenuItem(PAResourceCommand.PACommandNames_SET_AS_TOP, "Set as Top"); // ak
+// Run Command: PAResourceCommand.PACommandNames_SET_AS_TOP
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_OPTIONS_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// Tcl Message: set_property top cpu [current_fileset] 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: update_compile_order -fileset sources_1 
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, RTL Analysis, Open Elaborated Design]", 12, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_RTL_DESIGN
+// bz (cr):  Open Elaborated Design : addNotify
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7vx485tffg1157-1 Top: cpu 
+// TclEventType: ELABORATE_START
+// HMemoryUtils.trashcanNow. Engine heap size: 3,156 MB. GUI used memory: 119 MB. Current time: 7/27/21, 11:31:11 PM PDT
+// TclEventType: ELABORATE_FINISH
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 3,329 MB. GUI used memory: 119 MB. Current time: 7/27/21, 11:31:15 PM PDT
+// [Engine Memory]: 3,329 MB (+96035kb) [01:33:25]
+// TclEventType: DESIGN_NEW
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// [GUI Memory]: 197 MB (+6519kb) [01:33:27]
+// Schematic: addNotify
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 8833.469 ; gain = 11.859 ; free physical = 9137 ; free virtual = 14049 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'cpu' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/cpu.v:9] INFO: [Synth 8-6157] synthesizing module 'Cache' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:55] 
+// Tcl Message: 	Parameter WORD_SELECT_BIT bound to: 3 - type: integer  	Parameter INDEX_BIT bound to: 4 - type: integer  	Parameter WAY_NUM bound to: 2 - type: integer  	Parameter TAG_BIT bound to: 23 - type: integer  	Parameter BYTE_SELECT_BIT bound to: 5 - type: integer  	Parameter WAY_SELECT_BIT bound to: 1 - type: integer  	Parameter SET_NUM bound to: 16 - type: integer  	Parameter WORD_NUM bound to: 8 - type: integer  	Parameter BLOCK_SIZE bound to: 256 - type: integer  	Parameter STATE_IDLE bound to: 0 - type: integer  	Parameter STATE_WAIT_FOR_r_PHASE_1 bound to: 1 - type: integer  	Parameter STATE_WAIT_FOR_r_PHASE_2 bound to: 2 - type: integer  	Parameter STATE_WAIT_FOR_WRITE bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'Cacheram' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:7] 
+// Tcl Message: 	Parameter ADDR_WIDTH bound to: 7 - type: integer  	Parameter DATA_BYTE_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'Cacheram' (1#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:7] INFO: [Synth 8-251] Assertion Failed: r_block == addr_index [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:309] INFO: [Synth 8-251] Assertion Failed: recuse[cache_id][addr_index] == recent_use_counter [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:178] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:374] 
+// Tcl Message: INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:371] INFO: [Synth 8-6155] done synthesizing module 'Cache' (2#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:55] INFO: [Synth 8-6157] synthesizing module 'Cache__parameterized0' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:55] 
+// Tcl Message: 	Parameter WORD_SELECT_BIT bound to: 3 - type: integer  	Parameter INDEX_BIT bound to: 2 - type: integer  	Parameter WAY_NUM bound to: 4 - type: integer  	Parameter TAG_BIT bound to: 25 - type: integer  	Parameter BYTE_SELECT_BIT bound to: 5 - type: integer  	Parameter WAY_SELECT_BIT bound to: 2 - type: integer  	Parameter SET_NUM bound to: 4 - type: integer  	Parameter WORD_NUM bound to: 8 - type: integer  	Parameter BLOCK_SIZE bound to: 256 - type: integer  	Parameter STATE_IDLE bound to: 0 - type: integer  	Parameter STATE_WAIT_FOR_r_PHASE_1 bound to: 1 - type: integer  	Parameter STATE_WAIT_FOR_r_PHASE_2 bound to: 2 - type: integer  	Parameter STATE_WAIT_FOR_WRITE bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'Cacheram__parameterized0' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:7] 
+// Tcl Message: 	Parameter ADDR_WIDTH bound to: 5 - type: integer  	Parameter DATA_BYTE_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'Cacheram__parameterized0' (2#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:7] INFO: [Synth 8-251] Assertion Failed: r_block == addr_index [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:309] INFO: [Synth 8-251] Assertion Failed: recuse[cache_id][addr_index] == recent_use_counter [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:178] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:374] 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 8856.469 ; gain = 34.859 ; free physical = 9152 ; free virtual = 14065 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: --------------------------------------------------------------------------------- Start Handling Custom Attributes --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 8874.281 ; gain = 52.672 ; free physical = 9167 ; free virtual = 14079 
+// Tcl Message: --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 8874.281 ; gain = 52.672 ; free physical = 9167 ; free virtual = 14079 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.07 . Memory (MB): peak = 8874.281 ; gain = 0.000 ; free physical = 9158 ; free virtual = 14070 
+// Tcl Message: INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message:  Processing XDC Constraints Initializing timing engine Completed Processing XDC Constraints  
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 9047.031 ; gain = 0.000 ; free physical = 9051 ; free virtual = 13973 
+// Tcl Message: INFO: [Project 1-111] Unisim Transformation Summary: No Unisim elements were transformed.  
+// Tcl Message: RTL Elaboration Complete:  : Time (s): cpu = 00:00:16 ; elapsed = 00:00:12 . Memory (MB): peak = 9272.410 ; gain = 450.801 ; free physical = 8944 ; free virtual = 13867 
+// Tcl Message: 52 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered. synth_design completed successfully 
+// Tcl Message: synth_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:14 . Memory (MB): peak = 9272.410 ; gain = 450.816 ; free physical = 8944 ; free virtual = 13867 
+// [GUI Memory]: 206 MB (+95kb) [01:33:27]
+// 'dV' command handler elapsed time: 14 seconds
+// Elapsed time: 14 seconds
+dismissDialog("Open Elaborated Design"); // bz
+maximizeView(PAResourceOtoP.PAViews_BASE_WORKSPACE, "BaseWorkspace"); // F
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "Schematic_zoom_in"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// [Engine Memory]: 3,508 MB (+13292kb) [01:33:31]
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "Schematic_zoom_in"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "Schematic_zoom_in"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// Elapsed time: 11 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "Schematic_zoom_out"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "Schematic_zoom_out"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+// Elapsed time: 17 seconds
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "Schematic_zoom_in"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+selectButton(PAResourceCommand.PACommandNames_ZOOM_IN, "Schematic_zoom_in"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_IN
+// Elapsed time: 14 seconds
+unMinimizeFrame(RDIResource.RDIViews_PROPERTIES, "Properties"); // az
+// [GUI Memory]: 219 MB (+1822kb) [01:34:25]
+// Elapsed time: 92 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 18, false); // u
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// f (cr): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a
+dismissDialog("Launch Runs"); // f
+unMinimizeFrame(PAResourceOtoP.PAViews_SOURCES, "Sources"); // az
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopCPU (TopCPU.v)]", 3, true); // D - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopCPU (TopCPU.v), clk0 : xil_defaultlib.clk_wiz_0]", 4, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopCPU (TopCPU.v), disp0 : State_display (State_display.v)]", 5, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopCPU (TopCPU.v), UART : uart_comm (uart_comm.v)]", 6, true, false, true, false, false, false); // D - Control Key - Node
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopCPU (TopCPU.v), MEM_CTRL : xil_defaultlib.memory_controller]", 8, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopCPU (TopCPU.v), COMM : xil_defaultlib.multchan_comm]", 7, false, false, true, false, false, false); // D - Control Key
+selectTree(PAResourceEtoH.FileSetPanel_FILE_SET_PANEL_TREE, "[root, Design Sources, TopCPU (TopCPU.v), COMM : xil_defaultlib.multchan_comm]", 7, false, false, false, false, true, false); // D - Popup Trigger
+selectMenu(PAResourceCommand.PACommandNames_AUTO_UPDATE_HIER, "Hierarchy Update"); // ah
+selectMenuItem(RDIResourceCommand.RDICommands_DELETE, "Remove File from Project..."); // ak
+// Run Command: RDIResourceCommand.RDICommands_DELETE
+// aE (cr): Remove Sources: addNotify
+selectCheckBox(PAResourceQtoS.RemoveSourcesDialog_ALSO_DELETE, "Also delete  project local files/directories from disk", true); // g: TRUE
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Remove Sources"); // aE
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/TopCPU.v] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/State_display.v] -no_script -reset -force -quiet 
+// Tcl Message: export_ip_user_files -of_objects  [get_files /home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/uart_comm.v] -no_script -reset -force -quiet 
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Tcl Message: remove_files  {/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/TopCPU.v /home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/State_display.v /home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/uart_comm.v} 
+// aE (cr): Remove Sources: addNotify
+// bz (aE):  Remove Sources : addNotify
+// Tcl Message: file delete -force /home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/TopCPU.v /home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/State_display.v /home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/uart_comm.v 
+dismissDialog("Remove Sources"); // bz
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// HMemoryUtils.trashcanNow. Engine heap size: 3,544 MB. GUI used memory: 161 MB. Current time: 7/27/21, 11:34:01 PM PDT
+// Elapsed time: 10 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 18, false); // u
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// f (cr): Launch Runs: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// bz (cr):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: launch_runs synth_1 -jobs 8 
+// Tcl Message: [Tue Jul 27 23:34:08 2021] Launched synth_1... Run output will be captured here: /home/george/Desktop/project_1/project_1.runs/synth_1/runme.log 
+dismissDialog("Starting Design Runs"); // bz
+// TclEventType: RUN_STATUS_CHANGE
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "Schematic_zoom_out"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_OUT, "Schematic_zoom_out"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_OUT
+selectButton(PAResourceCommand.PACommandNames_ZOOM_FIT, "Schematic_zoom_fit"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_FIT
+// TclEventType: RUN_FAILED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// ag (cr): Synthesis Failed: addNotify
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+dismissDialog("Synthesis Failed"); // ag
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Project Manager, Settings]", 1, false); // u
+// Run Command: RDIResourceCommand.RDICommands_SETTINGS
+// d (cr): Settings: addNotify
+// WARNING: HEventQueue.dispatchEvent() is taking  1085 ms.
+selectButton(PAResourceQtoS.SettingsProjectGeneralPage_CHOOSE_DEVICE_FOR_YOUR_PROJECT, (String) null); // t
+// [GUI Memory]: 246 MB (+17256kb) [01:36:51]
+// c (d): Select Device: addNotify
+setText("PAResourceEtoH.FPGAChooser_FPGA_TABLE_SEARCH_FIELD", "xc7a50tcsg"); // OverlayTextField
+selectTable(PAResourceEtoH.FPGAChooser_FPGA_TABLE, "xc7a50tcsg324-1 ; 324 ; 210 ; 32600 ; 65200 ; 75 ; 0 ; 120 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 0 ; 1 ; 5 ;  ;  ;  ;  ;  ; 0.95 ; 0.95 ; 1.05", 3, "xc7a50tcsg324-1", 0); // w
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Select Device"); // c
+selectButton(RDIResource.BaseDialog_APPLY, "Apply"); // a
+// [GUI Memory]: 262 MB (+3676kb) [01:37:00]
+// bz (cr):  Change Settings : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: CREATE_IP_CATALOG
+// Tcl Message: set_property part xc7a50tcsg324-1 [current_project] 
+// TclEventType: CREATE_IP_CATALOG
+// TclEventType: PART_MODIFIED
+// Tcl Message: INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'. INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'. INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'. 
+// Tcl Message: current_project RISCV_Project 
+// ab (cr): Reload Design: addNotify
+// Tcl Message: current_project project_1 
+dismissDialog("Change Settings"); // bz
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a
+dismissDialog("Reload Design"); // ab
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Settings"); // d
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 18, false); // u
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// bz (cr):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// f (cr): Launch Runs: addNotify
+// ab (cr): Reload Design: addNotify
+// HMemoryUtils.trashcanNow. Engine heap size: 3,630 MB. GUI used memory: 181 MB. Current time: 7/27/21, 11:35:01 PM PDT
+selectCheckBox(PAResourceItoN.NotifyInactiveDesignDialog_ELABORATED_DESIGN, "Elaborated Design", false); // g: FALSE
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// bz (cr):  Reloading design : addNotify
+dismissDialog("Reloading design"); // bz
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// bz (cr):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: launch_runs synth_1 -jobs 8 
+// Tcl Message: [Tue Jul 27 23:35:02 2021] Launched synth_1... Run output will be captured here: /home/george/Desktop/project_1/project_1.runs/synth_1/runme.log 
+// 'k' command handler elapsed time: 4 seconds
+dismissDialog("Starting Design Runs"); // bz
+// ab (cr): Reload Design: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// bz (cr):  Reloading design : addNotify
+// TclEventType: DESIGN_CLOSE
+// HMemoryUtils.trashcanNow. Engine heap size: 3,631 MB. GUI used memory: 169 MB. Current time: 7/27/21, 11:35:05 PM PDT
+// Engine heap size: 3,631 MB. GUI used memory: 170 MB. Current time: 7/27/21, 11:35:05 PM PDT
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: close_design 
+// TclEventType: DESIGN_CLOSE
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: ELABORATE_START
+// Tcl Message: synth_design -rtl -rtl_skip_mlo -name rtl_1 
+// Tcl Message: Command: synth_design -rtl -rtl_skip_mlo -name rtl_1 Starting synth_design Using part: xc7a50tcsg324-1 Top: cpu 
+// TclEventType: ELABORATE_FINISH
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 3,640 MB. GUI used memory: 139 MB. Current time: 7/27/21, 11:35:14 PM PDT
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// TclEventType: DESIGN_NEW
+// Schematic: addNotify
+// WARNING: HEventQueue.dispatchEvent() is taking  1072 ms.
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 9272.410 ; gain = 0.000 ; free physical = 8807 ; free virtual = 13732 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'cpu' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/cpu.v:9] INFO: [Synth 8-6157] synthesizing module 'Cache' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:55] 
+// Tcl Message: 	Parameter WORD_SELECT_BIT bound to: 3 - type: integer  	Parameter INDEX_BIT bound to: 4 - type: integer  	Parameter WAY_NUM bound to: 2 - type: integer  	Parameter TAG_BIT bound to: 23 - type: integer  	Parameter BYTE_SELECT_BIT bound to: 5 - type: integer  	Parameter WAY_SELECT_BIT bound to: 1 - type: integer  	Parameter SET_NUM bound to: 16 - type: integer  	Parameter WORD_NUM bound to: 8 - type: integer  	Parameter BLOCK_SIZE bound to: 256 - type: integer  	Parameter STATE_IDLE bound to: 0 - type: integer  	Parameter STATE_WAIT_FOR_r_PHASE_1 bound to: 1 - type: integer  	Parameter STATE_WAIT_FOR_r_PHASE_2 bound to: 2 - type: integer  	Parameter STATE_WAIT_FOR_WRITE bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'Cacheram' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:7] 
+// Tcl Message: 	Parameter ADDR_WIDTH bound to: 7 - type: integer  	Parameter DATA_BYTE_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'Cacheram' (1#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:7] INFO: [Synth 8-251] Assertion Failed: r_block == addr_index [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:309] INFO: [Synth 8-251] Assertion Failed: recuse[cache_id][addr_index] == recent_use_counter [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:178] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:374] 
+// Tcl Message: INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:371] INFO: [Synth 8-6155] done synthesizing module 'Cache' (2#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:55] INFO: [Synth 8-6157] synthesizing module 'Cache__parameterized0' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:55] 
+// Tcl Message: 	Parameter WORD_SELECT_BIT bound to: 3 - type: integer  	Parameter INDEX_BIT bound to: 2 - type: integer  	Parameter WAY_NUM bound to: 4 - type: integer  	Parameter TAG_BIT bound to: 25 - type: integer  	Parameter BYTE_SELECT_BIT bound to: 5 - type: integer  	Parameter WAY_SELECT_BIT bound to: 2 - type: integer  	Parameter SET_NUM bound to: 4 - type: integer  	Parameter WORD_NUM bound to: 8 - type: integer  	Parameter BLOCK_SIZE bound to: 256 - type: integer  	Parameter STATE_IDLE bound to: 0 - type: integer  	Parameter STATE_WAIT_FOR_r_PHASE_1 bound to: 1 - type: integer  	Parameter STATE_WAIT_FOR_r_PHASE_2 bound to: 2 - type: integer  	Parameter STATE_WAIT_FOR_WRITE bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6157] synthesizing module 'Cacheram__parameterized0' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:7] 
+// Tcl Message: 	Parameter ADDR_WIDTH bound to: 5 - type: integer  	Parameter DATA_BYTE_WIDTH bound to: 4 - type: integer  
+// Tcl Message: INFO: [Synth 8-6155] done synthesizing module 'Cacheram__parameterized0' (2#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:7] INFO: [Synth 8-251] Assertion Failed: r_block == addr_index [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:309] INFO: [Synth 8-251] Assertion Failed: recuse[cache_id][addr_index] == recent_use_counter [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:178] INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:374] 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 9272.410 ; gain = 0.000 ; free physical = 8633 ; free virtual = 13558 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: --------------------------------------------------------------------------------- Start Handling Custom Attributes --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 9272.410 ; gain = 0.000 ; free physical = 8608 ; free virtual = 13533 
+// Tcl Message: --------------------------------------------------------------------------------- --------------------------------------------------------------------------------- 
+// Tcl Message: Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 9272.410 ; gain = 0.000 ; free physical = 8608 ; free virtual = 13533 
+// Tcl Message: --------------------------------------------------------------------------------- 
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.08 . Memory (MB): peak = 9272.410 ; gain = 0.000 ; free physical = 8573 ; free virtual = 13498 
+// Tcl Message: INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message:  Processing XDC Constraints Initializing timing engine Completed Processing XDC Constraints  
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 9272.410 ; gain = 0.000 ; free physical = 8452 ; free virtual = 13377 
+// Tcl Message: INFO: [Project 1-111] Unisim Transformation Summary: No Unisim elements were transformed.  
+// Tcl Message: RTL Elaboration Complete:  : Time (s): cpu = 00:00:13 ; elapsed = 00:00:11 . Memory (MB): peak = 9329.273 ; gain = 56.863 ; free physical = 8279 ; free virtual = 13204 
+// Tcl Message: 52 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered. synth_design completed successfully 
+// Tcl Message: synth_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:11 . Memory (MB): peak = 9329.273 ; gain = 56.863 ; free physical = 8279 ; free virtual = 13204 
+// Elapsed time: 12 seconds
+dismissDialog("Reloading design"); // bz
+// Elapsed time: 37 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Project Summary", 0); // m
+selectTab(PAResourceOtoP.ProjectSummaryUtilizationPanel_PROJECT_SUMMARY_UTILIZATION_PANEL_TABBED, PAResourceOtoP.ProjectSummaryUtilizationPanel_TABLE, "Table", 1); // f
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// ag (cr): Synthesis Completed: addNotify
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a
+dismissDialog("Synthesis Completed"); // ag
+selectButton(PAResourceQtoS.RunGadget_SHOW_WARNING_AND_ERROR_MESSAGES_IN_MESSAGES, "4 warnings"); // h
+// Run Command: PAResourceCommand.PACommandNames_MESSAGE_WINDOW
+expandTree(PAResourceItoN.MsgTreePanel_MESSAGE_VIEW_TREE, "[, Synthesis, [Synth 8-327] inferring latch for variable 'r1_data_o_reg' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ID.v:903]. ]", 3); // ah
+// Elapsed time: 21 seconds
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Schematic", 1); // m
+selectButton(PAResourceCommand.PACommandNames_ZOOM_FIT, "Schematic_zoom_fit"); // E
+// Run Command: PAResourceCommand.PACommandNames_ZOOM_FIT
+// Elapsed time: 11 seconds
+expandTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[cpu, dcache0 (Cache__parameterized0)]", 4); // bC
+selectTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[cpu, dcache0 (Cache__parameterized0), genblk6[0].RAM (Cacheram__parameterized0)]", 7, false); // bC
+selectTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[cpu, dcache0 (Cache__parameterized0), genblk6[1].RAM (Cacheram__parameterized0)]", 8, false); // bC
+selectTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[cpu, dcache0 (Cache__parameterized0), genblk6[2].RAM (Cacheram__parameterized0)]", 9, false); // bC
+selectTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[cpu, dcache0 (Cache__parameterized0), genblk6[3].RAM (Cacheram__parameterized0)]", 10, false); // bC
+collapseTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[cpu, dcache0 (Cache__parameterized0)]", 4); // bC
+expandTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[cpu, if_id0 (IF_ID)]", 11); // bC
+collapseTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[cpu, if_id0 (IF_ID)]", 11); // bC
+// Run Command: PAResourceCommand.PACommandNames_GOTO_DEFINITION
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design]", 19, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_NETLIST_DESIGN
+// g (cr): Close Design: addNotify
+selectButton(PAResourceAtoD.ClosePlanner_YES, "Yes"); // a
+// bz (cr):  Close : addNotify
+dismissDialog("Close Design"); // g
+// TclEventType: DESIGN_CLOSE
+// HMemoryUtils.trashcanNow. Engine heap size: 3,660 MB. GUI used memory: 144 MB. Current time: 7/27/21, 11:37:11 PM PDT
+// Engine heap size: 3,660 MB. GUI used memory: 144 MB. Current time: 7/27/21, 11:37:11 PM PDT
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: close_design 
+// TclEventType: DESIGN_CLOSE
+// bz (cr):  Open Synthesized Design : addNotify
+dismissDialog("Close"); // bz
+// Tcl Message: open_run synth_1 -name synth_1 
+// Tcl Message: Design is defaulting to impl run constrset: constrs_1 Design is defaulting to synth run part: xc7a50tcsg324-1 
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 3,649 MB. GUI used memory: 141 MB. Current time: 7/27/21, 11:37:14 PM PDT
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// TclEventType: DESIGN_NEW
+// Device: addNotify
+// DeviceView Instantiated
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.04 . Memory (MB): peak = 9329.273 ; gain = 0.000 ; free physical = 8863 ; free virtual = 13799 
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 149 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2020.2 INFO: [Project 1-570] Preparing netlist for logic optimization INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). 
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 9329.273 ; gain = 0.000 ; free physical = 8818 ; free virtual = 13753 
+// Tcl Message: INFO: [Project 1-111] Unisim Transformation Summary:   A total of 12 instances were transformed.   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 12 instances  
+// Device view-level: 0.0
+// 'dV' command handler elapsed time: 5 seconds
+dismissDialog("Open Synthesized Design"); // bz
+expandTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[cpu, id0 (ID)]", 6); // bC
+// RouteApi::initDelayMediator elapsed time: 7.6s
+// RouteApi: Init Delay Mediator Swing Worker Finished
+collapseTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[cpu, id0 (ID)]", 6); // bC
+// [Engine Memory]: 3,865 MB (+190014kb) [01:39:35]
+expandTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[cpu, regfile0 (Regfile)]", 11); // bC
+expandTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[cpu, regfile0 (Regfile), Nets (114)]", 12); // bC
+expandTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[cpu, regfile0 (Regfile), Leaf Cells (13)]", 22); // bC
+// PAPropertyPanels.initPanels (regs_reg_r2_0_31_12_17 (RAM32M)) elapsed time: 0.4s
+selectTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[cpu, regfile0 (Regfile), Leaf Cells (13), regs_reg_r2_0_31_12_17 (RAM32M)]", 32, true); // bC - Node
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Schematic", 1); // m
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design]", 19, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_NETLIST_DESIGN
+// g (cr): Close Design: addNotify
+selectButton(PAResourceAtoD.ClosePlanner_YES, "Yes"); // a
+// bz (cr):  Close : addNotify
+dismissDialog("Close Design"); // g
+// Tcl Message: current_project RISCV_Project 
+// TclEventType: DESIGN_CLOSE
+// HMemoryUtils.trashcanNow. Engine heap size: 3,895 MB. GUI used memory: 145 MB. Current time: 7/27/21, 11:37:36 PM PDT
+// Engine heap size: 3,895 MB. GUI used memory: 146 MB. Current time: 7/27/21, 11:37:36 PM PDT
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: close_design 
+// TclEventType: DESIGN_CLOSE
+// ce (cr): Synthesis is Out-of-date: addNotify
+dismissDialog("Close"); // bz
+selectButton(PAResourceQtoS.StaleRunDialog_OPEN_DESIGN, "Open Design"); // a
+// bz (cr):  Open Synthesized Design : addNotify
+dismissDialog("Synthesis is Out-of-date"); // ce
+// Tcl Message: open_run synth_1 -name synth_1 
+// Tcl Message: Design is defaulting to impl run constrset: constrs_1 Design is defaulting to synth run part: xc7a50tcsg324-1 
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 3,836 MB. GUI used memory: 143 MB. Current time: 7/27/21, 11:37:41 PM PDT
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// TclEventType: DESIGN_NEW
+// Device: addNotify
+// DeviceView Instantiated
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.02 . Memory (MB): peak = 9458.082 ; gain = 0.000 ; free physical = 8478 ; free virtual = 13437 
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 430 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2020.2 INFO: [Project 1-570] Preparing netlist for logic optimization INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). 
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 9458.082 ; gain = 0.000 ; free physical = 8427 ; free virtual = 13386 
+// Tcl Message: INFO: [Project 1-111] Unisim Transformation Summary: No Unisim elements were transformed.  
+// Device view-level: 0.0
+// RouteApi: Init Delay Mediator Swing Worker Finished
+// 'dV' command handler elapsed time: 8 seconds
+dismissDialog("Open Synthesized Design"); // bz
+// Elapsed time: 15 seconds
+expandTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[toast_top, id_stage_i (toast_ID_stage)]", 5); // bC
+expandTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[toast_top, id_stage_i (toast_ID_stage), regfile_i (toast_regfile)]", 9); // bC
+selectTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[toast_top, id_stage_i (toast_ID_stage), regfile_i (toast_regfile), Leaf Cells (2588)]", 11, false); // bC
+expandTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[toast_top, id_stage_i (toast_ID_stage), regfile_i (toast_regfile), Leaf Cells (2588)]", 11); // bC
+// Elapsed time: 11 seconds
+collapseTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[toast_top, id_stage_i (toast_ID_stage), regfile_i (toast_regfile), Leaf Cells (2588)]", 11); // bC
+expandTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[toast_top, id_stage_i (toast_ID_stage), regfile_i (toast_regfile), Nets (3004)]", 10); // bC
+// Elapsed time: 12 seconds
+collapseTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[cpu, regfile0 (Regfile), Leaf Cells (13)]", 22); // bC
+collapseTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[cpu, regfile0 (Regfile), Nets (114)]", 12); // bC
+collapseTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[toast_top, id_stage_i (toast_ID_stage), regfile_i (toast_regfile), Nets (3004)]", 10); // bC
+selectButton(PAResourceTtoZ.TaskBanner_CLOSE, (String) null); // k
+closeTask("Synthesis", "Synthesized Design", "DesignTask.NETLIST_PLANNING");
+// bz (cr):  Close : addNotify
+// TclEventType: DESIGN_CLOSE
+// HMemoryUtils.trashcanNow. Engine heap size: 3,841 MB. GUI used memory: 145 MB. Current time: 7/27/21, 11:38:40 PM PDT
+// Engine heap size: 3,841 MB. GUI used memory: 146 MB. Current time: 7/27/21, 11:38:40 PM PDT
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: close_design 
+// TclEventType: DESIGN_CLOSE
+dismissDialog("Close"); // bz
+closeMainWindow("project_1 - [/home/george/Desktop/project_1/project_1.xpr] - Vivado 2020.2"); // cr
+// Run Command: PAResourceCommand.PACommandNames_CLOSE_PROJECT
+// A (cr): Close Project: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// bz (cr):  Close Project : addNotify
+dismissDialog("Close Project"); // A
+// Tcl Message: current_project project_1 
+// TclEventType: PROJECT_CLOSE
+// HMemoryUtils.trashcanNow. Engine heap size: 3,825 MB. GUI used memory: 134 MB. Current time: 7/27/21, 11:38:50 PM PDT
+// Engine heap size: 3,825 MB. GUI used memory: 154 MB. Current time: 7/27/21, 11:38:50 PM PDT
+// TclEventType: DESIGN_CLOSE
+// Tcl Message: close_project 
+// TclEventType: DESIGN_CLOSE
+dismissDialog("Add Sources"); // c
+dismissDialog("Remove Sources"); // aE
+dismissDialog("Close Project"); // bz
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 3,731 MB. GUI used memory: 108 MB. Current time: 7/28/21, 12:08:51 AM PDT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,731 MB. GUI used memory: 104 MB. Current time: 7/28/21, 12:38:51 AM PDT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,731 MB. GUI used memory: 103 MB. Current time: 7/28/21, 1:08:51 AM PDT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,731 MB. GUI used memory: 103 MB. Current time: 7/28/21, 1:38:51 AM PDT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,731 MB. GUI used memory: 103 MB. Current time: 7/28/21, 2:08:52 AM PDT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,731 MB. GUI used memory: 104 MB. Current time: 7/28/21, 2:38:52 AM PDT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,731 MB. GUI used memory: 103 MB. Current time: 7/28/21, 3:08:52 AM PDT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,731 MB. GUI used memory: 103 MB. Current time: 7/28/21, 3:38:52 AM PDT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,731 MB. GUI used memory: 103 MB. Current time: 7/28/21, 4:08:52 AM PDT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,731 MB. GUI used memory: 103 MB. Current time: 7/28/21, 4:38:52 AM PDT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,731 MB. GUI used memory: 103 MB. Current time: 7/28/21, 5:08:53 AM PDT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,731 MB. GUI used memory: 103 MB. Current time: 7/28/21, 5:38:53 AM PDT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,731 MB. GUI used memory: 103 MB. Current time: 7/28/21, 6:08:53 AM PDT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,731 MB. GUI used memory: 103 MB. Current time: 7/28/21, 6:38:53 AM PDT
+// HMemoryUtils.trashcanNow. Engine heap size: 3,731 MB. GUI used memory: 103 MB. Current time: 7/28/21, 7:08:53 AM PDT

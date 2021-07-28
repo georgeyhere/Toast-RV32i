@@ -4,6 +4,10 @@
 //
 // This module handles forwarding and hazard detection.
 
+`ifdef CUSTOM_DEFINE
+    `include "defines.vh"
+`endif
+
 module toast_control 
     `include "toast_definitions.vh"
 

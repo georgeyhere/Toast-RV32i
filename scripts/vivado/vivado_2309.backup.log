@@ -1,0 +1,514 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Tue Jul 27 21:57:37 2021
+# Process ID: 2309
+# Current directory: /home/george/Documents/work/RISCV/Toast-RV32i/scripts/vivado
+# Command line: vivado
+# Log file: /home/george/Documents/work/RISCV/Toast-RV32i/scripts/vivado/vivado.log
+# Journal file: /home/george/Documents/work/RISCV/Toast-RV32i/scripts/vivado/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr
+WARNING: [filemgmt 56-3] Default IP Output Path : Could not find the directory '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2020.2/data/ip'.
+INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+open_project: Time (s): cpu = 00:00:19 ; elapsed = 00:00:07 . Memory (MB): peak = 7378.121 ; gain = 45.043 ; free physical = 12276 ; free virtual = 16137
+update_compile_order -fileset sources_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+Command: synth_design -rtl -rtl_skip_mlo -name rtl_1
+Starting synth_design
+Using part: xc7a50tcsg324-1
+Top: toast_top
+INFO: [Device 21-403] Loading part xc7a50tcsg324-1
+ERROR: [Synth 8-2576] procedural assignment to a non-register ID_rs1_data_o is not permitted [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_ID_stage.v:204]
+ERROR: [Synth 8-2576] procedural assignment to a non-register ID_rs2_data_o is not permitted [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_ID_stage.v:205]
+ERROR: [Synth 8-2576] procedural assignment to a non-register ID_rs1_data_o is not permitted [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_ID_stage.v:227]
+ERROR: [Synth 8-2576] procedural assignment to a non-register ID_rs2_data_o is not permitted [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_ID_stage.v:228]
+ERROR: [Synth 8-2576] procedural assignment to a non-register ID_rs1_data_o is not permitted [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_ID_stage.v:248]
+ERROR: [Synth 8-2576] procedural assignment to a non-register ID_rs2_data_o is not permitted [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_ID_stage.v:249]
+INFO: [Synth 8-2350] module toast_ID_stage ignored due to previous errors [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_ID_stage.v:24]
+Failed to read verilog '/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_ID_stage.v'
+2 Infos, 0 Warnings, 0 Critical Warnings and 7 Errors encountered.
+synth_design failed
+ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+Command: synth_design -rtl -rtl_skip_mlo -name rtl_1
+Starting synth_design
+Using part: xc7a50tcsg324-1
+Top: toast_top
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:03 ; elapsed = 00:00:04 . Memory (MB): peak = 7892.371 ; gain = 0.000 ; free physical = 11612 ; free virtual = 15578
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'toast_top' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_top.v:24]
+	Parameter REG_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer 
+	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter ALU_OP_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'toast_control' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_control.v:7]
+	Parameter REG_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'toast_control' (1#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_control.v:7]
+INFO: [Synth 8-6157] synthesizing module 'toast_IF_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_IF_stage.v:26]
+	Parameter REG_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'toast_IF_stage' (2#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_IF_stage.v:26]
+INFO: [Synth 8-6157] synthesizing module 'toast_ID_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_ID_stage.v:24]
+	Parameter REG_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer 
+	Parameter REGFILE_DEPTH bound to: 32 - type: integer 
+	Parameter ALU_OP_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'toast_decoder' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:44]
+	Parameter REG_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer 
+	Parameter REGFILE_DEPTH bound to: 32 - type: integer 
+	Parameter ALU_OP_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:292]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:308]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:145]
+INFO: [Synth 8-6155] done synthesizing module 'toast_decoder' (3#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:44]
+INFO: [Synth 8-6157] synthesizing module 'toast_regfile' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_regfile.v:28]
+	Parameter REG_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer 
+	Parameter REGFILE_DEPTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'toast_regfile' (4#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_regfile.v:28]
+INFO: [Synth 8-6157] synthesizing module 'toast_branchgen' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_branchgen.v:24]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_branchgen.v:45]
+INFO: [Synth 8-6155] done synthesizing module 'toast_branchgen' (5#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_branchgen.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'toast_ID_stage' (6#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_ID_stage.v:24]
+INFO: [Synth 8-6157] synthesizing module 'toast_EX_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_EX_stage.v:25]
+INFO: [Synth 8-6157] synthesizing module 'toast_alu' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_alu.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'toast_alu' (7#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_alu.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'toast_EX_stage' (8#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_EX_stage.v:25]
+INFO: [Synth 8-6157] synthesizing module 'toast_MEM_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_MEM_stage.v:30]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_MEM_stage.v:134]
+INFO: [Synth 8-6155] done synthesizing module 'toast_MEM_stage' (9#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_MEM_stage.v:30]
+INFO: [Synth 8-6157] synthesizing module 'toast_WB_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_WB_stage.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'toast_WB_stage' (10#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_WB_stage.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'toast_top' (11#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_top.v:24]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 7892.371 ; gain = 0.000 ; free physical = 11637 ; free virtual = 15611
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 7892.371 ; gain = 0.000 ; free physical = 11632 ; free virtual = 15607
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:06 . Memory (MB): peak = 7892.371 ; gain = 0.000 ; free physical = 11632 ; free virtual = 15607
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.03 . Memory (MB): peak = 7892.371 ; gain = 0.000 ; free physical = 11624 ; free virtual = 15600
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 7892.371 ; gain = 0.000 ; free physical = 11535 ; free virtual = 15523
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:18 ; elapsed = 00:00:10 . Memory (MB): peak = 7892.371 ; gain = 0.000 ; free physical = 11416 ; free virtual = 15411
+29 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:20 ; elapsed = 00:00:11 . Memory (MB): peak = 7892.371 ; gain = 0.000 ; free physical = 11416 ; free virtual = 15411
+refresh_design
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 8194.160 ; gain = 0.000 ; free physical = 10468 ; free virtual = 14836
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'toast_top' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_top.v:24]
+	Parameter REG_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer 
+	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter ALU_OP_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'toast_control' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_control.v:7]
+	Parameter REG_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'toast_control' (1#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_control.v:7]
+INFO: [Synth 8-6157] synthesizing module 'toast_IF_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_IF_stage.v:26]
+	Parameter REG_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'toast_IF_stage' (2#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_IF_stage.v:26]
+INFO: [Synth 8-6157] synthesizing module 'toast_ID_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_ID_stage.v:24]
+	Parameter REG_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer 
+	Parameter REGFILE_DEPTH bound to: 32 - type: integer 
+	Parameter ALU_OP_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'toast_decoder' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:44]
+	Parameter REG_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer 
+	Parameter REGFILE_DEPTH bound to: 32 - type: integer 
+	Parameter ALU_OP_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:292]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:308]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:145]
+INFO: [Synth 8-6155] done synthesizing module 'toast_decoder' (3#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:44]
+INFO: [Synth 8-6157] synthesizing module 'toast_regfile' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_regfile.v:28]
+	Parameter REG_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer 
+	Parameter REGFILE_DEPTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'toast_regfile' (4#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_regfile.v:28]
+INFO: [Synth 8-6157] synthesizing module 'toast_branchgen' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_branchgen.v:24]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_branchgen.v:45]
+INFO: [Synth 8-6155] done synthesizing module 'toast_branchgen' (5#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_branchgen.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'toast_ID_stage' (6#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_ID_stage.v:24]
+INFO: [Synth 8-6157] synthesizing module 'toast_EX_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_EX_stage.v:25]
+INFO: [Synth 8-6157] synthesizing module 'toast_alu' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_alu.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'toast_alu' (7#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_alu.v:23]
+INFO: [Synth 8-6155] done synthesizing module 'toast_EX_stage' (8#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_EX_stage.v:25]
+INFO: [Synth 8-6157] synthesizing module 'toast_MEM_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_MEM_stage.v:30]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_MEM_stage.v:134]
+INFO: [Synth 8-6155] done synthesizing module 'toast_MEM_stage' (9#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_MEM_stage.v:30]
+INFO: [Synth 8-6157] synthesizing module 'toast_WB_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_WB_stage.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'toast_WB_stage' (10#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_WB_stage.v:24]
+INFO: [Synth 8-6155] done synthesizing module 'toast_top' (11#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_top.v:24]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 8194.160 ; gain = 0.000 ; free physical = 10515 ; free virtual = 14883
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 8194.160 ; gain = 0.000 ; free physical = 10516 ; free virtual = 14884
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 8194.160 ; gain = 0.000 ; free physical = 10516 ; free virtual = 14884
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.03 . Memory (MB): peak = 8194.160 ; gain = 0.000 ; free physical = 10586 ; free virtual = 14955
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+refresh_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:08 . Memory (MB): peak = 8194.160 ; gain = 0.000 ; free physical = 10495 ; free virtual = 14863
+create_project project_1 /home/george/Desktop/project_1 -part xc7vx485tffg1157-1
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2020.2/data/ip'.
+create_project: Time (s): cpu = 00:00:13 ; elapsed = 00:00:05 . Memory (MB): peak = 8741.246 ; gain = 0.000 ; free physical = 9613 ; free virtual = 14375
+add_files -norecurse -scan_for_includes {/home/george/Documents/work/fuck/RISCV_CPU/Source/Defines.vh /home/george/Documents/work/fuck/RISCV_CPU/Source/ALUInstDef.vh /home/george/Documents/work/fuck/RISCV_CPU/Source/common.vh /home/george/Documents/work/fuck/RISCV_CPU/Source/IDInstDef.vh}
+import_files -norecurse {/home/george/Documents/work/fuck/RISCV_CPU/Source/Defines.vh /home/george/Documents/work/fuck/RISCV_CPU/Source/ALUInstDef.vh /home/george/Documents/work/fuck/RISCV_CPU/Source/common.vh /home/george/Documents/work/fuck/RISCV_CPU/Source/IDInstDef.vh}
+add_files -norecurse -scan_for_includes {/home/george/Documents/work/fuck/RISCV_CPU/Source/Cache.v /home/george/Documents/work/fuck/RISCV_CPU/Source/Ctrl.v /home/george/Documents/work/fuck/RISCV_CPU/Source/pc_reg.v /home/george/Documents/work/fuck/RISCV_CPU/Source/ME.v /home/george/Documents/work/fuck/RISCV_CPU/Source/State_display.v /home/george/Documents/work/fuck/RISCV_CPU/Source/cpu.v /home/george/Documents/work/fuck/RISCV_CPU/Source/ID_EX.v /home/george/Documents/work/fuck/RISCV_CPU/Source/uart_comm.v /home/george/Documents/work/fuck/RISCV_CPU/Source/TopCPU.v /home/george/Documents/work/fuck/RISCV_CPU/Source/EX.v /home/george/Documents/work/fuck/RISCV_CPU/Source/WB.v /home/george/Documents/work/fuck/RISCV_CPU/Source/Regfile.v /home/george/Documents/work/fuck/RISCV_CPU/Source/IF_ID.v /home/george/Documents/work/fuck/RISCV_CPU/Source/EX_ME.v /home/george/Documents/work/fuck/RISCV_CPU/Source/ID.v /home/george/Documents/work/fuck/RISCV_CPU/Source/IF.v /home/george/Documents/work/fuck/RISCV_CPU/Source/ME_WB.v}
+import_files -norecurse {/home/george/Documents/work/fuck/RISCV_CPU/Source/Cache.v /home/george/Documents/work/fuck/RISCV_CPU/Source/Ctrl.v /home/george/Documents/work/fuck/RISCV_CPU/Source/pc_reg.v /home/george/Documents/work/fuck/RISCV_CPU/Source/ME.v /home/george/Documents/work/fuck/RISCV_CPU/Source/State_display.v /home/george/Documents/work/fuck/RISCV_CPU/Source/cpu.v /home/george/Documents/work/fuck/RISCV_CPU/Source/ID_EX.v /home/george/Documents/work/fuck/RISCV_CPU/Source/uart_comm.v /home/george/Documents/work/fuck/RISCV_CPU/Source/TopCPU.v /home/george/Documents/work/fuck/RISCV_CPU/Source/EX.v /home/george/Documents/work/fuck/RISCV_CPU/Source/WB.v /home/george/Documents/work/fuck/RISCV_CPU/Source/Regfile.v /home/george/Documents/work/fuck/RISCV_CPU/Source/IF_ID.v /home/george/Documents/work/fuck/RISCV_CPU/Source/EX_ME.v /home/george/Documents/work/fuck/RISCV_CPU/Source/ID.v /home/george/Documents/work/fuck/RISCV_CPU/Source/IF.v /home/george/Documents/work/fuck/RISCV_CPU/Source/ME_WB.v}
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+Command: synth_design -rtl -rtl_skip_mlo -name rtl_1
+Starting synth_design
+Using part: xc7vx485tffg1157-1
+Top: TopCPU
+INFO: [Device 21-403] Loading part xc7vx485tffg1157-1
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 8766.297 ; gain = 25.051 ; free physical = 9145 ; free virtual = 14056
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'TopCPU' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/TopCPU.v:10]
+	Parameter CHANNEL_BIT bound to: 1 - type: integer 
+	Parameter MESSAGE_BIT bound to: 72 - type: integer 
+	Parameter CHANNEL bound to: 2 - type: integer 
+ERROR: [Synth 8-439] module 'clk_wiz_0' not found [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/TopCPU.v:34]
+ERROR: [Synth 8-6156] failed synthesizing module 'TopCPU' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/TopCPU.v:10]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 8804.234 ; gain = 62.988 ; free physical = 9196 ; free virtual = 14106
+---------------------------------------------------------------------------------
+RTL Elaboration failed
+2 Infos, 0 Warnings, 0 Critical Warnings and 3 Errors encountered.
+synth_design failed
+ERROR: [Vivado_Tcl 4-5] Elaboration failed - please see the console for details
+set_property top cpu [current_fileset]
+update_compile_order -fileset sources_1
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+Command: synth_design -rtl -rtl_skip_mlo -name rtl_1
+Starting synth_design
+Using part: xc7vx485tffg1157-1
+Top: cpu
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 8833.469 ; gain = 11.859 ; free physical = 9137 ; free virtual = 14049
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'cpu' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/cpu.v:9]
+INFO: [Synth 8-6157] synthesizing module 'Cache' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:55]
+	Parameter WORD_SELECT_BIT bound to: 3 - type: integer 
+	Parameter INDEX_BIT bound to: 4 - type: integer 
+	Parameter WAY_NUM bound to: 2 - type: integer 
+	Parameter TAG_BIT bound to: 23 - type: integer 
+	Parameter BYTE_SELECT_BIT bound to: 5 - type: integer 
+	Parameter WAY_SELECT_BIT bound to: 1 - type: integer 
+	Parameter SET_NUM bound to: 16 - type: integer 
+	Parameter WORD_NUM bound to: 8 - type: integer 
+	Parameter BLOCK_SIZE bound to: 256 - type: integer 
+	Parameter STATE_IDLE bound to: 0 - type: integer 
+	Parameter STATE_WAIT_FOR_r_PHASE_1 bound to: 1 - type: integer 
+	Parameter STATE_WAIT_FOR_r_PHASE_2 bound to: 2 - type: integer 
+	Parameter STATE_WAIT_FOR_WRITE bound to: 4 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Cacheram' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:7]
+	Parameter ADDR_WIDTH bound to: 7 - type: integer 
+	Parameter DATA_BYTE_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Cacheram' (1#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:7]
+INFO: [Synth 8-251] Assertion Failed: r_block == addr_index [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:309]
+INFO: [Synth 8-251] Assertion Failed: recuse[cache_id][addr_index] == recent_use_counter [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:178]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:374]
+WARNING: [Synth 8-6090] variable 'next_state' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:514]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:371]
+INFO: [Synth 8-6155] done synthesizing module 'Cache' (2#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:55]
+INFO: [Synth 8-6157] synthesizing module 'Cache__parameterized0' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:55]
+	Parameter WORD_SELECT_BIT bound to: 3 - type: integer 
+	Parameter INDEX_BIT bound to: 2 - type: integer 
+	Parameter WAY_NUM bound to: 4 - type: integer 
+	Parameter TAG_BIT bound to: 25 - type: integer 
+	Parameter BYTE_SELECT_BIT bound to: 5 - type: integer 
+	Parameter WAY_SELECT_BIT bound to: 2 - type: integer 
+	Parameter SET_NUM bound to: 4 - type: integer 
+	Parameter WORD_NUM bound to: 8 - type: integer 
+	Parameter BLOCK_SIZE bound to: 256 - type: integer 
+	Parameter STATE_IDLE bound to: 0 - type: integer 
+	Parameter STATE_WAIT_FOR_r_PHASE_1 bound to: 1 - type: integer 
+	Parameter STATE_WAIT_FOR_r_PHASE_2 bound to: 2 - type: integer 
+	Parameter STATE_WAIT_FOR_WRITE bound to: 4 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Cacheram__parameterized0' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:7]
+	Parameter ADDR_WIDTH bound to: 5 - type: integer 
+	Parameter DATA_BYTE_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Cacheram__parameterized0' (2#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:7]
+INFO: [Synth 8-251] Assertion Failed: r_block == addr_index [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:309]
+INFO: [Synth 8-251] Assertion Failed: recuse[cache_id][addr_index] == recent_use_counter [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:178]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:374]
+WARNING: [Synth 8-6090] variable 'next_state' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:514]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:371]
+INFO: [Synth 8-6155] done synthesizing module 'Cache__parameterized0' (2#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:55]
+INFO: [Synth 8-6157] synthesizing module 'Ctrl' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Ctrl.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Ctrl' (3#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Ctrl.v:1]
+INFO: [Synth 8-6157] synthesizing module 'PC_reg' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/pc_reg.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'PC_reg' (4#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/pc_reg.v:7]
+INFO: [Synth 8-6157] synthesizing module 'IF' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/IF.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'IF' (5#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/IF.v:7]
+INFO: [Synth 8-6157] synthesizing module 'IF_ID' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/IF_ID.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'IF_ID' (6#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/IF_ID.v:6]
+INFO: [Synth 8-6157] synthesizing module 'ID' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ID.v:7]
+INFO: [Synth 8-226] default block is never used [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ID.v:520]
+INFO: [Synth 8-226] default block is never used [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ID.v:621]
+INFO: [Synth 8-226] default block is never used [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ID.v:686]
+INFO: [Synth 8-226] default block is never used [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ID.v:689]
+INFO: [Synth 8-226] default block is never used [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ID.v:791]
+INFO: [Synth 8-6155] done synthesizing module 'ID' (7#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ID.v:7]
+INFO: [Synth 8-6157] synthesizing module 'ID_EX' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ID_EX.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'ID_EX' (8#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ID_EX.v:7]
+INFO: [Synth 8-6157] synthesizing module 'EX' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/EX.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'EX' (9#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/EX.v:7]
+INFO: [Synth 8-6157] synthesizing module 'EX_ME' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/EX_ME.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'EX_ME' (10#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/EX_ME.v:8]
+INFO: [Synth 8-6157] synthesizing module 'ME' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ME.v:6]
+INFO: [Synth 8-226] default block is never used [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ME.v:80]
+INFO: [Synth 8-226] default block is never used [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ME.v:119]
+INFO: [Synth 8-226] default block is never used [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ME.v:177]
+INFO: [Synth 8-6155] done synthesizing module 'ME' (11#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ME.v:6]
+INFO: [Synth 8-6157] synthesizing module 'ME_WB' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ME_WB.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ME_WB' (12#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ME_WB.v:6]
+INFO: [Synth 8-6157] synthesizing module 'WB' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/WB.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'WB' (13#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/WB.v:6]
+INFO: [Synth 8-6157] synthesizing module 'Regfile' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Regfile.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Regfile' (14#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Regfile.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'cpu' (15#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/cpu.v:9]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 8856.469 ; gain = 34.859 ; free physical = 9152 ; free virtual = 14065
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 8874.281 ; gain = 52.672 ; free physical = 9167 ; free virtual = 14079
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 8874.281 ; gain = 52.672 ; free physical = 9167 ; free virtual = 14079
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.07 . Memory (MB): peak = 8874.281 ; gain = 0.000 ; free physical = 9158 ; free virtual = 14070
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 9047.031 ; gain = 0.000 ; free physical = 9051 ; free virtual = 13973
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:16 ; elapsed = 00:00:12 . Memory (MB): peak = 9272.410 ; gain = 450.801 ; free physical = 8944 ; free virtual = 13867
+52 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:17 ; elapsed = 00:00:14 . Memory (MB): peak = 9272.410 ; gain = 450.816 ; free physical = 8944 ; free virtual = 13867
+export_ip_user_files -of_objects  [get_files /home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/TopCPU.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/State_display.v] -no_script -reset -force -quiet
+export_ip_user_files -of_objects  [get_files /home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/uart_comm.v] -no_script -reset -force -quiet
+remove_files  {/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/TopCPU.v /home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/State_display.v /home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/uart_comm.v}
+file delete -force /home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/TopCPU.v /home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/State_display.v /home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/uart_comm.v
+launch_runs synth_1 -jobs 8
+[Tue Jul 27 23:34:08 2021] Launched synth_1...
+Run output will be captured here: /home/george/Desktop/project_1/project_1.runs/synth_1/runme.log
+INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+set_property part xc7a50tcsg324-1 [current_project]
+INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+current_project RISCV_Project
+current_project project_1
+INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+[Tue Jul 27 23:35:02 2021] Launched synth_1...
+Run output will be captured here: /home/george/Desktop/project_1/project_1.runs/synth_1/runme.log
+close_design
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+Command: synth_design -rtl -rtl_skip_mlo -name rtl_1
+Starting synth_design
+Using part: xc7a50tcsg324-1
+Top: cpu
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 9272.410 ; gain = 0.000 ; free physical = 8807 ; free virtual = 13732
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'cpu' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/cpu.v:9]
+INFO: [Synth 8-6157] synthesizing module 'Cache' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:55]
+	Parameter WORD_SELECT_BIT bound to: 3 - type: integer 
+	Parameter INDEX_BIT bound to: 4 - type: integer 
+	Parameter WAY_NUM bound to: 2 - type: integer 
+	Parameter TAG_BIT bound to: 23 - type: integer 
+	Parameter BYTE_SELECT_BIT bound to: 5 - type: integer 
+	Parameter WAY_SELECT_BIT bound to: 1 - type: integer 
+	Parameter SET_NUM bound to: 16 - type: integer 
+	Parameter WORD_NUM bound to: 8 - type: integer 
+	Parameter BLOCK_SIZE bound to: 256 - type: integer 
+	Parameter STATE_IDLE bound to: 0 - type: integer 
+	Parameter STATE_WAIT_FOR_r_PHASE_1 bound to: 1 - type: integer 
+	Parameter STATE_WAIT_FOR_r_PHASE_2 bound to: 2 - type: integer 
+	Parameter STATE_WAIT_FOR_WRITE bound to: 4 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Cacheram' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:7]
+	Parameter ADDR_WIDTH bound to: 7 - type: integer 
+	Parameter DATA_BYTE_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Cacheram' (1#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:7]
+INFO: [Synth 8-251] Assertion Failed: r_block == addr_index [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:309]
+INFO: [Synth 8-251] Assertion Failed: recuse[cache_id][addr_index] == recent_use_counter [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:178]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:374]
+WARNING: [Synth 8-6090] variable 'next_state' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:514]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:371]
+INFO: [Synth 8-6155] done synthesizing module 'Cache' (2#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:55]
+INFO: [Synth 8-6157] synthesizing module 'Cache__parameterized0' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:55]
+	Parameter WORD_SELECT_BIT bound to: 3 - type: integer 
+	Parameter INDEX_BIT bound to: 2 - type: integer 
+	Parameter WAY_NUM bound to: 4 - type: integer 
+	Parameter TAG_BIT bound to: 25 - type: integer 
+	Parameter BYTE_SELECT_BIT bound to: 5 - type: integer 
+	Parameter WAY_SELECT_BIT bound to: 2 - type: integer 
+	Parameter SET_NUM bound to: 4 - type: integer 
+	Parameter WORD_NUM bound to: 8 - type: integer 
+	Parameter BLOCK_SIZE bound to: 256 - type: integer 
+	Parameter STATE_IDLE bound to: 0 - type: integer 
+	Parameter STATE_WAIT_FOR_r_PHASE_1 bound to: 1 - type: integer 
+	Parameter STATE_WAIT_FOR_r_PHASE_2 bound to: 2 - type: integer 
+	Parameter STATE_WAIT_FOR_WRITE bound to: 4 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'Cacheram__parameterized0' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:7]
+	Parameter ADDR_WIDTH bound to: 5 - type: integer 
+	Parameter DATA_BYTE_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'Cacheram__parameterized0' (2#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:7]
+INFO: [Synth 8-251] Assertion Failed: r_block == addr_index [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:309]
+INFO: [Synth 8-251] Assertion Failed: recuse[cache_id][addr_index] == recent_use_counter [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:178]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:374]
+WARNING: [Synth 8-6090] variable 'next_state' is written by both blocking and non-blocking assignments, entire logic could be removed [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:514]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:371]
+INFO: [Synth 8-6155] done synthesizing module 'Cache__parameterized0' (2#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Cache.v:55]
+INFO: [Synth 8-6157] synthesizing module 'Ctrl' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Ctrl.v:1]
+INFO: [Synth 8-6155] done synthesizing module 'Ctrl' (3#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Ctrl.v:1]
+INFO: [Synth 8-6157] synthesizing module 'PC_reg' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/pc_reg.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'PC_reg' (4#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/pc_reg.v:7]
+INFO: [Synth 8-6157] synthesizing module 'IF' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/IF.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'IF' (5#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/IF.v:7]
+INFO: [Synth 8-6157] synthesizing module 'IF_ID' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/IF_ID.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'IF_ID' (6#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/IF_ID.v:6]
+INFO: [Synth 8-6157] synthesizing module 'ID' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ID.v:7]
+INFO: [Synth 8-226] default block is never used [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ID.v:520]
+INFO: [Synth 8-226] default block is never used [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ID.v:621]
+INFO: [Synth 8-226] default block is never used [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ID.v:686]
+INFO: [Synth 8-226] default block is never used [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ID.v:689]
+INFO: [Synth 8-226] default block is never used [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ID.v:791]
+INFO: [Synth 8-6155] done synthesizing module 'ID' (7#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ID.v:7]
+INFO: [Synth 8-6157] synthesizing module 'ID_EX' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ID_EX.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'ID_EX' (8#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ID_EX.v:7]
+INFO: [Synth 8-6157] synthesizing module 'EX' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/EX.v:7]
+INFO: [Synth 8-6155] done synthesizing module 'EX' (9#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/EX.v:7]
+INFO: [Synth 8-6157] synthesizing module 'EX_ME' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/EX_ME.v:8]
+INFO: [Synth 8-6155] done synthesizing module 'EX_ME' (10#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/EX_ME.v:8]
+INFO: [Synth 8-6157] synthesizing module 'ME' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ME.v:6]
+INFO: [Synth 8-226] default block is never used [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ME.v:80]
+INFO: [Synth 8-226] default block is never used [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ME.v:119]
+INFO: [Synth 8-226] default block is never used [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ME.v:177]
+INFO: [Synth 8-6155] done synthesizing module 'ME' (11#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ME.v:6]
+INFO: [Synth 8-6157] synthesizing module 'ME_WB' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ME_WB.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'ME_WB' (12#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/ME_WB.v:6]
+INFO: [Synth 8-6157] synthesizing module 'WB' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/WB.v:6]
+INFO: [Synth 8-6155] done synthesizing module 'WB' (13#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/WB.v:6]
+INFO: [Synth 8-6157] synthesizing module 'Regfile' [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Regfile.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'Regfile' (14#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/Regfile.v:5]
+INFO: [Synth 8-6155] done synthesizing module 'cpu' (15#1) [/home/george/Desktop/project_1/project_1.srcs/sources_1/imports/Source/cpu.v:9]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 9272.410 ; gain = 0.000 ; free physical = 8633 ; free virtual = 13558
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 9272.410 ; gain = 0.000 ; free physical = 8608 ; free virtual = 13533
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 9272.410 ; gain = 0.000 ; free physical = 8608 ; free virtual = 13533
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.08 ; elapsed = 00:00:00.08 . Memory (MB): peak = 9272.410 ; gain = 0.000 ; free physical = 8573 ; free virtual = 13498
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00.01 . Memory (MB): peak = 9272.410 ; gain = 0.000 ; free physical = 8452 ; free virtual = 13377
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:13 ; elapsed = 00:00:11 . Memory (MB): peak = 9329.273 ; gain = 56.863 ; free physical = 8279 ; free virtual = 13204
+52 Infos, 2 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:13 ; elapsed = 00:00:11 . Memory (MB): peak = 9329.273 ; gain = 56.863 ; free physical = 8279 ; free virtual = 13204
+close_design
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a50tcsg324-1
+Netlist sorting complete. Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.04 . Memory (MB): peak = 9329.273 ; gain = 0.000 ; free physical = 8863 ; free virtual = 13799
+INFO: [Netlist 29-17] Analyzing 149 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 9329.273 ; gain = 0.000 ; free physical = 8818 ; free virtual = 13753
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 12 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 12 instances
+
+current_project RISCV_Project
+close_design
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a50tcsg324-1
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.02 . Memory (MB): peak = 9458.082 ; gain = 0.000 ; free physical = 8478 ; free virtual = 13437
+INFO: [Netlist 29-17] Analyzing 430 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 9458.082 ; gain = 0.000 ; free physical = 8427 ; free virtual = 13386
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+close_design
+current_project project_1
+close_project

@@ -20,7 +20,7 @@
 // 
 //////////////////////////////////////////////////////////////////////////////////
 `ifdef CUSTOM_DEFINE
-    `include "../defines.vh"
+    `include "defines.vh"
 `endif
 
 // synthesized as FFs
@@ -62,7 +62,7 @@ module toast_regfile
 // ===========================================================================    
     reg [REG_DATA_WIDTH-1:0] regfile_data [0: REGFILE_DEPTH-1];
     
-    
+    wire unused_reset = resetn_i; // for ram32m synthesis
     
 // ===========================================================================
 //                              Implementation   
@@ -72,10 +72,12 @@ module toast_regfile
     // If a register address is about to be written to and the data is needed
     // for the instruction currently in ID, place write data on output bus
     assign rs1_data_o = ((rs1_addr_i == rd_addr_i) &&
+                         (rd_addr_i != 0) &&
                          (rd_wr_en_i == 1'b1))  
                          ? rd_wr_data_i : regfile_data[rs1_addr_i];
     
     assign rs2_data_o = ((rs2_addr_i == rd_addr_i) &&
+                         (rd_addr_i != 0) &&
                          (rd_wr_en_i == 1'b1))     
                          ? rd_wr_data_i : regfile_data[rs2_addr_i];
 
@@ -90,21 +92,26 @@ module toast_regfile
     
     // synchronous process for writes
     always@(posedge clk_i) begin
+        
+        /*
+        // FLIP FLOP SYNTHESIS
         if(resetn_i == 1'b0) begin
             for(i=0; i<REGFILE_DEPTH-1; i=i+1) begin
                 regfile_data[i] <= 0;
             end       
         end
-        else begin
+        else begin    
             if((rd_wr_en_i == 1'b1) && (rd_addr_i != 0)) begin
                 regfile_data[rd_addr_i] <= rd_wr_data_i;
-            end
-            /*
-            else begin
-                regfile_data <= regfile_data;
-            end
-            */
-        end
-    end
+            end 
+        end //  END FLIP FLOP SYNTHESIS
+        */
+
+        // RAM32M SYNTHESIS
+        if((rd_wr_en_i == 1'b1) && (rd_addr_i != 0)) begin
+                regfile_data[rd_addr_i] <= rd_wr_data_i;
+        end // END RAM32M SYNTHESIS
+
+    end 
     
 endmodule

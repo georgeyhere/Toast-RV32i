@@ -1,0 +1,384 @@
+/*
+
+Xilinx Vivado v2020.2 (64-bit) [Major: 2020, Minor: 2]
+SW Build: 3064766 on Wed Nov 18 09:12:47 MST 2020
+IP Build: 3064653 on Wed Nov 18 14:17:31 MST 2020
+
+Process ID (PID): 6078
+License: Customer
+Mode: GUI Mode
+
+Current time: 	Wed Jul 28 10:14:35 PDT 2021
+Time zone: 	Pacific Standard Time (America/Los_Angeles)
+
+OS: Ubuntu
+OS Version: 5.4.0-80-generic
+OS Architecture: amd64
+Available processors (cores): 16
+
+Display: 0
+Screen size: 1920x1080
+Screen resolution (DPI): 100
+Available screens: 2
+Default font: family=Dialog,name=Dialog,style=plain,size=12
+Scale size: 12
+
+Java version: 	11.0.2 64-bit
+Java home: 	/opt/Xilinx/Vivado/2020.2/tps/lnx64/jre11.0.2
+Java executable location: 	/opt/Xilinx/Vivado/2020.2/tps/lnx64/jre11.0.2/bin/java
+Java initial memory (-Xms): 	128 MB
+Java maximum memory (-Xmx):	 3 GB
+
+
+User name: 	george
+User home directory: /home/george
+User working directory: /home/george/Documents/work/RISCV/Toast-RV32i/scripts/vivado
+User country: 	US
+User language: 	en
+User locale: 	en_US
+
+RDI_BASEROOT: /opt/Xilinx/Vivado
+HDI_APPROOT: /opt/Xilinx/Vivado/2020.2
+RDI_DATADIR: /opt/Xilinx/Vivado/2020.2/data
+RDI_BINDIR: /opt/Xilinx/Vivado/2020.2/bin
+
+Vivado preferences file location: /home/george/.Xilinx/Vivado/2020.2/vivado.xml
+Vivado preferences directory: /home/george/.Xilinx/Vivado/2020.2/
+Vivado layouts directory: /home/george/.Xilinx/Vivado/2020.2/data/layouts
+PlanAhead jar file location: 	/opt/Xilinx/Vivado/2020.2/lib/classes/planAhead.jar
+Vivado log file location: 	/home/george/Documents/work/RISCV/Toast-RV32i/scripts/vivado/vivado.log
+Vivado journal file location: 	/home/george/Documents/work/RISCV/Toast-RV32i/scripts/vivado/vivado.jou
+Engine tmp dir: 	./.Xil/Vivado-6078-george-desktop
+
+Xilinx Environment Variables
+----------------------------
+XILINX: /opt/Xilinx/Vivado/2020.2/ids_lite/ISE
+XILINX_DSP: /opt/Xilinx/Vivado/2020.2/ids_lite/ISE
+XILINX_HLS: /opt/Xilinx//Vitis_HLS/2020.2
+XILINX_PLANAHEAD: /opt/Xilinx/Vivado/2020.2
+XILINX_VITIS: 
+XILINX_VIVADO: /opt/Xilinx/Vivado/2020.2
+XILINX_VIVADO_HLS: /opt/Xilinx/Vivado/2020.2
+
+
+GUI allocated memory:	154 MB
+GUI max memory:		3,072 MB
+Engine allocated memory: 1,525 MB
+
+Copyright 1986-2020 Xilinx, Inc. All Rights Reserved.
+
+*/
+
+// TclEventType: START_GUI
+// Tcl Message: start_gui 
+selectList(PAResourceQtoS.SyntheticaGettingStartedView_RECENT_PROJECTS, "/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr", 1); // r
+// [GUI Memory]: 110 MB (+112657kb) [00:00:08]
+// [Engine Memory]: 1,514 MB (+1436551kb) [00:00:08]
+// bz (cr):  Open Project : addNotify
+// Opening Vivado Project: /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr. Version: Vivado v2020.2 
+// TclEventType: DEBUG_PROBE_SET_CHANGE
+// Tcl Message: open_project /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr 
+// HMemoryUtils.trashcanNow. Engine heap size: 1,531 MB. GUI used memory: 65 MB. Current time: 7/28/21, 10:14:36 AM PDT
+// TclEventType: MSGMGR_MOVEMSG
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: FILE_SET_NEW
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_CURRENT
+// TclEventType: PROJECT_DASHBOARD_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_DASHBOARD_GADGET_NEW
+// TclEventType: PROJECT_DASHBOARD_GADGET_CHANGE
+// TclEventType: PROJECT_NEW
+// Tcl Message: open_project /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr 
+// Tcl Message: Scanning sources... Finished scanning sources 
+// Tcl Message: INFO: [IP_Flow 19-234] Refreshing IP repositories INFO: [IP_Flow 19-1704] No user IP repositories specified 
+// TclEventType: PROJECT_NEW
+// [GUI Memory]: 116 MB (+366kb) [00:00:14]
+// WARNING: HEventQueue.dispatchEvent() is taking  2688 ms.
+// Tcl Message: INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2020.2/data/ip'. 
+// Tcl Message: INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'. 
+// Tcl Message: open_project: Time (s): cpu = 00:00:36 ; elapsed = 00:00:07 . Memory (MB): peak = 7382.680 ; gain = 55.086 ; free physical = 9461 ; free virtual = 14916 
+// Project name: RISCV_Project; location: /home/george/Documents/work/RISCV/RISCV_Project; part: xc7a50tcsg324-1
+// [Engine Memory]: 1,614 MB (+25126kb) [00:00:16]
+dismissDialog("Open Project"); // bz
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// [GUI Memory]: 131 MB (+10176kb) [00:00:19]
+// bz (cr):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// Tcl Message: reset_run synth_1 
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// f (cr): Launch Runs: addNotify
+// Tcl Message: update_compile_order -fileset sources_1 
+// Elapsed time: 21 seconds
+selectCheckBox(PAResourceItoN.LaunchPanel_DONT_SHOW_THIS_DIALOG_AGAIN, "Don't show this dialog again", true); // g: TRUE
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// bz (cr):  Starting Design Runs : addNotify
+dismissDialog("Launch Runs"); // f
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: launch_runs synth_1 -jobs 8 
+// Tcl Message: [Wed Jul 28 10:15:06 2021] Launched synth_1... Run output will be captured here: /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.runs/synth_1/runme.log 
+// 'k' command handler elapsed time: 22 seconds
+dismissDialog("Starting Design Runs"); // bz
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// ag (cr): Synthesis Completed: addNotify
+// Elapsed time: 101 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a
+dismissDialog("Synthesis Completed"); // ag
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design]", 15, true); // u - Node
+// Run Command: PAResourceCommand.PACommandNames_GOTO_NETLIST_DESIGN
+// bz (cr):  Open Synthesized Design : addNotify
+// Tcl Message: open_run synth_1 -name synth_1 
+// Tcl Message: Design is defaulting to impl run constrset: constrs_1 Design is defaulting to synth run part: xc7a50tcsg324-1 
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 1,690 MB. GUI used memory: 75 MB. Current time: 7/28/21, 10:16:57 AM PDT
+// [Engine Memory]: 1,701 MB (+6382kb) [00:02:32]
+// TclEventType: DESIGN_NEW
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// Device: addNotify
+// [GUI Memory]: 140 MB (+2569kb) [00:02:33]
+// [GUI Memory]: 151 MB (+4018kb) [00:02:33]
+// DeviceView Instantiated
+// WARNING: HEventQueue.dispatchEvent() is taking  1491 ms.
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: INFO: [Device 21-403] Loading part xc7a50tcsg324-1 
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.02 . Memory (MB): peak = 7705.812 ; gain = 0.000 ; free physical = 9083 ; free virtual = 14639 
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 437 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2020.2 INFO: [Project 1-570] Preparing netlist for logic optimization INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). 
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 7705.812 ; gain = 0.000 ; free physical = 9016 ; free virtual = 14572 
+// Tcl Message: INFO: [Project 1-111] Unisim Transformation Summary: No Unisim elements were transformed.  
+// Device view-level: 0.0
+// Tcl Message: open_run: Time (s): cpu = 00:00:17 ; elapsed = 00:00:08 . Memory (MB): peak = 7705.812 ; gain = 0.000 ; free physical = 8887 ; free virtual = 14447 
+// 'dV' command handler elapsed time: 9 seconds
+dismissDialog("Open Synthesized Design"); // bz
+// RouteApi::initDelayMediator elapsed time: 7.6s
+// RouteApi: Init Delay Mediator Swing Worker Finished
+// [Engine Memory]: 2,022 MB (+247447kb) [00:03:40]
+// [GUI Memory]: 160 MB (+1164kb) [00:04:06]
+// Elapsed time: 93 seconds
+expandTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[toast_top, id_stage_i (toast_ID_stage)]", 5); // bC
+expandTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[toast_top, id_stage_i (toast_ID_stage), regfile_i (toast_regfile)]", 9); // bC
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// Elapsed time: 96 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// bz (cr):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: reset_run synth_1 
+// TclEventType: RUN_RESET
+// HMemoryUtils.trashcanNow. Engine heap size: 2,099 MB. GUI used memory: 104 MB. Current time: 7/28/21, 10:20:11 AM PDT
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// bz (cr):  Starting Design Runs : addNotify
+// Tcl Message: launch_runs synth_1 -jobs 8 
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: [Wed Jul 28 10:20:13 2021] Launched synth_1... Run output will be captured here: /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.runs/synth_1/runme.log 
+dismissDialog("Starting Design Runs"); // bz
+// TclEventType: RUN_STATUS_CHANGE
+// [Engine Memory]: 2,124 MB (+566kb) [00:05:52]
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// ag (cr): Synthesis Completed: addNotify
+// Elapsed time: 47 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a
+dismissDialog("Synthesis Completed"); // ag
+selectButton(PAResourceOtoP.ProjectTab_RELOAD, "Reload"); // h
+// bz (cr):  Reloading : addNotify
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 2,125 MB. GUI used memory: 99 MB. Current time: 7/28/21, 10:21:04 AM PDT
+// Engine heap size: 2,126 MB. GUI used memory: 100 MB. Current time: 7/28/21, 10:21:04 AM PDT
+// Tcl Message: refresh_design 
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 2,126 MB. GUI used memory: 78 MB. Current time: 7/28/21, 10:21:05 AM PDT
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// Device: addNotify
+// DeviceView Instantiated
+// WARNING: HEventQueue.dispatchEvent() is taking  1630 ms.
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.02 . Memory (MB): peak = 8165.137 ; gain = 0.000 ; free physical = 8573 ; free virtual = 14164 
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 55 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2020.2 INFO: [Project 1-570] Preparing netlist for logic optimization INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). 
+// RouteApi: Init Delay Mediator Swing Worker Finished
+// Device view-level: 0.0
+dismissDialog("Reloading"); // bz
+expandTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[toast_top, id_stage_i (toast_ID_stage)]", 5); // bC
+expandTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[toast_top, id_stage_i (toast_ID_stage), regfile_i (toast_regfile)]", 9); // bC
+expandTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[toast_top, id_stage_i (toast_ID_stage), regfile_i (toast_regfile), Leaf Cells (15)]", 11); // bC
+collapseTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[toast_top, id_stage_i (toast_ID_stage), regfile_i (toast_regfile), Leaf Cells (15)]", 11); // bC
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,173 MB. GUI used memory: 104 MB. Current time: 7/28/21, 10:38:46 AM PDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,205 MB. GUI used memory: 104 MB. Current time: 7/28/21, 10:39:26 AM PDT
+// Elapsed time: 1121 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// bz (cr):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: reset_run synth_1 
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// bz (cr):  Starting Design Runs : addNotify
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: launch_runs synth_1 -jobs 8 
+// Tcl Message: [Wed Jul 28 10:39:56 2021] Launched synth_1... Run output will be captured here: /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.runs/synth_1/runme.log 
+dismissDialog("Starting Design Runs"); // bz
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// ag (cr): Synthesis Completed: addNotify
+// Elapsed time: 54 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a
+dismissDialog("Synthesis Completed"); // ag
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Project Summary", 0); // m
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Device", 1); // m
+selectButton(PAResourceOtoP.ProjectTab_RELOAD, "Reload"); // h
+// bz (cr):  Reloading : addNotify
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 2,207 MB. GUI used memory: 100 MB. Current time: 7/28/21, 10:40:55 AM PDT
+// Engine heap size: 2,207 MB. GUI used memory: 100 MB. Current time: 7/28/21, 10:40:55 AM PDT
+// Tcl Message: refresh_design 
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 2,208 MB. GUI used memory: 79 MB. Current time: 7/28/21, 10:40:56 AM PDT
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// Device: addNotify
+// DeviceView Instantiated
+// WARNING: HEventQueue.dispatchEvent() is taking  1565 ms.
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.03 . Memory (MB): peak = 8238.164 ; gain = 0.000 ; free physical = 8513 ; free virtual = 14138 
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 441 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2020.2 INFO: [Project 1-570] Preparing netlist for logic optimization INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). 
+// RouteApi: Init Delay Mediator Swing Worker Finished
+// Device view-level: 0.0
+dismissDialog("Reloading"); // bz
+expandTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[toast_top, id_stage_i (toast_ID_stage)]", 5); // bC
+expandTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[toast_top, id_stage_i (toast_ID_stage), regfile_i (toast_regfile)]", 9); // bC
+collapseTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[toast_top, id_stage_i (toast_ID_stage), regfile_i (toast_regfile)]", 9); // bC
+expandTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[toast_top, id_stage_i (toast_ID_stage), regfile_i (toast_regfile)]", 9); // bC
+collapseTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[toast_top, id_stage_i (toast_ID_stage), regfile_i (toast_regfile)]", 9); // bC
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Project Summary", 0); // m
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [Engine Memory]: 2,238 MB (+8970kb) [00:31:32]
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,256 MB. GUI used memory: 105 MB. Current time: 7/28/21, 10:46:01 AM PDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,289 MB. GUI used memory: 105 MB. Current time: 7/28/21, 10:46:16 AM PDT
+// Elapsed time: 318 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// bz (cr):  Resetting Runs : addNotify
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// bz (cr):  Starting Design Runs : addNotify
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: launch_runs synth_1 -jobs 8 
+// Tcl Message: [Wed Jul 28 10:46:25 2021] Launched synth_1... Run output will be captured here: /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.runs/synth_1/runme.log 
+dismissDialog("Starting Design Runs"); // bz
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,327 MB. GUI used memory: 105 MB. Current time: 7/28/21, 10:46:46 AM PDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// [Engine Memory]: 2,359 MB (+9318kb) [00:32:32]
+// HMemoryUtils.trashcanNow. Engine heap size: 2,359 MB. GUI used memory: 105 MB. Current time: 7/28/21, 10:47:01 AM PDT
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DG_GRAPH_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// ag (cr): Synthesis Completed: addNotify
+// HMemoryUtils.trashcanNow. Engine heap size: 2,392 MB. GUI used memory: 106 MB. Current time: 7/28/21, 10:47:16 AM PDT
+// Elapsed time: 51 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a
+dismissDialog("Synthesis Completed"); // ag
+selectButton(PAResourceOtoP.ProjectTab_RELOAD, "Reload"); // h
+// bz (cr):  Reloading : addNotify
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 2,393 MB. GUI used memory: 100 MB. Current time: 7/28/21, 10:47:20 AM PDT
+// Engine heap size: 2,393 MB. GUI used memory: 101 MB. Current time: 7/28/21, 10:47:20 AM PDT
+// Tcl Message: refresh_design 
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_REFRESH
+// HMemoryUtils.trashcanNow. Engine heap size: 2,393 MB. GUI used memory: 79 MB. Current time: 7/28/21, 10:47:21 AM PDT
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// Device: addNotify
+// DeviceView Instantiated
+// WARNING: HEventQueue.dispatchEvent() is taking  1555 ms.
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.02 . Memory (MB): peak = 8424.254 ; gain = 0.000 ; free physical = 8487 ; free virtual = 14113 
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 55 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2020.2 INFO: [Project 1-570] Preparing netlist for logic optimization INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). 
+// RouteApi: Init Delay Mediator Swing Worker Finished
+dismissDialog("Reloading"); // bz
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Device", 1); // m
+// Device view-level: 0.0
+expandTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[toast_top, mem_stage_i (toast_MEM_stage)]", 7); // bC
+expandTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[toast_top, id_stage_i (toast_ID_stage)]", 5); // bC
+expandTree(PAResourceItoN.NetlistTreeView_NETLIST_TREE, "[toast_top, id_stage_i (toast_ID_stage), regfile_i (toast_regfile)]", 9); // bC
+selectTab("PlanAheadTabBaseWorkspace_JideTabbedPane", (HResource) null, "Project Summary", 0); // m
+selectTab(PAResourceOtoP.ProjectSummaryUtilizationPanel_PROJECT_SUMMARY_UTILIZATION_PANEL_TABBED, PAResourceOtoP.ProjectSummaryUtilizationPanel_TABLE, "Table", 1); // f

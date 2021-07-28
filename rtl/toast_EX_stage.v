@@ -21,6 +21,9 @@
 //////////////////////////////////////////////////////////////////////////////////
 
 // needs to be parameterized
+`ifdef CUSTOM_DEFINE
+    `include "defines.vh"
+`endif
 
 module toast_EX_stage
     `include "toast_definitions.vh"
