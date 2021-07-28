@@ -7,7 +7,7 @@
 - Goals: 
 
      - Produce a core that is capable of running the RV32ui unit tests from official [riscv-tests](https://github.com/riscv/riscv-tests) repo
-     - Gain familiarity with open-source verification tools 
+     - Gain familiarity with open-source tools 
      - Gain familiarity with Linux environment 
 
 - Stretch Goals:
@@ -18,12 +18,9 @@
 
 
 
-- Toast currently is capable of passing all RV32ui unit tests, however Toast has not been tested on hardware until updated here.
+- Toast currently is capable of passing all RV32ui unit tests and has passed timing at 50MHz, however has not been tested on hardware until updated here.
 
 - Toast does not support interrupt handling, nor the CSR, FENCE, EBREAK, or ECALL instructions.
-
-- There is a version of Toast that passes all unit tests that is written in SystemVerilog and that has passed synthesis with no errors at commit c77c9e9. 
-  All source code has since been converted to Verilog to better work with the tools.
 
 <h1> Files in this Repository </h1>
 
