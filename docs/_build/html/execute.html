@@ -1,0 +1,231 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Execute Stage (EX) &mdash; ToastCore  documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Instruction Decode Stage (ID)" href="instruction_decode.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> ToastCore
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption" role="heading"><span class="caption-text">Contents</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="pipeline_details.html">Pipeline Details</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instruction_fetch.html">Instruction Fetch Stage (IF)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="instruction_decode.html">Instruction Decode Stage (ID)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Execute Stage (EX)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#alu">ALU:</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#branch-gen">Branch Gen:</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">ToastCore</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Execute Stage (EX)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/execute.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="execute-stage-ex">
+<span id="execute"></span><h1>Execute Stage (EX)<a class="headerlink" href="#execute-stage-ex" title="Permalink to this headline">¶</a></h1>
+<p>The Execute Stage (<code class="file docutils literal notranslate"><span class="pre">rtl/toast_EX_stage</span></code>) is comprised of the ALU and Branch Gen unit. It is responsible for muxing the correct operands into the ALU as well as determining whether a conditional branch is taken or not.</p>
+<div class="section" id="alu">
+<h2>ALU:<a class="headerlink" href="#alu" title="Permalink to this headline">¶</a></h2>
+<p>The ALU (<code class="file docutils literal notranslate"><span class="pre">rtl/toast_alu</span></code>) is implemented using combinatorial logic and is capable of executing 11 different operations on two operands.</p>
+<ul class="simple">
+<li><p><strong>Arithmetic/Logical</strong>: add, subtract, AND, OR, XOR</p></li>
+<li><p><strong>Shifts:</strong> Shift Left Logical, Shift Right Logical, Shift Right Arithmetic</p></li>
+<li><p><strong>Tests:</strong> Set Equal, Set Less Than, Set Less Than Unsigned</p></li>
+</ul>
+</div>
+<div class="section" id="branch-gen">
+<h2>Branch Gen:<a class="headerlink" href="#branch-gen" title="Permalink to this headline">¶</a></h2>
+<p>The Branch Gen unit (<code class="file docutils literal notranslate"><span class="pre">toast_branchgen</span></code>) is implemeted using combinatorial logic and computes either a PC-relative target or register-offset target based on the control signal generated by the decoder.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="instruction_decode.html" class="btn btn-neutral float-left" title="Instruction Decode Stage (ID)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, George Yu.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
