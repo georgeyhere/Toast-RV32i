@@ -3,13 +3,17 @@
 Pipeline Details
 ================
 
+.. figure:: images/toast_architecture.jpg
+    :name: toast_architecture
+    :align: center
+
 Toast has a classic 5-stage pipeline with the following stages:
 
 Instruction Fetch (IF)
     Fetches instruction from memory via the Instruction Memory interface. Requires one cycle to execute. See :ref:`instruction_fetch` for details.
 
 Instruction Decode (ID)
-	Decodes the fetched instruction, generates control signals, and fetches register file data for decoded instruction. Outputs are registered, stage requires one cycle to execute. See :ref:`instruction-decode` for details.
+	Decodes the fetched instruction, generates control signals, and fetches register file data for decoded instruction. Outputs are registered, stage requires one cycle to execute. See :ref:`instruction_decode` for details.
 
 Execute (EX)
     Muxes the correct operands into the ALU and performs operation based on control signals. Outputs are registered, stage requires one cycle to execute. See :ref:`execute` for details.

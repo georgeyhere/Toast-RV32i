@@ -6,6 +6,10 @@
 Toast: A 32-bit RISC-V Core
 =====================================
 
+.. figure:: images/toast_top.jpg
+    :name: toast_top
+    :align: center
+
 Toast is a 32-bit RISC-V core written in Verilog that implements a subset of the RV32I ISA version 2.2.
 
 Toast supports all instructions from the RV32i base integer ISA with the exception of CSR, FENCE, EBREAK, and ECALL. Toast also does not support interrupt handling, although these features may be added in the future.

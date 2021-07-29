@@ -166,11 +166,14 @@
             
   <div class="section" id="pipeline-details">
 <span id="id1"></span><h1>Pipeline Details<a class="headerlink" href="#pipeline-details" title="Permalink to this headline">¶</a></h1>
+<div class="figure align-center" id="toast-architecture">
+<img alt="_images/toast_architecture.jpg" src="_images/toast_architecture.jpg" />
+</div>
 <p>Toast has a classic 5-stage pipeline with the following stages:</p>
 <dl class="simple">
 <dt>Instruction Fetch (IF)</dt><dd><p>Fetches instruction from memory via the Instruction Memory interface. Requires one cycle to execute. See <a class="reference internal" href="instruction_fetch.html#instruction-fetch"><span class="std std-ref">Instruction Fetch Stage (IF)</span></a> for details.</p>
 </dd>
-<dt>Instruction Decode (ID)</dt><dd><p>Decodes the fetched instruction, generates control signals, and fetches register file data for decoded instruction. Outputs are registered, stage requires one cycle to execute. See <span class="xref std std-ref">instruction-decode</span> for details.</p>
+<dt>Instruction Decode (ID)</dt><dd><p>Decodes the fetched instruction, generates control signals, and fetches register file data for decoded instruction. Outputs are registered, stage requires one cycle to execute. See <a class="reference internal" href="instruction_decode.html#instruction-decode"><span class="std std-ref">Instruction Decode Stage (ID)</span></a> for details.</p>
 </dd>
 <dt>Execute (EX)</dt><dd><p>Muxes the correct operands into the ALU and performs operation based on control signals. Outputs are registered, stage requires one cycle to execute. See <a class="reference internal" href="execute.html#execute"><span class="std std-ref">Execute Stage (EX)</span></a> for details.</p>
 </dd>
