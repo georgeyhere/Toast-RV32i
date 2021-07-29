@@ -10,17 +10,15 @@
 
      - Produce a core that is capable of running the RV32ui unit tests from official [riscv-tests](https://github.com/riscv/riscv-tests) repo
      - Gain familiarity with open-source tools 
-     - Gain familiarity with Linux environment 
 
 - Stretch Goals:
      - Memory-mapped I/O and UART peripheral
-     - Add Zicsr extension support
-     - Add ISR handling
-     - Formal Verification
+     - Zicsr extension support
+     - ISR handling
+     - UVM and/or Formal Verification
 
-
-
-- Toast currently is capable of passing all RV32ui unit tests and has passed timing at 50MHz, however has not been tested on hardware until updated here.
+- Toast currently is capable of passing all RV32ui unit tests and has passed timing at 50MHz, however has not been tested on hardware until updated here. Very much still WIP, however 
+  updates may be infrequent due to school and other commitments.
 
 - Toast does not support interrupt handling, nor the CSR, FENCE, EBREAK, or ECALL instructions.
 
@@ -46,18 +44,6 @@ __/test__
 - Contains the riscv-tests, testbench, and GTKwave translate filter files/processes
 
 
-<h1> Performance </h1>
-
-|Instruction | CPI|
-|------------|----|
-Direct Jump (JAL) | 3
-Indirect Jump (JALR) | 3
-ALU reg-reg | 3
-ALU reg-imm | 3
-Cond. Branch (Not Taken) | 3
-Cond. Branch (Taken) | 5
-Memory Load | 5
-Memory Store | 4
 
 
 
