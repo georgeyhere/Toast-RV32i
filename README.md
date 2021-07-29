@@ -2,23 +2,25 @@
 
 - Toast is a RISC-V soft core written in Verilog that implements a subset of the [RV32I ISA version 2.2](https://riscv.org/wp-content/uploads/2017/05/riscv-spec-v2.2.pdf).
 
-- Documentation (wip): https://toast-core.readthedocs.io/en/latest/
+![top](https://github.com/georgeyhere/Toast-RV32i/blob/main/docs/images/toast_top.jpg)
+
+- Documentation: https://toast-core.readthedocs.io/en/latest/
 
 - Goals: 
 
      - Produce a core that is capable of running the RV32ui unit tests from official [riscv-tests](https://github.com/riscv/riscv-tests) repo
-     - Pass timing at 100 MHz
-     - Gain familiarilty with open-source tools and Linux environment
+     - Gain familiarity with open-source tools 
+     - Gain familiarity with Linux environment 
 
 - Stretch Goals:
      - Memory-mapped I/O and UART peripheral
-     - Zicsr extension support
-     - ISR handling
-     - UVM and/or Formal Verification
+     - Add Zicsr extension support
+     - Add ISR handling
+     - Formal Verification
 
 
 
-- Toast currently is capable of passing all RV32ui unit tests and has passed timing at \~83MHz, however has not been tested on hardware until updated here.
+- Toast currently is capable of passing all RV32ui unit tests and has passed timing at 50MHz, however has not been tested on hardware until updated here.
 
 - Toast does not support interrupt handling, nor the CSR, FENCE, EBREAK, or ECALL instructions.
 
@@ -29,7 +31,7 @@ __Makefile__
 Run ```make alltests``` to compile, link and convert riscv-tests to hex memory files and run the entire battery of tests. 
 Run ```make alltest_vcd``` to run all tests and generate a vcd file.
 
-Memory generation requires a [32-bit riscv-unknown-elf](https://github.com/cliffordwolf/picorv32#building-a-pure-rv32i-toolchain) toolchain installed at /opt/riscv32i, as well as [elf2hex](https://github.com/sifive/elf2hex) for memory generation. Testbench is ran using Icarus Verilog. See the Makefile targets for more details.
+Memory generation requires a 32-bit riscv-unknown-elf toolchain installed at /opt/riscv32i, as well as [elf2hex](https://github.com/sifive/elf2hex). Testbench is ran using Icarus Verilog. See the Makefile targets for more details.
 
 __/docs__
 - Contains datapath diagrams and notes, wip
@@ -44,6 +46,18 @@ __/test__
 - Contains the riscv-tests, testbench, and GTKwave translate filter files/processes
 
 
+<h1> Performance </h1>
+
+|Instruction | CPI|
+|------------|----|
+Direct Jump (JAL) | 3
+Indirect Jump (JALR) | 3
+ALU reg-reg | 3
+ALU reg-imm | 3
+Cond. Branch (Not Taken) | 3
+Cond. Branch (Taken) | 5
+Memory Load | 5
+Memory Store | 4
 
 
 
