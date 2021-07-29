@@ -3,6 +3,10 @@
 Memory Stage (MEM)
 ==================
 
+.. figure:: images/toast_MEM_simple.jpg
+    :name: mem_simple
+    :align: center
+
 The Memory Stage (:file:`toast_MEM_stage`) handles all data memory loads and stores and serves as the Load Store Unit. The data memory is byte-addressable, however misaligned loads and stores are not allowed.
 
 

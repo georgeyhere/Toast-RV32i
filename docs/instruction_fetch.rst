@@ -3,9 +3,12 @@
 Instruction Fetch Stage (IF)
 ============================
 
-The Instruction Fetch stage (:file:`rtl/toast_IF_stage`) drives the instruction memory interface and fetches new instructions for the pipeline. The instruction memory is word-addressable and misaligned access is not allowed.
+.. figure:: images/toast_IF_simple.jpg
+    :name: if_simple
+    :align: center
 
-The boot address on initialization or reset can be set via **boot_addr_i**.
+The Instruction Fetch stage (:file:`rtl/toast_IF_stage`) drives the instruction memory interface. It is also responsible for passing new instructions and corresponding PC value to the ID stage. The instruction memory is word-addressable and misaligned access is not allowed.
+
 
 Normal Operation:
 -----------------
@@ -40,4 +43,4 @@ Jump Taken:
     :name: if_jump_taken
     :align: center
 
-Unconditional jumps (JAL and JALR) are handled in the same manner and require four cycles to execute.
+Unconditional jumps (JAL and JALR) are handled in the same manner and require four cycles to execute after being fetched.

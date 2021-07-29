@@ -22,7 +22,7 @@ Memory Access (MEM)
 	All loads and stores are handled in this stage. See :ref:`mem` for details.
 
 Writeback (WB)
-	Handles register file writes, controls whether memory read data or ALU result is written back to register file. See :ref:`writeback` for details.
+	For now serves as a simple pass through back to the register file, containing only a single mux that controls whether memory data or the ALU result is written. 
 
 
 Pipeline Control

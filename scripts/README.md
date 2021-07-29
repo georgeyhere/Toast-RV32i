@@ -1,5 +1,6 @@
 __/vivado__
 - openVivado.sh -> launch vivado and gui
+- rvTest.tcl -> a simple script to relaunch simulation and log results; recommend using icarus from Makefile instead
 
 __memgen.sh__
 - compile riscv-tests using riscv32-unknown-elf-gcc

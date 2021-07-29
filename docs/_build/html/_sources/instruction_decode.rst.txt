@@ -3,6 +3,10 @@
 Instruction Decode Stage (ID)
 =============================
 
+.. figure:: images/toast_ID_simple.jpg
+    :name: id_simple
+    :align: center
+
 The Instruction Decode stage (:file:`rtl/toast_ID_stage`) is comprised of the Decoder block and the Register File. It decodes the instruction fetched in the IF stage, fetches register file data based on the decoded addresses, and registers its outputs.
 
 

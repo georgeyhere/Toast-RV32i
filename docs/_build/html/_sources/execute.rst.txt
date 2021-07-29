@@ -3,6 +3,10 @@
 Execute Stage (EX)
 ==================
 
+.. figure:: images/toast_EX_simple.jpg
+    :name: ex_simple
+    :align: center
+
 The Execute Stage (:file:`rtl/toast_EX_stage`) is comprised of the ALU and Branch Gen unit. It is responsible for muxing the correct operands into the ALU as well as determining whether a conditional branch is taken or not.
 
 
