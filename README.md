@@ -29,7 +29,7 @@ __Makefile__
 Run ```make alltests``` to compile, link and convert riscv-tests to hex memory files and run the entire battery of tests. 
 Run ```make alltest_vcd``` to run all tests and generate a vcd file.
 
-Memory generation requires a 32-bit riscv-unknown-elf toolchain installed at /opt/riscv32i, as well as [elf2hex](https://github.com/sifive/elf2hex). Testbench is ran using Icarus Verilog. See the Makefile targets for more details.
+Memory generation requires a 32-bit riscv-unknown-elf [toolchain](https://github.com/cliffordwolf/picorv32#building-a-pure-rv32i-toolchain) installed at /opt/riscv32i, as well as [elf2hex](https://github.com/sifive/elf2hex). Testbench is ran using Icarus Verilog. See the Makefile targets for more details.
 
 __/docs__
 - Contains datapath diagrams and notes, wip
