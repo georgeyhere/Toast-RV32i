@@ -1,0 +1,238 @@
+#-----------------------------------------------------------
+# Vivado v2020.2 (64-bit)
+# SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
+# IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
+# Start of session at: Wed Jul 28 10:14:14 2021
+# Process ID: 6078
+# Current directory: /home/george/Documents/work/RISCV/Toast-RV32i/scripts/vivado
+# Command line: vivado
+# Log file: /home/george/Documents/work/RISCV/Toast-RV32i/scripts/vivado/vivado.log
+# Journal file: /home/george/Documents/work/RISCV/Toast-RV32i/scripts/vivado/vivado.jou
+#-----------------------------------------------------------
+start_gui
+open_project /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr
+WARNING: [filemgmt 56-3] Default IP Output Path : Could not find the directory '/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.gen/sources_1'.
+Scanning sources...
+Finished scanning sources
+INFO: [IP_Flow 19-234] Refreshing IP repositories
+INFO: [IP_Flow 19-1704] No user IP repositories specified
+INFO: [IP_Flow 19-2313] Loaded Vivado IP repository '/opt/Xilinx/Vivado/2020.2/data/ip'.
+INFO: [IP_Flow 19-3899] Cannot get the environment domain name variable for the component vendor name. Setting the vendor name to 'user.org'.
+open_project: Time (s): cpu = 00:00:36 ; elapsed = 00:00:07 . Memory (MB): peak = 7382.680 ; gain = 55.086 ; free physical = 9461 ; free virtual = 14916
+reset_run synth_1
+update_compile_order -fileset sources_1
+launch_runs synth_1 -jobs 8
+[Wed Jul 28 10:15:06 2021] Launched synth_1...
+Run output will be captured here: /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a50tcsg324-1
+INFO: [Device 21-403] Loading part xc7a50tcsg324-1
+Netlist sorting complete. Time (s): cpu = 00:00:00.03 ; elapsed = 00:00:00.02 . Memory (MB): peak = 7705.812 ; gain = 0.000 ; free physical = 9083 ; free virtual = 14639
+INFO: [Netlist 29-17] Analyzing 437 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 7705.812 ; gain = 0.000 ; free physical = 9016 ; free virtual = 14572
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+open_run: Time (s): cpu = 00:00:17 ; elapsed = 00:00:08 . Memory (MB): peak = 7705.812 ; gain = 0.000 ; free physical = 8887 ; free virtual = 14447
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+[Wed Jul 28 10:20:13 2021] Launched synth_1...
+Run output will be captured here: /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.runs/synth_1/runme.log
+refresh_design
+Netlist sorting complete. Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.02 . Memory (MB): peak = 8165.137 ; gain = 0.000 ; free physical = 8573 ; free virtual = 14164
+INFO: [Netlist 29-17] Analyzing 55 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+[Wed Jul 28 10:39:56 2021] Launched synth_1...
+Run output will be captured here: /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.runs/synth_1/runme.log
+refresh_design
+Netlist sorting complete. Time (s): cpu = 00:00:00.09 ; elapsed = 00:00:00.03 . Memory (MB): peak = 8238.164 ; gain = 0.000 ; free physical = 8513 ; free virtual = 14138
+INFO: [Netlist 29-17] Analyzing 441 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+[Wed Jul 28 10:46:25 2021] Launched synth_1...
+Run output will be captured here: /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.runs/synth_1/runme.log
+refresh_design
+Netlist sorting complete. Time (s): cpu = 00:00:00.07 ; elapsed = 00:00:00.02 . Memory (MB): peak = 8424.254 ; gain = 0.000 ; free physical = 8487 ; free virtual = 14113
+INFO: [Netlist 29-17] Analyzing 55 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+update_compile_order -fileset sources_1
+update_compile_order -fileset sources_1
+close_design
+synth_design -rtl -rtl_skip_mlo -name rtl_1
+Command: synth_design -rtl -rtl_skip_mlo -name rtl_1
+Starting synth_design
+Using part: xc7a50tcsg324-1
+Top: toast_top
+---------------------------------------------------------------------------------
+Starting RTL Elaboration : Time (s): cpu = 00:00:04 ; elapsed = 00:00:04 . Memory (MB): peak = 8901.496 ; gain = 0.000 ; free physical = 7875 ; free virtual = 13722
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'toast_top' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_top.v:26]
+	Parameter REG_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer 
+	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer 
+	Parameter ALU_OP_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'toast_control' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_control.v:11]
+	Parameter REG_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'toast_control' (1#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_control.v:11]
+INFO: [Synth 8-6157] synthesizing module 'toast_IF_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_IF_stage.v:26]
+	Parameter REG_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter IMEM_ADDR_WIDTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'toast_IF_stage' (2#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_IF_stage.v:26]
+INFO: [Synth 8-6157] synthesizing module 'toast_ID_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_ID_stage.v:26]
+	Parameter REG_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer 
+	Parameter REGFILE_DEPTH bound to: 32 - type: integer 
+	Parameter ALU_OP_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-6157] synthesizing module 'toast_decoder' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:48]
+	Parameter REG_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer 
+	Parameter REGFILE_DEPTH bound to: 32 - type: integer 
+	Parameter ALU_OP_WIDTH bound to: 4 - type: integer 
+INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:296]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:312]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:149]
+INFO: [Synth 8-6155] done synthesizing module 'toast_decoder' (3#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_decoder.v:48]
+INFO: [Synth 8-6157] synthesizing module 'toast_regfile' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_regfile.v:28]
+	Parameter REG_DATA_WIDTH bound to: 32 - type: integer 
+	Parameter REGFILE_ADDR_WIDTH bound to: 5 - type: integer 
+	Parameter REGFILE_DEPTH bound to: 32 - type: integer 
+INFO: [Synth 8-6155] done synthesizing module 'toast_regfile' (4#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_regfile.v:28]
+INFO: [Synth 8-6155] done synthesizing module 'toast_ID_stage' (5#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_ID_stage.v:26]
+INFO: [Synth 8-6157] synthesizing module 'toast_branchgen' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_branchgen.v:26]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_branchgen.v:69]
+INFO: [Synth 8-6155] done synthesizing module 'toast_branchgen' (6#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_branchgen.v:26]
+INFO: [Synth 8-6157] synthesizing module 'toast_EX_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_EX_stage.v:28]
+INFO: [Synth 8-6157] synthesizing module 'toast_alu' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_alu.v:26]
+INFO: [Synth 8-6155] done synthesizing module 'toast_alu' (7#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_alu.v:26]
+INFO: [Synth 8-6155] done synthesizing module 'toast_EX_stage' (8#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_EX_stage.v:28]
+INFO: [Synth 8-6157] synthesizing module 'toast_MEM_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_MEM_stage.v:32]
+INFO: [Synth 8-155] case statement is not full and has no default [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_MEM_stage.v:139]
+INFO: [Synth 8-6155] done synthesizing module 'toast_MEM_stage' (9#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_MEM_stage.v:32]
+INFO: [Synth 8-6157] synthesizing module 'toast_WB_stage' [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_WB_stage.v:26]
+INFO: [Synth 8-6155] done synthesizing module 'toast_WB_stage' (10#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_WB_stage.v:26]
+INFO: [Synth 8-6155] done synthesizing module 'toast_top' (11#1) [/home/george/Documents/work/RISCV/Toast-RV32i/rtl/toast_top.v:26]
+---------------------------------------------------------------------------------
+Finished RTL Elaboration : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 8901.496 ; gain = 0.000 ; free physical = 7905 ; free virtual = 13753
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 8901.496 ; gain = 0.000 ; free physical = 7902 ; free virtual = 13750
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 1 : Time (s): cpu = 00:00:06 ; elapsed = 00:00:06 . Memory (MB): peak = 8901.496 ; gain = 0.000 ; free physical = 7902 ; free virtual = 13750
+---------------------------------------------------------------------------------
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 8901.496 ; gain = 0.000 ; free physical = 7895 ; free virtual = 13743
+INFO: [Project 1-570] Preparing netlist for logic optimization
+
+Processing XDC Constraints
+Initializing timing engine
+Completed Processing XDC Constraints
+
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 8901.496 ; gain = 0.000 ; free physical = 7834 ; free virtual = 13682
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+RTL Elaboration Complete:  : Time (s): cpu = 00:00:09 ; elapsed = 00:00:08 . Memory (MB): peak = 8911.680 ; gain = 10.184 ; free physical = 7798 ; free virtual = 13649
+29 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:09 ; elapsed = 00:00:08 . Memory (MB): peak = 8911.680 ; gain = 10.184 ; free physical = 7799 ; free virtual = 13650
+close_design
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+[Wed Jul 28 11:44:16 2021] Launched synth_1...
+Run output will be captured here: /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.runs/synth_1/runme.log
+open_run synth_1 -name synth_1
+Design is defaulting to impl run constrset: constrs_1
+Design is defaulting to synth run part: xc7a50tcsg324-1
+Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.02 . Memory (MB): peak = 9231.645 ; gain = 0.000 ; free physical = 8531 ; free virtual = 14286
+INFO: [Netlist 29-17] Analyzing 55 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 9231.645 ; gain = 0.000 ; free physical = 8478 ; free virtual = 14234
+INFO: [Project 1-111] Unisim Transformation Summary:
+  A total of 12 instances were transformed.
+  RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 12 instances
+
+INFO: [Constraints 18-483] create_clock: no pin(s)/port(s)/net(s) specified as objects, only virtual clock 'clk_i' will be created. If you don't want this, please specify pin(s)/ports(s)/net(s) as objects to the command.
+create_clock -period 10.000 -name clk_i -waveform {0.000 5.000}
+INFO: [Constraints 18-483] create_clock: no pin(s)/port(s)/net(s) specified as objects, only virtual clock 'clk_i' will be created. If you don't want this, please specify pin(s)/ports(s)/net(s) as objects to the command.
+file mkdir /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/constrs_1/new
+close [ open /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/constrs_1/new/synth_xdc.xdc w ]
+add_files -fileset constrs_1 /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/constrs_1/new/synth_xdc.xdc
+set_property target_constrs_file /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/constrs_1/new/synth_xdc.xdc [current_fileset -constrset]
+save_constraints -force
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+[Wed Jul 28 11:50:06 2021] Launched synth_1...
+Run output will be captured here: /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.runs/synth_1/runme.log
+refresh_design
+Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.02 . Memory (MB): peak = 9231.645 ; gain = 0.000 ; free physical = 7921 ; free virtual = 13806
+INFO: [Netlist 29-17] Analyzing 55 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/constrs_1/new/synth_xdc.xdc]
+Finished Parsing XDC File [/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/constrs_1/new/synth_xdc.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+save_constraints
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+[Wed Jul 28 12:13:30 2021] Launched synth_1...
+Run output will be captured here: /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.runs/synth_1/runme.log
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_2
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_2
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+refresh_design
+Netlist sorting complete. Time (s): cpu = 00:00:00.04 ; elapsed = 00:00:00.02 . Memory (MB): peak = 9231.645 ; gain = 0.000 ; free physical = 7315 ; free virtual = 13303
+INFO: [Netlist 29-17] Analyzing 55 Unisim elements for replacement
+INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds
+INFO: [Project 1-479] Netlist was created with Vivado 2020.2
+INFO: [Project 1-570] Preparing netlist for logic optimization
+Parsing XDC File [/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/constrs_1/new/synth_xdc.xdc]
+Finished Parsing XDC File [/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/constrs_1/new/synth_xdc.xdc]
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+check_timing -verbose -name timing_1
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs
+save_constraints
+reset_run synth_1
+launch_runs synth_1 -jobs 8
+[Wed Jul 28 12:20:27 2021] Launched synth_1...
+Run output will be captured here: /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.runs/synth_1/runme.log
+report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
+INFO: [Timing 38-35] Done setting XDC timing constraints.
+INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max.
+INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs

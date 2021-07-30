@@ -67,9 +67,11 @@ module toast_EX_stage
 
     reg  [31:0] alu_op1, alu_op2;
     wire [31:0] alu_result;
+    wire        test_result;
     
     toast_alu alu_i (
-    .alu_result_o   (alu_result  ),
+    .alu_result_o   (alu_result    ),
+    .test_result_o  (test_result   ),
     .alu_ctrl_i     (ID_alu_ctrl_i ),
     .alu_op1_i      (alu_op1       ),
     .alu_op2_i      (alu_op2       )
@@ -166,10 +168,10 @@ module toast_EX_stage
             end
             else begin
                 if(ID_branch_flag_i == 1'b0) begin
-                    EX_branch_en_o <= (alu_result == 1) ? 1:0;            
+                    EX_branch_en_o <= (test_result) ? 1:0;            
                 end
                 else begin
-                    EX_branch_en_o <= (alu_result == 1) ? 0:1;  
+                    EX_branch_en_o <= (test_result) ? 0:1;  
                 end
             end 
         end

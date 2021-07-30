@@ -2,8 +2,8 @@
 # Vivado v2020.2 (64-bit)
 # SW Build 3064766 on Wed Nov 18 09:12:47 MST 2020
 # IP Build 3064653 on Wed Nov 18 14:17:31 MST 2020
-# Start of session at: Wed Jul 28 10:14:14 2021
-# Process ID: 6078
+# Start of session at: Fri Jul 30 10:40:19 2021
+# Process ID: 5725
 # Current directory: /home/george/Documents/work/RISCV/Toast-RV32i/scripts/vivado
 # Command line: vivado
 # Log file: /home/george/Documents/work/RISCV/Toast-RV32i/scripts/vivado/vivado.log
@@ -11,54 +11,15 @@
 #-----------------------------------------------------------
 start_gui
 open_project /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.xpr
-reset_run synth_1
 update_compile_order -fileset sources_1
-launch_runs synth_1 -jobs 8
-wait_on_run synth_1
-open_run synth_1 -name synth_1
-reset_run synth_1
-launch_runs synth_1 -jobs 8
-wait_on_run synth_1
-refresh_design
-reset_run synth_1
-launch_runs synth_1 -jobs 8
-wait_on_run synth_1
-refresh_design
-reset_run synth_1
-launch_runs synth_1 -jobs 8
-wait_on_run synth_1
-refresh_design
-update_compile_order -fileset sources_1
-update_compile_order -fileset sources_1
-close_design
-synth_design -rtl -rtl_skip_mlo -name rtl_1
-close_design
 reset_run synth_1
 launch_runs synth_1 -jobs 8
 wait_on_run synth_1
 open_run synth_1 -name synth_1
-create_clock -period 10.000 -name clk_i -waveform {0.000 5.000}
-file mkdir /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/constrs_1/new
-close [ open /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/constrs_1/new/synth_xdc.xdc w ]
-add_files -fileset constrs_1 /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/constrs_1/new/synth_xdc.xdc
-set_property target_constrs_file /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/constrs_1/new/synth_xdc.xdc [current_fileset -constrset]
-save_constraints -force
-reset_run synth_1
-launch_runs synth_1 -jobs 8
-wait_on_run synth_1
-refresh_design
 report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
-save_constraints
 reset_run synth_1
 launch_runs synth_1 -jobs 8
 wait_on_run synth_1
-report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_2
-report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_2
-refresh_design
-check_timing -verbose -name timing_1
-report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
-save_constraints
-reset_run synth_1
-launch_runs synth_1 -jobs 8
-wait_on_run synth_1
+close_design
+open_run synth_1 -name synth_1
 report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1
