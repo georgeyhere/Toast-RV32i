@@ -332,3 +332,110 @@ dismissDialog("Report Timing Summary"); // aI
 // Tcl Message: INFO: [Timing 38-35] Done setting XDC timing constraints. INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max. INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs 
 // bz (cr):  Report Timing Summary : addNotify
 dismissDialog("Report Timing Summary"); // bz
+// Elapsed time: 1031 seconds
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design, Edit Timing Constraints]", 17, false); // u
+// Run Command: PAResourceCommand.PACommandNames_TIMING_CONSTRAINTS_WINDOW
+selectTable(PAResourceEtoH.EditCreateClockTablePanel_EDIT_CREATE_CLOCK_TABLE, "1 ; clk_i ; 10.0 ; 0.0 ; 5.0 ; false ; [get_ports -filter { NAME =~  *clk* && DIRECTION == IN }] ; /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/constrs_1/new/synth_xdc.xdc ;  ; ", 0, "10.0", 2); // f
+selectTable(PAResourceEtoH.EditCreateClockTablePanel_EDIT_CREATE_CLOCK_TABLE, "1 ; clk_i ; 10.0 ; 0.0 ; 5.0 ; false ; [get_ports -filter { NAME =~  *clk* && DIRECTION == IN }] ; /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/constrs_1/new/synth_xdc.xdc ;  ; ", 0, "10.0", 2, false, false, false, false, true); // f - Double Click
+// aY (cr): Edit Create Clock: addNotify
+setSpinner(PAResourceAtoD.ClockCreationPanel_ENTER_POSITIVE_NUMBER, "9.0"); // b
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+// bz (aY):  Validate XDC Command : addNotify
+dismissDialog("Validate XDC Command"); // bz
+dismissDialog("Edit Create Clock"); // aY
+selectButton(PAResourceTtoZ.XdcEditorView_APPLY_ALL_CHANGES_TO_XDC_CONSTRAINTS, "Apply"); // a
+// bz (cr):  Apply All XDC Constraints : addNotify
+// TclEventType: TIMING_RESULTS_STALE
+// TclEventType: SDC_CONSTR_MGR_CLEAR
+// TclEventType: POWER_REPORT_STALE
+// TclEventType: SDC_CONSTRAINT_ADD
+dismissDialog("Apply All XDC Constraints"); // bz
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Run Synthesis]", 14, false); // u
+// Run Command: PAResourceCommand.PACommandNames_RUN_SYNTHESIS
+// am (cr): Save Project: addNotify
+selectButton(PAResourceQtoS.SaveProjectUtils_SAVE, "Save"); // a
+// bz (cr):  Save Constraints : addNotify
+dismissDialog("Save Project"); // am
+// TclEventType: DESIGN_STALE
+// TclEventType: FILE_SET_CHANGE
+// TclEventType: DESIGN_SAVE
+// Tcl Message: save_constraints 
+// bz (cr):  Resetting Runs : addNotify
+dismissDialog("Save Constraints"); // bz
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_RESET
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_RESET
+// TclEventType: RUN_MODIFY
+// Tcl Message: reset_run synth_1 
+// bz (cr):  Starting Design Runs : addNotify
+// TclEventType: FILESET_TARGET_UCF_CHANGE
+// TclEventType: DESIGN_STALE
+// TclEventType: RUN_LAUNCH
+// TclEventType: RUN_MODIFY
+// TclEventType: RUN_STATUS_CHANGE
+// Tcl Message: launch_runs synth_1 -jobs 8 
+// Tcl Message: [Fri Jul 30 11:08:17 2021] Launched synth_1... Run output will be captured here: /home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.runs/synth_1/runme.log 
+dismissDialog("Starting Design Runs"); // bz
+selectButton(PAResourceOtoP.ProjectTab_CLOSE_DESIGN, "Close Design"); // h
+// TclEventType: DESIGN_CLOSE
+// HMemoryUtils.trashcanNow. Engine heap size: 2,498 MB. GUI used memory: 112 MB. Current time: 7/30/21, 11:08:18 AM PDT
+// TclEventType: TIMING_RESULTS_UNLOAD
+// Engine heap size: 2,498 MB. GUI used memory: 112 MB. Current time: 7/30/21, 11:08:19 AM PDT
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: close_design 
+// bz (cr):  Closing : addNotify
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: DESIGN_CLOSE
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: DESIGN_CLOSE
+dismissDialog("Closing"); // bz
+// TclEventType: RUN_COMPLETED
+// TclEventType: RUN_STATUS_CHANGE
+// TclEventType: RUN_STEP_COMPLETED
+// ag (cr): Synthesis Completed: addNotify
+// Elapsed time: 69 seconds
+selectButton(RDIResource.BaseDialog_CANCEL, "Cancel"); // a
+dismissDialog("Synthesis Completed"); // ag
+selectTree(PAResourceEtoH.FlowNavigatorTreePanel_FLOW_NAVIGATOR_TREE, "[, Synthesis, Open Synthesized Design, Report Timing Summary]", 19, false); // u
+// bz (cr):  Open Synthesized Design : addNotify
+// Tcl Message: open_run synth_1 -name synth_1 
+// Tcl Message: Design is defaulting to impl run constrset: constrs_1 Design is defaulting to synth run part: xc7a50tcsg324-1 
+// TclEventType: READ_XDC_FILE_START
+// TclEventType: POWER_CNS_STALE
+// TclEventType: POWER_REPORT_STALE
+// TclEventType: SDC_CONSTRAINT_ADD
+// TclEventType: READ_XDC_FILE_END
+// TclEventType: FLOORPLAN_MODIFY
+// TclEventType: DESIGN_NEW
+// HMemoryUtils.trashcanNow. Engine heap size: 2,448 MB. GUI used memory: 90 MB. Current time: 7/30/21, 11:09:31 AM PDT
+// TclEventType: DESIGN_NEW
+// TclEventType: HFED_INIT_ROUTE_STORAGE_COMPLETED
+// Device: addNotify
+// DeviceView Instantiated
+// TclEventType: CURR_DESIGN_SET
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00.02 ; elapsed = 00:00:00.01 . Memory (MB): peak = 8421.031 ; gain = 0.000 ; free physical = 8661 ; free virtual = 13873 
+// Tcl Message: INFO: [Netlist 29-17] Analyzing 47 Unisim elements for replacement INFO: [Netlist 29-28] Unisim Transformation completed in 0 CPU seconds INFO: [Project 1-479] Netlist was created with Vivado 2020.2 INFO: [Project 1-570] Preparing netlist for logic optimization 
+// Tcl Message: Parsing XDC File [/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/constrs_1/new/synth_xdc.xdc] Finished Parsing XDC File [/home/george/Documents/work/RISCV/RISCV_Project/RISCV_Project.srcs/constrs_1/new/synth_xdc.xdc] 
+// Tcl Message: INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s). 
+// Tcl Message: Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 8421.031 ; gain = 0.000 ; free physical = 8601 ; free virtual = 13813 
+// Tcl Message: INFO: [Project 1-111] Unisim Transformation Summary:   A total of 12 instances were transformed.   RAM32M => RAM32M (RAMD32(x6), RAMS32(x2)): 12 instances  
+// RouteApi: Init Delay Mediator Swing Worker Finished
+// Device view-level: 0.0
+// Run Command: PAResourceCommand.PACommandNames_REPORT_TIMING_SUMMARY
+// aI (cr): Report Timing Summary: addNotify
+selectButton(RDIResource.BaseDialog_OK, "OK"); // a
+dismissDialog("Report Timing Summary"); // aI
+// TclEventType: TIMING_RESULTS_STALE
+// TclEventType: TIMING_SUMMARY_UPDATED
+// Tcl Message: report_timing_summary -delay_type min_max -report_unconstrained -check_timing_verbose -max_paths 10 -input_pins -routable_nets -name timing_1 
+// Tcl Message: INFO: [Timing 38-35] Done setting XDC timing constraints. INFO: [Timing 38-91] UpdateTimingParams: Speed grade: -1, Delay Type: min_max. INFO: [Timing 38-191] Multithreading enabled for timing update using a maximum of 8 CPUs 
+// bz (cr):  Report Timing Summary : addNotify
+dismissDialog("Report Timing Summary"); // bz
+expandTree(PAResourceItoN.NavigableTimingReportTab_TIMING_REPORT_NAVIGATION_TREE, "[Root, Intra-Clock Paths]", 5); // a
+expandTree(PAResourceItoN.NavigableTimingReportTab_TIMING_REPORT_NAVIGATION_TREE, "[Root, Intra-Clock Paths, clk_i]", 6); // a
+selectTree(PAResourceItoN.NavigableTimingReportTab_TIMING_REPORT_NAVIGATION_TREE, "[Root, Intra-Clock Paths, clk_i, Setup -0.796 ns]", 7, false); // a
+selectTableHeader(PAResourceTtoZ.TimingItemFlatTablePanel_TABLE, "To", 6); // h
+selectTableHeader(PAResourceTtoZ.TimingItemFlatTablePanel_TABLE, "Total Delay", 7); // h
