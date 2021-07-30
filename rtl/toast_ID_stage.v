@@ -189,7 +189,7 @@ module toast_ID_stage
     // decoded control signals
     always@(posedge clk_i) begin
         // reset state is the same as NOP, all control signals set to 0
-        if((resetn_i == 1'b0) || (flush_i == 1'b1)) begin
+        if((resetn_i == 1'b0) || (flush_i)) begin
             ID_pc_o             <= 0;
             ID_alu_source_sel_o <= 0;
             ID_alu_ctrl_o       <= 0;
@@ -204,7 +204,7 @@ module toast_ID_stage
         end
         else begin
             // stall control signals
-            if(stall_i == 1'b1) begin
+            if(stall_i) begin
                 ID_pc_o             <= ID_pc_o;
                 ID_alu_source_sel_o <= ID_alu_source_sel_o;
                 ID_alu_ctrl_o       <= ID_alu_ctrl_o;

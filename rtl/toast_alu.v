@@ -1,24 +1,4 @@
-`timescale 1ns / 1ps
-`default_nettype none
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 06/21/2021 01:21:19 PM
-// Design Name: 
-// Module Name: EX_alu
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+
 `ifdef CUSTOM_DEFINE
     `include "defines.vh"
 `endif

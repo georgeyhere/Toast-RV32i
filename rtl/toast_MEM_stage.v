@@ -1,24 +1,4 @@
-`timescale 1ns / 1ps
-`default_nettype none
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 06/30/2021 10:49:36 AM
-// Design Name: 
-// Module Name: MEM_top
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+
 `ifdef CUSTOM_DEFINE
     `include "defines.vh"
 `endif
@@ -112,7 +92,7 @@ module toast_MEM_stage
     always@* begin
         DMEM_addr_o       = {EX_alu_result_i[31:2], 2'b0}; 
         DMEM_rst_o        = ~resetn_i;
-        DMEM_wr_byte_en_o = (EX_mem_wr_en_i == 1'b1) ? byte_en : 4'b0;
+        DMEM_wr_byte_en_o = (EX_mem_wr_en_i) ? byte_en : 4'b0;
     end
 
     
@@ -131,10 +111,10 @@ module toast_MEM_stage
     //        DATA MEM STORES
     //*********************************
     always@* begin
-        // DEFAULTS:
-        DMEM_wr_data_o        = 32'bx; // !!!!
+        // DEFAULTS
+        DMEM_wr_data_o   = 32'b0; 
         misaligned_store = 0;
-        byte_en            = 4'b0;
+        byte_en          = 4'b0;
 
         case(EX_mem_op_i)
 

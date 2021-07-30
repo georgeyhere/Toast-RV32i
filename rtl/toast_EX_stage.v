@@ -1,24 +1,3 @@
-`timescale 1ns / 1ps
-`default_nettype none
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 06/24/2021 07:36:05 PM
-// Design Name: 
-// Module Name: EX_top
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
 
 // needs to be parameterized
 `ifdef CUSTOM_DEFINE
@@ -99,7 +78,7 @@ module toast_EX_stage
     // pipeline
     always@(posedge clk_i) begin
         // reset state is the same as NOP, all control signals set to 0
-        if((resetn_i == 1'b0) || (flush_i == 1'b1)) begin 
+        if((resetn_i == 1'b0) || (flush_i)) begin 
             EX_mem_wr_en_o      <= 0;
             EX_mem_rd_en_o      <= 0;
             EX_mem_op_o         <= 0;
@@ -107,7 +86,7 @@ module toast_EX_stage
             EX_rd_addr_o        <= 0;
             EX_rd_wr_en_o       <= 0;
             EX_rs2_addr_o       <= 0;
-            EX_pc_dest_o    <= (flush_i == 1'b1) ? EX_pc_dest_o : 0;
+            EX_pc_dest_o        <= (flush_i) ? EX_pc_dest_o : 0;
             EX_rs2_data_o       <= 0;
             EX_exception_o      <= 0;
             EX_alu_result_o     <= 0;
@@ -130,14 +109,14 @@ module toast_EX_stage
     
     // ALU source input: op1
     always@* begin
-        if(ID_jump_en_i == 1) begin // if JAL or JALR, perform PC+4
+        if(ID_jump_en_i) begin // if JAL or JALR, perform PC+4
             alu_op1 = ID_imm1_i;
         end
         else begin
             case(forwardA_i)
                 // no data hazard
                 default: begin 
-                    alu_op1 = (ID_alu_source_sel_i[1] == 1'b1) ? ID_imm1_i:ID_rs1_data_i;
+                    alu_op1 = (ID_alu_source_sel_i[1]) ? ID_imm1_i:ID_rs1_data_i;
                 end
                 
                 // ALU op1 forwarded from ALU result of previous cycle
@@ -162,7 +141,7 @@ module toast_EX_stage
             case(forwardB_i)
                 // no data hazard
                 default: begin 
-                    alu_op2[31:0] = (ID_alu_source_sel_i[0] == 1'b1) ? ID_imm2_i:ID_rs2_data_i;
+                    alu_op2[31:0] = (ID_alu_source_sel_i[0]) ? ID_imm2_i:ID_rs2_data_i;
                 end
                 
                 // ALU op2 forwarded from ALU result of previous cycle
@@ -181,8 +160,8 @@ module toast_EX_stage
     
     // branch control
     always@(posedge clk_i) begin
-        if(ID_branch_op_i[1] == 1'b1) begin
-            if(ID_jump_en_i == 1'b1) begin
+        if(ID_branch_op_i[1]) begin
+            if(ID_jump_en_i) begin
                 EX_branch_en_o <= 0;
             end
             else begin

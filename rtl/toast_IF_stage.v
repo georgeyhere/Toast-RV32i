@@ -1,24 +1,4 @@
-`timescale 1ns / 1ps
-`default_nettype none
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 06/14/2021 01:51:21 PM
-// Design Name: 
-// Module Name: RV32I_IF
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+
 `ifdef CUSTOM_DEFINE
     `include "../defines.vh"
 `endif
@@ -67,10 +47,10 @@ module toast_IF_stage
 
     // logic to get next PC
     always@* begin
-        if      (ID_jump_en_i == 1)    pc_next = BG_pc_dest_i;
-        else if (EX_branch_en_i == 1)  pc_next = EX_pc_dest_i;
-        else if (stall_i == 1)         pc_next = IMEM_addr_o - 4;
-        else                           pc_next = IMEM_addr_o + 4;
+        if      (ID_jump_en_i)    pc_next = BG_pc_dest_i;
+        else if (EX_branch_en_i)  pc_next = EX_pc_dest_i;
+        else if (stall_i)         pc_next = IMEM_addr_o - 4;
+        else                      pc_next = IMEM_addr_o + 4;
     end
 
     // align fetched instructions with addr by flopping IMEM_addr
@@ -82,7 +62,7 @@ module toast_IF_stage
         end
         else begin
             IMEM_addr_o      <= pc_next;
-            IF_pc_o          <= (stall_i == 1'b1) ? IF_pc_o : IMEM_addr_o;
+            IF_pc_o          <= (stall_i) ? IF_pc_o : IMEM_addr_o;
             
         end  
     end
@@ -90,7 +70,7 @@ module toast_IF_stage
 
     // flush and stall logic
     always@* begin
-        if(flush_i == 1'b1) begin
+        if(flush_i) begin
             IF_instruction_o = 0;
         end else begin
             IF_instruction_o = IMEM_data_i;          

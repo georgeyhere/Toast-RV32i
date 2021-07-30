@@ -1,24 +1,4 @@
-`timescale 1ns / 1ps
-`default_nettype none
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 06/21/2021 10:56:00 AM
-// Design Name: 
-// Module Name: ID_regfile
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+
 `ifdef CUSTOM_DEFINE
     `include "defines.vh"
 `endif
@@ -73,12 +53,12 @@ module toast_regfile
     // for the instruction currently in ID, place write data on output bus
     assign rs1_data_o = ((rs1_addr_i == rd_addr_i) &&
                          (rd_addr_i != 0) &&
-                         (rd_wr_en_i == 1'b1))  
+                         (rd_wr_en_i))  
                          ? rd_wr_data_i : regfile_data[rs1_addr_i];
     
     assign rs2_data_o = ((rs2_addr_i == rd_addr_i) &&
                          (rd_addr_i != 0) &&
-                         (rd_wr_en_i == 1'b1))     
+                         (rd_wr_en_i))     
                          ? rd_wr_data_i : regfile_data[rs2_addr_i];
 
     integer i;
@@ -101,14 +81,14 @@ module toast_regfile
             end       
         end
         else begin    
-            if((rd_wr_en_i == 1'b1) && (rd_addr_i != 0)) begin
+            if((rd_wr_en_i) && (rd_addr_i != 0)) begin
                 regfile_data[rd_addr_i] <= rd_wr_data_i;
             end 
         end //  END FLIP FLOP SYNTHESIS
         */
 
         // RAM32M SYNTHESIS
-        if((rd_wr_en_i == 1'b1) && (rd_addr_i != 0)) begin
+        if((rd_wr_en_i) && (rd_addr_i != 0)) begin
                 regfile_data[rd_addr_i] <= rd_wr_data_i;
         end // END RAM32M SYNTHESIS
 

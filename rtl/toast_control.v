@@ -1,5 +1,4 @@
-`timescale 1ns / 1ps
-`default_nettype none
+
 // toast_control
 //
 // This module handles forwarding and hazard detection.
@@ -195,7 +194,7 @@ module toast_control
     assign IF_ID_flush_o = (IF_ID_Flush1 || IF_ID_Flush2);
 
     always@* begin
-        if((EX_branch_en_i == 1) || (ID_jump_en_i == 1)) 
+        if((EX_branch_en_i) || (ID_jump_en_i)) 
         	IF_ID_Flush1 = 1;
         else                                      
         	IF_ID_Flush1 = 0;
@@ -211,7 +210,7 @@ module toast_control
 
     // Flush EX if a branch is taken
     always@* begin
-    	EX_flush_o = (EX_branch_en_i == 1) ? 1:0;
+    	EX_flush_o = (EX_branch_en_i) ? 1:0;
     end
 
 

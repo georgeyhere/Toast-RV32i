@@ -1,24 +1,4 @@
-`timescale 1ns / 1ps
-`default_nettype none
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 06/24/2021 07:49:30 PM
-// Design Name: 
-// Module Name: EX_Branch_gen
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+
 `ifdef CUSTOM_DEFINE
     `include "defines.vh"
 `endif
@@ -55,9 +35,9 @@ module toast_branchgen
     // Forward the register data from the EX alu result.
 
     always@* begin
-        if((ID_branch_op_i[1] == 1'b1) &&
+        if((ID_branch_op_i[1]) &&
            (EX_rd_addr_i == ID_rs1_addr_i) &&
-           (EX_rd_wr_en_i == 1'b1))
+           (EX_rd_wr_en_i))
             regdata = EX_alu_result_i;
         else 
             regdata = ID_rs1_data_i;

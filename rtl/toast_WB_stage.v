@@ -1,24 +1,4 @@
-`timescale 1ns / 1ps
-`default_nettype none
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 06/30/2021 12:43:37 PM
-// Design Name: 
-// Module Name: WB_top
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
+
 `ifdef CUSTOM_DEFINE
     `include "defines.vh"
 `endif
@@ -44,7 +24,7 @@ gets written back to the register file. Not really a real 'stage', just a passth
 
     always@* begin
         WB_rd_addr_o       = MEM_rd_addr_i;
-        WB_rd_wr_data_o    = (MEM_memtoreg_i == 1'b1) ? MEM_dout_i : MEM_alu_result_i;
+        WB_rd_wr_data_o    = (MEM_memtoreg_i) ? MEM_dout_i : MEM_alu_result_i;
         WB_rd_wr_en_o      = MEM_rd_wr_en_i;
     end
 

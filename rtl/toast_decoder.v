@@ -1,25 +1,4 @@
-`timescale 1ns / 1ps
-`default_nettype none
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 06/18/2021 10:56:10 AM
-// Design Name: 
-// Module Name: ID_control
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-// Drives Control signals and generates immediate
-//////////////////////////////////////////////////////////////////////////////////
+
 
 /*
 This module integrates the functions of a decoder and a control module. Models
@@ -154,12 +133,12 @@ module toast_decoder
             `OPCODE_OP: begin 
                 rd_wr_en_o = 1;
                 case(FUNCT3)
-                    `FUNCT3_ADD_SUB: alu_op_o = (FUNCT7 == 1'b1) ? `ALU_SUB : `ALU_ADD;
+                    `FUNCT3_ADD_SUB: alu_op_o = (FUNCT7) ? `ALU_SUB : `ALU_ADD;
                     `FUNCT3_SLL:     alu_op_o = `ALU_SLL;
                     `FUNCT3_SLT:     alu_op_o = `ALU_SLT;          
                     `FUNCT3_SLTU:    alu_op_o = `ALU_SLTU;
                     `FUNCT3_XOR:     alu_op_o = `ALU_XOR;
-                    `FUNCT3_SRL_SRA: alu_op_o = (FUNCT7 == 1'b1) ? `ALU_SRA : `ALU_SRL;
+                    `FUNCT3_SRL_SRA: alu_op_o = (FUNCT7) ? `ALU_SRA : `ALU_SRL;
                     `FUNCT3_OR:      alu_op_o = `ALU_OR;
                     `FUNCT3_AND:     alu_op_o = `ALU_AND;
                     default:         alu_op_o = `ALU_ADD;
@@ -182,7 +161,7 @@ module toast_decoder
                     `FUNCT3_XORI:      alu_op_o = `ALU_XOR;
                     `FUNCT3_SLTI:      alu_op_o = `ALU_SLT;
                     `FUNCT3_SLTIU:     alu_op_o = `ALU_SLTU;
-                    `FUNCT3_SRAI_SRLI: alu_op_o = (FUNCT7 == 1'b1) ? `ALU_SRA : `ALU_SRL; 
+                    `FUNCT3_SRAI_SRLI: alu_op_o = (FUNCT7) ? `ALU_SRA : `ALU_SRL; 
                     `FUNCT3_SLLI:      alu_op_o = `ALU_SLL;
                     default:           alu_op_o = `ALU_ADD;
                 endcase
