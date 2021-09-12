@@ -17,7 +17,9 @@
      - ISR handling
      - UVM and/or Formal Verification
 
-- Toast currently is capable of passing all RV32ui unit tests and has passed post-synthesis timing at 100MHz targeting Xilinx Artix-7 FPGA; however it has not been tested on hardware until updated here. Very much still WIP, however updates may be infrequent due to school and other commitments.
+- Toast currently is capable of passing all RV32ui unit tests and has passed post-synthesis timing at 100MHz targeting Xilinx Artix-7 FPGA.
+
+- Has not been tested on hardware until updated here. Very much still WIP, however updates may be infrequent due to school and other commitments.
 
   
 - Toast does not support interrupt handling, nor the CSR, FENCE, EBREAK, or ECALL instructions.
