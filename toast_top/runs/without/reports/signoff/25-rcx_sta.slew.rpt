@@ -1,0 +1,35 @@
+
+===========================================================================
+ report_check_types -max_slew -max_cap -max_fanout -violators
+============================================================================
+max fanout
+
+Pin                                   Limit Fanout  Slack
+---------------------------------------------------------
+input92/X                                17     25     -8 (VIOLATED)
+input66/X                                17     23     -6 (VIOLATED)
+input89/X                                17     23     -6 (VIOLATED)
+input94/X                                17     21     -4 (VIOLATED)
+_08443_/X                                17     19     -2 (VIOLATED)
+clkbuf_leaf_70_clk_i/X                   17     19     -2 (VIOLATED)
+_08373_/X                                17     18        (VIOLATED)
+_08380_/X                                17     18        (VIOLATED)
+_08381_/X                                17     18        (VIOLATED)
+_08390_/X                                17     18        (VIOLATED)
+_08402_/X                                17     18        (VIOLATED)
+_08415_/X                                17     18        (VIOLATED)
+_08419_/X                                17     18        (VIOLATED)
+_08436_/X                                17     18        (VIOLATED)
+_08783_/X                                17     18        (VIOLATED)
+_08848_/X                                17     18        (VIOLATED)
+_08856_/X                                17     18        (VIOLATED)
+_08994_/X                                17     18        (VIOLATED)
+_10338_/X                                17     18        (VIOLATED)
+_10365_/X                                17     18        (VIOLATED)
+
+
+===========================================================================
+max slew violation count 0
+max fanout violation count 20
+max cap violation count 0
+============================================================================

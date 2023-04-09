@@ -1,0 +1,113 @@
+
+===========================================================================
+report_parasitic_annotation -report_unannotated
+============================================================================
+Found 2 unannotated drivers.
+ toast_top_198/HI
+ toast_top_199/HI
+Found 0 partially unannotated drivers.
+parastic_annotation_check
+check_slew
+
+===========================================================================
+ report_check_types -max_slew -max_cap -max_fanout -violators
+============================================================================
+max fanout
+
+Pin                                   Limit Fanout  Slack
+---------------------------------------------------------
+input92/X                                17     25     -8 (VIOLATED)
+input66/X                                17     23     -6 (VIOLATED)
+input89/X                                17     23     -6 (VIOLATED)
+input94/X                                17     21     -4 (VIOLATED)
+_08443_/X                                17     19     -2 (VIOLATED)
+clkbuf_leaf_70_clk_i/X                   17     19     -2 (VIOLATED)
+_08373_/X                                17     18        (VIOLATED)
+_08380_/X                                17     18        (VIOLATED)
+_08381_/X                                17     18        (VIOLATED)
+_08390_/X                                17     18        (VIOLATED)
+_08402_/X                                17     18        (VIOLATED)
+_08415_/X                                17     18        (VIOLATED)
+_08419_/X                                17     18        (VIOLATED)
+_08436_/X                                17     18        (VIOLATED)
+_08783_/X                                17     18        (VIOLATED)
+_08848_/X                                17     18        (VIOLATED)
+_08856_/X                                17     18        (VIOLATED)
+_08994_/X                                17     18        (VIOLATED)
+_10338_/X                                17     18        (VIOLATED)
+_10365_/X                                17     18        (VIOLATED)
+
+
+===========================================================================
+max slew violation count 0
+max fanout violation count 20
+max cap violation count 0
+============================================================================
+check_slew_end
+tns_report
+
+===========================================================================
+ report_tns
+============================================================================
+tns 0.00
+tns_report_end
+wns_report
+
+===========================================================================
+ report_wns
+============================================================================
+wns 0.00
+wns_report_end
+worst_slack
+
+===========================================================================
+ report_worst_slack -max (Setup)
+============================================================================
+worst slack 1.69
+
+===========================================================================
+ report_worst_slack -min (Hold)
+============================================================================
+worst slack 0.13
+worst_slack_end
+clock_skew
+
+===========================================================================
+ report_clock_skew
+============================================================================
+Clock clk_i
+Latency      CRPR       Skew
+_15048_/CLK ^
+   1.27
+_15680_/CLK ^
+   0.86     -0.06       0.35
+
+clock_skew_end
+power_report
+
+===========================================================================
+ report_power
+============================================================================
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             6.35e-03   6.23e-04   1.22e-08   6.97e-03  37.5%
+Combinational          5.42e-03   6.20e-03   5.79e-08   1.16e-02  62.5%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.18e-02   6.83e-03   7.01e-08   1.86e-02 100.0%
+                          63.3%      36.7%       0.0%
+power_report_end
+area_report
+
+===========================================================================
+ report_design_area
+============================================================================
+Design area 101235 u^2 55% utilization.
+area_report_end
+Setting global connections for newly added cells...
+[WARNING] Did not save OpenROAD database!
+Writing SDF to /openlane/designs/toast_top/runs/without/results/routing/mca/process_corner_nom/toast_top.sdf...
+Writing timing model to /openlane/designs/toast_top/runs/without/results/routing/mca/process_corner_nom/toast_top.lib...
+

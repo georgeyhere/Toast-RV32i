@@ -1,0 +1,28 @@
+OpenROAD c295b08a99aacb6147b9c51104627e78ac3859e3 
+This program is licensed under the BSD-3 license. See the LICENSE file for details.
+Components of this program may be licensed under more restrictive licenses which must be honored.
+[INFO ODB-0222] Reading LEF file: /openlane/designs/toast_top/runs/modified_without/tmp/merged.nom.lef
+[WARNING ODB-0220] WARNING (LEFPARS-2036): SOURCE statement is obsolete in version 5.6 and later.
+The LEF parser will ignore this statement.
+To avoid this warning in the future, remove this statement from the LEF file with version 5.6 or later. See file /openlane/designs/toast_top/runs/modified_without/tmp/merged.nom.lef at line 930.
+
+[INFO ODB-0223]     Created 13 technology layers
+[INFO ODB-0224]     Created 25 technology vias
+[INFO ODB-0225]     Created 441 library cells
+[INFO ODB-0226] Finished LEF file:  /openlane/designs/toast_top/runs/modified_without/tmp/merged.nom.lef
+Reading netlist...
+[INFO]: Setting output delay to: 2.0
+[INFO]: Setting input delay to: 2.0
+[INFO]: Setting load to: 0.033442
+[INFO]: Setting clock uncertainty to: 0.25
+[INFO]: Setting clock transition to: 0.15
+[INFO]: Setting timing derate to: 0.5 %
+[INFO IFP-0001] Added 157 rows of 933 sites.
+[INFO IFP-0030] Inserted 0 tiecells using sky130_fd_sc_hd__conb_1/LO.
+[INFO IFP-0030] Inserted 0 tiecells using sky130_fd_sc_hd__conb_1/HI.
+[INFO] Extracting DIE_AREA and CORE_AREA from the floorplan
+[INFO] Floorplanned on a die area of 0.0 0.0 440.5 451.22 (microns). Saving to /openlane/designs/toast_top/runs/modified_without/reports/floorplan/3-initial_fp_die_area.rpt.
+[INFO] Floorplanned on a core area of 5.52 10.88 434.7 437.92 (microns). Saving to /openlane/designs/toast_top/runs/modified_without/reports/floorplan/3-initial_fp_core_area.rpt.
+Writing OpenROAD database to /openlane/designs/toast_top/runs/modified_without/tmp/floorplan/3-initial_fp.odb...
+Writing layout to /openlane/designs/toast_top/runs/modified_without/tmp/floorplan/3-initial_fp.def...
+Writing timing constraints to /openlane/designs/toast_top/runs/modified_without/tmp/floorplan/3-initial_fp.sdc...
