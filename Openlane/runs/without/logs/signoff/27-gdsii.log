@@ -1,0 +1,618 @@
+
+Magic 8.3 revision 363 - Compiled on Tue Jan 24 15:11:36 UTC 2023.
+Starting magic under Tcl interpreter
+Using the terminal as the console.
+Using NULL graphics device.
+Processing system .magicrc file
+Sourcing design .magicrc for technology sky130A ...
+2 Magic internal units = 1 Lambda
+Input style sky130(): scaleFactor=2, multiplier=2
+The following types are not handled by extraction and will be treated as non-electrical types:
+    ubm 
+Scaled tech values by 2 / 1 to match internal grid scaling
+Loading sky130A Device Generator Menu ...
+Using technology "sky130A", version 1.0.387-0-ge884c4d
+Reading LEF data from file /home/nikhil/Desktop/OpenLane/pdks/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef.
+This action cannot be undone.
+LEF read, Line 78 (Message): Unknown keyword "ANTENNAMODEL" in LEF file; ignoring.
+LEF read, Line 79 (Message): Unknown keyword "ANTENNADIFFSIDEAREARATIO" in LEF file; ignoring.
+LEF read, Line 112 (Message): Unknown keyword "MINENCLOSEDAREA" in LEF file; ignoring.
+LEF read, Line 114 (Message): Unknown keyword "ANTENNAMODEL" in LEF file; ignoring.
+LEF read, Line 115 (Message): Unknown keyword "ANTENNADIFFSIDEAREARATIO" in LEF file; ignoring.
+LEF read, Line 121 (Message): Unknown keyword "MAXIMUMDENSITY" in LEF file; ignoring.
+LEF read, Line 122 (Message): Unknown keyword "DENSITYCHECKWINDOW" in LEF file; ignoring.
+LEF read, Line 123 (Message): Unknown keyword "DENSITYCHECKSTEP" in LEF file; ignoring.
+LEF read, Line 156 (Message): Unknown keyword "MINENCLOSEDAREA" in LEF file; ignoring.
+LEF read, Line 164 (Message): Unknown keyword "ANTENNAMODEL" in LEF file; ignoring.
+LEF read, Line 165 (Message): Unknown keyword "ANTENNADIFFSIDEAREARATIO" in LEF file; ignoring.
+LEF read, Line 167 (Message): Unknown keyword "MAXIMUMDENSITY" in LEF file; ignoring.
+LEF read, Line 168 (Message): Unknown keyword "DENSITYCHECKWINDOW" in LEF file; ignoring.
+LEF read, Line 169 (Message): Unknown keyword "DENSITYCHECKSTEP" in LEF file; ignoring.
+LEF read, Line 206 (Message): Unknown keyword "ANTENNAMODEL" in LEF file; ignoring.
+LEF read, Line 207 (Message): Unknown keyword "ANTENNADIFFSIDEAREARATIO" in LEF file; ignoring.
+LEF read, Line 209 (Message): Unknown keyword "MAXIMUMDENSITY" in LEF file; ignoring.
+LEF read, Line 210 (Message): Unknown keyword "DENSITYCHECKWINDOW" in LEF file; ignoring.
+LEF read, Line 211 (Message): Unknown keyword "DENSITYCHECKSTEP" in LEF file; ignoring.
+LEF read, Line 248 (Message): Unknown keyword "ANTENNAMODEL" in LEF file; ignoring.
+LEF read, Line 249 (Message): Unknown keyword "ANTENNADIFFSIDEAREARATIO" in LEF file; ignoring.
+LEF read, Line 251 (Message): Unknown keyword "MAXIMUMDENSITY" in LEF file; ignoring.
+LEF read, Line 252 (Message): Unknown keyword "DENSITYCHECKWINDOW" in LEF file; ignoring.
+LEF read, Line 253 (Message): Unknown keyword "DENSITYCHECKSTEP" in LEF file; ignoring.
+LEF read, Line 290 (Message): Unknown keyword "ANTENNAMODEL" in LEF file; ignoring.
+LEF read, Line 291 (Message): Unknown keyword "ANTENNADIFFSIDEAREARATIO" in LEF file; ignoring.
+LEF read: Processed 797 lines.
+Reading DEF data from file /openlane/designs/toast_top/runs/without/results/routing/toast_top.def.
+This action cannot be undone.
+  Processed 4 vias total.
+  Processed 28174 subcell instances total.
+  Processed 202 pins total.
+  Processed 2 special nets total.
+  Processed 9242 nets total.
+DEF read: Processed 201205 lines.
+Moving label "DMEM_addr_o[14]" from metal2 to via2 in cell toast_top.
+Moving label "DMEM_addr_o[17]" from metal2 to via2 in cell toast_top.
+Moving label "DMEM_wr_data_o[19]" from metal2 to via2 in cell toast_top.
+Moving label "DMEM_wr_data_o[26]" from metal2 to via2 in cell toast_top.
+Moving label "DMEM_wr_data_o[8]" from metal2 to via2 in cell toast_top.
+Moving label "IMEM_data_i[28]" from metal2 to via2 in cell toast_top.
+Moving label "_00005_" from metal1 to via1 in cell toast_top.
+Moving label "_00008_" from metal1 to via1 in cell toast_top.
+Moving label "_00014_" from metal1 to via1 in cell toast_top.
+Moving label "_00029_" from metal1 to via1 in cell toast_top.
+Moving label "_00042_" from metal1 to via1 in cell toast_top.
+Moving label "_00043_" from metal1 to via1 in cell toast_top.
+Moving label "_00052_" from metal1 to via1 in cell toast_top.
+Moving label "_00058_" from metal1 to via1 in cell toast_top.
+Moving label "_00064_" from metal1 to via1 in cell toast_top.
+Moving label "_00069_" from metal1 to via1 in cell toast_top.
+Moving label "_00070_" from metal1 to via1 in cell toast_top.
+Moving label "_00071_" from metal1 to via1 in cell toast_top.
+Moving label "_00077_" from metal1 to via1 in cell toast_top.
+Moving label "_00092_" from metal1 to via1 in cell toast_top.
+Moving label "_00108_" from metal1 to via1 in cell toast_top.
+Moving label "_00117_" from metal1 to via1 in cell toast_top.
+Moving label "_00118_" from metal1 to via1 in cell toast_top.
+Moving label "_00119_" from metal1 to via1 in cell toast_top.
+Moving label "_00121_" from metal1 to via1 in cell toast_top.
+Moving label "_00132_" from metal1 to via1 in cell toast_top.
+Moving label "_00136_" from metal1 to via1 in cell toast_top.
+Moving label "_00145_" from metal1 to viali in cell toast_top.
+Moving label "_00166_" from metal1 to via1 in cell toast_top.
+Moving label "_00170_" from metal1 to via1 in cell toast_top.
+Moving label "_00173_" from metal1 to via1 in cell toast_top.
+Moving label "_00174_" from metal1 to viali in cell toast_top.
+Moving label "_00182_" from metal1 to via1 in cell toast_top.
+Moving label "_00190_" from metal1 to via1 in cell toast_top.
+Moving label "_00193_" from metal1 to via1 in cell toast_top.
+Moving label "_00205_" from metal1 to via1 in cell toast_top.
+Moving label "_00220_" from metal1 to via1 in cell toast_top.
+Moving label "_00256_" from metal1 to via1 in cell toast_top.
+Moving label "_00257_" from metal1 to via1 in cell toast_top.
+Moving label "_00265_" from metal1 to via1 in cell toast_top.
+Moving label "_00269_" from metal2 to via1 in cell toast_top.
+Moving label "_00290_" from metal1 to via1 in cell toast_top.
+Moving label "_00294_" from metal1 to via1 in cell toast_top.
+Moving label "_00304_" from metal1 to via1 in cell toast_top.
+Moving label "_00308_" from metal1 to via1 in cell toast_top.
+Moving label "_00310_" from metal1 to via1 in cell toast_top.
+Moving label "_00315_" from metal1 to via1 in cell toast_top.
+Moving label "_00325_" from metal1 to via1 in cell toast_top.
+Moving label "_00327_" from metal1 to via1 in cell toast_top.
+Moving label "_00328_" from metal1 to via1 in cell toast_top.
+Moving label "_00330_" from metal2 to via2 in cell toast_top.
+Moving label "_00337_" from metal2 to via2 in cell toast_top.
+Moving label "_00338_" from metal2 to via2 in cell toast_top.
+Moving label "_00341_" from metal2 to via2 in cell toast_top.
+Moving label "_00342_" from metal2 to via2 in cell toast_top.
+Moving label "_00346_" from metal2 to via2 in cell toast_top.
+Moving label "_00350_" from metal2 to via2 in cell toast_top.
+Moving label "_00361_" from metal2 to via2 in cell toast_top.
+Moving label "_00363_" from metal1 to via1 in cell toast_top.
+Moving label "_00376_" from metal1 to via1 in cell toast_top.
+Moving label "_00384_" from metal1 to via1 in cell toast_top.
+Moving label "_00389_" from metal1 to via1 in cell toast_top.
+Moving label "_00392_" from metal1 to via1 in cell toast_top.
+Moving label "_00396_" from metal1 to via1 in cell toast_top.
+Moving label "_00400_" from metal1 to via1 in cell toast_top.
+Moving label "_00403_" from metal1 to via1 in cell toast_top.
+Moving label "_00408_" from metal1 to via1 in cell toast_top.
+Moving label "_00409_" from metal1 to via1 in cell toast_top.
+Moving label "_00417_" from metal1 to via1 in cell toast_top.
+Moving label "_00432_" from metal1 to via1 in cell toast_top.
+Moving label "_00435_" from metal1 to via1 in cell toast_top.
+Moving label "_00438_" from metal1 to via1 in cell toast_top.
+Moving label "_00439_" from metal1 to via1 in cell toast_top.
+Moving label "_00440_" from metal1 to via1 in cell toast_top.
+Moving label "_00444_" from metal1 to via1 in cell toast_top.
+Moving label "_00445_" from metal1 to via1 in cell toast_top.
+Moving label "_00454_" from metal1 to via1 in cell toast_top.
+Moving label "_00476_" from metal2 to via2 in cell toast_top.
+Moving label "_00480_" from metal2 to via2 in cell toast_top.
+Moving label "_00487_" from metal2 to via2 in cell toast_top.
+Moving label "_00491_" from metal1 to viali in cell toast_top.
+Moving label "_00492_" from metal1 to via1 in cell toast_top.
+Moving label "_00506_" from metal1 to via1 in cell toast_top.
+Moving label "_00521_" from metal1 to via1 in cell toast_top.
+Moving label "_00522_" from metal1 to via1 in cell toast_top.
+Moving label "_00532_" from metal1 to via1 in cell toast_top.
+Moving label "_00540_" from metal2 to via1 in cell toast_top.
+Moving label "_00545_" from metal1 to via1 in cell toast_top.
+Moving label "_00549_" from metal1 to via1 in cell toast_top.
+Moving label "_00551_" from metal1 to via1 in cell toast_top.
+Moving label "_00552_" from metal1 to via1 in cell toast_top.
+Moving label "_00558_" from metal1 to via1 in cell toast_top.
+Moving label "_00562_" from metal1 to via1 in cell toast_top.
+Moving label "_00564_" from metal1 to via1 in cell toast_top.
+Moving label "_00576_" from metal1 to via1 in cell toast_top.
+Moving label "_00578_" from metal1 to via1 in cell toast_top.
+Moving label "_00583_" from metal1 to via1 in cell toast_top.
+Moving label "_00585_" from metal1 to via1 in cell toast_top.
+Moving label "_00592_" from metal1 to via1 in cell toast_top.
+Moving label "_00594_" from metal1 to via1 in cell toast_top.
+Moving label "_00597_" from metal1 to via1 in cell toast_top.
+Moving label "_00598_" from metal1 to via1 in cell toast_top.
+Moving label "_00604_" from metal1 to via1 in cell toast_top.
+Moving label "_00608_" from metal1 to via1 in cell toast_top.
+Moving label "_00612_" from metal1 to via1 in cell toast_top.
+Moving label "_00613_" from metal1 to via1 in cell toast_top.
+Moving label "_00620_" from metal1 to via1 in cell toast_top.
+Moving label "_00647_" from metal1 to via1 in cell toast_top.
+Moving label "_00652_" from metal1 to via1 in cell toast_top.
+Moving label "_00655_" from metal1 to via1 in cell toast_top.
+Moving label "_00657_" from metal1 to via1 in cell toast_top.
+Moving label "_00658_" from metal1 to via1 in cell toast_top.
+Moving label "_00661_" from metal1 to via1 in cell toast_top.
+Moving label "_00664_" from metal1 to via1 in cell toast_top.
+Moving label "_00675_" from metal1 to via1 in cell toast_top.
+Moving label "_00680_" from metal1 to via1 in cell toast_top.
+Moving label "_00689_" from metal1 to via1 in cell toast_top.
+Moving label "_00690_" from metal1 to via1 in cell toast_top.
+Moving label "_00693_" from metal1 to via1 in cell toast_top.
+Moving label "_00695_" from metal1 to via1 in cell toast_top.
+Moving label "_00696_" from metal1 to via1 in cell toast_top.
+Moving label "_00713_" from metal1 to via1 in cell toast_top.
+Moving label "_00728_" from metal1 to via1 in cell toast_top.
+Moving label "_00740_" from metal1 to via1 in cell toast_top.
+Moving label "_00741_" from metal1 to via1 in cell toast_top.
+Moving label "_00742_" from metal1 to via1 in cell toast_top.
+Moving label "_00746_" from metal1 to via1 in cell toast_top.
+Moving label "_00759_" from metal1 to via1 in cell toast_top.
+Moving label "_00770_" from metal1 to via1 in cell toast_top.
+Moving label "_00777_" from metal1 to via1 in cell toast_top.
+Moving label "_00790_" from metal1 to via1 in cell toast_top.
+Moving label "_00797_" from metal1 to via1 in cell toast_top.
+Moving label "_00813_" from metal1 to via1 in cell toast_top.
+Moving label "_00814_" from metal1 to via1 in cell toast_top.
+Moving label "_00821_" from metal1 to via1 in cell toast_top.
+Moving label "_00835_" from metal1 to via1 in cell toast_top.
+Moving label "_00837_" from metal1 to via1 in cell toast_top.
+Moving label "_00840_" from metal1 to via1 in cell toast_top.
+Moving label "_00842_" from metal1 to via1 in cell toast_top.
+Moving label "_00852_" from metal1 to via1 in cell toast_top.
+Moving label "_00869_" from metal1 to via1 in cell toast_top.
+Moving label "_00876_" from metal1 to via1 in cell toast_top.
+Moving label "_00896_" from metal1 to via1 in cell toast_top.
+Moving label "_00899_" from metal1 to via1 in cell toast_top.
+Moving label "_00912_" from metal1 to via1 in cell toast_top.
+Moving label "_00920_" from metal1 to via1 in cell toast_top.
+Moving label "_00928_" from metal1 to via1 in cell toast_top.
+Moving label "_00931_" from metal1 to via1 in cell toast_top.
+Moving label "_00932_" from metal1 to via1 in cell toast_top.
+Moving label "_00937_" from metal1 to via1 in cell toast_top.
+Moving label "_00942_" from metal1 to via1 in cell toast_top.
+Moving label "_00966_" from metal1 to via1 in cell toast_top.
+Moving label "_00967_" from metal1 to via1 in cell toast_top.
+Moving label "_00981_" from metal1 to via1 in cell toast_top.
+Moving label "_00991_" from metal1 to via1 in cell toast_top.
+Moving label "_01014_" from metal1 to viali in cell toast_top.
+Moving label "_01034_" from metal1 to via1 in cell toast_top.
+Moving label "_01041_" from metal1 to via1 in cell toast_top.
+Moving label "_01091_" from metal1 to via1 in cell toast_top.
+Moving label "_01114_" from metal1 to via1 in cell toast_top.
+Moving label "_01117_" from metal1 to via1 in cell toast_top.
+Moving label "_01126_" from metal1 to viali in cell toast_top.
+Moving label "_01136_" from metal1 to viali in cell toast_top.
+Moving label "_01152_" from metal1 to via1 in cell toast_top.
+Moving label "_01163_" from metal1 to via1 in cell toast_top.
+Moving label "_01172_" from metal1 to via1 in cell toast_top.
+Moving label "_01174_" from metal1 to via1 in cell toast_top.
+Moving label "_01180_" from metal1 to via1 in cell toast_top.
+Moving label "_01182_" from metal1 to via1 in cell toast_top.
+Moving label "_01184_" from metal1 to via1 in cell toast_top.
+Moving label "_01185_" from metal1 to via1 in cell toast_top.
+Moving label "_01186_" from metal1 to viali in cell toast_top.
+Moving label "_01187_" from metal1 to via1 in cell toast_top.
+Moving label "_01189_" from metal1 to via1 in cell toast_top.
+Moving label "_01193_" from metal1 to via1 in cell toast_top.
+Moving label "_01224_" from metal1 to via1 in cell toast_top.
+Moving label "_01242_" from metal1 to via1 in cell toast_top.
+Moving label "_01246_" from metal1 to via1 in cell toast_top.
+Moving label "_01255_" from metal1 to via1 in cell toast_top.
+Moving label "_01282_" from metal1 to via1 in cell toast_top.
+Moving label "_01312_" from metal1 to via1 in cell toast_top.
+Moving label "_01317_" from metal1 to via1 in cell toast_top.
+Moving label "_01318_" from metal1 to via1 in cell toast_top.
+Moving label "_01330_" from metal1 to via1 in cell toast_top.
+Moving label "_01334_" from metal2 to via2 in cell toast_top.
+Moving label "_01341_" from metal1 to via1 in cell toast_top.
+Moving label "_01347_" from metal1 to via1 in cell toast_top.
+Moving label "_01366_" from metal1 to via1 in cell toast_top.
+Moving label "_01373_" from metal1 to via1 in cell toast_top.
+Moving label "_01376_" from metal1 to via1 in cell toast_top.
+Moving label "_01395_" from metal1 to via1 in cell toast_top.
+Moving label "_01401_" from metal1 to via1 in cell toast_top.
+Moving label "_01404_" from metal1 to via1 in cell toast_top.
+Moving label "_01408_" from metal1 to via1 in cell toast_top.
+Moving label "_01416_" from metal1 to via1 in cell toast_top.
+Moving label "_01420_" from metal1 to via1 in cell toast_top.
+Moving label "_01422_" from metal1 to via1 in cell toast_top.
+Moving label "_01425_" from metal1 to via1 in cell toast_top.
+Moving label "_01426_" from metal1 to via1 in cell toast_top.
+Moving label "_01427_" from metal1 to via1 in cell toast_top.
+Moving label "_01439_" from metal1 to via1 in cell toast_top.
+Moving label "_01443_" from metal1 to via1 in cell toast_top.
+Moving label "_01533_" from metal2 to via2 in cell toast_top.
+Moving label "_01616_" from metal2 to via2 in cell toast_top.
+Moving label "_01654_" from metal2 to via2 in cell toast_top.
+Moving label "_01661_" from metal2 to via2 in cell toast_top.
+Moving label "_01675_" from metal3 to via3 in cell toast_top.
+Moving label "_01748_" from metal1 to via1 in cell toast_top.
+Moving label "_01755_" from metal2 to via2 in cell toast_top.
+Moving label "_01757_" from metal2 to via2 in cell toast_top.
+Moving label "_01798_" from metal3 to via3 in cell toast_top.
+Moving label "_01805_" from metal2 to via2 in cell toast_top.
+Moving label "_01815_" from metal2 to via2 in cell toast_top.
+Moving label "_01893_" from metal2 to via2 in cell toast_top.
+Moving label "_01900_" from metal2 to via2 in cell toast_top.
+Moving label "_01962_" from metal2 to via1 in cell toast_top.
+Moving label "_01981_" from metal2 to via2 in cell toast_top.
+Moving label "_02035_" from metal2 to via2 in cell toast_top.
+Moving label "_02055_" from metal1 to via1 in cell toast_top.
+Moving label "_02059_" from metal2 to via2 in cell toast_top.
+Moving label "_02087_" from metal1 to viali in cell toast_top.
+Moving label "_02107_" from metal2 to via2 in cell toast_top.
+Moving label "_02125_" from metal2 to via2 in cell toast_top.
+Moving label "_02141_" from metal1 to viali in cell toast_top.
+Moving label "_02145_" from metal1 to via1 in cell toast_top.
+Moving label "_02149_" from metal1 to via1 in cell toast_top.
+Moving label "_02168_" from metal2 to via2 in cell toast_top.
+Moving label "_02179_" from metal2 to via2 in cell toast_top.
+Moving label "_02184_" from metal2 to via2 in cell toast_top.
+Moving label "_02190_" from metal1 to viali in cell toast_top.
+Moving label "_02273_" from metal1 to via1 in cell toast_top.
+Moving label "_02318_" from metal1 to viali in cell toast_top.
+Moving label "_02360_" from metal1 to via1 in cell toast_top.
+Moving label "_02390_" from metal2 to via2 in cell toast_top.
+Moving label "_02435_" from metal1 to viali in cell toast_top.
+Moving label "_02455_" from metal1 to viali in cell toast_top.
+Moving label "_02624_" from metal2 to via2 in cell toast_top.
+Moving label "_02897_" from metal1 to viali in cell toast_top.
+Moving label "_02940_" from metal2 to via2 in cell toast_top.
+Moving label "_02941_" from metal1 to via1 in cell toast_top.
+Moving label "_02969_" from metal2 to via2 in cell toast_top.
+Moving label "_02983_" from metal2 to via2 in cell toast_top.
+Moving label "_02989_" from metal2 to via2 in cell toast_top.
+Moving label "_03090_" from metal2 to via2 in cell toast_top.
+Moving label "_03126_" from metal2 to via2 in cell toast_top.
+Moving label "_03133_" from metal2 to via2 in cell toast_top.
+Moving label "_03240_" from metal1 to viali in cell toast_top.
+Moving label "_03241_" from metal1 to via1 in cell toast_top.
+Moving label "_03308_" from metal1 to via1 in cell toast_top.
+Moving label "_03318_" from metal2 to via2 in cell toast_top.
+Moving label "_03343_" from metal1 to viali in cell toast_top.
+Moving label "_03359_" from metal2 to via2 in cell toast_top.
+Moving label "_03381_" from metal2 to via2 in cell toast_top.
+Moving label "_03438_" from metal2 to via1 in cell toast_top.
+Moving label "_03623_" from metal2 to via2 in cell toast_top.
+Moving label "_03690_" from metal2 to via1 in cell toast_top.
+Moving label "_03739_" from metal2 to via2 in cell toast_top.
+Moving label "_03855_" from metal2 to via2 in cell toast_top.
+Moving label "_03972_" from metal2 to via2 in cell toast_top.
+Moving label "_04151_" from metal2 to via2 in cell toast_top.
+Moving label "_04168_" from metal2 to via2 in cell toast_top.
+Moving label "_04170_" from metal1 to viali in cell toast_top.
+Moving label "_04207_" from metal2 to via2 in cell toast_top.
+Moving label "_04220_" from metal2 to via2 in cell toast_top.
+Moving label "_04222_" from metal3 to via3 in cell toast_top.
+Moving label "_04251_" from metal1 to viali in cell toast_top.
+Moving label "_04345_" from metal2 to via2 in cell toast_top.
+Moving label "_04360_" from metal2 to via2 in cell toast_top.
+Moving label "_04362_" from metal1 to viali in cell toast_top.
+Moving label "_04411_" from metal2 to via2 in cell toast_top.
+Moving label "_04443_" from metal2 to via2 in cell toast_top.
+Moving label "_04458_" from metal2 to via2 in cell toast_top.
+Moving label "_04463_" from metal2 to via2 in cell toast_top.
+Moving label "_04474_" from metal2 to via2 in cell toast_top.
+Moving label "_04519_" from metal1 to viali in cell toast_top.
+Moving label "_04563_" from metal2 to via1 in cell toast_top.
+Moving label "_04570_" from metal1 to via1 in cell toast_top.
+Moving label "_04571_" from metal2 to via2 in cell toast_top.
+Moving label "_04595_" from metal2 to via2 in cell toast_top.
+Moving label "_04600_" from metal1 to via1 in cell toast_top.
+Moving label "_04654_" from metal1 to viali in cell toast_top.
+Moving label "_04689_" from metal2 to via2 in cell toast_top.
+Moving label "_04723_" from metal2 to via2 in cell toast_top.
+Moving label "_04787_" from metal2 to via2 in cell toast_top.
+Moving label "_04798_" from metal1 to via1 in cell toast_top.
+Moving label "_04843_" from metal2 to via2 in cell toast_top.
+Moving label "_04852_" from metal2 to via2 in cell toast_top.
+Moving label "_04859_" from metal2 to via2 in cell toast_top.
+Moving label "_04918_" from metal1 to via1 in cell toast_top.
+Moving label "_04963_" from metal2 to via2 in cell toast_top.
+Moving label "_04979_" from metal2 to via2 in cell toast_top.
+Moving label "_05032_" from metal2 to via2 in cell toast_top.
+Moving label "_05039_" from metal2 to via2 in cell toast_top.
+Moving label "_05083_" from metal2 to via2 in cell toast_top.
+Moving label "_05099_" from metal2 to via2 in cell toast_top.
+Moving label "_05169_" from metal2 to via2 in cell toast_top.
+Moving label "_05194_" from metal2 to via2 in cell toast_top.
+Moving label "_05249_" from metal2 to via1 in cell toast_top.
+Moving label "_05537_" from metal2 to via1 in cell toast_top.
+Moving label "_05706_" from metal1 to viali in cell toast_top.
+Moving label "_05735_" from metal2 to via2 in cell toast_top.
+Moving label "_05751_" from metal2 to via2 in cell toast_top.
+Moving label "_05770_" from metal2 to via2 in cell toast_top.
+Moving label "_05771_" from metal2 to via2 in cell toast_top.
+Moving label "_05844_" from metal2 to via2 in cell toast_top.
+Moving label "_05852_" from metal2 to via2 in cell toast_top.
+Moving label "_05855_" from metal2 to via2 in cell toast_top.
+Moving label "_05863_" from metal2 to via2 in cell toast_top.
+Moving label "_05910_" from metal2 to via2 in cell toast_top.
+Moving label "_05918_" from metal1 to viali in cell toast_top.
+Moving label "_05943_" from metal2 to via2 in cell toast_top.
+Moving label "_05946_" from metal2 to via1 in cell toast_top.
+Moving label "_05952_" from metal2 to via2 in cell toast_top.
+Moving label "_06007_" from metal1 to viali in cell toast_top.
+Moving label "_06059_" from metal1 to via1 in cell toast_top.
+Moving label "_06066_" from metal2 to via2 in cell toast_top.
+Moving label "_06204_" from metal1 to via1 in cell toast_top.
+Moving label "_06231_" from metal1 to via1 in cell toast_top.
+Moving label "_06310_" from metal1 to via1 in cell toast_top.
+Moving label "_06324_" from metal1 to via1 in cell toast_top.
+Moving label "_06325_" from metal2 to via2 in cell toast_top.
+Moving label "_06339_" from metal2 to via1 in cell toast_top.
+Moving label "_06379_" from metal2 to via2 in cell toast_top.
+Moving label "_06416_" from metal2 to via2 in cell toast_top.
+Moving label "_06453_" from metal1 to viali in cell toast_top.
+Moving label "_06523_" from metal1 to viali in cell toast_top.
+Moving label "_06528_" from metal2 to via2 in cell toast_top.
+Moving label "_06559_" from metal2 to via2 in cell toast_top.
+Moving label "_06595_" from metal3 to via3 in cell toast_top.
+Moving label "_06620_" from metal2 to via2 in cell toast_top.
+Moving label "_06625_" from metal1 to viali in cell toast_top.
+Moving label "_06770_" from metal2 to via2 in cell toast_top.
+Moving label "_06827_" from metal3 to via3 in cell toast_top.
+Moving label "_06829_" from metal1 to viali in cell toast_top.
+Moving label "_06888_" from metal1 to via1 in cell toast_top.
+Moving label "_06895_" from metal1 to viali in cell toast_top.
+Moving label "_06901_" from metal2 to via2 in cell toast_top.
+Moving label "_06923_" from metal1 to via1 in cell toast_top.
+Moving label "_06933_" from metal1 to viali in cell toast_top.
+Moving label "_06942_" from metal1 to via1 in cell toast_top.
+Moving label "_06948_" from metal2 to via2 in cell toast_top.
+Moving label "_07025_" from metal3 to via3 in cell toast_top.
+Moving label "_07053_" from metal2 to via2 in cell toast_top.
+Moving label "_07145_" from metal1 to via1 in cell toast_top.
+Moving label "_07193_" from metal1 to via1 in cell toast_top.
+Moving label "branchgen_i.ID_imm2_i\[12\]" from metal2 to via2 in cell toast_top.
+Moving label "branchgen_i.ID_imm2_i\[13\]" from metal2 to via2 in cell toast_top.
+Moving label "branchgen_i.ID_imm2_i\[4\]" from metal2 to via2 in cell toast_top.
+Moving label "branchgen_i.ID_imm2_i\[6\]" from metal3 to via3 in cell toast_top.
+Moving label "branchgen_i.ID_imm2_i\[9\]" from metal2 to via2 in cell toast_top.
+Moving label "clknet_leaf_19_clk_i" from metal2 to via1 in cell toast_top.
+Moving label "ex_stage_i.EX_pc_dest_o\[31\]" from metal1 to via1 in cell toast_top.
+Moving label "ex_stage_i.EX_pc_dest_o\[9\]" from metal1 to via1 in cell toast_top.
+Moving label "ex_stage_i.ID_imm1_i\[7\]" from metal3 to via3 in cell toast_top.
+Moving label "id_stage_i.ID_alu_ctrl_o\[8\]" from metal2 to via2 in cell toast_top.
+Moving label "id_stage_i.IF_pc_i\[14\]" from metal2 to via2 in cell toast_top.
+Moving label "id_stage_i.IF_pc_i\[15\]" from metal2 to via1 in cell toast_top.
+Moving label "id_stage_i.IF_pc_i\[5\]" from metal2 to via2 in cell toast_top.
+Moving label "id_stage_i.regfile_i.regfile_data\[0\]\[7\]" from metal2 to via1 in cell toast_top.
+Moving label "id_stage_i.regfile_i.regfile_data\[10\]\[14\]" from metal2 to via1 in cell toast_top.
+Moving label "id_stage_i.regfile_i.regfile_data\[11\]\[7\]" from metal1 to via1 in cell toast_top.
+Moving label "id_stage_i.regfile_i.regfile_data\[14\]\[24\]" from metal2 to via1 in cell toast_top.
+Moving label "id_stage_i.regfile_i.regfile_data\[22\]\[15\]" from metal1 to via1 in cell toast_top.
+Moving label "id_stage_i.regfile_i.regfile_data\[29\]\[19\]" from metal1 to via1 in cell toast_top.
+Moving label "id_stage_i.regfile_i.regfile_data\[2\]\[19\]" from metal2 to via1 in cell toast_top.
+Moving label "id_stage_i.regfile_i.regfile_data\[30\]\[31\]" from metal2 to via1 in cell toast_top.
+Moving label "id_stage_i.regfile_i.regfile_data\[7\]\[25\]" from metal1 to viali in cell toast_top.
+Moving label "id_stage_i.regfile_i.regfile_data\[9\]\[18\]" from metal1 to via1 in cell toast_top.
+Moving label "id_stage_i.regfile_i.regfile_data\[9\]\[21\]" from metal1 to via1 in cell toast_top.
+Moving label "id_stage_i.rs1_rd_data\[19\]" from metal2 to via2 in cell toast_top.
+Moving label "id_stage_i.rs1_rd_data\[9\]" from metal2 to via2 in cell toast_top.
+Moving label "net1" from metal2 to via2 in cell toast_top.
+Moving label "net109" from metal2 to via2 in cell toast_top.
+Moving label "net112" from metal2 to via2 in cell toast_top.
+Moving label "net114" from metal2 to via2 in cell toast_top.
+Moving label "net117" from metal2 to via2 in cell toast_top.
+Moving label "net12" from metal2 to via2 in cell toast_top.
+Moving label "net130" from metal2 to via2 in cell toast_top.
+Moving label "net132" from metal2 to via2 in cell toast_top.
+Moving label "net152" from metal2 to via2 in cell toast_top.
+Moving label "net167" from metal2 to via2 in cell toast_top.
+Moving label "net18" from metal2 to via2 in cell toast_top.
+Moving label "net184" from metal2 to via2 in cell toast_top.
+Moving label "net193" from metal2 to via2 in cell toast_top.
+Moving label "net22" from metal2 to via2 in cell toast_top.
+Moving label "net3" from metal2 to via2 in cell toast_top.
+Moving label "net34" from metal2 to via2 in cell toast_top.
+Moving label "net38" from metal2 to via2 in cell toast_top.
+Moving label "net41" from metal2 to via2 in cell toast_top.
+Moving label "net43" from metal2 to via2 in cell toast_top.
+Moving label "net50" from metal2 to via2 in cell toast_top.
+Moving label "net52" from metal2 to via2 in cell toast_top.
+Moving label "net62" from metal2 to via2 in cell toast_top.
+Moving label "net70" from metal2 to via2 in cell toast_top.
+Moving label "net73" from metal2 to via2 in cell toast_top.
+Moving label "net9" from metal2 to via2 in cell toast_top.
+Moving label "net93" from metal2 to via2 in cell toast_top.
+Moving label "net95" from metal2 to via2 in cell toast_top.
+Root cell box:
+           width x height  (   llx,  lly  ), (   urx,  ury  )  area (units^2)
+
+microns:  441.605 x 452.325  ( 0.000,  0.000), ( 441.605,  452.325)  199748.969
+lambda:   44160.50 x 45232.50  (  0.00,  0.00 ), ( 44160.50,  45232.50)  1997489792.00
+internal:  88321 x 90465   (     0,  0    ), ( 88321,  90465)  7989959265
+   Generating output for cell sky130_fd_sc_hd__buf_4
+   Generating output for cell sky130_fd_sc_hd__decap_3
+   Generating output for cell sky130_fd_sc_hd__fill_2
+   Generating output for cell sky130_fd_sc_hd__decap_4
+   Generating output for cell sky130_fd_sc_hd__buf_2
+   Generating output for cell sky130_fd_sc_hd__decap_8
+   Generating output for cell sky130_ef_sc_hd__decap_12
+   Generating output for cell sky130_fd_sc_hd__tapvpwrvgnd_1
+   Generating output for cell sky130_fd_sc_hd__fill_1
+   Generating output for cell sky130_fd_sc_hd__decap_6
+   Generating output for cell sky130_fd_sc_hd__diode_2
+   Generating output for cell sky130_fd_sc_hd__conb_1
+   Generating output for cell sky130_fd_sc_hd__clkbuf_1
+   Generating output for cell sky130_fd_sc_hd__mux2_1
+   Generating output for cell sky130_fd_sc_hd__dfxtp_1
+   Generating output for cell sky130_fd_sc_hd__clkbuf_4
+   Generating output for cell sky130_fd_sc_hd__clkbuf_2
+   Generating output for cell sky130_fd_sc_hd__dfxtp_4
+   Generating output for cell sky130_fd_sc_hd__nand2_1
+   Generating output for cell sky130_fd_sc_hd__dfxtp_2
+   Generating output for cell sky130_fd_sc_hd__a21oi_1
+   Generating output for cell sky130_fd_sc_hd__o21ai_1
+   Generating output for cell sky130_fd_sc_hd__buf_6
+   Generating output for cell sky130_fd_sc_hd__o211a_1
+   Generating output for cell sky130_fd_sc_hd__o311a_1
+   Generating output for cell sky130_fd_sc_hd__and3_1
+   Generating output for cell sky130_fd_sc_hd__buf_8
+   Generating output for cell sky130_fd_sc_hd__o221a_1
+   Generating output for cell sky130_fd_sc_hd__a211o_1
+   Generating output for cell sky130_fd_sc_hd__clkbuf_16
+   Generating output for cell sky130_fd_sc_hd__or2_1
+   Generating output for cell sky130_fd_sc_hd__a21o_1
+   Generating output for cell sky130_fd_sc_hd__a311o_1
+   Generating output for cell sky130_fd_sc_hd__and2_1
+   Generating output for cell sky130_fd_sc_hd__xnor2_1
+   Generating output for cell sky130_fd_sc_hd__clkbuf_8
+   Generating output for cell sky130_fd_sc_hd__a31oi_1
+   Generating output for cell sky130_fd_sc_hd__a221o_1
+   Generating output for cell sky130_fd_sc_hd__a21boi_1
+   Generating output for cell sky130_fd_sc_hd__xor2_1
+   Generating output for cell sky130_fd_sc_hd__a21bo_1
+   Generating output for cell sky130_fd_sc_hd__inv_2
+   Generating output for cell sky130_fd_sc_hd__or2b_1
+   Generating output for cell sky130_fd_sc_hd__a32o_1
+   Generating output for cell sky130_fd_sc_hd__or3_1
+   Generating output for cell sky130_fd_sc_hd__o2111a_2
+   Generating output for cell sky130_fd_sc_hd__nor4_2
+   Generating output for cell sky130_fd_sc_hd__a31o_1
+   Generating output for cell sky130_fd_sc_hd__o21a_1
+   Generating output for cell sky130_fd_sc_hd__o41a_1
+   Generating output for cell sky130_fd_sc_hd__nor2_1
+   Generating output for cell sky130_fd_sc_hd__and4bb_1
+   Generating output for cell sky130_fd_sc_hd__a41o_1
+   Generating output for cell sky130_fd_sc_hd__o31a_1
+   Generating output for cell sky130_fd_sc_hd__clkinv_4
+   Generating output for cell sky130_fd_sc_hd__a41oi_4
+   Generating output for cell sky130_fd_sc_hd__nor2_2
+   Generating output for cell sky130_fd_sc_hd__a22o_1
+   Generating output for cell sky130_fd_sc_hd__a2bb2o_1
+   Generating output for cell sky130_fd_sc_hd__o32a_1
+   Generating output for cell sky130_fd_sc_hd__o2bb2a_1
+   Generating output for cell sky130_fd_sc_hd__nand3_1
+   Generating output for cell sky130_fd_sc_hd__and4b_1
+   Generating output for cell sky130_fd_sc_hd__a31oi_2
+   Generating output for cell sky130_fd_sc_hd__and4_1
+   Generating output for cell sky130_fd_sc_hd__nor4_1
+   Generating output for cell sky130_fd_sc_hd__or3b_1
+   Generating output for cell sky130_fd_sc_hd__a211oi_1
+   Generating output for cell sky130_fd_sc_hd__nor3_1
+   Generating output for cell sky130_fd_sc_hd__nand2_2
+   Generating output for cell sky130_fd_sc_hd__o21ba_1
+   Generating output for cell sky130_fd_sc_hd__a31o_2
+   Generating output for cell sky130_fd_sc_hd__a2111o_1
+   Generating output for cell sky130_fd_sc_hd__mux2_2
+   Generating output for cell sky130_fd_sc_hd__mux2_4
+   Generating output for cell sky130_fd_sc_hd__o31ai_4
+   Generating output for cell sky130_fd_sc_hd__o21bai_1
+   Generating output for cell sky130_fd_sc_hd__o41a_2
+   Generating output for cell sky130_fd_sc_hd__or3_2
+   Generating output for cell sky130_fd_sc_hd__xnor2_2
+   Generating output for cell sky130_fd_sc_hd__o21ai_2
+   Generating output for cell sky130_fd_sc_hd__o21ai_4
+   Generating output for cell sky130_fd_sc_hd__mux2_8
+   Generating output for cell sky130_fd_sc_hd__dlymetal6s2s_1
+   Generating output for cell sky130_fd_sc_hd__a21o_2
+   Generating output for cell sky130_fd_sc_hd__and2b_1
+   Generating output for cell sky130_fd_sc_hd__nand2_8
+   Generating output for cell sky130_fd_sc_hd__and3b_1
+   Generating output for cell sky130_fd_sc_hd__a2111oi_2
+   Generating output for cell sky130_fd_sc_hd__nor2_8
+   Generating output for cell sky130_fd_sc_hd__nand2_4
+   Generating output for cell sky130_fd_sc_hd__or4b_1
+   Generating output for cell sky130_fd_sc_hd__o221a_2
+   Generating output for cell sky130_fd_sc_hd__buf_12
+   Generating output for cell sky130_fd_sc_hd__or2_2
+   Generating output for cell sky130_fd_sc_hd__o221ai_4
+   Generating output for cell sky130_fd_sc_hd__a211o_2
+   Generating output for cell sky130_fd_sc_hd__o221a_4
+   Generating output for cell sky130_fd_sc_hd__nand3_4
+   Generating output for cell sky130_fd_sc_hd__nor3_4
+   Generating output for cell sky130_fd_sc_hd__or4b_4
+   Generating output for cell sky130_fd_sc_hd__a211oi_2
+   Generating output for cell sky130_fd_sc_hd__nor2_4
+   Generating output for cell sky130_fd_sc_hd__a22o_2
+   Generating output for cell sky130_fd_sc_hd__or4_2
+   Generating output for cell sky130_fd_sc_hd__o31a_4
+   Generating output for cell sky130_fd_sc_hd__o22ai_1
+   Generating output for cell sky130_fd_sc_hd__a21boi_4
+   Generating output for cell sky130_fd_sc_hd__o2111ai_4
+   Generating output for cell sky130_fd_sc_hd__clkinv_2
+   Generating output for cell sky130_fd_sc_hd__a21oi_4
+   Generating output for cell sky130_fd_sc_hd__nor4b_1
+   Generating output for cell sky130_fd_sc_hd__o211a_2
+   Generating output for cell sky130_fd_sc_hd__inv_6
+   Generating output for cell sky130_fd_sc_hd__and4bb_2
+   Generating output for cell sky130_fd_sc_hd__or4b_2
+   Generating output for cell sky130_fd_sc_hd__and4_2
+   Generating output for cell sky130_fd_sc_hd__nor3_2
+   Generating output for cell sky130_fd_sc_hd__or4_4
+   Generating output for cell sky130_fd_sc_hd__or4_1
+   Generating output for cell sky130_fd_sc_hd__xor2_2
+   Generating output for cell sky130_fd_sc_hd__a21oi_2
+   Generating output for cell sky130_fd_sc_hd__inv_4
+   Generating output for cell sky130_fd_sc_hd__a21bo_2
+   Generating output for cell sky130_fd_sc_hd__a221oi_4
+   Generating output for cell sky130_fd_sc_hd__nor4_4
+   Generating output for cell sky130_fd_sc_hd__a211o_4
+   Generating output for cell sky130_fd_sc_hd__o21bai_2
+   Generating output for cell sky130_fd_sc_hd__nand3_2
+   Generating output for cell sky130_fd_sc_hd__o21a_4
+   Generating output for cell sky130_fd_sc_hd__and2_2
+   Generating output for cell sky130_fd_sc_hd__a22o_4
+   Generating output for cell sky130_fd_sc_hd__a311o_2
+   Generating output for cell sky130_fd_sc_hd__dlygate4sd3_1
+   Generating output for cell sky130_fd_sc_hd__o31a_2
+   Generating output for cell sky130_fd_sc_hd__a2bb2oi_2
+   Generating output for cell sky130_fd_sc_hd__a311oi_1
+   Generating output for cell sky130_fd_sc_hd__a311oi_4
+   Generating output for cell sky130_fd_sc_hd__o2111a_1
+   Generating output for cell sky130_fd_sc_hd__or3b_4
+   Generating output for cell sky130_fd_sc_hd__nor4b_4
+   Generating output for cell sky130_fd_sc_hd__a211oi_4
+   Generating output for cell sky130_fd_sc_hd__o22a_1
+   Generating output for cell sky130_fd_sc_hd__or2_4
+   Generating output for cell sky130_fd_sc_hd__o32ai_2
+   Generating output for cell sky130_fd_sc_hd__a31o_4
+   Generating output for cell sky130_fd_sc_hd__o21a_2
+   Generating output for cell sky130_fd_sc_hd__a31oi_4
+   Generating output for cell sky130_fd_sc_hd__or3b_2
+   Generating output for cell sky130_fd_sc_hd__a311o_4
+   Generating output for cell sky130_fd_sc_hd__a221o_4
+   Generating output for cell sky130_fd_sc_hd__mux4_2
+   Generating output for cell sky130_fd_sc_hd__o311a_2
+   Generating output for cell sky130_fd_sc_hd__o32ai_1
+   Generating output for cell sky130_fd_sc_hd__o211ai_2
+   Generating output for cell sky130_fd_sc_hd__a311oi_2
+   Generating output for cell sky130_fd_sc_hd__o211ai_1
+   Generating output for cell sky130_fd_sc_hd__nand4_4
+   Generating output for cell sky130_fd_sc_hd__and4_4
+   Generating output for cell sky130_fd_sc_hd__a21boi_2
+   Generating output for cell sky130_fd_sc_hd__a32oi_4
+   Generating output for cell toast_top
+[INFO]: GDS Write Complete

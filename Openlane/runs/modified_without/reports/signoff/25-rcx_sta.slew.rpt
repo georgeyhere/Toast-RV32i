@@ -1,0 +1,42 @@
+
+===========================================================================
+ report_check_types -max_slew -max_cap -max_fanout -violators
+============================================================================
+max fanout
+
+Pin                                   Limit Fanout  Slack
+---------------------------------------------------------
+_08898_/X                                25     29     -4 (VIOLATED)
+_10083_/X                                25     28     -3 (VIOLATED)
+_08248_/X                                25     27     -2 (VIOLATED)
+_08254_/X                                25     27     -2 (VIOLATED)
+_08823_/X                                25     27     -2 (VIOLATED)
+_08841_/X                                25     27     -2 (VIOLATED)
+_08885_/X                                25     27     -2 (VIOLATED)
+_08905_/X                                25     27     -2 (VIOLATED)
+_10168_/X                                25     27     -2 (VIOLATED)
+_10345_/X                                25     27     -2 (VIOLATED)
+_08219_/X                                25     26        (VIOLATED)
+_08222_/X                                25     26        (VIOLATED)
+_08260_/X                                25     26        (VIOLATED)
+_08263_/X                                25     26        (VIOLATED)
+_08853_/X                                25     26        (VIOLATED)
+_08873_/X                                25     26        (VIOLATED)
+_08880_/X                                25     26        (VIOLATED)
+_08903_/X                                25     26        (VIOLATED)
+_10073_/X                                25     26        (VIOLATED)
+_10081_/X                                25     26        (VIOLATED)
+_10084_/X                                25     26        (VIOLATED)
+_10112_/X                                25     26        (VIOLATED)
+_10185_/X                                25     26        (VIOLATED)
+_10208_/X                                25     26        (VIOLATED)
+_10228_/X                                25     26        (VIOLATED)
+_10233_/X                                25     26        (VIOLATED)
+_11620_/X                                25     26        (VIOLATED)
+
+
+===========================================================================
+max slew violation count 0
+max fanout violation count 27
+max cap violation count 0
+============================================================================

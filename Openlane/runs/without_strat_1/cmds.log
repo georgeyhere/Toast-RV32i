@@ -1,0 +1,22 @@
+Sun Apr 09 17:04:02 UTC 2023 - Executing "openroad -exit -no_init -python /openlane/scripts/odbpy/lefutil.py get_metal_layers -o /openlane/designs/toast_top/runs/without_strat_1/tmp/layers.list /home/nikhil/Desktop/OpenLane/pdks/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef"
+
+Sun Apr 09 17:04:02 UTC 2023 - Executing "/openlane/scripts/mergeLef.py -o /openlane/designs/toast_top/runs/without_strat_1/tmp/merged.nom.lef -i /home/nikhil/Desktop/OpenLane/pdks/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__nom.tlef {/home/nikhil/Desktop/OpenLane/pdks/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef /home/nikhil/Desktop/OpenLane/pdks/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef} |& tee /dev/null"
+
+Sun Apr 09 17:04:02 UTC 2023 - Executing "/openlane/scripts/mergeLef.py -o /openlane/designs/toast_top/runs/without_strat_1/tmp/merged.min.lef -i /home/nikhil/Desktop/OpenLane/pdks/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__min.tlef {/home/nikhil/Desktop/OpenLane/pdks/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef /home/nikhil/Desktop/OpenLane/pdks/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef} |& tee /dev/null"
+
+Sun Apr 09 17:04:02 UTC 2023 - Executing "/openlane/scripts/mergeLef.py -o /openlane/designs/toast_top/runs/without_strat_1/tmp/merged.max.lef -i /home/nikhil/Desktop/OpenLane/pdks/sky130A/libs.ref/sky130_fd_sc_hd/techlef/sky130_fd_sc_hd__max.tlef {/home/nikhil/Desktop/OpenLane/pdks/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_ef_sc_hd.lef /home/nikhil/Desktop/OpenLane/pdks/sky130A/libs.ref/sky130_fd_sc_hd/lef/sky130_fd_sc_hd.lef} |& tee /dev/null"
+
+Sun Apr 09 17:04:03 UTC 2023 - Executing "python3 /openlane/scripts/mergeLib.py --output /openlane/designs/toast_top/runs/without_strat_1/tmp/synthesis/merged.lib --name sky130A_merged /home/nikhil/Desktop/OpenLane/pdks/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+
+Sun Apr 09 17:04:03 UTC 2023 - Executing "python3 /openlane/scripts/libtrim.py --cell-file /openlane/designs/toast_top/runs/without_strat_1/tmp/synthesis/trimmed.lib.exclude.list --output /openlane/designs/toast_top/runs/without_strat_1/tmp/synthesis/trimmed.lib /openlane/designs/toast_top/runs/without_strat_1/tmp/synthesis/merged.lib"
+
+Sun Apr 09 17:04:03 UTC 2023 - Executing "python3 /openlane/scripts/libtrim.py --cell-file /openlane/designs/toast_top/runs/without_strat_1/tmp/cts/cts.lib.exclude.list --output /openlane/designs/toast_top/runs/without_strat_1/tmp/cts/cts.lib /home/nikhil/Desktop/OpenLane/pdks/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+
+Sun Apr 09 17:04:04 UTC 2023 - Executing "python3 /openlane/scripts/new_tracks.py -i /home/nikhil/Desktop/OpenLane/pdks/sky130A/libs.tech/openlane/sky130_fd_sc_hd/tracks.info -o /openlane/designs/toast_top/runs/without_strat_1/tmp/routing/config.tracks"
+
+Sun Apr 09 17:04:04 UTC 2023 - Executing "echo {OpenLane 19c7a083f6d73e425463798f71982ef00c876a0e} > /openlane/designs/toast_top/runs/without_strat_1/OPENLANE_VERSION"
+
+Sun Apr 09 17:10:00 UTC 2023 - Executing "openroad -exit /openlane/scripts/openroad/floorplan.tcl |& tee /dev/null /openlane/designs/toast_top/runs/without_strat_1/logs/floorplan/1-initial_fp.log"
+
+Sun Apr 09 17:10:01 UTC 2023 - Executing "python3 /openlane/scripts/generate_reports.py -d /openlane/designs/toast_top --design_name toast_top --tag without_strat_1 --output_file /openlane/designs/toast_top/runs/without_strat_1/reports/metrics.csv --man_report /openlane/designs/toast_top/runs/without_strat_1/reports/manufacturability.rpt --run_path /openlane/designs/toast_top/runs/without_strat_1"
+

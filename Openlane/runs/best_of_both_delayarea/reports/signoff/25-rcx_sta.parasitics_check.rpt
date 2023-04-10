@@ -1,0 +1,138 @@
+
+===========================================================================
+report_parasitic_annotation -report_unannotated
+============================================================================
+Found 2 unannotated drivers.
+ toast_top_198/HI
+ toast_top_199/HI
+Found 0 partially unannotated drivers.
+parastic_annotation_check
+check_slew
+
+===========================================================================
+ report_check_types -max_slew -max_cap -max_fanout -violators
+============================================================================
+max slew
+
+Pin                                    Limit    Slew   Slack
+------------------------------------------------------------
+_08470_/Y                               1.50    1.50   -0.01 (VIOLATED)
+_08526_/S                               1.50    1.50   -0.00 (VIOLATED)
+_08524_/S                               1.50    1.50   -0.00 (VIOLATED)
+_08518_/S                               1.50    1.50   -0.00 (VIOLATED)
+_08522_/S                               1.50    1.50   -0.00 (VIOLATED)
+_08520_/S                               1.50    1.50   -0.00 (VIOLATED)
+_08516_/S                               1.50    1.50   -0.00 (VIOLATED)
+_08514_/S                               1.50    1.50   -0.00 (VIOLATED)
+_08512_/S                               1.50    1.50   -0.00 (VIOLATED)
+_08508_/S                               1.50    1.50   -0.00 (VIOLATED)
+_08510_/S                               1.50    1.50   -0.00 (VIOLATED)
+_08528_/S                               1.50    1.50   -0.00 (VIOLATED)
+_08530_/S                               1.50    1.50   -0.00 (VIOLATED)
+_08506_/S                               1.50    1.50   -0.00 (VIOLATED)
+_08532_/S                               1.50    1.50   -0.00 (VIOLATED)
+_08534_/S                               1.50    1.50   -0.00 (VIOLATED)
+
+max fanout
+
+Pin                                   Limit Fanout  Slack
+---------------------------------------------------------
+_08610_/X                                17     20     -3 (VIOLATED)
+_09589_/X                                17     19     -2 (VIOLATED)
+input76/X                                17     19     -2 (VIOLATED)
+_06816_/X                                17     18        (VIOLATED)
+_07859_/X                                17     18        (VIOLATED)
+_07860_/X                                17     18        (VIOLATED)
+_07871_/X                                17     18        (VIOLATED)
+_07895_/X                                17     18        (VIOLATED)
+_07936_/X                                17     18        (VIOLATED)
+_07972_/X                                17     18        (VIOLATED)
+_08596_/X                                17     18        (VIOLATED)
+_08598_/X                                17     18        (VIOLATED)
+_09183_/X                                17     18        (VIOLATED)
+_09592_/X                                17     18        (VIOLATED)
+_09600_/X                                17     18        (VIOLATED)
+_09719_/X                                17     18        (VIOLATED)
+_10567_/X                                17     18        (VIOLATED)
+_10700_/X                                17     18        (VIOLATED)
+
+max capacitance
+
+Pin                                    Limit     Cap   Slack
+------------------------------------------------------------
+_08470_/Y                               0.15    0.16   -0.00 (VIOLATED)
+
+
+===========================================================================
+max slew violation count 16
+max fanout violation count 18
+max cap violation count 1
+============================================================================
+check_slew_end
+tns_report
+
+===========================================================================
+ report_tns
+============================================================================
+tns 0.00
+tns_report_end
+wns_report
+
+===========================================================================
+ report_wns
+============================================================================
+wns 0.00
+wns_report_end
+worst_slack
+
+===========================================================================
+ report_worst_slack -max (Setup)
+============================================================================
+worst slack 1.55
+
+===========================================================================
+ report_worst_slack -min (Hold)
+============================================================================
+worst slack 0.20
+worst_slack_end
+clock_skew
+
+===========================================================================
+ report_clock_skew
+============================================================================
+Clock clk_i
+Latency      CRPR       Skew
+_14674_/CLK ^
+   1.29
+_14732_/CLK ^
+   0.87     -0.06       0.36
+
+clock_skew_end
+power_report
+
+===========================================================================
+ report_power
+============================================================================
+Group                  Internal  Switching    Leakage      Total
+                          Power      Power      Power      Power (Watts)
+----------------------------------------------------------------
+Sequential             6.30e-03   5.56e-04   1.22e-08   6.85e-03  39.0%
+Combinational          5.28e-03   5.42e-03   5.76e-08   1.07e-02  61.0%
+Macro                  0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+Pad                    0.00e+00   0.00e+00   0.00e+00   0.00e+00   0.0%
+----------------------------------------------------------------
+Total                  1.16e-02   5.98e-03   6.98e-08   1.75e-02 100.0%
+                          65.9%      34.1%       0.0%
+power_report_end
+area_report
+
+===========================================================================
+ report_design_area
+============================================================================
+Design area 104565 u^2 56% utilization.
+area_report_end
+Setting global connections for newly added cells...
+[WARNING] Did not save OpenROAD database!
+Writing SDF to /openlane/designs/toast_top/runs/best_of_both_delayarea/results/routing/mca/process_corner_nom/toast_top.sdf...
+Writing timing model to /openlane/designs/toast_top/runs/best_of_both_delayarea/results/routing/mca/process_corner_nom/toast_top.lib...
+
